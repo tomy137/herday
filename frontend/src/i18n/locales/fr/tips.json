@@ -1,0 +1,34 @@
+{
+  "menstruation": {
+    "season": "L'Hiver",
+    "role": "Le Gardien du Repos",
+    "bio": "Fatigue intense, baisse d'hormones, douleurs potentielles (crampes, dos). Elle a besoin de se replier sur elle-même.",
+    "action": "Prenez le relais. Ne demandez pas « je peux t'aider ? », faites-le. Gérez le repas, les courses ou les enfants.",
+    "attitude": "Apportez du confort : bouillotte, thé, plaid. Proposez des soirées calmes plutôt que des sorties.",
+    "avoid": "Lui reprocher sa fatigue ou son manque de motivation."
+  },
+  "follicular": {
+    "season": "Le Printemps",
+    "role": "Le Supporter",
+    "bio": "Les œstrogènes remontent. L'énergie revient, l'humeur s'allège, elle a envie de lancer des projets et de bouger.",
+    "action": "Encouragez-la ! Proposez des sorties, du sport, ou planifiez les prochaines vacances.",
+    "attitude": "Profitez de sa légèreté retrouvée pour rigoler et sortir ensemble.",
+    "avoid": "C'est le meilleur moment pour des discussions rationnelles ou régler des sujets logistiques."
+  },
+  "ovulation": {
+    "season": "L'Été",
+    "role": "L'Amant et le Complice",
+    "bio": "Pic hormonal. Elle est souvent rayonnante, confiante, tournée vers les autres. Sa libido est à son maximum.",
+    "action": "Connectez-vous. Organisez un rendez-vous amoureux, privilégiez les moments d'intimité.",
+    "attitude": "Complimentez-la, soyez dans la séduction. Elle est plus ouverte à la communication.",
+    "avoid": "Ignorer ses perches pour passer du temps ensemble."
+  },
+  "luteal": {
+    "season": "L'Automne",
+    "role": "Le Roc Inébranlable",
+    "bio": "La progestérone monte puis chute brutalement (SPM). Irritabilité, tristesse, autocritique. C'est la zone de turbulences.",
+    "action": "Ne prenez rien personnellement. Si elle s'agace pour un détail, son seuil de tolérance a simplement baissé.",
+    "attitude": "Écoute et patience. Elle veut de l'empathie, pas une solution technique. Ne jugez pas ses fringales, c'est physiologique.",
+    "avoid": "Dire « Tu vas avoir tes règles ? » — même si c'est vrai, c'est la pire phrase possible."
+  }
+}

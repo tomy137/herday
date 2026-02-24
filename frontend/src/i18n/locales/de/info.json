@@ -1,0 +1,64 @@
+{
+  "title": "Wie es funktioniert",
+  "glossary": {
+    "title": "Glossar",
+    "cycle": {
+      "term": "Menstruationszyklus",
+      "def": "Zeitraum vom ersten Tag der Periode bis zum Tag vor der nächsten Periode. Durchschnittlich 28 Tage (21 bis 35 je nach Frau)."
+    },
+    "menstruation": {
+      "term": "Menstruation",
+      "def": "Blutungsphase (die \"Periode\"). Dauert in der Regel 3 bis 7 Tage."
+    },
+    "follicular": {
+      "term": "Follikelphase",
+      "def": "Nach der Periode bereitet sich der Körper auf den Eisprung vor. Östrogen steigt, Energie kehrt zurück."
+    },
+    "ovulation": {
+      "term": "Eisprung",
+      "def": "Freisetzung einer Eizelle. Erfolgt etwa am Tag 14 eines 28-Tage-Zyklus. Maximale Fruchtbarkeit."
+    },
+    "luteal": {
+      "term": "Lutealphase",
+      "def": "Nach dem Eisprung. Progesteron steigt und fällt. Dauert etwa 14 Tage. PMS kann in dieser Phase auftreten."
+    },
+    "pms": {
+      "term": "PMS",
+      "def": "Prämenstruelles Syndrom. Reizbarkeit, Müdigkeit, Empfindlichkeit in den Tagen vor der Periode."
+    },
+    "ogino": {
+      "term": "Ogino-Methode",
+      "def": "Kalenderbasierte Berechnungsmethode. Prinzip: Die Lutealphase dauert immer etwa 14 Tage."
+    }
+  },
+  "phases": {
+    "title": "Phasenberechnung",
+    "ogino": "Der Motor verwendet die Ogino-Methode als Grundlage:",
+    "formula": "Eisprungtag = Zykluslänge − 14",
+    "example": "Beispiel: 28-Tage-Zyklus → Eisprung am Tag 14. 32-Tage-Zyklus → Eisprung am Tag 18.",
+    "breakdown": {
+      "menstruation": { "name": "🩸 Menstruation", "days": "Tag 1 bis 5" },
+      "follicular": { "name": "🌱 Follikelphase", "days": "Tag 6 bis 11" },
+      "ovulation": { "name": "🌟 Eisprung", "days": "Tag 12 bis 16" },
+      "luteal": { "name": "🌙 Lutealphase", "days": "Tag 17 bis 28" }
+    }
+  },
+  "confidence": {
+    "title": "Vertrauensstufen",
+    "states": {
+      "unknown": { "label": "Unbekannt", "condition": "Keine Ereignisse" },
+      "estimating": { "label": "Schätzung", "condition": "Schwache Signale" },
+      "partial": { "label": "Teilweise", "condition": "1 bestätigter Zyklus" },
+      "learning": { "label": "Lernend", "condition": "2 bestätigte Zyklen" },
+      "confident": { "label": "Zuverlässig", "condition": "3+ bestätigte Zyklen" }
+    },
+    "hint": "Je mehr Periodenbeginne Sie melden, desto genauer werden die Vorhersagen. Die App funktioniert am besten nach 2-3 bestätigten Zyklen."
+  },
+  "limits": {
+    "title": "Einschränkungen",
+    "not_medical": "Die App ersetzt keine ärztliche Betreuung und sollte nicht als Verhütungsmethode verwendet werden.",
+    "mood_weak": "Stimmungsbeobachtungen sind schwache Signale. Sie verfeinern das Vertrauen, verankern aber keine Daten.",
+    "irregular": "Unregelmäßige Zyklen verringern die Vorhersagegenauigkeit.",
+    "improves": "Die Genauigkeit verbessert sich mit der Zeit. Frühe Vorhersagen sind ungefähr."
+  }
+}

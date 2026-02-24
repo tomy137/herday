@@ -1,0 +1,25 @@
+{
+  "title": "Réglages",
+  "partner_name": {
+    "label": "Prénom de votre compagne",
+    "placeholder": "Optionnel, pour personnaliser les messages"
+  },
+  "language": {
+    "label": "Langue",
+    "fr": "Français",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "events_history": {
+    "title": "Historique des événements",
+    "empty": "Aucun événement enregistré",
+    "delete_confirm": "Supprimer cet événement ?"
+  },
+  "more_info": "Plus d'informations",
+  "account": {
+    "title": "Compte",
+    "delete": "Supprimer mon compte",
+    "delete_confirm": "Cette action est irréversible. Toutes vos données seront supprimées.",
+    "delete_final": "Confirmer la suppression"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "title": "Signaler un événement",
+  "period": {
+    "started": "Elle a ses règles",
+    "ongoing": "Elle a ses règles (en cours)",
+    "ended": "Ses règles sont finies",
+    "predicted": "Elle dit qu'elle les aura bientôt",
+    "late": "Elle a du retard",
+    "first_day_question": "C'est le premier jour ?",
+    "first_day_question_past": "C'était le premier jour ?",
+    "first_day_yes": "Oui, ça vient de commencer",
+    "first_day_yes_past": "Oui, ça venait de commencer",
+    "first_day_no": "Non, c'est déjà en cours",
+    "first_day_no_past": "Non, c'était déjà en cours",
+    "first_day_unknown": "Je ne sais pas"
+  },
+  "mood": {
+    "irritable": "Elle est irritable / sensible",
+    "tired": "Elle est fatiguée",
+    "energetic": "Elle est pleine d'énergie",
+    "emotional": "Elle est très émotionnelle",
+    "sexy": "Elle est d'humeur sexy \uD83D\uDD25"
+  },
+  "info": {
+    "title": "Elle m'a donné une info",
+    "choose_type": "Quel type d'info ?",
+    "first_day_of_cycle": "Le premier jour de ses dernières règles",
+    "cycle_length_info": "La durée de son cycle",
+    "period_in_days": "Ses règles arrivent dans {{days}} jours",
+    "cycle_length": "Son cycle dure {{days}} jours",
+    "period_duration": "Ses règles durent {{days}} jours",
+    "enter_date": "Quel jour ont-elles commencé ?",
+    "enter_cycle_length": "Combien de jours dure son cycle ?",
+    "days_placeholder": "ex: 28"
+  },
+  "observe": {
+    "title": "Noter une observation",
+    "since_when": "Depuis quand ?"
+  },
+  "when": "Quand ?",
+  "success": "Événement enregistré !",
+  "deleted": "Événement supprimé"
+}

@@ -27,3 +27,19 @@ dist-ssr
 .env
 .envrc
 .claude/
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+*.egg-info
+.venv
+venv
+
+# Database
+*.db
+*.sqlite3
+
+# Backend
+backend/data/

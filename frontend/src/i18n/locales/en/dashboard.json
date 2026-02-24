@@ -1,0 +1,32 @@
+{
+  "welcome": {
+    "title": "Welcome!",
+    "subtitle": "Report what you notice, the app will figure out the rest."
+  },
+  "learning": {
+    "title": "Learning phase",
+    "subtitle": "The app is collecting your observations to understand the cycle.",
+    "hint": "Report at least 2 period starts to unlock phase predictions."
+  },
+  "actions": {
+    "period_started": "Her period started",
+    "give_info": "She gave me some info",
+    "observe_change": "Note an observation"
+  },
+  "phase": {
+    "title": "Current phase",
+    "day_in_cycle": "Day {{day}}",
+    "menstruation": "Menstruation",
+    "follicular": "Follicular",
+    "ovulation": "Ovulation",
+    "luteal": "Luteal",
+    "next_period": "Next period in ~{{days}} days",
+    "confidence_label": "Prediction reliability"
+  },
+  "did_you_know": "Did you know?",
+  "education": {
+    "cycle_average": "A cycle lasts about 28 days on average, but every woman is different.",
+    "phases_exist": "The cycle has 4 phases, each with its own characteristics.",
+    "track_helps": "The more events you report, the more accurate predictions will be."
+  }
+}

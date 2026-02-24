@@ -1,0 +1,25 @@
+{
+  "title": "Einstellungen",
+  "partner_name": {
+    "label": "Vorname Ihrer Partnerin",
+    "placeholder": "Optional, zur Personalisierung der Nachrichten"
+  },
+  "language": {
+    "label": "Sprache",
+    "fr": "Francais",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "events_history": {
+    "title": "Ereignisverlauf",
+    "empty": "Keine Ereignisse gespeichert",
+    "delete_confirm": "Dieses Ereignis loschen?"
+  },
+  "more_info": "Weitere Informationen",
+  "account": {
+    "title": "Konto",
+    "delete": "Mein Konto loschen",
+    "delete_confirm": "Diese Aktion kann nicht ruckgangig gemacht werden. Alle Ihre Daten werden geloscht.",
+    "delete_final": "Loschung bestatigen"
+  }
+}

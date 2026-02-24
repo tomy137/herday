@@ -1,0 +1,34 @@
+{
+  "menstruation": {
+    "season": "Winter",
+    "role": "The Guardian of Rest",
+    "bio": "Intense fatigue, hormone crash, potential pain (cramps, back). She needs to retreat and recharge.",
+    "action": "Take over. Don't ask \"can I help?\" — just do it. Handle meals, groceries, or the kids.",
+    "attitude": "Bring comfort: hot water bottle, tea, blanket. Suggest quiet evenings at home rather than going out.",
+    "avoid": "Blaming her for being tired or unmotivated."
+  },
+  "follicular": {
+    "season": "Spring",
+    "role": "The Supporter",
+    "bio": "Estrogen rises. Energy returns, mood lifts, she wants to start projects and get moving.",
+    "action": "Encourage her! Suggest outings, sports, or plan the next vacation together.",
+    "attitude": "Enjoy her renewed lightness — laugh together, go out, have fun.",
+    "avoid": "This is the best time for rational discussions or sorting out logistics."
+  },
+  "ovulation": {
+    "season": "Summer",
+    "role": "The Lover & Partner",
+    "bio": "Hormonal peak. She's often radiant, confident, outgoing. Her libido is at its biological maximum.",
+    "action": "Connect. Plan a date night, prioritize intimacy.",
+    "attitude": "Compliment her, be flirty. She's chemically more open to communication and connection.",
+    "avoid": "Ignoring her cues to spend time together."
+  },
+  "luteal": {
+    "season": "Autumn",
+    "role": "The Steady Rock",
+    "bio": "Progesterone rises then crashes (PMS). Irritability, sadness, self-criticism. This is the turbulence zone.",
+    "action": "Don't take anything personally. If she snaps over a small thing, her tolerance threshold has simply dropped.",
+    "attitude": "Listen and be patient. She wants empathy, not a technical fix. Don't judge her cravings — it's physiological.",
+    "avoid": "Saying \"Are you about to get your period?\" — even if true, it's the worst possible thing to say."
+  }
+}

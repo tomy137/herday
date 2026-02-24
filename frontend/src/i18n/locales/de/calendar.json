@@ -1,0 +1,52 @@
+{
+  "title": "Kalender",
+  "no_data": "Noch nicht genug Daten, um Phasen anzuzeigen.",
+  "no_data_hint": "Melden Sie weiterhin Ereignisse!",
+  "learning_badge": "Lernphase",
+  "learning_hint": "Melden Sie mindestens 2 Periodenbeginne, um Vorhersagen zu aktivieren.",
+  "months": {
+    "january": "Januar",
+    "february": "Februar",
+    "march": "März",
+    "april": "April",
+    "may": "Mai",
+    "june": "Juni",
+    "july": "Juli",
+    "august": "August",
+    "september": "September",
+    "october": "Oktober",
+    "november": "November",
+    "december": "Dezember"
+  },
+  "weekdays": {
+    "mon": "Mo",
+    "tue": "Di",
+    "wed": "Mi",
+    "thu": "Do",
+    "fri": "Fr",
+    "sat": "Sa",
+    "sun": "So"
+  },
+  "phases": {
+    "menstruation": {
+      "name": "Periode",
+      "season": "Der Winter",
+      "desc": "Müdigkeit, Krämpfe, Ruhebedürfnis. Seien Sie der Hüter der Ruhe."
+    },
+    "follicular": {
+      "name": "Follikelphase",
+      "season": "Der Frühling",
+      "desc": "Energie kehrt zurück, Stimmung hebt sich. Ermutigen Sie sie!"
+    },
+    "ovulation": {
+      "name": "Eisprung",
+      "season": "Der Sommer",
+      "desc": "Höchste Energie und Selbstvertrauen. Verbinden und verführen."
+    },
+    "luteal": {
+      "name": "Lutealphase",
+      "season": "Der Herbst",
+      "desc": "Turbulenzzone (PMS). Geduld und Empathie."
+    }
+  }
+}

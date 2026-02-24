@@ -1,0 +1,30 @@
+{
+  "app_name": "HerDay",
+  "nav": {
+    "today": "Heute",
+    "calendar": "Kalender",
+    "settings": "Einstellungen"
+  },
+  "actions": {
+    "cancel": "Abbrechen",
+    "confirm": "Bestatigen",
+    "save": "Speichern",
+    "delete": "Loschen",
+    "back": "Zuruck"
+  },
+  "dates": {
+    "today": "Heute",
+    "yesterday": "Gestern",
+    "choose_date": "Datum wahlen"
+  },
+  "confidence": {
+    "unknown": "Noch keine Daten — melden Sie ein erstes Ereignis",
+    "estimating": "Sehr grobe Schatzung — wenig Informationen",
+    "partial": "Grobe Schatzung — basierend auf 1 Zyklus",
+    "learning": "Gute Schatzung — basierend auf 2 Zyklen",
+    "confident": "Zuverlassige Schatzung — basierend auf 3+ Zyklen"
+  },
+  "loading": "Wird geladen...",
+  "error": "Ein Fehler ist aufgetreten",
+  "logout": "Abmelden"
+}

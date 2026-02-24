@@ -1,0 +1,52 @@
+{
+  "title": "Calendrier",
+  "no_data": "Pas encore assez de données pour afficher les phases.",
+  "no_data_hint": "Continuez à signaler des événements !",
+  "learning_badge": "Phase d'apprentissage",
+  "learning_hint": "Signalez au moins 2 débuts de règles pour activer les prédictions.",
+  "months": {
+    "january": "Janvier",
+    "february": "Février",
+    "march": "Mars",
+    "april": "Avril",
+    "may": "Mai",
+    "june": "Juin",
+    "july": "Juillet",
+    "august": "Août",
+    "september": "Septembre",
+    "october": "Octobre",
+    "november": "Novembre",
+    "december": "Décembre"
+  },
+  "weekdays": {
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mer",
+    "thu": "Jeu",
+    "fri": "Ven",
+    "sat": "Sam",
+    "sun": "Dim"
+  },
+  "phases": {
+    "menstruation": {
+      "name": "Règles",
+      "season": "L'Hiver",
+      "desc": "Fatigue, crampes, besoin de repos. Soyez le gardien du repos."
+    },
+    "follicular": {
+      "name": "Folliculaire",
+      "season": "Le Printemps",
+      "desc": "L'énergie revient, l'humeur s'allège. Encouragez-la !"
+    },
+    "ovulation": {
+      "name": "Ovulation",
+      "season": "L'Été",
+      "desc": "Pic de forme et de confiance. Connectez-vous, séduisez."
+    },
+    "luteal": {
+      "name": "Lutéale",
+      "season": "L'Automne",
+      "desc": "Zone de turbulences (SPM). Patience et empathie."
+    }
+  }
+}

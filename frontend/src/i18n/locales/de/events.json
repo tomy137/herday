@@ -1,0 +1,43 @@
+{
+  "title": "Ereignis melden",
+  "period": {
+    "started": "Ihre Periode hat begonnen",
+    "ongoing": "Ihre Periode (laufend)",
+    "ended": "Ihre Periode ist vorbei",
+    "predicted": "Sie sagt, es kommt bald",
+    "late": "Sie hat Verspatung",
+    "first_day_question": "Ist es der erste Tag?",
+    "first_day_question_past": "War das der erste Tag?",
+    "first_day_yes": "Ja, es hat gerade angefangen",
+    "first_day_yes_past": "Ja, es hatte gerade angefangen",
+    "first_day_no": "Nein, es ist schon im Gange",
+    "first_day_no_past": "Nein, es war schon im Gange",
+    "first_day_unknown": "Ich weiss nicht"
+  },
+  "mood": {
+    "irritable": "Sie ist reizbar / empfindlich",
+    "tired": "Sie ist mude",
+    "energetic": "Sie ist voller Energie",
+    "emotional": "Sie ist sehr emotional",
+    "sexy": "Sie ist in sexy Stimmung \uD83D\uDD25"
+  },
+  "info": {
+    "title": "Sie hat mir etwas gesagt",
+    "choose_type": "Welche Art von Info?",
+    "first_day_of_cycle": "Der erste Tag ihrer letzten Periode",
+    "cycle_length_info": "Ihre Zykluslange",
+    "period_in_days": "Ihre Periode kommt in {{days}} Tagen",
+    "cycle_length": "Ihr Zyklus dauert {{days}} Tage",
+    "period_duration": "Ihre Periode dauert {{days}} Tage",
+    "enter_date": "Wann hat es angefangen?",
+    "enter_cycle_length": "Wie viele Tage dauert ihr Zyklus?",
+    "days_placeholder": "z.B. 28"
+  },
+  "observe": {
+    "title": "Beobachtung notieren",
+    "since_when": "Seit wann?"
+  },
+  "when": "Wann?",
+  "success": "Ereignis gespeichert!",
+  "deleted": "Ereignis geloscht"
+}

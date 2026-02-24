@@ -1,0 +1,32 @@
+{
+  "welcome": {
+    "title": "Bienvenue !",
+    "subtitle": "Signalez ce que vous observez, l'app fera le reste."
+  },
+  "learning": {
+    "title": "Phase d'apprentissage",
+    "subtitle": "L'app collecte vos observations pour comprendre le cycle.",
+    "hint": "Signalez au moins 2 débuts de règles pour débloquer les prédictions de phases."
+  },
+  "actions": {
+    "period_started": "Elle a ses règles",
+    "give_info": "Elle m'a donné une info",
+    "observe_change": "Noter une observation"
+  },
+  "phase": {
+    "title": "Phase actuelle",
+    "day_in_cycle": "Jour {{day}}",
+    "menstruation": "Menstruation",
+    "follicular": "Folliculaire",
+    "ovulation": "Ovulation",
+    "luteal": "Lutéale",
+    "next_period": "Prochaines règles dans ~{{days}} jours",
+    "confidence_label": "Fiabilité de l'estimation"
+  },
+  "did_you_know": "Le saviez-vous ?",
+  "education": {
+    "cycle_average": "Un cycle dure en moyenne 28 jours, mais chaque femme est différente.",
+    "phases_exist": "Le cycle comporte 4 phases, chacune avec ses particularités.",
+    "track_helps": "Plus vous signalez d'événements, plus les prédictions seront précises."
+  }
+}

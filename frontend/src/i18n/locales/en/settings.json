@@ -1,0 +1,25 @@
+{
+  "title": "Settings",
+  "partner_name": {
+    "label": "Your partner's first name",
+    "placeholder": "Optional, to personalize messages"
+  },
+  "language": {
+    "label": "Language",
+    "fr": "Francais",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "events_history": {
+    "title": "Events history",
+    "empty": "No events recorded",
+    "delete_confirm": "Delete this event?"
+  },
+  "more_info": "More information",
+  "account": {
+    "title": "Account",
+    "delete": "Delete my account",
+    "delete_confirm": "This action cannot be undone. All your data will be deleted.",
+    "delete_final": "Confirm deletion"
+  }
+}

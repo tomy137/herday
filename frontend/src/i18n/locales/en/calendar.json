@@ -1,0 +1,52 @@
+{
+  "title": "Calendar",
+  "no_data": "Not enough data to display phases yet.",
+  "no_data_hint": "Keep reporting events!",
+  "learning_badge": "Learning phase",
+  "learning_hint": "Report at least 2 period starts to activate predictions.",
+  "months": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
+  },
+  "weekdays": {
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun"
+  },
+  "phases": {
+    "menstruation": {
+      "name": "Period",
+      "season": "Winter",
+      "desc": "Fatigue, cramps, need for rest. Be the guardian of rest."
+    },
+    "follicular": {
+      "name": "Follicular",
+      "season": "Spring",
+      "desc": "Energy returns, mood lifts. Encourage her!"
+    },
+    "ovulation": {
+      "name": "Ovulation",
+      "season": "Summer",
+      "desc": "Peak energy and confidence. Connect and be flirty."
+    },
+    "luteal": {
+      "name": "Luteal",
+      "season": "Autumn",
+      "desc": "Turbulence zone (PMS). Patience and empathy."
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "title": "Comment ça marche",
+  "glossary": {
+    "title": "Glossaire",
+    "cycle": {
+      "term": "Cycle menstruel",
+      "def": "Période du premier jour des règles au jour précédant les règles suivantes. Dure en moyenne 28 jours (21 à 35 selon les femmes)."
+    },
+    "menstruation": {
+      "term": "Menstruation",
+      "def": "Phase de saignement (les « règles »). Dure généralement 3 à 7 jours."
+    },
+    "follicular": {
+      "term": "Phase folliculaire",
+      "def": "Après les règles, le corps se prépare à l'ovulation. Les œstrogènes augmentent, l'énergie revient."
+    },
+    "ovulation": {
+      "term": "Ovulation",
+      "def": "Libération d'un ovule. Se produit autour du jour 14 d'un cycle de 28 jours. Fenêtre de fertilité maximale."
+    },
+    "luteal": {
+      "term": "Phase lutéale",
+      "def": "Après l'ovulation. La progestérone augmente puis diminue. Dure environ 14 jours. C'est pendant cette phase que le SPM peut apparaître."
+    },
+    "pms": {
+      "term": "SPM",
+      "def": "Syndrome prémenstruel. Irritabilité, fatigue, sensibilité dans les jours précédant les règles."
+    },
+    "ogino": {
+      "term": "Méthode Ogino",
+      "def": "Méthode de calcul basée sur le calendrier. Principe : la phase lutéale dure toujours environ 14 jours."
+    }
+  },
+  "phases": {
+    "title": "Calcul des phases",
+    "ogino": "Le moteur utilise la méthode Ogino comme fondation :",
+    "formula": "Jour d'ovulation = Longueur du cycle − 14",
+    "example": "Exemple : cycle de 28 jours → ovulation au jour 14. Cycle de 32 jours → ovulation au jour 18.",
+    "breakdown": {
+      "menstruation": { "name": "🩸 Menstruation", "days": "Jour 1 à 5" },
+      "follicular": { "name": "🌱 Folliculaire", "days": "Jour 6 à 11" },
+      "ovulation": { "name": "🌟 Ovulation", "days": "Jour 12 à 16" },
+      "luteal": { "name": "🌙 Lutéale", "days": "Jour 17 à 28" }
+    }
+  },
+  "confidence": {
+    "title": "Niveaux de confiance",
+    "states": {
+      "unknown": { "label": "Inconnu", "condition": "Aucun événement" },
+      "estimating": { "label": "Estimation", "condition": "Signaux faibles" },
+      "partial": { "label": "Partiel", "condition": "1 cycle confirmé" },
+      "learning": { "label": "Apprentissage", "condition": "2 cycles confirmés" },
+      "confident": { "label": "Fiable", "condition": "3+ cycles confirmés" }
+    },
+    "hint": "Plus vous signalez de débuts de règles, plus les prédictions sont précises. L'app fonctionne mieux après 2-3 cycles confirmés."
+  },
+  "limits": {
+    "title": "Limites",
+    "not_medical": "L'app ne remplace pas un suivi médical et ne doit pas être utilisée comme méthode de contraception.",
+    "mood_weak": "Les observations d'humeur sont des indicateurs faibles. Elles affinent la confiance mais n'ancrent pas les dates.",
+    "irregular": "Les cycles irréguliers réduisent la confiance des prédictions.",
+    "improves": "La précision augmente avec le temps. Les premières prédictions sont approximatives."
+  }
+}

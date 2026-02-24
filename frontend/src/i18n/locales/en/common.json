@@ -1,0 +1,30 @@
+{
+  "app_name": "HerDay",
+  "nav": {
+    "today": "Today",
+    "calendar": "Calendar",
+    "settings": "Settings"
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "back": "Back"
+  },
+  "dates": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "choose_date": "Pick a date"
+  },
+  "confidence": {
+    "unknown": "No data yet — report a first event",
+    "estimating": "Very rough estimate — based on little info",
+    "partial": "Rough estimate — based on 1 cycle only",
+    "learning": "Good estimate — based on 2 cycles",
+    "confident": "Reliable estimate — based on 3+ cycles"
+  },
+  "loading": "Loading...",
+  "error": "Something went wrong",
+  "logout": "Log out"
+}

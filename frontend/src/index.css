@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+
+  --color-warm-50: #FDFBF7;
+  --color-warm-100: #F9F5ED;
+  --color-warm-200: #F0E9DB;
+  --color-warm-300: #DDD3BF;
+  --color-warm-400: #B8A88E;
+  --color-warm-500: #9A8A6E;
+
+  --color-phase-menstruation: #DC3D5A;
+  --color-phase-follicular: #2DA87E;
+  --color-phase-ovulation: #D4880F;
+  --color-phase-luteal: #7E4FD0;
+}
+
+/* Smooth global defaults */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--color-warm-50);
+  color: #2D2A26;
+}
+
+/* Phase ring animation */
+@keyframes ring-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 61, 90, 0.2); }
+  50% { box-shadow: 0 0 0 12px rgba(220, 61, 90, 0); }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0e9db 25%, #f9f5ed 50%, #f0e9db 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Refined input styling */
+input[type="date"],
+input[type="number"],
+input[type="email"],
+input[type="text"] {
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+/* Softer scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-300);
+  border-radius: 4px;
+}

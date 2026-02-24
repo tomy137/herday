@@ -1,0 +1,43 @@
+{
+  "title": "Report an event",
+  "period": {
+    "started": "Her period started",
+    "ongoing": "Her period (ongoing)",
+    "ended": "Her period ended",
+    "predicted": "She says it's coming soon",
+    "late": "She's late",
+    "first_day_question": "Is this the first day?",
+    "first_day_question_past": "Was that the first day?",
+    "first_day_yes": "Yes, it just started",
+    "first_day_yes_past": "Yes, it had just started",
+    "first_day_no": "No, it's already ongoing",
+    "first_day_no_past": "No, it was already ongoing",
+    "first_day_unknown": "I don't know"
+  },
+  "mood": {
+    "irritable": "She's irritable / sensitive",
+    "tired": "She's tired",
+    "energetic": "She's full of energy",
+    "emotional": "She's very emotional",
+    "sexy": "She's in a sexy mood \uD83D\uDD25"
+  },
+  "info": {
+    "title": "She told me something",
+    "choose_type": "What kind of info?",
+    "first_day_of_cycle": "The first day of her last period",
+    "cycle_length_info": "Her cycle length",
+    "period_in_days": "Her period is coming in {{days}} days",
+    "cycle_length": "Her cycle lasts {{days}} days",
+    "period_duration": "Her period lasts {{days}} days",
+    "enter_date": "When did it start?",
+    "enter_cycle_length": "How many days is her cycle?",
+    "days_placeholder": "e.g. 28"
+  },
+  "observe": {
+    "title": "Note an observation",
+    "since_when": "Since when?"
+  },
+  "when": "When?",
+  "success": "Event recorded!",
+  "deleted": "Event deleted"
+}

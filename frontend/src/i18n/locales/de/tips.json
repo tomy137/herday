@@ -1,0 +1,34 @@
+{
+  "menstruation": {
+    "season": "Der Winter",
+    "role": "Der Hüter der Ruhe",
+    "bio": "Starke Müdigkeit, Hormonabfall, mögliche Schmerzen (Krämpfe, Rücken). Sie braucht Rückzug und Ruhe.",
+    "action": "Übernehmen Sie. Fragen Sie nicht 'Kann ich helfen?' — tun Sie es einfach. Kochen, einkaufen, Kinder betreuen.",
+    "attitude": "Bringen Sie Komfort: Wärmflasche, Tee, Decke. Schlagen Sie ruhige Abende zu Hause vor.",
+    "avoid": "Ihr Müdigkeit oder mangelnde Motivation vorzuwerfen."
+  },
+  "follicular": {
+    "season": "Der Frühling",
+    "role": "Der Unterstützer",
+    "bio": "Östrogen steigt. Die Energie kehrt zurück, die Stimmung hebt sich, sie will Projekte starten und sich bewegen.",
+    "action": "Ermutigen Sie sie! Schlagen Sie Ausflüge, Sport oder die nächste Urlaubsplanung vor.",
+    "attitude": "Genießen Sie ihre wiedergewonnene Leichtigkeit — lachen und ausgehen.",
+    "avoid": "Das ist der beste Moment für rationale Gespräche oder logistische Themen."
+  },
+  "ovulation": {
+    "season": "Der Sommer",
+    "role": "Der Liebhaber und Komplize",
+    "bio": "Hormoneller Höhepunkt. Sie ist oft strahlend, selbstbewusst, offen. Ihre Libido ist auf dem Maximum.",
+    "action": "Verbinden Sie sich. Planen Sie ein Date, priorisieren Sie Intimität.",
+    "attitude": "Machen Sie ihr Komplimente, seien Sie charmant. Sie ist offener für Kommunikation und Nähe.",
+    "avoid": "Ihre Signale ignorieren, Zeit miteinander zu verbringen."
+  },
+  "luteal": {
+    "season": "Der Herbst",
+    "role": "Der unerschütterliche Fels",
+    "bio": "Progesteron steigt und stürzt dann ab (PMS). Reizbarkeit, Traurigkeit, Selbstkritik. Die Turbulenzzone.",
+    "action": "Nehmen Sie nichts persönlich. Wenn sie sich über Kleinigkeiten ärgert, ist einfach ihre Toleranzschwelle gesunken.",
+    "attitude": "Zuhören und Geduld. Sie will Empathie, keine technische Lösung. Heißhunger nicht bewerten — das ist physiologisch.",
+    "avoid": "Sagen Sie nie 'Bekommst du deine Tage?' — selbst wenn es stimmt, ist es der schlimmste Satz."
+  }
+}
