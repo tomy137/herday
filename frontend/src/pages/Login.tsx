@@ -1,25 +1,29 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { api } from '../api/client';
+import { api, ApiError } from '../api/client';
 
 export default function Login() {
   const { t } = useTranslation('auth');
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim() || loading) return;
 
     setLoading(true);
-    setError(false);
+    setError(null);
     try {
       await api.auth.sendMagicLink(email.trim());
       setSent(true);
-    } catch {
-      setError(true);
+    } catch (err) {
+      if (err instanceof ApiError && err.status === 429) {
+        setError(t('login.rate_limited'));
+      } else {
+        setError(t('common:error'));
+      }
     } finally {
       setLoading(false);
     }
@@ -60,7 +64,7 @@ export default function Login() {
               className="w-full px-4 py-3.5 rounded-2xl border border-warm-200 bg-warm-50 focus:outline-none focus:ring-2 focus:ring-[#DC3D5A]/30 focus:border-[#DC3D5A]/40 text-gray-900 placeholder-warm-400 transition-all"
             />
             {error && (
-              <p className="mt-3 text-sm text-[#DC3D5A] font-medium">{t('common:error')}</p>
+              <p className="mt-3 text-sm text-[#DC3D5A] font-medium">{error}</p>
             )}
             <button
               type="submit"

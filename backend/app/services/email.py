@@ -71,5 +71,6 @@ async def send_magic_link_email(
         port=settings.SMTP_PORT,
         username=settings.SMTP_USER,
         password=settings.SMTP_PASSWORD,
-        start_tls=True,
+        use_tls=settings.SMTP_USE_TLS,
+        start_tls=not settings.SMTP_USE_TLS,
     )
