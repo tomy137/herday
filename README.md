@@ -4,6 +4,10 @@ Calendrier de suivi du cycle menstruel destiné aux hommes qui souhaitent mieux 
 
 HerDay calcule les phases du cycle (règles, phase folliculaire, ovulation, phase lutéale) à partir des dates de début de règles saisies, et propose des conseils adaptés à chaque phase.
 
+<p align="center">
+  <img src="docs/screenshot-dashboard.png" alt="HerDay — Dashboard" width="300" />
+</p>
+
 ## Stack technique
 
 | Composant | Technologie |
@@ -12,7 +16,7 @@ HerDay calcule les phases du cycle (règles, phase folliculaire, ovulation, phas
 | Frontend | React 19, TypeScript, Vite 7, Tailwind CSS 4 |
 | Auth | Magic link par email (SMTP) |
 | i18n | FR, EN, DE via react-i18next |
-| Déploiement | Docker Compose (backend uvicorn + frontend nginx) |
+| Déploiement | Docker (conteneur unique, FastAPI sert le frontend) |
 
 ## Développement local
 
@@ -70,14 +74,11 @@ Copier `.env.example` et renseigner les valeurs :
 docker compose up --build -d
 ```
 
-Services :
+Un seul conteneur : FastAPI sert l'API (`/api`) et les fichiers statiques du frontend.
 
 | Service | Port | Description |
 |---------|------|-------------|
-| `backend` | 8000 | API FastAPI (uvicorn) |
-| `frontend` | 3000 | App React (nginx) |
-
-Le frontend nginx sert les fichiers statiques et proxifie `/api` vers le backend.
+| `herday` | 8000 | API + frontend (uvicorn) |
 
 ### Volumes
 
@@ -91,7 +92,7 @@ docker compose down
 
 ## Reverse proxy (production)
 
-En production, un reverse proxy se place devant les deux conteneurs Docker pour gérer le HTTPS et router le trafic.
+En production, un reverse proxy gère le HTTPS et redirige tout vers le conteneur unique.
 
 ### Nginx
 
@@ -109,18 +110,8 @@ server {
     ssl_certificate     /etc/ssl/certs/herday.pem;
     ssl_certificate_key /etc/ssl/private/herday.key;
 
-    # API → backend
-    location /api {
-        proxy_pass http://127.0.0.1:8000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-
-    # Frontend → conteneur nginx interne
     location / {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://127.0.0.1:8000;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -133,15 +124,7 @@ server {
 
 ```caddy
 herday.example.com {
-    # API → backend
-    handle /api/* {
-        reverse_proxy 127.0.0.1:8000
-    }
-
-    # Frontend → conteneur nginx interne
-    handle {
-        reverse_proxy 127.0.0.1:3000
-    }
+    reverse_proxy 127.0.0.1:8000
 }
 ```
 
@@ -171,9 +154,7 @@ herday/
 │   ├── package.json
 │   └── vite.config.ts
 ├── docker-compose.yml
-├── Dockerfile.backend
-├── Dockerfile.frontend
-├── nginx.conf
+├── Dockerfile
 ├── .env.example
 └── LICENSE
 ```

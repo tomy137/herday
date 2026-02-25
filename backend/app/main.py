@@ -9,13 +9,18 @@ by the Free Software Foundation, either version 3 of the License, or
 """
 
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.config import settings
 from app.database import create_db_and_tables
 from app.routers import auth, cycles, events, phases, users
+
+STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
 
 
 @asynccontextmanager
@@ -50,6 +55,15 @@ def create_app() -> FastAPI:
     @app.get("/api/health")
     async def health():
         return {"status": "ok"}
+
+    # Serve frontend static files (Docker build copies them to /app/static)
+    if STATIC_DIR.is_dir():
+        @app.get("/{full_path:path}")
+        async def serve_spa(full_path: str):
+            file = STATIC_DIR / full_path
+            if file.is_file():
+                return FileResponse(file)
+            return FileResponse(STATIC_DIR / "index.html")
 
     return app
 
