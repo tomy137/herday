@@ -4,6 +4,8 @@
     "eyebrow": "Willkommen",
     "title": "Dein Notizbuch. Nicht ihres.",
     "body": "HerDay ist ein Beobachtungs-Notizbuch, das dir hilft, deine Partnerin besser zu begleiten. Keine Benachrichtigung, keine Eingabe wird je von ihr verlangt.",
+    "tagline": "Ihre Zyklen, deine mentale Last.",
+    "body2": "HerDay hilft dir, ein proaktiver statt reaktiver Partner zu werden: Hör auf zu fragen, fang an zu verstehen und zu handeln.",
     "email_label": "E-Mail",
     "email_placeholder": "du@beispiel.de",
     "email_hint": "Wir schicken dir einen magischen Link. Kein Passwort.",
@@ -11,7 +13,7 @@
   },
   "step2": {
     "eyebrow": "Transparenzpakt",
-    "title": "Eine im Stillen genutzte App ersetzt das Gespräch, statt es zu nähren.",
+    "title": "Du machst es, um ihr zu helfen, nicht hinter ihrem Rücken.",
     "body1": "HerDay ist dein Notizbuch. Es schickt deiner Partnerin nichts. Es erscheint in keiner ihrer Benachrichtigungen.",
     "body2": "Aber wir empfehlen dir sehr dringend, mit ihr darüber zu sprechen und es ihr sogar zu zeigen. Warum: Ein im Stillen genutztes Beobachtungswerkzeug ersetzt am Ende das Gespräch, statt es zu nähren. Das ist das Gegenteil von dem, was wir hier wollen.",
     "choice_soon": "Ich werde bald mit ihr darüber sprechen",
@@ -23,6 +25,15 @@
     "title": "Sechs Unterphasen, vier Hormone. Kein Rätsel.",
     "body": "Die Standardsprache von HerDay ist die der medizinischen Fachliteratur. Nüchtern, präzise, ohne Metapher.",
     "more_info": "Die Details zu jeder Phase findest du in der App, Zyklus für Zyklus.",
+    "cta": "Weiter"
+  },
+  "step_obs": {
+    "eyebrow": "Die Lernschleife",
+    "title": "Du beobachtest, die App erinnert sich.",
+    "obs_label": "Deine Beobachtungen",
+    "obs_body": "Jeden Tag, in wenigen Sekunden: was du beobachtet hast, was geholfen hat, was nicht. Es ist dein Notizbuch — niemand sonst liest es.",
+    "echo_label": "Die Echos",
+    "echo_body": "Bei jeder Wiederkehr einer Phase erinnert dich die App an deine Notizen aus früheren Zyklen: wiederholen, was funktioniert, vermeiden, was nicht.",
     "cta": "Weiter"
   },
   "step4": {

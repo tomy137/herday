@@ -4,6 +4,8 @@
     "eyebrow": "Bienvenue",
     "title": "Ton carnet. Pas le sien.",
     "body": "HerDay est un carnet d'observation pour t'aider à mieux accompagner ta compagne. Aucune notification, aucune saisie ne lui sera jamais demandée.",
+    "tagline": "Ses cycles, ta charge mentale.",
+    "body2": "HerDay t'aide à devenir un partenaire proactif, pas réactif : arrête de demander, commence à comprendre et à agir.",
     "email_label": "Email",
     "email_placeholder": "toi@exemple.fr",
     "email_hint": "On t'envoie un lien magique. Pas de mot de passe.",
@@ -11,7 +13,7 @@
   },
   "step2": {
     "eyebrow": "Pacte de transparence",
-    "title": "Une app utilisée en silence remplace la conversation au lieu de la nourrir.",
+    "title": "Tu le fais pour l'aider, tu ne le fais pas dans son dos.",
     "body1": "HerDay est ton carnet. Il n'envoie rien à ta compagne. Il ne lui apparaît dans aucune notification.",
     "body2": "Mais on te recommande très fortement de lui en parler, et même de lui montrer. Pourquoi : un outil d'observation utilisé en silence finit par remplacer la conversation au lieu de la nourrir. C'est l'inverse de ce qu'on veut ici.",
     "choice_soon": "Je lui en parlerai bientôt",
@@ -23,6 +25,15 @@
     "title": "Six sous-phases, quatre hormones. Pas un mystère.",
     "body": "Le langage par défaut de HerDay est celui de la littérature médicale. Sobre, exact, sans métaphore.",
     "more_info": "Tu retrouveras le détail de chaque phase dans l'app, au fil des cycles.",
+    "cta": "Continuer"
+  },
+  "step_obs": {
+    "eyebrow": "La boucle d'apprentissage",
+    "title": "Tu observes, l'app s'en souvient.",
+    "obs_label": "Tes observations",
+    "obs_body": "Chaque jour, en quelques secondes : ce que tu as observé, ce qui a aidé, ce qui n'a pas aidé. C'est ton carnet — personne d'autre ne le lit.",
+    "echo_label": "Les échos",
+    "echo_body": "À chaque retour d'une phase, l'app te rappelle ce que tu avais noté les cycles précédents : répéter ce qui marche, éviter ce qui ne marche pas.",
     "cta": "Continuer"
   },
   "step4": {

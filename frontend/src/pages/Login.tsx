@@ -109,7 +109,7 @@ export default function Login() {
               placeholder={t('login.code_placeholder')}
               required
               autoFocus
-              className="w-full px-4 py-3.5 rounded-2xl border border-warm-200 bg-warm-50 focus:outline-none focus:ring-2 focus:ring-[#DC3D5A]/30 focus:border-[#DC3D5A]/40 text-gray-900 placeholder-warm-400 text-center text-2xl tracking-[0.5em] font-semibold transition-all"
+              className="w-full px-4 py-3.5 rounded-2xl border border-warm-200 bg-warm-50 focus:outline-none focus:ring-2 focus:ring-[#DC3D5A]/30 focus:border-[#DC3D5A]/40 text-gray-900 placeholder-warm-400 text-center text-2xl tracking-[0.5em] font-semibold transition-all placeholder:text-base placeholder:font-normal placeholder:tracking-normal"
             />
             {error && (
               <p className="mt-3 text-sm text-[#DC3D5A] font-medium text-center">{error}</p>

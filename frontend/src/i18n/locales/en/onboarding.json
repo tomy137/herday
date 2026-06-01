@@ -4,6 +4,8 @@
     "eyebrow": "Welcome",
     "title": "Your notebook. Not hers.",
     "body": "HerDay is an observation notebook to help you better support your partner. No notification, no entry will ever be asked of her.",
+    "tagline": "Her cycles, your mental load.",
+    "body2": "HerDay helps you become a proactive partner, not a reactive one: stop asking, start understanding and acting.",
     "email_label": "Email",
     "email_placeholder": "you@example.com",
     "email_hint": "We send you a magic link. No password.",
@@ -11,7 +13,7 @@
   },
   "step2": {
     "eyebrow": "Transparency pact",
-    "title": "An app used in silence replaces the conversation instead of nourishing it.",
+    "title": "You do it to help her, not behind her back.",
     "body1": "HerDay is your notebook. It sends nothing to your partner. It appears in no notification on her end.",
     "body2": "But we strongly recommend you tell her about it, and even show it to her. Why: an observation tool used in silence ends up replacing the conversation instead of nourishing it. That's the opposite of what we want here.",
     "choice_soon": "I'll tell her about it soon",
@@ -23,6 +25,15 @@
     "title": "Six sub-phases, four hormones. Not a mystery.",
     "body": "HerDay's default language is that of medical literature. Plain, precise, without metaphor.",
     "more_info": "You'll find the details of each phase in the app, cycle after cycle.",
+    "cta": "Continue"
+  },
+  "step_obs": {
+    "eyebrow": "The learning loop",
+    "title": "You observe, the app remembers.",
+    "obs_label": "Your observations",
+    "obs_body": "Each day, in a few seconds: what you observed, what helped, what didn't. It's your notebook — no one else reads it.",
+    "echo_label": "The echoes",
+    "echo_body": "Each time a phase comes back, the app reminds you what you noted in previous cycles: repeat what works, avoid what doesn't.",
     "cta": "Continue"
   },
   "step4": {

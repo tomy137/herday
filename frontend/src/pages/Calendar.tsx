@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { api } from '../api/client';
 import type { CalendarDay, PhaseInfo } from '../api/client';
 import type { Phase } from '../lib/cycle-engine';
@@ -24,6 +24,10 @@ export default function Calendar() {
   const { t: tCommon } = useTranslation('common');
   const { t: tPhases } = useTranslation('phases');
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const paramPhase = searchParams.get('phase');
+  const initialPhase =
+    paramPhase && (PHASE_ORDER as readonly string[]).includes(paramPhase) ? (paramPhase as Phase) : null;
 
   const now = today();
   const [year, setYear] = useState(now.getFullYear());
@@ -32,7 +36,7 @@ export default function Calendar() {
   const [loading, setLoading] = useState(true);
   const [hasData, setHasData] = useState(true);
   const [info, setInfo] = useState<PhaseInfo | null>(null);
-  const [selectedPhase, setSelectedPhase] = useState<Phase | null>(null);
+  const [selectedPhase, setSelectedPhase] = useState<Phase | null>(initialPhase);
 
   useEffect(() => {
     setLoading(true);

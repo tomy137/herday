@@ -28,7 +28,7 @@ struct PhaseSnapshot {
         cycleLength: 28,
         nextPeriodIn: 18,
         phaseEndsIn: 1,
-        posture: ["DANS L'ACTION", "COMPLICE", "CONFIANT", "JOUEUR"],
+        posture: ["COÉQUIPIER", "DISPONIBLE", "CURIEUX DE SES IDÉES", "DANS L'ACTION"],
         phaseSpan: 3,
         phaseDayIdx: 1,
         echoHelpful: "Dit oui à la sortie improvisée",

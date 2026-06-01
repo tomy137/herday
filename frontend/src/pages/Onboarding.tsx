@@ -12,7 +12,7 @@ import OnbStep from '../components/onboarding/OnbStep';
 import PactChoice from '../components/onboarding/PactChoice';
 import CycleGraph from '../components/CycleGraph';
 
-const TOTAL = 4;
+const TOTAL = 5;
 
 export default function Onboarding() {
   const { t } = useTranslation('onboarding');
@@ -68,6 +68,8 @@ export default function Onboarding() {
     return (
       <OnbStep index={0} total={TOTAL} eyebrow={t('step1.eyebrow')} title={t('step1.title')} cta={t('step1.cta')} onPrimary={next}>
         <p className="text-[14.5px] leading-relaxed text-warm-500">{t('step1.body')}</p>
+        <p className="mt-5 text-[15px] font-semibold leading-relaxed text-ink">{t('step1.tagline')}</p>
+        <p className="mt-1.5 text-[14.5px] leading-relaxed text-ink-soft">{t('step1.body2')}</p>
       </OnbStep>
     );
   }
@@ -130,9 +132,26 @@ export default function Onboarding() {
     );
   }
 
+  if (step === 3) {
+    return (
+      <OnbStep index={3} total={TOTAL} eyebrow={t('step_obs.eyebrow')} title={t('step_obs.title')} cta={t('step_obs.cta')} onPrimary={next} onBack={back}>
+        <div className="flex flex-col gap-5">
+          <div>
+            <div className="hd-caps mb-1.5 text-warm-500">{t('step_obs.obs_label')}</div>
+            <p className="text-[14.5px] leading-relaxed text-ink-soft">{t('step_obs.obs_body')}</p>
+          </div>
+          <div>
+            <div className="hd-caps mb-1.5 text-warm-500">{t('step_obs.echo_label')}</div>
+            <p className="text-[14.5px] leading-relaxed text-ink-soft">{t('step_obs.echo_body')}</p>
+          </div>
+        </div>
+      </OnbStep>
+    );
+  }
+
   return (
     <OnbStep
-      index={3}
+      index={4}
       total={TOTAL}
       eyebrow={t('step4.eyebrow')}
       title={t('step4.title')}

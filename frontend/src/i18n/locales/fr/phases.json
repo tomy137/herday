@@ -15,6 +15,10 @@
     "ovulatory": "Ovulatoire",
     "luteal": "Lutéale"
   },
+  "empty": {
+    "title": "En attente de données",
+    "body": "Signale un premier début de ses règles pour activer le suivi des phases."
+  },
   "menstruation": {
     "name": "Phase menstruelle",
     "short": "Menstruation",

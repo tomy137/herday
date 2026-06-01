@@ -109,10 +109,28 @@ export default function Home() {
   }
 
   const phase = info.phase as Phase;
+  const isUnknown = info.system_state === 'unknown';
 
   return (
     <div>
       <Header />
+      {isUnknown ? (
+        <div className="flex flex-col gap-[18px] px-[22px] pb-6 pt-8">
+          <div className="rounded-[14px] border-[0.5px] border-warm-300 bg-warm-100 px-5 py-9 text-center">
+            <h2 className="text-[18px] font-semibold text-ink">{tPhases('empty.title')}</h2>
+            <p className="mx-auto mt-2 max-w-[18rem] text-[14px] leading-relaxed text-warm-500">
+              {tPhases('empty.body')}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => setPeriodOpen(true)}
+            className="rounded-[10px] bg-ink px-5 py-3.5 text-[14px] font-medium text-warm-50 transition-all hover:bg-ink-soft active:scale-[0.99]"
+          >
+            {tCommon('period.declare')}
+          </button>
+        </div>
+      ) : (
       <div className="flex flex-col gap-[18px] px-[22px] pb-6 pt-1">
         <div className="rounded-[14px] bg-warm-100 px-2 pb-2 pt-3.5">
           <CycleGraph dayInCycle={info.day_in_cycle} cycleLength={info.cycle_length} phase={phase} />
@@ -130,7 +148,7 @@ export default function Home() {
           </button>
           <button
             type="button"
-            onClick={() => navigate('/calendar')}
+            onClick={() => navigate(`/calendar?phase=${phase}`)}
             className="rounded-[10px] bg-warm-200 px-5 py-3.5 text-[14px] font-medium text-ink transition-all hover:bg-warm-300 active:scale-[0.99]"
           >
             {tPhases('labels.more_details')}
@@ -146,6 +164,7 @@ export default function Home() {
 
         {echo && <EchoCard echo={echo} onSeeAll={() => navigate('/echoes')} />}
       </div>
+      )}
 
       <BottomSheet
         open={periodOpen}

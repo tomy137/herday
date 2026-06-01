@@ -15,6 +15,10 @@
     "ovulatory": "Ovulatorisch",
     "luteal": "Luteal"
   },
+  "empty": {
+    "title": "Warten auf Daten",
+    "body": "Erfasse einen ersten Periodenbeginn, um die Phasenverfolgung zu aktivieren."
+  },
   "menstruation": {
     "name": "Menstruationsphase",
     "short": "Menstruation",
