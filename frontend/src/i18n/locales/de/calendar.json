@@ -1,8 +1,7 @@
 {
   "title": "Kalender",
   "legend_title": "Phasen-Legende",
-  "cross_cycle": "Zyklusübergreifender Filter",
-  "see_all_phases": "Alle {{phase}}-Phasen der letzten Monate ansehen",
+  "see_echoes": "Echos dieser Phase ansehen",
   "no_data": "Noch nicht genug Daten, um Phasen anzuzeigen.",
   "no_data_hint": "Melden Sie weiterhin Ereignisse!",
   "learning_badge": "Lernphase",

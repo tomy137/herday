@@ -7,7 +7,7 @@
     "email_label": "E-Mail",
     "email_placeholder": "du@beispiel.de",
     "email_hint": "Wir schicken dir einen magischen Link. Kein Passwort.",
-    "cta": "Link erhalten"
+    "cta": "Loslegen"
   },
   "step2": {
     "eyebrow": "Transparenzpakt",
@@ -22,6 +22,7 @@
     "eyebrow": "Der Zyklus, messbar",
     "title": "Sechs Unterphasen, vier Hormone. Kein Rätsel.",
     "body": "Die Standardsprache von HerDay ist die der medizinischen Fachliteratur. Nüchtern, präzise, ohne Metapher.",
+    "more_info": "Die Details zu jeder Phase findest du in der App, Zyklus für Zyklus.",
     "cta": "Weiter"
   },
   "step4": {

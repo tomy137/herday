@@ -6,10 +6,12 @@ import { api } from '../api/client';
 import type { CalendarDay, PhaseInfo } from '../api/client';
 import type { Phase } from '../lib/cycle-engine';
 import { formatDate, today, monthKey } from '../lib/date-utils';
-import { PHASE_SOFT_HEX, PHASE_INK_HEX } from '../constants/phases';
+import { PHASE_SOFT_HEX, PHASE_INK_HEX, PHASE_ICONS } from '../constants/phases';
 import { PHASE_ORDER } from '../constants/phase-meta';
 import Header from '../components/layout/Header';
 import CycleGraph from '../components/CycleGraph';
+import PhaseCard from '../components/home/PhaseCard';
+import GoFurther from '../components/home/GoFurther';
 
 const MONTH_KEYS = [
   'january', 'february', 'march', 'april', 'may', 'june',
@@ -53,6 +55,7 @@ export default function Calendar() {
   const firstDay = new Date(year, month, 1).getDay();
   const offset = firstDay === 0 ? 6 : firstDay - 1;
   const todayStr = formatDate(now);
+  const effectivePhase = selectedPhase ?? (info?.phase as Phase | undefined);
 
   return (
     <div>
@@ -161,29 +164,27 @@ export default function Calendar() {
                       className="inline-block h-3 w-3 rounded-[2px]"
                       style={{ background: PHASE_SOFT_HEX[id], border: `0.5px solid ${PHASE_INK_HEX[id]}40` }}
                     />
-                    <span className="text-ink-soft">{tPhases(`${id}.short`)}</span>
+                    <span className="text-ink-soft">{PHASE_ICONS[id]} {tPhases(`${id}.short`)}</span>
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Cross-cycle filter → échos */}
-            <button
-              type="button"
-              onClick={() => navigate('/echoes')}
-              className="hd-card text-left"
-            >
-              <div className="hd-caps mb-1.5 text-warm-500">{t('cross_cycle', { defaultValue: 'Filtre inter-cycles' })}</div>
-              <div className="flex items-center justify-between">
-                <span className="text-[15.5px] text-ink">
-                  {t('see_all_phases', {
-                    defaultValue: 'Voir toutes les phases {{phase}} des derniers mois',
-                    phase: info ? tPhases(`${info.phase}.short`).toLowerCase() : '',
-                  })}
-                </span>
-                <span className="text-warm-500">→</span>
-              </div>
-            </button>
+            {/* Complete card of the selected (or current) phase */}
+            {effectivePhase && info && (
+              <>
+                <PhaseCard phase={effectivePhase} info={info} />
+                <GoFurther phase={effectivePhase} />
+                <button
+                  type="button"
+                  onClick={() => navigate(`/echoes?phase=${effectivePhase}`)}
+                  className="hd-card flex items-center justify-between text-left"
+                >
+                  <span className="text-[15.5px] text-ink">{t('see_echoes')}</span>
+                  <span className="text-warm-500">→</span>
+                </button>
+              </>
+            )}
           </>
         )}
       </div>

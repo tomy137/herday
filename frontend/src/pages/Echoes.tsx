@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { api } from '../api/client';
 import type { EchoAggregate } from '../api/client';
@@ -17,6 +18,7 @@ export default function Echoes() {
   const { t: tJournal } = useTranslation('journal');
   const { t: tCommon } = useTranslation('common');
 
+  const [searchParams] = useSearchParams();
   const [selected, setSelected] = useState<Phase | null>(null);
   const [echo, setEcho] = useState<EchoAggregate | null>(null);
   const [loading, setLoading] = useState(true);
@@ -24,16 +26,24 @@ export default function Echoes() {
   useEffect(() => {
     (async () => {
       try {
-        const info = await api.phases.today();
-        setSelected(info.phase as Phase);
-        const ec = await api.echoes.current();
-        setEcho(ec);
+        const param = searchParams.get('phase');
+        const initial =
+          param && (PHASE_ORDER as readonly string[]).includes(param) ? (param as Phase) : null;
+        if (initial) {
+          setSelected(initial);
+          setEcho(await api.echoes.forParent(PHASE_PARENT[initial]));
+        } else {
+          const info = await api.phases.today();
+          setSelected(info.phase as Phase);
+          setEcho(await api.echoes.current());
+        }
       } catch {
         // ignore
       } finally {
         setLoading(false);
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const selectPhase = async (phase: Phase) => {

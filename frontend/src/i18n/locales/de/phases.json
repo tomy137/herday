@@ -1,6 +1,7 @@
 {
   "labels": {
     "she_needs_you_to_be": "Sie braucht dich als:",
+    "more_details": "Mehr zu dieser Phase",
     "days_left_one": "Noch {{count}} Tag in dieser Phase",
     "days_left_other": "Noch {{count}} Tage in dieser Phase",
     "switch_today": "Wechsel heute erwartet",

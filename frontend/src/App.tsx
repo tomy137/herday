@@ -22,16 +22,22 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   return children;
 }
 
-/** Sends first-run users (no cycle yet) through onboarding before the app. */
+/** Sends first-run users through onboarding before the app. */
 function OnboardingGate({ children }: { children: React.ReactNode }) {
-  const [state, setState] = useState<'loading' | 'ok' | 'onboard'>('loading');
+  const { user } = useAuth();
+  const [hasCycles, setHasCycles] = useState<boolean | null>(null);
   useEffect(() => {
     api.cycles.list()
-      .then((cycles) => setState(cycles.length === 0 ? 'onboard' : 'ok'))
-      .catch(() => setState('ok')); // never trap the user on a transient error
+      .then((cycles) => setHasCycles(cycles.length > 0))
+      .catch(() => setHasCycles(true)); // never trap the user on a transient error
   }, []);
-  if (state === 'loading') return <div className="min-h-screen bg-warm-50" />;
-  if (state === 'onboard') return <Navigate to="/onboarding" replace />;
+  if (hasCycles === null) return <div className="min-h-screen bg-warm-50" />;
+  // First run only: the pact isn't engaged AND there's no cycle yet. Once the
+  // pact is set (onboarding step 2) the user is no longer "not_yet", so
+  // finishing onboarding — even without a period date — never loops back here.
+  if (user?.transparency_status === 'not_yet' && !hasCycles) {
+    return <Navigate to="/onboarding" replace />;
+  }
   return children;
 }
 

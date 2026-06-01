@@ -10,19 +10,26 @@ import { syncPhaseToWidget } from '../native/widgetBridge';
 import Header from '../components/layout/Header';
 import PhaseCard from '../components/home/PhaseCard';
 import EchoCard from '../components/home/EchoCard';
-import GoFurther from '../components/home/GoFurther';
 import CycleGraph from '../components/CycleGraph';
+import BottomSheet from '../components/ui/BottomSheet';
+import { useToast } from '../components/ui/Toast';
+import { formatDate, today, yesterday } from '../lib/date-utils';
 
 export default function Home() {
   const { t: tCommon } = useTranslation('common');
   const { t: tPhases } = useTranslation('phases');
   const { t: tJournal } = useTranslation('journal');
   const navigate = useNavigate();
+  const { showToast } = useToast();
 
   const [info, setInfo] = useState<PhaseInfo | null>(null);
   const [echo, setEcho] = useState<EchoAggregate | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [periodOpen, setPeriodOpen] = useState(false);
+  const [showPicker, setShowPicker] = useState(false);
+  const [customDate, setCustomDate] = useState(formatDate(today()));
+  const [submitting, setSubmitting] = useState(false);
 
   const syncWidget = useCallback((phaseInfo: PhaseInfo, echoes: EchoAggregate | null) => {
     const phase = phaseInfo.phase as Phase;
@@ -69,6 +76,21 @@ export default function Home() {
     load();
   }, [load]);
 
+  const declarePeriod = async (dateStr: string) => {
+    setSubmitting(true);
+    try {
+      await api.events.create({ event_type: 'period_started', event_date: dateStr, confidence: 1.0 });
+      showToast(tCommon('period.saved'));
+      setPeriodOpen(false);
+      setShowPicker(false);
+      await load();
+    } catch {
+      showToast(tCommon('error'), 'error');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center gap-3 py-24">
@@ -96,20 +118,86 @@ export default function Home() {
           <CycleGraph dayInCycle={info.day_in_cycle} cycleLength={info.cycle_length} phase={phase} />
         </div>
 
-        <PhaseCard info={info} />
+        <PhaseCard phase={phase} info={info} />
 
-        <button
-          type="button"
-          onClick={() => navigate('/journal')}
-          className="rounded-[10px] bg-ink px-5 py-3.5 text-[14px] font-medium text-warm-50 transition-all hover:bg-ink-soft active:scale-[0.99]"
-        >
-          {tJournal('cta')}
-        </button>
+        <div className="flex flex-col gap-2">
+          <button
+            type="button"
+            onClick={() => navigate('/journal')}
+            className="rounded-[10px] bg-ink px-5 py-3.5 text-[14px] font-medium text-warm-50 transition-all hover:bg-ink-soft active:scale-[0.99]"
+          >
+            {tJournal('cta')}
+          </button>
+          <button
+            type="button"
+            onClick={() => setPeriodOpen(true)}
+            className="text-[12px] text-warm-500 transition-colors hover:text-ink"
+          >
+            {tCommon('period.declare')} →
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate('/calendar')}
+            className="text-[12px] text-warm-500 transition-colors hover:text-ink"
+          >
+            {tPhases('labels.more_details')} →
+          </button>
+        </div>
 
         {echo && <EchoCard echo={echo} onSeeAll={() => navigate('/echoes')} />}
-
-        <GoFurther phase={phase} />
       </div>
+
+      <BottomSheet
+        open={periodOpen}
+        onClose={() => { setPeriodOpen(false); setShowPicker(false); }}
+        title={tCommon('period.title')}
+      >
+        <div className="flex flex-col gap-2">
+          <button
+            type="button"
+            onClick={() => declarePeriod(formatDate(today()))}
+            disabled={submitting}
+            className="rounded-[10px] bg-ink px-5 py-3 text-[14px] font-medium text-warm-50 disabled:opacity-50"
+          >
+            {tCommon('dates.today')}
+          </button>
+          <button
+            type="button"
+            onClick={() => declarePeriod(formatDate(yesterday()))}
+            disabled={submitting}
+            className="rounded-[10px] border-[0.5px] border-warm-300 px-5 py-3 text-[14px] font-medium text-ink transition-colors hover:bg-warm-100 disabled:opacity-50"
+          >
+            {tCommon('dates.yesterday')}
+          </button>
+          {!showPicker ? (
+            <button
+              type="button"
+              onClick={() => setShowPicker(true)}
+              className="rounded-[10px] bg-warm-100 px-5 py-3 text-[14px] font-medium text-warm-500 transition-colors hover:bg-warm-200"
+            >
+              {tCommon('dates.choose_date')}
+            </button>
+          ) : (
+            <div className="flex gap-2">
+              <input
+                type="date"
+                value={customDate}
+                max={formatDate(today())}
+                onChange={(e) => setCustomDate(e.target.value)}
+                className="flex-1 rounded-[10px] border-[0.5px] border-warm-300 bg-warm-50 px-3.5 py-3 text-[14px] text-ink outline-none transition-colors focus:border-ink"
+              />
+              <button
+                type="button"
+                onClick={() => declarePeriod(customDate)}
+                disabled={submitting}
+                className="rounded-[10px] bg-ink px-5 py-3 text-[14px] font-medium text-warm-50 disabled:opacity-50"
+              >
+                {tCommon('actions.confirm')}
+              </button>
+            </div>
+          )}
+        </div>
+      </BottomSheet>
     </div>
   );
 }

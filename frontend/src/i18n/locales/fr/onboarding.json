@@ -7,7 +7,7 @@
     "email_label": "Email",
     "email_placeholder": "toi@exemple.fr",
     "email_hint": "On t'envoie un lien magique. Pas de mot de passe.",
-    "cta": "Recevoir le lien"
+    "cta": "Commencer"
   },
   "step2": {
     "eyebrow": "Pacte de transparence",
@@ -22,6 +22,7 @@
     "eyebrow": "Le cycle, mesurable",
     "title": "Six sous-phases, quatre hormones. Pas un mystère.",
     "body": "Le langage par défaut de HerDay est celui de la littérature médicale. Sobre, exact, sans métaphore.",
+    "more_info": "Tu retrouveras le détail de chaque phase dans l'app, au fil des cycles.",
     "cta": "Continuer"
   },
   "step4": {

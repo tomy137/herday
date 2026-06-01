@@ -7,7 +7,7 @@
     "email_label": "Email",
     "email_placeholder": "you@example.com",
     "email_hint": "We send you a magic link. No password.",
-    "cta": "Get the link"
+    "cta": "Get started"
   },
   "step2": {
     "eyebrow": "Transparency pact",
@@ -22,6 +22,7 @@
     "eyebrow": "The cycle, measurable",
     "title": "Six sub-phases, four hormones. Not a mystery.",
     "body": "HerDay's default language is that of medical literature. Plain, precise, without metaphor.",
+    "more_info": "You'll find the details of each phase in the app, cycle after cycle.",
     "cta": "Continue"
   },
   "step4": {

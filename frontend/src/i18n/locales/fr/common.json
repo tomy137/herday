@@ -19,6 +19,11 @@
     "yesterday": "Hier",
     "choose_date": "Choisir une date"
   },
+  "period": {
+    "declare": "Ses règles ont commencé",
+    "title": "Quand ses règles ont-elles commencé ?",
+    "saved": "Début de règles enregistré"
+  },
   "confidence": {
     "unknown": "Pas encore de données — signalez un premier événement",
     "estimating": "Estimation très approximative — basée sur peu d'infos",

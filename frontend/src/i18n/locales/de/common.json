@@ -19,6 +19,11 @@
     "yesterday": "Gestern",
     "choose_date": "Datum wahlen"
   },
+  "period": {
+    "declare": "Ihre Periode hat begonnen",
+    "title": "Wann hat ihre Periode begonnen?",
+    "saved": "Periodenbeginn gespeichert"
+  },
   "confidence": {
     "unknown": "Noch keine Daten — melden Sie ein erstes Ereignis",
     "estimating": "Sehr grobe Schatzung — wenig Informationen",

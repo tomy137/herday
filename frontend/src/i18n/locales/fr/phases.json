@@ -1,6 +1,7 @@
 {
   "labels": {
     "she_needs_you_to_be": "Elle a besoin que tu sois :",
+    "more_details": "Plus de détails sur cette phase",
     "days_left_one": "Encore {{count}} jour dans cette phase",
     "days_left_other": "Encore {{count}} jours dans cette phase",
     "switch_today": "Bascule attendue aujourd'hui",

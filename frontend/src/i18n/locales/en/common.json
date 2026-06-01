@@ -19,6 +19,11 @@
     "yesterday": "Yesterday",
     "choose_date": "Pick a date"
   },
+  "period": {
+    "declare": "Her period started",
+    "title": "When did her period start?",
+    "saved": "Period start logged"
+  },
   "confidence": {
     "unknown": "No data yet — report a first event",
     "estimating": "Very rough estimate — based on little info",

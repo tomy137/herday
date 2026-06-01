@@ -1,8 +1,7 @@
 {
   "title": "Calendar",
   "legend_title": "Phase legend",
-  "cross_cycle": "Cross-cycle filter",
-  "see_all_phases": "See all {{phase}} phases of recent months",
+  "see_echoes": "See this phase's echoes",
   "no_data": "Not enough data to display phases yet.",
   "no_data_hint": "Keep reporting events!",
   "learning_badge": "Learning phase",
