@@ -4,9 +4,9 @@
     "days_left_one": "Encore {{count}} jour dans cette phase",
     "days_left_other": "Encore {{count}} jours dans cette phase",
     "switch_today": "Bascule attendue aujourd'hui",
-    "observe": "Ce que tu peux observer",
-    "propose": "Ce que tu peux proposer",
-    "avoid": "Il vaut mieux éviter"
+    "bio": "Repères biologiques",
+    "advised": "Conseillé",
+    "discouraged": "Déconseillé"
   },
   "parent": {
     "menstrual": "Menstruelle",
@@ -18,132 +18,157 @@
     "name": "Phase menstruelle",
     "short": "Menstruation",
     "range": "Jours 1 à 5",
-    "headline": "À ce moment du cycle, beaucoup de femmes ressentent une fatigue physique réelle et une moindre tolérance au bruit ou à la sollicitation.",
     "posture": ["SOLIDE", "FIABLE", "DISCRET", "LOGISTIQUE"],
-    "observable": [
-      "Sa tonalité physique : fatigue, sensibilité aux odeurs ou aux lumières fortes",
-      "Son rythme : un besoin probable de ralentir",
-      "Sa logistique domestique : ce qu'elle prend en charge habituellement"
+    "bio": "Chute brutale de progestérone et d'œstradiol. Saignement, desquamation utérine. Énergie au plus bas. Douleurs possibles (crampes, lombaires, migraines). Le corps appelle au repli, à la chaleur, au ralentissement. L'humeur est souvent posée, l'intuition aiguisée. Période propice aux bilans et aux décisions de fond (émotionnellement stable, peu d'« interférence hormonale »).",
+    "advised": [
+      "Décharger la logistique sans en faire un événement. Cuisine, courses, enfants, démarches, ménage de base. Tu fais, tu ne demandes pas si tu peux aider.",
+      "Anticiper le confort. Bouillotte prête, plaid, tisane chaude, antalgique habituel à portée si elle en prend. Pas besoin de demander à chaque fois.",
+      "Respecter le repli sans le prendre pour toi. Si elle veut être seule dans une autre pièce, c'est physiologique, pas un rejet du couple.",
+      "Croire la douleur. Pas de minimisation. Si elle dit qu'elle a mal, elle a mal.",
+      "Présence de qualité plutôt que de quantité. Une tisane apportée en silence vaut mieux qu'une longue conversation.",
+      "Tenir la maison sans en parler. Pas d'attente de remerciement, pas de bilan post-règles « j'ai géré pendant que tu ».",
+      "Programmer doux. Pas d'événements à haute intensité sociale dans la semaine si tu peux les déplacer. Pas d'invités surprise.",
+      "Bonne fenêtre pour les conversations de fond, si elle y est ouverte. Les décisions prises pendant les règles sont souvent émotionnellement stables et fiables. Si elle veut parler d'un sujet sérieux, c'est un signal, pas un piège."
     ],
-    "propose": [
-      "Prendre le relais sans demander « je peux t'aider ? » — décider, exécuter",
-      "Alléger la charge domestique (repas, courses, enfants)",
-      "Proposer du temps calme : pas de soirée bruyante imposée"
-    ],
-    "avoid": [
-      "Faire des plans sociaux denses sans lui en parler en amont",
-      "Lui demander de trancher un sujet logistique de fond",
-      "Mentionner ses règles devant des tiers"
+    "discouraged": [
+      "« Tu vas mieux ? » répété toutes les heures.",
+      "« C'est tes règles ? » comme explication automatique du moindre comportement.",
+      "« Tu seras mieux demain. » Minimisation déguisée en réconfort.",
+      "Compenser ton inquiétude en parlant beaucoup. Tu peux faire l'inverse : être présent et silencieux.",
+      "Te rendre toi-même fatigué ou malade pile à ce moment. Phénomène fréquent : sans le faire exprès, beaucoup d'hommes ralentissent quand leur compagne ralentit. À surveiller dans ta propre observation.",
+      "Tenter de la « remonter » avec une activité dynamisante. Sortie surprise, restaurant tardif, soirée animée : pas le moment.",
+      "Initier une relation intime en partant du principe qu'elle « n'est pas trop dans le délire mais bon ». La pression douce reste une pression. Si elle initie, accepte ; sinon, n'insiste pas.",
+      "Parler de son cycle comme d'un dysfonctionnement. « Tu en as encore pour combien de jours ? » place les règles dans la case « problème à terminer ».",
+      "Lui demander de trancher des décisions logistiques mineures. C'est le moment où tu prends sur toi : choix du repas, organisation des enfants, courses."
     ]
   },
   "post_menstrual": {
     "name": "Phase post-menstruelle",
     "short": "Post-menstruelle",
     "range": "Quelques jours après les règles",
-    "headline": "À ce moment du cycle, beaucoup de femmes retrouvent une énergie stable, encore basse, sans euphorie. La récupération est en cours.",
-    "posture": ["DISPONIBLE", "OUVERT", "CURIEUX", "ATTENTIF"],
-    "observable": [
-      "Une énergie qui revient, sans urgence",
-      "Une humeur stable, plus disponible au dialogue",
-      "Des envies qui réémergent (projets, conversations remises à plus tard)"
+    "posture": ["PATIENT", "ENCOURAGEANT", "CURIEUX", "LÉGER"],
+    "bio": "Les règles s'achèvent, l'œstradiol commence à remonter doucement. L'énergie revient mais reste basse les premiers jours — c'est un gradient, pas un interrupteur. Récupération en cours. L'humeur s'éclaircit, les projets recommencent à apparaître dans sa tête, mais le corps n'est pas encore au pic. Période souvent sous-estimée parce qu'elle est moins spectaculaire que les phases suivantes.",
+    "advised": [
+      "Être disponible sans être pressant. Elle revient. Elle peut avoir envie de partager, de planifier, de rêver à voix haute. Écoute sans solutionner immédiatement.",
+      "Montrer de la curiosité pour ses idées. « Tu en es où sur X ? », « Tu y as encore pensé ? » — l'inviter à dérouler sans la pousser à conclure.",
+      "Reprendre les décisions parquées. Si vous avez parqué un sujet pendant les règles, c'est un bon moment pour le reprendre. Pas tout d'un coup.",
+      "Reprendre une part normale des tâches. Tu n'es plus en mode « je gère tout » ; tu redeviens un partenaire à parts égales.",
+      "Initier de petites choses légères. Un café ensemble, une promenade, un film — pas une expédition. La récupération est progressive.",
+      "Prendre soin de toi aussi. Tu as peut-être tenu une semaine. Tu as le droit de souffler maintenant qu'elle revient.",
+      "Garder un œil sur la fatigue résiduelle. Si les règles ont été intenses, la récupération peut prendre 3 à 4 jours après la fin des saignements."
     ],
-    "propose": [
-      "Reprendre les conversations qu'elle a laissées en pause",
-      "Lui demander où elle en est, sans la presser",
-      "Caler ensemble les engagements à venir"
-    ],
-    "avoid": [
-      "Lui imposer immédiatement un rythme intense",
-      "Réveiller un conflit non résolu dès le retour de l'énergie",
-      "Confondre l'énergie revenue avec une énergie pleine"
+    "discouraged": [
+      "Supposer qu'elle est « à 100 % » dès la fin des règles. Le pic d'énergie est encore à venir.",
+      "Lui balancer tout ce que tu as parqué. « Bon maintenant il faut qu'on parle de A, B, C, D… »",
+      "Comparer son énergie actuelle à celle de l'ovulation passée. « T'étais plus drôle la semaine dernière. »",
+      "Lui faire sentir qu'elle te doit quelque chose pour ce que tu as géré pendant les règles. Le ressenti « j'ai été un saint » est l'ennemi du couple.",
+      "Être trop protecteur maintenant. Elle reprend la main, laisse-la.",
+      "Programmer une grosse soirée le 3ᵉ jour post-règles parce que « ça devrait aller maintenant ». Préfère lui demander."
     ]
   },
   "pre_ovulatory": {
     "name": "Phase pré-ovulatoire",
     "short": "Pré-ovulatoire",
     "range": "2 à 3 jours avant l'ovulation",
-    "headline": "À ce moment du cycle, beaucoup de femmes connaissent une montée d'énergie, d'envie d'entreprendre, et de tolérance au risque.",
-    "posture": ["DANS L'ACTION", "COMPLICE", "CONFIANT", "JOUEUR"],
-    "observable": [
-      "Une initiative spontanée sur des sujets nouveaux",
-      "Une appétence pour les projets, les sorties, les rencontres",
-      "Une voix plus posée, un regard plus direct"
+    "posture": ["COÉQUIPIER", "DISPONIBLE", "CURIEUX DE SES IDÉES", "DANS L'ACTION"],
+    "bio": "Œstradiol en montée franche, parfois rapide. C'est la prise d'élan. Confiance en soi élevée, sensibilité à la peur diminuée, prise de risque facilitée, productivité maximale. Plusieurs choses en parallèle, énergie qui peut sembler intarissable. Peau, tonus, sommeil souvent au mieux. Le « cocktail » est très valorisé socialement mais peut être fatigant pour l'entourage qui peine à suivre.",
+    "advised": [
+      "Jouer en équipe. Demande-lui sur quoi elle veut frapper, propose de prendre ce que tu peux pour qu'elle se concentre sur ce qui compte vraiment pour elle.",
+      "Décharger les tâches à faible valeur. Pendant qu'elle construit, tu fais tourner la machine — c'est un investissement à fort retour.",
+      "S'intéresser sincèrement à ses projets. « Tu cherches à construire quoi ? », « Qu'est-ce qui te manque ? »",
+      "Suivre le rythme ou s'effacer avec grâce. Si elle est en mode tornade et que tu as besoin de pause, dis-le simplement : « j'adore ce que tu fais, j'ai besoin de 10 minutes ».",
+      "Bonne fenêtre pour planifier ensemble. Vacances, gros achats, projets de couple : sa capacité d'engagement est bonne, sa peur est basse.",
+      "Bonne fenêtre pour les conversations difficiles qui demandent du recul et de la bande passante.",
+      "Sport en commun. Le corps répond bien, l'humeur aussi.",
+      "Encourager sans surenchérir. Tu n'as pas besoin d'être plus enthousiaste qu'elle ; tu peux juste être stable et présent."
     ],
-    "propose": [
-      "Lancer avec elle un projet, une sortie, un voyage court",
-      "Lui laisser de l'espace pour porter ses propres élans",
-      "Être présent physiquement et dans l'écoute des idées"
-    ],
-    "avoid": [
-      "Casser ses élans par excès de prudence",
-      "Ramener systématiquement la conversation au quotidien",
-      "Confondre son énergie avec une demande de coaching"
+    "discouraged": [
+      "Ralentir le mouvement. Si elle est rapide, ne lui demande pas de « calmer le jeu » — elle n'est pas anxieuse, elle est énergisée.",
+      "Vouloir des câlins quand elle veut agir. Les besoins divergent ; respecte la direction.",
+      "Prendre personnellement les phrases tranchantes. « Non, pas maintenant », « Plus tard » : ce n'est pas un rejet, c'est de la concentration. Les aptitudes sociales ne sont pas à leur maximum dans cette phase.",
+      "Lui programmer son agenda. « Tu devrais te reposer un peu » est mal reçu quand elle se sent capable de soulever des montagnes.",
+      "Compétitionner discrètement. Si tu te sens petit face à son énergie, ce n'est pas son problème, c'est ton sujet à toi.",
+      "Multiplier les sollicitations émotionnelles non urgentes. Garde tes propres petits sujets pour plus tard ; pose les gros sujets posément si tu veux les aborder.",
+      "Présumer qu'elle terminera tout ce qu'elle a commencé. Une partie va se dissiper en phase suivante. C'est normal."
     ]
   },
   "ovulation": {
     "name": "Phase ovulatoire",
     "short": "Ovulation",
     "range": "Fenêtre fertile, 5 jours centrés sur J(L-14)",
-    "headline": "À ce moment du cycle, beaucoup de femmes vivent un pic de confiance, de sociabilité, et d'ouverture corporelle.",
     "posture": ["PRÉSENT", "COMPLICE", "COQUIN", "RIEUR"],
-    "observable": [
-      "Une sociabilité élargie, plus extravertie",
-      "Une attention au corps, à l'apparence, au regard",
-      "Une appétence à la séduction et au jeu"
+    "bio": "Pic d'œstrogènes, pic de LH (qui déclenche l'ovulation), petit pic de testostérone (libido, combativité, mémoire). Fenêtre fertile maximale (à savoir si la contraception passe par d'autres méthodes). Le visage est mesurablement plus symétrique, la voix souvent un peu plus haute. L'énergie reste haute mais ne s'accélère plus : phase de plateau ouvert, sociale, plaisante. Empathie, recherche du lien, plaisir des sens. C'est la phase la plus valorisée socialement, parfois trop : ne pas en faire la « norme » du couple.",
+    "advised": [
+      "Présence pleine, pas présence distraite. Regard, attention, écoute. Pas de second écran pendant un dîner avec elle.",
+      "Initier ou accueillir l'intimité. La libido est physiologiquement à son maximum. Bonne fenêtre pour réinvestir la dimension sexuelle si elle s'est étiolée.",
+      "Programmer du temps de couple de qualité. Dîner dehors, balade, conversation longue. Pas une journée sur sept d'agenda partagé saturé.",
+      "Être complice et joueur. Humour, taquinerie douce, plaisir partagé. C'est la phase où le couple a le plus de marge pour rire.",
+      "Compliments observationnels, pas flatteurs. « Tu as quelque chose aujourd'hui » plutôt que « tu es magnifique » — le premier observe, le second évalue.",
+      "Bonne fenêtre pour les conversations sensibles du couple. Empathie, bande passante et désir de lien.",
+      "Si la contraception compte : en parler explicitement et tôt dans la fenêtre. Pas dans le feu de l'action.",
+      "Accueillir son ouverture aux autres sans jalousie. Elle n'est pas en train de séduire le monde, elle est ouverte au monde. Différent."
     ],
-    "propose": [
-      "Lui donner du temps en tête-à-tête, sans agenda",
-      "Saisir les moments légers, les rires, la sensualité",
-      "Lui dire ce que tu observes chez elle, sans calcul"
-    ],
-    "avoid": [
-      "Programmer mécaniquement « un moment couple »",
-      "Confondre son rayonnement avec une invitation pour tous",
-      "Réduire cette phase à la seule fertilité"
+    "discouraged": [
+      "Considérer l'ouverture comme acquise. Le « coût reproductif » joue : la sélectivité est plus fine en ovulation, pas moins. L'ouverture n'est pas un blanc-seing.",
+      "Transformer la fenêtre en pression sexuelle. « C'est maintenant ou jamais cette semaine » dit en plaisantant reste une pression.",
+      "Saturer la semaine de travail et d'engagements. Tu rates le créneau le plus précieux du cycle de couple.",
+      "Être absent ou occupé. L'absence à ce moment-là pique plus fort qu'à d'autres phases.",
+      "Lui faire porter la charge sociale du couple. Si tu sais qu'elle est dans une phase sociale, ne lui délègue pas tous les rendez-vous parce que « toi t'es pas trop dispo ».",
+      "Présumer que c'est l'état normal et que les autres phases sont des « moins ». Toutes les phases sont précieuses, l'ovulation est juste la plus spectaculaire. La hiérarchiser implicitement, c'est lui dire qu'elle est moins valable les autres semaines."
     ]
   },
   "post_ovulatory": {
     "name": "Phase post-ovulatoire",
     "short": "Post-ovulatoire",
     "range": "Plateau lutéal, après l'ovulation",
-    "headline": "À ce moment du cycle, beaucoup de femmes connaissent un plateau stable, propice à la productivité et au recentrage.",
-    "posture": ["STABLE", "CONCRET", "PRÉSENT", "NON-DISPERSÉ"],
-    "observable": [
-      "Une énergie soutenue mais non euphorique",
-      "Une attention au cadre, au tri, à ce qui doit être fini",
-      "Une diminution graduelle de l'élan social"
+    "posture": ["STABLE", "CONCRET", "CONSTRUCTIF", "PRATIQUE"],
+    "bio": "Progestérone en montée, œstrogènes en second pic plus modeste. L'énergie est encore haute mais s'intériorise progressivement. La concentration s'améliore, l'attention au détail aussi. C'est souvent la fenêtre la plus productive sur les sujets de fond — moins spectaculaire que la pré-ovulatoire, mais plus profonde. L'humeur est généralement stable. Léger ralentissement social au profit d'un retour vers soi.",
+    "advised": [
+      "Matcher son rythme calme et constant. Pas de course, pas d'arrêt. Une cadence de croisière qui tient.",
+      "L'aider à finir ce qui est commencé. C'est le moment d'exécuter les décisions prises plus tôt. Tu peux porter une partie de l'élan d'exécution.",
+      "Routines stables. Dîners de semaine, balades, rituels qui tiennent. Pas de bouleversement.",
+      "Solutions concrètes plutôt qu'idées en l'air. Si elle évoque un problème, propose une action plutôt qu'une grande réflexion philosophique.",
+      "Tendresse pratique. Un petit geste régulier vaut mieux qu'un grand geste épisodique.",
+      "Respecter le besoin croissant de concentration. Si elle a la tête dans un dossier, ne pas la sortir pour rien."
     ],
-    "propose": [
-      "Avancer avec elle sur du concret : décisions, dossiers, maison",
-      "Respecter ses moments de retrait sans les interpréter",
-      "Tenir vos engagements, même petits"
-    ],
-    "avoid": [
-      "Lancer un projet flou ou hypothétique de plus",
-      "Lui prendre du temps en surnombre pour soi",
-      "Interpréter le retrait comme une mise à distance personnelle"
+    "discouraged": [
+      "L'entraîner dans tes propres lubies. Si tu as un coup de tête, tu le gères tout seul.",
+      "Attendre la même ouverture sociale que pendant l'ovulation. Ce sera surprenant, puis frustrant.",
+      "Surprendre par un changement de plan majeur. Elle est en mode exécution ; les imprévus coûtent plus qu'ailleurs.",
+      "Lui déverser tes problèmes non résolus. Tu peux en parler, mais pas la transformer en service après-vente de tes états d'âme.",
+      "Devenir passif-agressif quand elle est concentrée sur ses propres objectifs. Ce n'est pas du désintérêt pour le couple ; c'est une phase de travail.",
+      "Lui demander de planifier la vie sociale du mois. Elle est en repli progressif, ce n'est pas son créneau."
     ]
   },
   "pre_menstrual": {
     "name": "Phase pré-menstruelle",
     "short": "Pré-menstruelle",
     "range": "6 derniers jours du cycle",
-    "headline": "À ce moment du cycle, beaucoup de femmes ont un regard plus exigeant, parfois plus sombre, et une grande créativité.",
     "posture": ["PATIENT", "ROBUSTE", "À L'ÉCOUTE", "NON-RÉACTIF"],
-    "observable": [
-      "Sa tonalité émotionnelle",
-      "Sa fatigue physique",
-      "Sa tolérance aux contrariétés"
+    "bio": "Progestérone qui chute, œstrogènes en seconde baisse, défenses immunitaires en bas. C'est la phase la plus exigeante émotionnellement pour beaucoup de femmes — pas parce qu'elle est « pénible », mais parce que la perception s'aiguise et que le filtre indulgent qui adoucissait les choses se lève. Regard plus exigeant, parfois plus sombre, sur les personnes et les projets ; détection fine de ce qui ne va pas ; créativité élevée ; sensibilité physique et émotionnelle marquée. Pulsions de tri, de ménage, de réaménagement. La « stratégie prémenstruelle » : tendance biologique à amplifier les défauts du conjoint après plusieurs cycles non fertiles. À savoir, pour ne pas le prendre à la lettre.",
+    "advised": [
+      "Être patient. Vraiment patient. Le réflexe défensif est l'ennemi. Une remarque dure n'appelle pas une réponse immédiate.",
+      "Accuser réception sans argumenter. « Je note. Je veux y revenir à tête reposée, on se garde ça pour la semaine prochaine. » C'est une phrase à mémoriser.",
+      "Décharger encore plus. Le système nerveux est sollicité, l'immunité basse, la fatigue arrive. Plus tu allèges la logistique, plus elle économise pour ce qui compte.",
+      "Anticiper la fragilité physique. Ne pas inviter quelqu'un de malade à dîner, ne pas la pousser à un événement où elle devra performer.",
+      "Accueillir les reproches sans s'en saisir. Les noter mentalement, en reparler dans dix jours. S'il y a un fond vrai (souvent il y en a), il restera. Si c'était l'amplification, ça passera.",
+      "Si tu as merdé pendant le cycle, c'est maintenant que ça remonte. Excuse-toi tôt. Pas en mode service après-vente — sincèrement.",
+      "Respecter le besoin de solitude ou de création. Si elle se replie dans un projet créatif, dans un grand tri, dans un sport solitaire : soutiens sans commenter.",
+      "Affection inconditionnelle et discrète. Pas de grands démonstratifs, mais de la présence stable. Un message vocal court, un thé apporté, un mot doux laissé.",
+      "L'aider à repérer ce qui ne marche pas vraiment dans sa vie sans proposer de solution. Le filtre pré-menstruel est un détecteur de problèmes ; il faut écouter ce qu'il dit, sans agir sur le coup.",
+      "Tenir bon sur l'idée que les décisions lourdes attendent. « Tu m'en reparles dans dix jours et si tu le penses toujours, on l'examine sérieusement. »"
     ],
-    "propose": [
-      "Alléger la logistique sans le mettre en scène",
-      "Lui donner du temps seule si elle en veut",
-      "Ne pas argumenter contre les reproches frontalement — écouter, reformuler"
-    ],
-    "avoid": [
-      "Lui demander de trancher une décision lourde aujourd'hui",
-      "Lui dire « c'est tes hormones »",
-      "Prendre personnellement chaque remarque"
+    "discouraged": [
+      "« C'est tes hormones. » Probablement la pire phrase de tout le cycle. Disqualifiante, infantilisante.",
+      "« T'es dans ton SPM. » Variante de la précédente, même effet. À bannir.",
+      "Argumenter point par point contre les critiques. Tu vas amplifier ce qui était déjà amplifié.",
+      "Essayer de la « remonter » avec de la logique ou de la bonne humeur. Les deux glissent et reviennent en boomerang.",
+      "Programmer ou exiger une décision lourde cette semaine. Démission, déménagement, gros achat, gros engagement : on attend.",
+      "Prendre les piques pour ta valeur personnelle. Le filtre est biologique et souvent partiellement réel ; mais l'amplification ne te définit pas.",
+      "Retirer ton affection parce qu'elle est « pas facile ». C'est précisément le moment où le retrait fait le plus de dégâts.",
+      "Initier l'intimité sans signal clair d'elle. La sensibilité tactile est variable, la libido généralement plus basse.",
+      "Lancer une grosse dispute sur un vieux sujet. Si vous avez un sujet de fond à traiter, attends la phase folliculaire ou l'ovulation.",
+      "Ramener tout au cycle. Si elle te reproche quelque chose de spécifique, ce reproche peut être vrai. Le cycle amplifie ; il n'invente pas toujours."
     ]
   }
 }

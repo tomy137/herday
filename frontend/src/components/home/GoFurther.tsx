@@ -8,30 +8,26 @@ interface GoFurtherProps {
   phase: Phase;
 }
 
-/** Three accordions: what to observe / offer / avoid for the current phase. */
+/** Three accordions: biological reference / advised / discouraged. */
 export default function GoFurther({ phase }: GoFurtherProps) {
   const { t } = useTranslation('phases');
   const content = usePhaseContent(phase);
 
   return (
     <div className="rounded-[14px] bg-warm-100 px-[18px] pb-2 pt-1">
-      <Accordion title={t('labels.observe')}>
+      <Accordion title={t('labels.bio')}>
+        <p className="text-[13.5px] leading-relaxed text-ink-soft">{content.bio}</p>
+      </Accordion>
+      <Accordion title={t('labels.advised')}>
         <ul className="hd-list-tight">
-          {content.observable.map((x, i) => (
+          {content.advised.map((x, i) => (
             <li key={i}>{x}</li>
           ))}
         </ul>
       </Accordion>
-      <Accordion title={t('labels.propose')}>
+      <Accordion title={t('labels.discouraged')}>
         <ul className="hd-list-tight">
-          {content.propose.map((x, i) => (
-            <li key={i}>{x}</li>
-          ))}
-        </ul>
-      </Accordion>
-      <Accordion title={t('labels.avoid')}>
-        <ul className="hd-list-tight">
-          {content.avoid.map((x, i) => (
+          {content.discouraged.map((x, i) => (
             <li key={i} data-tone="avoid">
               {x}
             </li>

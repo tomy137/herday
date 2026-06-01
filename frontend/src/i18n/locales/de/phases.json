@@ -4,9 +4,9 @@
     "days_left_one": "Noch {{count}} Tag in dieser Phase",
     "days_left_other": "Noch {{count}} Tage in dieser Phase",
     "switch_today": "Wechsel heute erwartet",
-    "observe": "Was du beobachten kannst",
-    "propose": "Was du anbieten kannst",
-    "avoid": "Besser vermeiden"
+    "bio": "Biologische Hinweise",
+    "advised": "Empfohlen",
+    "discouraged": "Nicht empfohlen"
   },
   "parent": {
     "menstrual": "Menstruell",
@@ -18,132 +18,157 @@
     "name": "Menstruationsphase",
     "short": "Menstruation",
     "range": "Tag 1 bis 5",
-    "headline": "Zu diesem Zeitpunkt des Zyklus empfinden viele Frauen eine reale körperliche Erschöpfung und eine geringere Toleranz gegenüber Lärm oder Beanspruchung.",
-    "posture": ["VERLÄSSLICH", "STABIL", "DISKRET", "ORGANISIERT"],
-    "observable": [
-      "Ihre körperliche Verfassung: Müdigkeit, Empfindlichkeit gegenüber Gerüchen oder grellem Licht",
-      "Ihr Tempo: ein wahrscheinliches Bedürfnis, langsamer zu machen",
-      "Ihre häusliche Organisation: was sie üblicherweise übernimmt"
+    "posture": ["SOLIDE", "VERLÄSSLICH", "ZURÜCKHALTEND", "ORGANISIERT"],
+    "bio": "Abrupter Abfall von Progesteron und Östradiol. Blutung, Abstoßung der Gebärmutterschleimhaut. Energie auf dem Tiefpunkt. Schmerzen möglich (Krämpfe, Rückenschmerzen, Migräne). Der Körper verlangt nach Rückzug, Wärme, Verlangsamung. Die Stimmung ist oft gefasst, die Intuition geschärft. Eine geeignete Zeit für Bilanzen und grundlegende Entscheidungen (emotional stabil, wenig \"hormonelle Interferenz\").",
+    "advised": [
+      "Die Logistik übernehmen, ohne ein Ereignis daraus zu machen. Kochen, Einkäufe, Kinder, Behördengänge, Grundhaushalt. Du machst es, du fragst nicht, ob du helfen darfst.",
+      "Komfort vorausdenken. Wärmflasche bereit, Decke, heißer Tee, das gewohnte Schmerzmittel griffbereit, falls sie eins nimmt. Kein ständiges Nachfragen nötig.",
+      "Den Rückzug respektieren, ohne ihn auf dich zu beziehen. Wenn sie allein in einem anderen Raum sein will, ist das physiologisch, keine Ablehnung der Beziehung.",
+      "Den Schmerz glauben. Keine Verharmlosung. Wenn sie sagt, dass sie Schmerzen hat, dann hat sie Schmerzen.",
+      "Qualität der Präsenz statt Quantität. Ein wortlos gebrachter Tee ist mehr wert als ein langes Gespräch.",
+      "Den Haushalt führen, ohne darüber zu reden. Keine Erwartung von Dank, keine Bilanz nach der Periode im Sinne von \"ich habe alles geschmissen, während du\".",
+      "Sanft planen. Keine sozial hochintensiven Ereignisse in dieser Woche, wenn du sie verschieben kannst. Keine Überraschungsgäste.",
+      "Ein gutes Fenster für grundlegende Gespräche, wenn sie dafür offen ist. Entscheidungen, die während der Periode getroffen werden, sind oft emotional stabil und verlässlich. Wenn sie über ein ernstes Thema sprechen will, ist das ein Signal, keine Falle."
     ],
-    "propose": [
-      "Aufgaben übernehmen, ohne zu fragen „kann ich helfen?“ — entscheiden, handeln",
-      "Die häusliche Last verringern (Mahlzeiten, Einkäufe, Kinder)",
-      "Ruhige Zeit anbieten: keinen lauten Abend aufzwingen"
-    ],
-    "avoid": [
-      "Dichte soziale Pläne machen, ohne es vorab mit ihr zu besprechen",
-      "Sie bitten, eine grundlegende organisatorische Frage zu entscheiden",
-      "Ihre Menstruation vor Dritten erwähnen"
+    "discouraged": [
+      "\"Geht es dir besser?\" jede Stunde wiederholt.",
+      "\"Hast du deine Tage?\" als automatische Erklärung für jedes noch so kleine Verhalten.",
+      "\"Morgen geht es dir besser.\" Verharmlosung als Trost getarnt.",
+      "Deine eigene Sorge durch vieles Reden kompensieren. Du kannst das Gegenteil tun: präsent und still sein.",
+      "Selbst genau in diesem Moment müde oder krank werden. Häufiges Phänomen: Ohne es zu wollen, verlangsamen viele Männer, wenn ihre Partnerin verlangsamt. Beobachte das bei dir selbst.",
+      "Versuchen, sie mit einer belebenden Aktivität \"aufzumuntern\". Spontaner Ausflug, spätes Restaurant, lebhafter Abend: nicht der richtige Moment.",
+      "Intimität initiieren nach dem Prinzip, dass sie \"zwar nicht so richtig dabei ist, aber egal\". Sanfter Druck bleibt Druck. Wenn sie initiiert, nimm es an; sonst dränge nicht.",
+      "Über ihren Zyklus wie über eine Funktionsstörung reden. \"Wie viele Tage hast du noch?\" steckt die Periode in die Schublade \"Problem, das beendet werden muss\".",
+      "Sie über kleinere logistische Entscheidungen entscheiden lassen. Das ist der Moment, in dem du es auf dich nimmst: Wahl des Essens, Organisation der Kinder, Einkäufe."
     ]
   },
   "post_menstrual": {
     "name": "Postmenstruelle Phase",
     "short": "Postmenstruell",
-    "range": "Einige Tage nach der Menstruation",
-    "headline": "Zu diesem Zeitpunkt des Zyklus finden viele Frauen zu einer stabilen, noch niedrigen Energie zurück, ohne Euphorie. Die Erholung ist im Gange.",
-    "posture": ["VERFÜGBAR", "OFFEN", "NEUGIERIG", "AUFMERKSAM"],
-    "observable": [
-      "Eine Energie, die zurückkehrt, ohne Dringlichkeit",
-      "Eine stabile Stimmung, offener für den Austausch",
-      "Wünsche, die wieder auftauchen (Vorhaben, aufgeschobene Gespräche)"
+    "range": "Einige Tage nach der Periode",
+    "posture": ["GEDULDIG", "ERMUTIGEND", "NEUGIERIG", "LEICHT"],
+    "bio": "Die Periode endet, das Östradiol beginnt langsam wieder anzusteigen. Die Energie kehrt zurück, bleibt aber in den ersten Tagen niedrig — es ist ein Gradient, kein Schalter. Erholung läuft. Die Stimmung hellt sich auf, Pläne tauchen wieder in ihrem Kopf auf, doch der Körper ist noch nicht auf dem Höhepunkt. Eine oft unterschätzte Phase, weil sie weniger spektakulär ist als die folgenden.",
+    "advised": [
+      "Verfügbar sein, ohne zu drängen. Sie kehrt zurück. Sie hat vielleicht Lust zu teilen, zu planen, laut zu träumen. Zuhören, ohne sofort Lösungen anzubieten.",
+      "Neugier auf ihre Ideen zeigen. \"Wie weit bist du mit X?\", \"Hast du weiter darüber nachgedacht?\" — sie einladen, auszuführen, ohne sie zu einem Abschluss zu drängen.",
+      "Aufgeschobene Entscheidungen wieder aufnehmen. Wenn ihr ein Thema während der Periode geparkt habt, ist jetzt ein guter Moment, es wieder aufzunehmen. Nicht alles auf einmal.",
+      "Einen normalen Anteil der Aufgaben wieder übernehmen. Du bist nicht mehr im Modus \"ich mache alles\"; du wirst wieder zum gleichberechtigten Partner.",
+      "Kleine, leichte Dinge initiieren. Ein Kaffee zusammen, ein Spaziergang, ein Film — keine große Expedition. Die Erholung ist schrittweise.",
+      "Auch auf dich selbst achten. Du hast vielleicht eine Woche durchgehalten. Du darfst jetzt durchatmen, wo sie zurückkehrt.",
+      "Ein Auge auf die Resterschöpfung haben. Wenn die Periode intensiv war, kann die Erholung 3 bis 4 Tage nach Ende der Blutung dauern."
     ],
-    "propose": [
-      "Die Gespräche wieder aufnehmen, die sie pausiert hat",
-      "Sie fragen, wo sie steht, ohne sie zu drängen",
-      "Gemeinsam anstehende Verpflichtungen abstimmen"
-    ],
-    "avoid": [
-      "Ihr sofort ein intensives Tempo aufzwingen",
-      "Einen ungelösten Konflikt gleich bei der Rückkehr der Energie aufwärmen",
-      "Die zurückgekehrte Energie mit voller Energie verwechseln"
+    "discouraged": [
+      "Annehmen, dass sie ab dem Ende der Periode \"bei 100 %\" ist. Der Energiehöhepunkt kommt erst noch.",
+      "Ihr alles hinwerfen, was du geparkt hast. \"So, jetzt müssen wir über A, B, C, D reden …\"",
+      "Ihre aktuelle Energie mit der vergangenen Ovulation vergleichen. \"Letzte Woche warst du lustiger.\"",
+      "Ihr das Gefühl geben, dass sie dir etwas schuldet für das, was du während der Periode gemanagt hast. Das Gefühl \"ich war ein Heiliger\" ist der Feind der Beziehung.",
+      "Jetzt zu beschützend sein. Sie übernimmt wieder das Ruder, lass sie.",
+      "Einen großen Abend am 3. Tag nach der Periode planen, weil \"es jetzt schon gehen müsste\". Frag sie lieber."
     ]
   },
   "pre_ovulatory": {
     "name": "Präovulatorische Phase",
     "short": "Präovulatorisch",
     "range": "2 bis 3 Tage vor dem Eisprung",
-    "headline": "Zu diesem Zeitpunkt des Zyklus erleben viele Frauen einen Anstieg an Energie, Unternehmungslust und Risikobereitschaft.",
-    "posture": ["AKTIV", "VERBUNDEN", "ZUVERSICHTLICH", "VERSPIELT"],
-    "observable": [
-      "Eine spontane Initiative bei neuen Themen",
-      "Eine Lust auf Vorhaben, Unternehmungen, Begegnungen",
-      "Eine ruhigere Stimme, ein direkterer Blick"
+    "posture": ["TEAMPARTNER", "VERFÜGBAR", "NEUGIERIG AUF IHRE IDEEN", "TATKRÄFTIG"],
+    "bio": "Östradiol steigt deutlich, manchmal schnell. Das ist der Schwung. Hohes Selbstvertrauen, verringerte Angstempfindlichkeit, leichteres Eingehen von Risiken, maximale Produktivität. Mehrere Dinge parallel, eine Energie, die unerschöpflich wirken kann. Haut, Tonus, Schlaf oft auf dem besten Stand. Der \"Cocktail\" wird sozial sehr geschätzt, kann aber für das Umfeld, das kaum mithält, anstrengend sein.",
+    "advised": [
+      "Im Team spielen. Frag sie, worauf sie sich stürzen will, und biete an, das zu übernehmen, was du kannst, damit sie sich auf das konzentrieren kann, was ihr wirklich wichtig ist.",
+      "Aufgaben mit geringem Wert übernehmen. Während sie aufbaut, hältst du den Laden am Laufen — das ist eine Investition mit hoher Rendite.",
+      "Sich aufrichtig für ihre Projekte interessieren. \"Was willst du aufbauen?\", \"Was fehlt dir noch?\"",
+      "Im Tempo mitgehen oder sich elegant zurückziehen. Wenn sie im Wirbelsturm-Modus ist und du eine Pause brauchst, sag es einfach: \"Ich liebe, was du machst, ich brauche 10 Minuten.\"",
+      "Ein gutes Fenster, um gemeinsam zu planen. Urlaub, große Anschaffungen, Paarprojekte: Ihre Bindungsfähigkeit ist gut, ihre Angst ist niedrig.",
+      "Ein gutes Fenster für schwierige Gespräche, die Abstand und Kapazität erfordern.",
+      "Gemeinsamer Sport. Der Körper reagiert gut, die Stimmung auch.",
+      "Ermutigen, ohne zu übertreiben. Du musst nicht enthusiastischer sein als sie; du kannst einfach stabil und präsent sein."
     ],
-    "propose": [
-      "Mit ihr ein Vorhaben, einen Ausflug, eine kurze Reise starten",
-      "Ihr Raum lassen, um ihre eigenen Impulse auszuleben",
-      "Körperlich präsent sein und ihren Ideen zuhören"
-    ],
-    "avoid": [
-      "Ihre Impulse durch übertriebene Vorsicht ausbremsen",
-      "Das Gespräch systematisch auf den Alltag zurückführen",
-      "Ihre Energie mit einer Bitte um Coaching verwechseln"
+    "discouraged": [
+      "Den Schwung bremsen. Wenn sie schnell ist, bitte sie nicht, \"einen Gang zurückzuschalten\" — sie ist nicht ängstlich, sie ist voller Energie.",
+      "Kuscheln wollen, wenn sie handeln will. Die Bedürfnisse gehen auseinander; respektiere die Richtung.",
+      "Schroffe Sätze persönlich nehmen. \"Nein, nicht jetzt\", \"Später\": Das ist keine Ablehnung, das ist Konzentration. Die sozialen Fähigkeiten sind in dieser Phase nicht auf ihrem Höhepunkt.",
+      "Ihren Tagesplan vorgeben. \"Du solltest dich etwas ausruhen\" kommt schlecht an, wenn sie das Gefühl hat, Berge versetzen zu können.",
+      "Heimlich konkurrieren. Wenn du dich angesichts ihrer Energie klein fühlst, ist das nicht ihr Problem, sondern dein Thema.",
+      "Nicht dringende emotionale Forderungen häufen. Heb dir deine eigenen kleinen Themen für später auf; bring die großen Themen ruhig vor, wenn du sie ansprechen willst.",
+      "Voraussetzen, dass sie alles zu Ende bringt, was sie angefangen hat. Ein Teil davon wird sich in der nächsten Phase auflösen. Das ist normal."
     ]
   },
   "ovulation": {
     "name": "Ovulatorische Phase",
-    "short": "Ovulation",
-    "range": "Fruchtbares Fenster, 5 Tage um Tag (L-14)",
-    "headline": "Zu diesem Zeitpunkt des Zyklus erleben viele Frauen einen Höhepunkt an Selbstvertrauen, Geselligkeit und körperlicher Offenheit.",
-    "posture": ["PRÄSENT", "VERBUNDEN", "SPIELERISCH", "HEITER"],
-    "observable": [
-      "Eine erweiterte Geselligkeit, extrovertierter",
-      "Eine Aufmerksamkeit für den Körper, das Aussehen, den Blick",
-      "Eine Lust auf Verführung und Spiel"
+    "short": "Eisprung",
+    "range": "Fruchtbares Fenster, 5 Tage um Tag (L-14) zentriert",
+    "posture": ["PRÄSENT", "VERBÜNDET", "VERSPIELT", "HEITER"],
+    "bio": "Östrogen-Höhepunkt, LH-Höhepunkt (der den Eisprung auslöst), kleiner Testosteron-Höhepunkt (Libido, Kampfgeist, Gedächtnis). Maximales fruchtbares Fenster (wichtig zu wissen, falls die Verhütung über andere Methoden läuft). Das Gesicht ist messbar symmetrischer, die Stimme oft etwas höher. Die Energie bleibt hoch, beschleunigt aber nicht mehr: eine offene Plateauphase, sozial, angenehm. Empathie, Suche nach Verbindung, Sinnesfreude. Es ist die sozial am meisten geschätzte Phase, manchmal zu sehr: Mach sie nicht zur \"Norm\" der Beziehung.",
+    "advised": [
+      "Volle Präsenz, keine abgelenkte Präsenz. Blick, Aufmerksamkeit, Zuhören. Kein zweiter Bildschirm beim Abendessen mit ihr.",
+      "Intimität initiieren oder annehmen. Die Libido ist physiologisch auf ihrem Maximum. Ein gutes Fenster, um die sexuelle Dimension neu zu beleben, falls sie eingeschlafen ist.",
+      "Qualitätszeit als Paar einplanen. Auswärts essen, Spaziergang, langes Gespräch. Kein an einem von sieben Tagen mit geteiltem Kalender überfüllter Plan.",
+      "Verbündet und verspielt sein. Humor, sanfte Neckereien, geteilte Freude. Das ist die Phase, in der das Paar am meisten Spielraum zum Lachen hat.",
+      "Beobachtende Komplimente, keine schmeichelnden. \"Du hast heute etwas an dir\" statt \"du bist wunderschön\" — das erste beobachtet, das zweite bewertet.",
+      "Ein gutes Fenster für sensible Paargespräche. Empathie, Kapazität und Bindungswunsch.",
+      "Wenn Verhütung zählt: explizit und früh im Fenster darüber sprechen. Nicht im Eifer des Gefechts.",
+      "Ihre Offenheit gegenüber anderen ohne Eifersucht annehmen. Sie verführt nicht die Welt, sie ist offen für die Welt. Ein Unterschied."
     ],
-    "propose": [
-      "Ihr Zeit zu zweit schenken, ohne Programm",
-      "Die leichten Momente, das Lachen, die Sinnlichkeit ergreifen",
-      "Ihr sagen, was du an ihr beobachtest, ohne Kalkül"
-    ],
-    "avoid": [
-      "Mechanisch „einen Paarmoment“ planen",
-      "Ihre Ausstrahlung mit einer Einladung an alle verwechseln",
-      "Diese Phase allein auf die Fruchtbarkeit reduzieren"
+    "discouraged": [
+      "Die Offenheit als selbstverständlich nehmen. Die \"reproduktiven Kosten\" spielen eine Rolle: Die Selektivität ist im Eisprung feiner, nicht geringer. Offenheit ist kein Freibrief.",
+      "Das Fenster in sexuellen Druck verwandeln. \"Jetzt oder nie diese Woche\", auch im Scherz gesagt, bleibt Druck.",
+      "Die Woche mit Arbeit und Verpflichtungen sättigen. Du verpasst das wertvollste Zeitfenster des Paarzyklus.",
+      "Abwesend oder beschäftigt sein. Abwesenheit in diesem Moment schmerzt stärker als in anderen Phasen.",
+      "Ihr die soziale Last des Paares aufbürden. Wenn du weißt, dass sie in einer sozialen Phase ist, delegiere ihr nicht alle Termine, weil \"du gerade nicht so verfügbar bist\".",
+      "Voraussetzen, dass dies der Normalzustand ist und die anderen Phasen ein \"Weniger\" sind. Alle Phasen sind wertvoll, der Eisprung ist nur die spektakulärste. Ihn implizit höher zu stellen heißt, ihr zu sagen, dass sie in den anderen Wochen weniger wert ist."
     ]
   },
   "post_ovulatory": {
     "name": "Postovulatorische Phase",
     "short": "Postovulatorisch",
     "range": "Luteales Plateau, nach dem Eisprung",
-    "headline": "Zu diesem Zeitpunkt des Zyklus erleben viele Frauen ein stabiles Plateau, günstig für Produktivität und Konzentration auf das Wesentliche.",
-    "posture": ["STABIL", "KONKRET", "PRÄSENT", "FOKUSSIERT"],
-    "observable": [
-      "Eine anhaltende, aber nicht euphorische Energie",
-      "Eine Aufmerksamkeit für Struktur, Ordnung, für das, was abgeschlossen werden muss",
-      "Ein allmähliches Nachlassen des sozialen Schwungs"
+    "posture": ["STABIL", "KONKRET", "KONSTRUKTIV", "PRAKTISCH"],
+    "bio": "Progesteron steigt, Östrogen mit einem zweiten, bescheideneren Höhepunkt. Die Energie ist noch hoch, verinnerlicht sich aber zunehmend. Die Konzentration verbessert sich, ebenso die Aufmerksamkeit fürs Detail. Es ist oft das produktivste Fenster für grundlegende Themen — weniger spektakulär als die präovulatorische Phase, aber tiefer. Die Stimmung ist meist stabil. Leichte soziale Verlangsamung zugunsten einer Rückkehr zu sich selbst.",
+    "advised": [
+      "Ihr ruhiges, gleichmäßiges Tempo aufnehmen. Kein Rennen, kein Stillstand. Eine Reisegeschwindigkeit, die hält.",
+      "Ihr helfen, Angefangenes zu beenden. Jetzt ist der Moment, früher getroffene Entscheidungen umzusetzen. Du kannst einen Teil des Umsetzungsschwungs tragen.",
+      "Stabile Routinen. Werktagsabende, Spaziergänge, Rituale, die halten. Keine Umwälzungen.",
+      "Konkrete Lösungen statt vager Ideen. Wenn sie ein Problem anspricht, schlag eine Handlung vor statt einer großen philosophischen Überlegung.",
+      "Praktische Zärtlichkeit. Eine kleine, regelmäßige Geste ist mehr wert als eine große, sporadische.",
+      "Das wachsende Bedürfnis nach Konzentration respektieren. Wenn sie in einem Vorgang vertieft ist, reiß sie nicht grundlos heraus."
     ],
-    "propose": [
-      "Mit ihr Konkretes voranbringen: Entscheidungen, Vorgänge, Haushalt",
-      "Ihre Rückzugsmomente respektieren, ohne sie zu deuten",
-      "Eure Zusagen einhalten, auch die kleinen"
-    ],
-    "avoid": [
-      "Ein weiteres vages oder hypothetisches Vorhaben starten",
-      "Ihr übermäßig viel Zeit für dich nehmen",
-      "Den Rückzug als persönliche Distanzierung deuten"
+    "discouraged": [
+      "Sie in deine eigenen Spinnereien hineinziehen. Wenn du einen Impuls hast, regle ihn allein.",
+      "Dieselbe soziale Offenheit erwarten wie während des Eisprungs. Das wird erst überraschend, dann frustrierend sein.",
+      "Mit einer großen Planänderung überraschen. Sie ist im Umsetzungsmodus; Unvorhergesehenes kostet mehr als sonst.",
+      "Ihr deine ungelösten Probleme abladen. Du darfst darüber reden, aber mach sie nicht zum Kundendienst für deine Gemütszustände.",
+      "Passiv-aggressiv werden, wenn sie auf ihre eigenen Ziele konzentriert ist. Das ist kein Desinteresse an der Beziehung; es ist eine Arbeitsphase.",
+      "Sie das soziale Leben des Monats planen lassen. Sie ist im zunehmenden Rückzug, das ist nicht ihr Zeitfenster."
     ]
   },
   "pre_menstrual": {
     "name": "Prämenstruelle Phase",
     "short": "Prämenstruell",
     "range": "Letzte 6 Tage des Zyklus",
-    "headline": "Zu diesem Zeitpunkt des Zyklus haben viele Frauen einen kritischeren, mitunter düstereren Blick und eine große Kreativität.",
-    "posture": ["GEDULDIG", "ROBUST", "ZUHÖREND", "GELASSEN"],
-    "observable": [
-      "Ihre emotionale Verfassung",
-      "Ihre körperliche Müdigkeit",
-      "Ihre Toleranz gegenüber Ärgernissen"
+    "posture": ["GEDULDIG", "ROBUST", "AUFMERKSAM", "NICHT-REAKTIV"],
+    "bio": "Progesteron fällt, Östrogen in einem zweiten Rückgang, Immunabwehr am Tiefpunkt. Das ist für viele Frauen die emotional anspruchsvollste Phase — nicht weil sie \"mühsam\" wäre, sondern weil sich die Wahrnehmung schärft und der nachsichtige Filter, der die Dinge milderte, sich hebt. Ein anspruchsvollerer, manchmal dunklerer Blick auf Menschen und Projekte; feines Erkennen dessen, was nicht stimmt; hohe Kreativität; ausgeprägte körperliche und emotionale Empfindlichkeit. Impulse zum Aussortieren, Aufräumen, Umgestalten. Die \"prämenstruelle Strategie\": eine biologische Tendenz, die Fehler des Partners nach mehreren nicht fruchtbaren Zyklen zu verstärken. Gut zu wissen, um es nicht wörtlich zu nehmen.",
+    "advised": [
+      "Geduldig sein. Wirklich geduldig. Der defensive Reflex ist der Feind. Eine harte Bemerkung verlangt keine sofortige Antwort.",
+      "Empfang bestätigen, ohne zu argumentieren. \"Ich nehme es zur Kenntnis. Ich will mit kühlem Kopf darauf zurückkommen, das heben wir uns für nächste Woche auf.\" Ein Satz zum Merken.",
+      "Noch mehr übernehmen. Das Nervensystem ist beansprucht, die Immunität niedrig, die Erschöpfung kommt. Je mehr du die Logistik erleichterst, desto mehr spart sie für das, was zählt.",
+      "Die körperliche Fragilität vorausdenken. Niemand Krankes zum Essen einladen, sie nicht zu einem Ereignis drängen, bei dem sie performen muss.",
+      "Vorwürfe annehmen, ohne sie aufzugreifen. Sie sich mental notieren, in zehn Tagen wieder darauf zu sprechen kommen. Wenn ein wahrer Kern dahintersteckt (oft tut er das), bleibt er. War es die Verstärkung, vergeht es.",
+      "Wenn du während des Zyklus Mist gebaut hast, kommt es jetzt hoch. Entschuldige dich früh. Nicht im Kundendienst-Modus — aufrichtig.",
+      "Das Bedürfnis nach Einsamkeit oder Schöpfung respektieren. Wenn sie sich in ein kreatives Projekt, in ein großes Aussortieren, in einen Einzelsport zurückzieht: unterstütze, ohne zu kommentieren.",
+      "Bedingungslose und unaufdringliche Zuneigung. Keine großen Gesten, aber stabile Präsenz. Eine kurze Sprachnachricht, ein gebrachter Tee, ein hinterlassenes liebes Wort.",
+      "Ihr helfen zu erkennen, was in ihrem Leben wirklich nicht funktioniert, ohne eine Lösung vorzuschlagen. Der prämenstruelle Filter ist ein Problemdetektor; man muss hören, was er sagt, ohne im Affekt zu handeln.",
+      "Daran festhalten, dass schwere Entscheidungen warten. \"Sprich mich in zehn Tagen wieder darauf an, und wenn du es dann immer noch denkst, sehen wir es uns ernsthaft an.\""
     ],
-    "propose": [
-      "Die Organisation entlasten, ohne es zur Schau zu stellen",
-      "Ihr Zeit für sich allein geben, wenn sie das möchte",
-      "Nicht frontal gegen Vorwürfe argumentieren — zuhören, umformulieren"
-    ],
-    "avoid": [
-      "Sie bitten, heute eine schwerwiegende Entscheidung zu treffen",
-      "Ihr sagen „das sind deine Hormone“",
-      "Jede Bemerkung persönlich nehmen"
+    "discouraged": [
+      "\"Das sind deine Hormone.\" Wahrscheinlich der schlimmste Satz des ganzen Zyklus. Abwertend, bevormundend.",
+      "\"Du bist in deinem PMS.\" Variante des vorigen, gleiche Wirkung. Zu verbannen.",
+      "Punkt für Punkt gegen die Kritik argumentieren. Du verstärkst, was ohnehin schon verstärkt war.",
+      "Versuchen, sie mit Logik oder guter Laune \"aufzumuntern\". Beides gleitet ab und kommt wie ein Bumerang zurück.",
+      "Diese Woche eine schwere Entscheidung planen oder verlangen. Kündigung, Umzug, große Anschaffung, große Verpflichtung: das wartet.",
+      "Die Sticheleien für deinen persönlichen Wert nehmen. Der Filter ist biologisch und oft teilweise real; aber die Verstärkung definiert dich nicht.",
+      "Deine Zuneigung zurückziehen, weil sie \"schwierig\" ist. Genau das ist der Moment, in dem der Rückzug den größten Schaden anrichtet.",
+      "Intimität ohne klares Signal von ihr initiieren. Die taktile Empfindlichkeit ist schwankend, die Libido in der Regel niedriger.",
+      "Einen großen Streit über ein altes Thema vom Zaun brechen. Wenn ihr ein grundlegendes Thema zu klären habt, warte die follikuläre Phase oder den Eisprung ab.",
+      "Alles auf den Zyklus zurückführen. Wenn sie dir etwas Konkretes vorwirft, kann dieser Vorwurf wahr sein. Der Zyklus verstärkt; er erfindet nicht immer."
     ]
   }
 }

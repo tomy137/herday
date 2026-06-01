@@ -4,16 +4,26 @@ import { useNavigate } from 'react-router-dom';
 import { api } from '../api/client';
 import type { PhaseInfo } from '../api/client';
 import type { Phase } from '../lib/cycle-engine';
+import { PHASE_HEX, PHASE_SOFT_HEX, PHASE_INK_HEX } from '../constants/phases';
+import { PHASE_ORDER } from '../constants/phase-meta';
 import CycleGraph from '../components/CycleGraph';
 
 export default function Info() {
   const { t } = useTranslation('info');
   const navigate = useNavigate();
   const [phaseInfo, setPhaseInfo] = useState<PhaseInfo | null>(null);
+  const [selectedPhase, setSelectedPhase] = useState<Phase | null>(null);
 
   useEffect(() => {
-    api.phases.today().then(setPhaseInfo).catch(() => {});
+    api.phases.today()
+      .then((d) => {
+        setPhaseInfo(d);
+        setSelectedPhase(d.phase as Phase);
+      })
+      .catch(() => {});
   }, []);
+
+  const highlighted = selectedPhase ?? (phaseInfo?.phase as Phase | undefined) ?? null;
 
   return (
     <div className="p-5 space-y-6">
@@ -29,27 +39,17 @@ export default function Info() {
         <h1 className="text-xl font-bold text-gray-900 tracking-tight">{t('title')}</h1>
       </div>
 
-      {/* Hormone graph */}
+      {/* Hormone graph (click a band to highlight a phase) */}
       <section className="bg-white rounded-2xl p-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-warm-200/40">
         <CycleGraph
           dayInCycle={phaseInfo?.day_in_cycle ?? 0}
           cycleLength={phaseInfo?.cycle_length ?? 28}
-          phase={(phaseInfo?.phase as Phase | undefined) ?? null}
+          phase={highlighted}
+          onSelectPhase={setSelectedPhase}
         />
       </section>
 
-      {/* Glossary */}
-      <section className="bg-white rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-warm-200/40 space-y-3">
-        <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">{t('glossary.title')}</h2>
-        {(['cycle', 'menstruation', 'post_menstrual', 'pre_ovulatory', 'ovulation', 'post_ovulatory', 'pre_menstrual', 'pms', 'ogino'] as const).map((key) => (
-          <div key={key}>
-            <p className="text-sm font-semibold text-gray-800">{t(`glossary.${key}.term`)}</p>
-            <p className="text-xs text-warm-500 leading-relaxed">{t(`glossary.${key}.def`)}</p>
-          </div>
-        ))}
-      </section>
-
-      {/* How phases are calculated */}
+      {/* How phases are calculated — right under the graph, interactive */}
       <section className="bg-white rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-warm-200/40 space-y-3">
         <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">{t('phases.title')}</h2>
         <p className="text-xs text-warm-500 leading-relaxed">{t('phases.ogino')}</p>
@@ -58,13 +58,44 @@ export default function Info() {
         </div>
         <p className="text-xs text-warm-500 leading-relaxed">{t('phases.example')}</p>
         <div className="space-y-1.5">
-          {(['menstruation', 'post_menstrual', 'pre_ovulatory', 'ovulation', 'post_ovulatory', 'pre_menstrual'] as const).map((p) => (
-            <div key={p} className="flex justify-between items-center rounded-lg bg-warm-50 px-3 py-2">
-              <span className="text-xs font-semibold text-gray-800">{t(`phases.breakdown.${p}.name`)}</span>
-              <span className="text-xs text-warm-400">{t(`phases.breakdown.${p}.days`)}</span>
-            </div>
-          ))}
+          {PHASE_ORDER.map((p) => {
+            const active = highlighted === p;
+            return (
+              <button
+                key={p}
+                type="button"
+                onClick={() => setSelectedPhase(p)}
+                className="w-full text-left rounded-lg px-3 py-2.5 transition-colors"
+                style={{
+                  background: active ? PHASE_SOFT_HEX[p] : 'var(--color-warm-50)',
+                  borderLeft: `3px solid ${active ? PHASE_HEX[p] : 'transparent'}`,
+                }}
+              >
+                <div className="flex items-baseline justify-between gap-2">
+                  <span
+                    className="text-xs font-semibold"
+                    style={{ color: active ? PHASE_INK_HEX[p] : '#1f2937' }}
+                  >
+                    {t(`phases.breakdown.${p}.name`)}
+                  </span>
+                  <span className="text-xs text-warm-400 shrink-0">{t(`phases.breakdown.${p}.days`)}</span>
+                </div>
+                <p className="mt-1 text-xs leading-relaxed text-warm-500">{t(`glossary.${p}.def`)}</p>
+              </button>
+            );
+          })}
         </div>
+      </section>
+
+      {/* Glossary — only the non-phase terms now (phase defs live above) */}
+      <section className="bg-white rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-warm-200/40 space-y-3">
+        <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">{t('glossary.title')}</h2>
+        {(['cycle', 'pms', 'ogino'] as const).map((key) => (
+          <div key={key}>
+            <p className="text-sm font-semibold text-gray-800">{t(`glossary.${key}.term`)}</p>
+            <p className="text-xs text-warm-500 leading-relaxed">{t(`glossary.${key}.def`)}</p>
+          </div>
+        ))}
       </section>
 
       {/* Confidence */}

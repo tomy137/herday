@@ -3,27 +3,23 @@ import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../api/client';
-import type { PhaseInfo, JournalDraft, EchoAggregate } from '../api/client';
+import type { PhaseInfo, EchoAggregate } from '../api/client';
 import type { Phase } from '../lib/cycle-engine';
-import { formatDate, today } from '../lib/date-utils';
 import { PHASE_RANGES_28 } from '../constants/phase-meta';
 import { syncPhaseToWidget } from '../native/widgetBridge';
 import Header from '../components/layout/Header';
 import PhaseCard from '../components/home/PhaseCard';
 import EchoCard from '../components/home/EchoCard';
-import JournalQuick from '../components/home/JournalQuick';
 import GoFurther from '../components/home/GoFurther';
 import CycleGraph from '../components/CycleGraph';
-import { useToast } from '../components/ui/Toast';
 
 export default function Home() {
   const { t: tCommon } = useTranslation('common');
   const { t: tPhases } = useTranslation('phases');
+  const { t: tJournal } = useTranslation('journal');
   const navigate = useNavigate();
-  const { showToast } = useToast();
 
   const [info, setInfo] = useState<PhaseInfo | null>(null);
-  const [journal, setJournal] = useState<JournalDraft | null>(null);
   const [echo, setEcho] = useState<EchoAggregate | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -42,7 +38,7 @@ export default function Home() {
       nextPeriodIn: phaseInfo.next_period_in,
       phaseEndsIn: phaseInfo.phase_ends_in,
       tipTitle: posture.slice(0, 3).join(' · '),
-      tipBody: tPhases(`${phase}.headline`),
+      tipBody: tPhases(`${phase}.bio`),
       systemState: phaseInfo.system_state,
       posture,
       range: tPhases(`${phase}.range`),
@@ -54,18 +50,11 @@ export default function Home() {
 
   const load = useCallback(async () => {
     try {
-      const [phaseInfo, entry, echoes] = await Promise.all([
+      const [phaseInfo, echoes] = await Promise.all([
         api.phases.today(),
-        api.journal.today(),
         api.echoes.current().catch(() => null),
       ]);
       setInfo(phaseInfo);
-      setJournal({
-        pastilles: entry.pastilles,
-        free_text: entry.free_text,
-        helpful: entry.helpful,
-        not_helpful: entry.not_helpful,
-      });
       setEcho(echoes);
       setError(false);
       syncWidget(phaseInfo, echoes);
@@ -80,12 +69,6 @@ export default function Home() {
     load();
   }, [load]);
 
-  const handleSaveJournal = useCallback((draft: JournalDraft) => {
-    api.journal.upsert(formatDate(today()), draft).catch(() => {
-      showToast(tCommon('error'), 'error');
-    });
-  }, [showToast, tCommon]);
-
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center gap-3 py-24">
@@ -95,7 +78,7 @@ export default function Home() {
     );
   }
 
-  if (error || !info || !journal) {
+  if (error || !info) {
     return (
       <div className="flex items-center justify-center py-24">
         <p className="font-medium text-phase-menstruation">{tCommon('error')}</p>
@@ -109,19 +92,21 @@ export default function Home() {
     <div>
       <Header />
       <div className="flex flex-col gap-[18px] px-[22px] pb-6 pt-1">
-        <PhaseCard info={info} />
-
         <div className="rounded-[14px] bg-warm-100 px-2 pb-2 pt-3.5">
           <CycleGraph dayInCycle={info.day_in_cycle} cycleLength={info.cycle_length} phase={phase} />
         </div>
 
-        {echo && <EchoCard echo={echo} onSeeAll={() => navigate('/echoes')} />}
+        <PhaseCard info={info} />
 
-        <JournalQuick
-          initial={journal}
-          onSave={handleSaveJournal}
-          onWriteMore={() => navigate('/journal')}
-        />
+        <button
+          type="button"
+          onClick={() => navigate('/journal')}
+          className="rounded-[10px] bg-ink px-5 py-3.5 text-[14px] font-medium text-warm-50 transition-all hover:bg-ink-soft active:scale-[0.99]"
+        >
+          {tJournal('cta')}
+        </button>
+
+        {echo && <EchoCard echo={echo} onSeeAll={() => navigate('/echoes')} />}
 
         <GoFurther phase={phase} />
       </div>

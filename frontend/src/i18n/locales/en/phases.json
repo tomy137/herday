@@ -4,9 +4,9 @@
     "days_left_one": "{{count}} more day in this phase",
     "days_left_other": "{{count}} more days in this phase",
     "switch_today": "Transition expected today",
-    "observe": "What you can observe",
-    "propose": "What you can offer",
-    "avoid": "Better to avoid"
+    "bio": "Biological cues",
+    "advised": "Advised",
+    "discouraged": "Not advised"
   },
   "parent": {
     "menstrual": "Menstrual",
@@ -18,132 +18,157 @@
     "name": "Menstrual phase",
     "short": "Menstruation",
     "range": "Days 1 to 5",
-    "headline": "At this point in the cycle, many women feel real physical fatigue and lower tolerance for noise or demands.",
-    "posture": ["STEADY", "RELIABLE", "DISCREET", "LOGISTICAL"],
-    "observable": [
-      "Her physical state: fatigue, sensitivity to smells or bright lights",
-      "Her pace: a likely need to slow down",
-      "Her household logistics: what she usually takes care of"
+    "posture": ["SOLID", "RELIABLE", "LOW-KEY", "LOGISTICAL"],
+    "bio": "Sharp drop in progesterone and estradiol. Bleeding, shedding of the uterine lining. Energy at its lowest. Pain is possible (cramps, lower-back pain, migraines). The body calls for withdrawal, warmth, and slowing down. Mood is often settled, intuition sharpened. A good time for taking stock and making fundamental decisions (emotionally stable, little \"hormonal interference\").",
+    "advised": [
+      "Take over the logistics without making it an event. Cooking, shopping, kids, errands, basic housework. You just do it, you don't ask whether you can help.",
+      "Anticipate her comfort. Hot-water bottle ready, blanket, warm herbal tea, her usual painkiller within reach if she takes any. No need to ask every time.",
+      "Respect the withdrawal without taking it personally. If she wants to be alone in another room, it's physiological, not a rejection of the relationship.",
+      "Believe the pain. No minimizing. If she says it hurts, it hurts.",
+      "Quality presence rather than quantity. A herbal tea brought in silence is worth more than a long conversation.",
+      "Run the household without talking about it. No expecting thanks, no post-period recap of \"I handled everything while you were out of it.\"",
+      "Schedule gently. No socially high-intensity events this week if you can move them. No surprise guests.",
+      "A good window for deeper conversations, if she's open to them. Decisions made during the period are often emotionally stable and reliable. If she wants to talk about something serious, it's a signal, not a trap."
     ],
-    "propose": [
-      "Step in without asking \"can I help?\" — decide, act",
-      "Lighten the household load (meals, groceries, kids)",
-      "Offer quiet time: no loud evening imposed on her"
-    ],
-    "avoid": [
-      "Making packed social plans without talking to her first",
-      "Asking her to settle a substantial logistical matter",
-      "Mentioning her period in front of others"
+    "discouraged": [
+      "\"Feeling better?\" repeated every hour.",
+      "\"Is it your period?\" as the automatic explanation for the slightest behavior.",
+      "\"You'll feel better tomorrow.\" Minimizing disguised as reassurance.",
+      "Compensating for your own worry by talking a lot. You can do the opposite: be present and silent.",
+      "Making yourself tired or sick at exactly the same time. A common phenomenon: without meaning to, many men slow down when their partner slows down. Something to watch for in your own behavior.",
+      "Trying to \"perk her up\" with an energizing activity. Surprise outing, late dinner, lively evening: not the moment.",
+      "Initiating intimacy on the assumption that she's \"not really in the mood, but still.\" Gentle pressure is still pressure. If she initiates, accept; otherwise, don't push.",
+      "Talking about her cycle as a malfunction. \"How many more days have you got?\" files her period under \"problem to be finished.\"",
+      "Asking her to settle minor logistical decisions. This is when you take it on yourself: choosing the meal, organizing the kids, the shopping."
     ]
   },
   "post_menstrual": {
     "name": "Post-menstrual phase",
     "short": "Post-menstrual",
     "range": "A few days after the period",
-    "headline": "At this point in the cycle, many women regain steady energy, still low, without euphoria. Recovery is underway.",
-    "posture": ["AVAILABLE", "OPEN", "CURIOUS", "ATTENTIVE"],
-    "observable": [
-      "Energy returning, without urgency",
-      "A stable mood, more open to conversation",
-      "Desires re-emerging (projects, conversations put off until later)"
+    "posture": ["PATIENT", "ENCOURAGING", "CURIOUS", "EASYGOING"],
+    "bio": "The period is ending, estradiol begins to rise gently. Energy returns but stays low in the first days — it's a gradient, not a switch. Recovery in progress. Mood lifts, projects start reappearing in her mind, but the body isn't at its peak yet. A phase often underestimated because it's less spectacular than the ones that follow.",
+    "advised": [
+      "Be available without being pushy. She's coming back. She may want to share, plan, dream out loud. Listen without solving immediately.",
+      "Show curiosity about her ideas. \"Where are you at on X?\", \"Have you thought about it more?\" — inviting her to unfold without pushing her to conclude.",
+      "Pick up the decisions you parked. If you set a topic aside during the period, this is a good time to revisit it. Not all at once.",
+      "Take back a normal share of the tasks. You're no longer in \"I handle everything\" mode; you become an equal partner again.",
+      "Initiate small, light things. A coffee together, a walk, a film — not an expedition. Recovery is gradual.",
+      "Take care of yourself too. You may have held the fort for a week. You're allowed to breathe now that she's coming back.",
+      "Keep an eye on residual fatigue. If the period was heavy, recovery can take 3 to 4 days after the bleeding stops."
     ],
-    "propose": [
-      "Pick back up the conversations she left on pause",
-      "Ask her where she stands, without rushing her",
-      "Line up upcoming commitments together"
-    ],
-    "avoid": [
-      "Imposing an intense pace on her right away",
-      "Reviving an unresolved conflict the moment energy returns",
-      "Mistaking returning energy for full energy"
+    "discouraged": [
+      "Assuming she's \"at 100%\" the moment the period ends. The energy peak is still ahead.",
+      "Dumping everything you parked on her. \"Right, now we need to talk about A, B, C, D...\"",
+      "Comparing her current energy to her energy at the last ovulation. \"You were more fun last week.\"",
+      "Making her feel she owes you something for what you handled during the period. The \"I was a saint\" feeling is the enemy of the relationship.",
+      "Being too protective now. She's taking the reins back, let her.",
+      "Scheduling a big evening on the 3rd day post-period because \"it should be fine by now.\" Better to ask her."
     ]
   },
   "pre_ovulatory": {
     "name": "Pre-ovulatory phase",
     "short": "Pre-ovulatory",
     "range": "2 to 3 days before ovulation",
-    "headline": "At this point in the cycle, many women feel a rise in energy, a drive to take things on, and greater tolerance for risk.",
-    "posture": ["IN MOTION", "PARTNER", "CONFIDENT", "PLAYFUL"],
-    "observable": [
-      "Spontaneous initiative on new topics",
-      "An appetite for projects, outings, encounters",
-      "A steadier voice, a more direct gaze"
+    "posture": ["TEAMMATE", "AVAILABLE", "CURIOUS ABOUT HER IDEAS", "ACTION-DRIVEN"],
+    "bio": "Estradiol rising steeply, sometimes fast. This is the run-up. High self-confidence, reduced sensitivity to fear, easier risk-taking, peak productivity. Several things in parallel, energy that can seem inexhaustible. Skin, tone, and sleep often at their best. This \"cocktail\" is highly valued socially but can be tiring for those around her who struggle to keep up.",
+    "advised": [
+      "Play as a team. Ask her what she wants to tackle, offer to take on what you can so she can focus on what truly matters to her.",
+      "Take over low-value tasks. While she builds, you keep the machine running — a high-return investment.",
+      "Take a genuine interest in her projects. \"What are you trying to build?\", \"What's missing?\"",
+      "Keep up the pace or step back gracefully. If she's in tornado mode and you need a break, just say so: \"I love what you're doing, I need 10 minutes.\"",
+      "A good window to plan together. Holidays, big purchases, couple projects: her capacity for commitment is good, her fear is low.",
+      "A good window for difficult conversations that require perspective and bandwidth.",
+      "Exercise together. The body responds well, and so does the mood.",
+      "Encourage without overdoing it. You don't need to be more enthusiastic than she is; you can just be steady and present."
     ],
-    "propose": [
-      "Start a project, an outing, a short trip with her",
-      "Leave her room to carry her own momentum",
-      "Be present physically and in listening to her ideas"
-    ],
-    "avoid": [
-      "Cutting her momentum short out of excess caution",
-      "Constantly bringing the conversation back to daily routine",
-      "Mistaking her energy for a request for coaching"
+    "discouraged": [
+      "Slowing the momentum. If she's fast, don't ask her to \"tone it down\" — she's not anxious, she's energized.",
+      "Wanting cuddles when she wants to act. Needs diverge; respect the direction.",
+      "Taking sharp phrases personally. \"No, not now,\" \"Later\": it's not rejection, it's focus. Social skills aren't at their peak in this phase.",
+      "Planning her schedule for her. \"You should rest a bit\" lands badly when she feels able to move mountains.",
+      "Quietly competing. If you feel small next to her energy, that's not her problem, that's your issue to handle.",
+      "Piling on non-urgent emotional demands. Keep your own small topics for later; raise the big ones calmly if you want to address them.",
+      "Assuming she'll finish everything she started. Some of it will fade in the next phase. That's normal."
     ]
   },
   "ovulation": {
     "name": "Ovulatory phase",
     "short": "Ovulation",
     "range": "Fertile window, 5 days centered on day (L-14)",
-    "headline": "At this point in the cycle, many women experience a peak in confidence, sociability, and physical openness.",
-    "posture": ["PRESENT", "PARTNER", "PLAYFUL", "LIGHTHEARTED"],
-    "observable": [
-      "Broader, more outgoing sociability",
-      "Attention to the body, to appearance, to how she's seen",
-      "An appetite for flirtation and play"
+    "posture": ["PRESENT", "CONNECTED", "PLAYFUL", "LIGHT-HEARTED"],
+    "bio": "Peak estrogen, LH surge (which triggers ovulation), small testosterone peak (libido, combativeness, memory). Maximum fertile window (worth knowing if contraception relies on other methods). The face is measurably more symmetrical, the voice often slightly higher. Energy stays high but no longer accelerates: an open, social, pleasant plateau. Empathy, seeking connection, enjoyment of the senses. It's the most socially valued phase, sometimes too much: don't make it the \"norm\" of the relationship.",
+    "advised": [
+      "Full presence, not distracted presence. Eye contact, attention, listening. No second screen during a dinner with her.",
+      "Initiate or welcome intimacy. Libido is physiologically at its peak. A good window to reinvest in the sexual dimension if it has faded.",
+      "Schedule quality couple time. Dinner out, a walk, a long conversation. Not a fully booked shared agenda every day of the week.",
+      "Be connected and playful. Humor, gentle teasing, shared pleasure. This is the phase where the couple has the most room to laugh.",
+      "Observational compliments, not flattering ones. \"There's something about you today\" rather than \"you're gorgeous\" — the first observes, the second evaluates.",
+      "A good window for sensitive couple conversations. Empathy, bandwidth, and a desire for connection.",
+      "If contraception matters: talk about it explicitly and early in the window. Not in the heat of the moment.",
+      "Welcome her openness to others without jealousy. She's not trying to seduce the world, she's open to the world. Different."
     ],
-    "propose": [
-      "Give her one-on-one time, with no agenda",
-      "Seize the light moments, the laughter, the sensuality",
-      "Tell her what you notice in her, without calculation"
-    ],
-    "avoid": [
-      "Mechanically scheduling \"a couple's moment\"",
-      "Mistaking her radiance for an invitation to everyone",
-      "Reducing this phase to fertility alone"
+    "discouraged": [
+      "Taking the openness for granted. The \"reproductive cost\" comes into play: selectivity is sharper during ovulation, not weaker. Openness is not a blank check.",
+      "Turning the window into sexual pressure. \"It's now or never this week,\" said jokingly, is still pressure.",
+      "Cramming the week with work and commitments. You miss the most precious slot in the couple's cycle.",
+      "Being absent or busy. Absence at this moment stings harder than in other phases.",
+      "Offloading the couple's social load onto her. If you know she's in a social phase, don't delegate all the appointments to her because \"you're not too available.\"",
+      "Assuming this is the normal state and the other phases are \"lesser.\" Every phase is precious; ovulation is just the most spectacular. Ranking it implicitly tells her she's worth less the other weeks."
     ]
   },
   "post_ovulatory": {
     "name": "Post-ovulatory phase",
     "short": "Post-ovulatory",
     "range": "Luteal plateau, after ovulation",
-    "headline": "At this point in the cycle, many women experience a stable plateau, well suited to productivity and refocusing.",
-    "posture": ["STABLE", "CONCRETE", "PRESENT", "FOCUSED"],
-    "observable": [
-      "Sustained but not euphoric energy",
-      "Attention to structure, sorting, what needs finishing",
-      "A gradual decline in social drive"
+    "posture": ["STEADY", "CONCRETE", "CONSTRUCTIVE", "PRACTICAL"],
+    "bio": "Progesterone rising, estrogen in a second, more modest peak. Energy is still high but gradually turns inward. Focus improves, and so does attention to detail. This is often the most productive window for fundamental matters — less spectacular than the pre-ovulatory phase, but deeper. Mood is generally stable. A slight social slowdown in favor of a return to herself.",
+    "advised": [
+      "Match her calm, steady rhythm. No racing, no stopping. A cruising pace that holds.",
+      "Help her finish what's been started. This is the time to execute decisions made earlier. You can carry part of the execution drive.",
+      "Stable routines. Weeknight dinners, walks, rituals that hold. No upheaval.",
+      "Concrete solutions rather than airy ideas. If she raises a problem, offer an action rather than a grand philosophical reflection.",
+      "Practical tenderness. A small, regular gesture is worth more than a grand, occasional one.",
+      "Respect the growing need for focus. If her head is in a project, don't pull her out for nothing."
     ],
-    "propose": [
-      "Move forward on concrete things with her: decisions, paperwork, home",
-      "Respect her moments of withdrawal without reading into them",
-      "Keep your commitments, even small ones"
-    ],
-    "avoid": [
-      "Launching yet another vague or hypothetical project",
-      "Taking up an excess of her time for yourself",
-      "Reading withdrawal as a personal distancing"
+    "discouraged": [
+      "Dragging her into your own whims. If you get a sudden urge, you handle it on your own.",
+      "Expecting the same social openness as during ovulation. It'll be surprising, then frustrating.",
+      "Surprising her with a major change of plan. She's in execution mode; the unexpected costs more than elsewhere.",
+      "Unloading your unresolved problems on her. You can talk about them, but don't turn her into the after-sales service for your moods.",
+      "Becoming passive-aggressive when she's focused on her own goals. It's not disinterest in the relationship; it's a work phase.",
+      "Asking her to plan the month's social life. She's in gradual withdrawal, that's not her slot."
     ]
   },
   "pre_menstrual": {
     "name": "Pre-menstrual phase",
     "short": "Pre-menstrual",
     "range": "Last 6 days of the cycle",
-    "headline": "At this point in the cycle, many women have a more demanding, sometimes darker outlook, along with great creativity.",
-    "posture": ["PATIENT", "ROBUST", "LISTENING", "NON-REACTIVE"],
-    "observable": [
-      "Her emotional state",
-      "Her physical fatigue",
-      "Her tolerance for setbacks"
+    "posture": ["PATIENT", "STURDY", "LISTENING", "NON-REACTIVE"],
+    "bio": "Progesterone dropping, estrogen in a second decline, immune defenses at a low. This is the most emotionally demanding phase for many women — not because it's \"a hassle,\" but because perception sharpens and the lenient filter that softened things lifts. A more demanding, sometimes darker, view of people and projects; fine-grained detection of what's wrong; high creativity; marked physical and emotional sensitivity. Urges to sort, clean, and rearrange. The \"premenstrual strategy\": a biological tendency to amplify a partner's flaws after several non-fertile cycles. Worth knowing, so as not to take it literally.",
+    "advised": [
+      "Be patient. Truly patient. The defensive reflex is the enemy. A harsh remark does not call for an immediate response.",
+      "Acknowledge without arguing. \"I hear you. I want to come back to it with a clear head, let's keep it for next week.\" That's a sentence to memorize.",
+      "Take over even more. The nervous system is taxed, immunity is low, fatigue is coming. The more you lighten the logistics, the more she saves for what matters.",
+      "Anticipate physical fragility. Don't invite someone who's sick to dinner, don't push her toward an event where she'll have to perform.",
+      "Receive the reproaches without latching onto them. Note them mentally, bring them back up in ten days. If there's a real basis (there often is), it will remain. If it was amplification, it will pass.",
+      "If you messed up during the cycle, this is when it resurfaces. Apologize early. Not in after-sales-service mode — sincerely.",
+      "Respect the need for solitude or creation. If she withdraws into a creative project, a big clear-out, a solo sport: support her without commenting.",
+      "Unconditional, discreet affection. No grand displays, but steady presence. A short voice message, a tea brought over, a sweet note left behind.",
+      "Help her spot what really isn't working in her life without offering a solution. The pre-menstrual filter is a problem detector; you need to listen to what it says, without acting on it in the moment.",
+      "Hold firm on the idea that heavy decisions can wait. \"Bring it up again in ten days, and if you still think so, we'll look at it seriously.\""
     ],
-    "propose": [
-      "Lighten the logistics without making a show of it",
-      "Give her time alone if she wants it",
-      "Don't argue against criticism head-on — listen, reflect it back"
-    ],
-    "avoid": [
-      "Asking her to settle a weighty decision today",
-      "Telling her \"it's your hormones\"",
-      "Taking every remark personally"
+    "discouraged": [
+      "\"It's your hormones.\" Probably the worst sentence in the whole cycle. Dismissive, infantilizing.",
+      "\"You're in your PMS.\" A variant of the previous one, same effect. To be banned.",
+      "Arguing point by point against the criticism. You'll amplify what was already amplified.",
+      "Trying to \"perk her up\" with logic or good cheer. Both slide off and come back like a boomerang.",
+      "Scheduling or demanding a heavy decision this week. Resignation, moving house, a big purchase, a big commitment: we wait.",
+      "Taking the jabs as a measure of your personal worth. The filter is biological and often partly real; but the amplification doesn't define you.",
+      "Withdrawing your affection because she's \"hard to deal with.\" This is precisely when withdrawal does the most damage.",
+      "Initiating intimacy without a clear signal from her. Tactile sensitivity varies, libido is generally lower.",
+      "Starting a big argument over an old topic. If you have a fundamental issue to address, wait for the follicular phase or ovulation.",
+      "Tracing everything back to the cycle. If she reproaches you for something specific, that reproach may be true. The cycle amplifies; it doesn't always invent."
     ]
   }
 }

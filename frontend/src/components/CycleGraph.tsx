@@ -6,6 +6,8 @@ interface Props {
   cycleLength: number;
   phase?: Phase | null;
   periodDuration?: number;
+  /** When set, the phase bands become clickable (selects a phase to highlight). */
+  onSelectPhase?: (phase: Phase) => void;
 }
 
 const VBW = 600;
@@ -115,6 +117,7 @@ export default function CycleGraph({
   cycleLength,
   phase,
   periodDuration = 5,
+  onSelectPhase,
 }: Props) {
   const L = cycleLength && cycleLength >= 18 ? cycleLength : 28;
   const ranges = phaseRanges(L, periodDuration);
@@ -146,6 +149,8 @@ export default function CycleGraph({
             height={CH}
             fill={PHASE_HEX[r.phase]}
             opacity={isSelected ? 0.32 : 0.06}
+            onClick={onSelectPhase ? () => onSelectPhase(r.phase) : undefined}
+            style={onSelectPhase ? { cursor: 'pointer' } : undefined}
           />
         );
       })}

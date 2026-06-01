@@ -26,20 +26,18 @@ export default function PhaseCard({ info }: PhaseCardProps) {
       className="rounded-[14px] px-5 pb-[18px] pt-5"
       style={{ background: PHASE_SOFT_HEX[phase] }}
     >
-      <div className="mb-3.5 flex items-start justify-between gap-3">
-        <div>
-          <PhaseTag phase={phase} suffix={`J${info.day_in_cycle}`} />
-          <h2 className="mt-2 text-[22px] font-bold leading-tight tracking-tight text-ink">
-            {content.name}{' '}
-            <span className="text-[18px] font-normal italic text-warm-500">
-              — {content.range.toLowerCase()}
-            </span>
-          </h2>
-          <p className="mt-2.5 text-[14.5px] leading-relaxed text-ink-soft" style={{ textWrap: 'pretty' }}>
-            {content.headline}
-          </p>
-        </div>
-        <div className="flex-none pt-1">
+      <div className="mb-3.5">
+        <PhaseTag phase={phase} suffix={`J${info.day_in_cycle}`} />
+        <h2 className="mt-2 text-[22px] font-bold leading-tight tracking-tight text-ink">
+          {content.name}{' '}
+          <span className="text-[18px] font-normal italic text-warm-500">
+            — {content.range.toLowerCase()}
+          </span>
+        </h2>
+        <p className="mt-2.5 line-clamp-3 text-[14.5px] leading-relaxed text-ink-soft" style={{ textWrap: 'pretty' }}>
+          {content.bio}
+        </p>
+        <div className="mt-3">
           <ConfidenceBadge confidence={info.confidence} systemState={info.system_state} />
         </div>
       </div>
