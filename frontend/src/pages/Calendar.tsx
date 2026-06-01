@@ -9,6 +9,7 @@ import { formatDate, today, monthKey } from '../lib/date-utils';
 import { PHASE_SOFT_HEX, PHASE_INK_HEX } from '../constants/phases';
 import { PHASE_ORDER } from '../constants/phase-meta';
 import Header from '../components/layout/Header';
+import CycleGraph from '../components/CycleGraph';
 
 const MONTH_KEYS = [
   'january', 'february', 'march', 'april', 'may', 'june',
@@ -66,6 +67,16 @@ export default function Calendar() {
           <button type="button" onClick={goNext} className="-mr-2 px-2 py-1.5 text-warm-400 hover:text-ink" aria-label="next">›</button>
         </div>
 
+        {/* Hormone graph — highlights the selected phase (click a band or the legend) */}
+        <div className="rounded-[14px] bg-warm-100 px-2 pb-2 pt-3.5">
+          <CycleGraph
+            dayInCycle={info?.day_in_cycle ?? 0}
+            cycleLength={info?.cycle_length ?? 28}
+            phase={selectedPhase ?? (info?.phase as Phase | undefined) ?? null}
+            onSelectPhase={setSelectedPhase}
+          />
+        </div>
+
         {loading ? (
           <div className="loading-shimmer h-72 rounded-[14px]" />
         ) : (
@@ -103,7 +114,7 @@ export default function Calendar() {
                     type="button"
                     onClick={() => phase && setSelectedPhase(phase === selectedPhase ? null : phase)}
                     disabled={!phase}
-                    className="flex flex-col items-center justify-between rounded-lg px-1 pb-1 pt-1.5 transition-opacity"
+                    className="relative flex flex-col items-center justify-between rounded-lg px-1 pb-1 pt-1.5 transition-opacity"
                     style={{
                       aspectRatio: '1 / 1.05',
                       background: bg,
@@ -111,6 +122,13 @@ export default function Calendar() {
                       opacity: dimmed ? 0.35 : 1,
                     }}
                   >
+                    {day.has_journal && (
+                      <span
+                        className="absolute right-1 top-1 h-1 w-1 rounded-full"
+                        style={{ background: phase ? ink : 'var(--color-ink)', opacity: 0.55 }}
+                        aria-label="observation notée"
+                      />
+                    )}
                     <span
                       className="text-[13px]"
                       style={{ color: isToday ? 'var(--color-ink)' : ink, fontWeight: isToday ? 500 : 400 }}

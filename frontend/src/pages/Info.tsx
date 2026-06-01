@@ -90,7 +90,7 @@ export default function Info() {
       {/* Glossary — only the non-phase terms now (phase defs live above) */}
       <section className="bg-white rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-warm-200/40 space-y-3">
         <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">{t('glossary.title')}</h2>
-        {(['cycle', 'pms', 'ogino'] as const).map((key) => (
+        {(['cycle', 'estradiol', 'progesterone', 'lh', 'fsh', 'pms', 'ogino'] as const).map((key) => (
           <div key={key}>
             <p className="text-sm font-semibold text-gray-800">{t(`glossary.${key}.term`)}</p>
             <p className="text-xs text-warm-500 leading-relaxed">{t(`glossary.${key}.def`)}</p>

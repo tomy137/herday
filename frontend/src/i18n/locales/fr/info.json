@@ -37,6 +37,22 @@
     "ogino": {
       "term": "Méthode Ogino",
       "def": "Méthode de calcul basée sur le calendrier. Principe : la phase lutéale dure toujours environ 14 jours."
+    },
+    "estradiol": {
+      "term": "Œstradiol",
+      "def": "Principal œstrogène. Monte pendant la phase folliculaire jusqu'à un pic juste avant l'ovulation : énergie, confiance, libido, peau et humeur en hausse. Redescend après l'ovulation."
+    },
+    "progesterone": {
+      "term": "Progestérone",
+      "def": "Domine la phase lutéale (après l'ovulation). Effet apaisant et stabilisant, prépare l'utérus. Sa chute en fin de cycle déclenche les règles et participe au SPM."
+    },
+    "lh": {
+      "term": "LH — hormone lutéinisante",
+      "def": "Son pic brutal déclenche l'ovulation (libération de l'ovule), autour du jour 14 d'un cycle de 28 jours."
+    },
+    "fsh": {
+      "term": "FSH — hormone folliculo-stimulante",
+      "def": "Stimule la maturation des follicules ovariens en début de cycle. Prépare le follicule qui libérera l'ovule."
     }
   },
   "phases": {

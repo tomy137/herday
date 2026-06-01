@@ -200,6 +200,7 @@ export interface CalendarDay {
   events: string[];
   day_in_cycle: number | null;
   parent_phase: string | null;
+  has_journal: boolean;
 }
 
 export type TransparencyStatus = 'not_yet' | 'told_soon' | 'told_already';

@@ -37,6 +37,22 @@
     "ogino": {
       "term": "Ogino method",
       "def": "Calendar-based calculation method. Principle: the luteal phase always lasts about 14 days."
+    },
+    "estradiol": {
+      "term": "Estradiol",
+      "def": "The main estrogen. Rises through the follicular phase to a peak just before ovulation: energy, confidence, libido, skin and mood all rise. Falls after ovulation."
+    },
+    "progesterone": {
+      "term": "Progesterone",
+      "def": "Dominates the luteal phase (after ovulation). Calming and stabilizing, it prepares the uterus. Its drop at the end of the cycle triggers the period and contributes to PMS."
+    },
+    "lh": {
+      "term": "LH — luteinizing hormone",
+      "def": "Its sharp surge triggers ovulation (release of the egg), around day 14 of a 28-day cycle."
+    },
+    "fsh": {
+      "term": "FSH — follicle-stimulating hormone",
+      "def": "Stimulates the maturation of ovarian follicles early in the cycle. Prepares the follicle that will release the egg."
     }
   },
   "phases": {

@@ -37,6 +37,22 @@
     "ogino": {
       "term": "Ogino-Methode",
       "def": "Kalenderbasierte Berechnungsmethode. Prinzip: Die Lutealphase dauert immer etwa 14 Tage."
+    },
+    "estradiol": {
+      "term": "Östradiol",
+      "def": "Das wichtigste Östrogen. Steigt in der Follikelphase bis zu einem Höhepunkt kurz vor dem Eisprung: Energie, Selbstvertrauen, Libido, Haut und Stimmung steigen. Fällt nach dem Eisprung."
+    },
+    "progesterone": {
+      "term": "Progesteron",
+      "def": "Dominiert die Lutealphase (nach dem Eisprung). Beruhigend und stabilisierend, bereitet die Gebärmutter vor. Sein Abfall am Zyklusende löst die Menstruation aus und trägt zum PMS bei."
+    },
+    "lh": {
+      "term": "LH — luteinisierendes Hormon",
+      "def": "Sein abrupter Anstieg löst den Eisprung aus (Freisetzung der Eizelle), etwa am Tag 14 eines 28-Tage-Zyklus."
+    },
+    "fsh": {
+      "term": "FSH — follikelstimulierendes Hormon",
+      "def": "Stimuliert die Reifung der Eibläschen zu Beginn des Zyklus. Bereitet das Follikel vor, das die Eizelle freisetzt."
     }
   },
   "phases": {

@@ -24,6 +24,7 @@ from sqlmodel.ext.asyncio.session import AsyncSession
 
 from app.models.cycle import Cycle
 from app.models.event import Event
+from app.models.journal import JournalEntry
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -505,6 +506,19 @@ async def calculate_calendar_month(
         events_by_date.setdefault(ev.event_date, []).append(ev.event_type)
 
     _, num_days = calendar.monthrange(year, month)
+    first_day = date(year, month, 1)
+    last_day = date(year, month, num_days)
+
+    # Days that have a journal entry this month (for a discreet calendar marker)
+    journal_result = await session.exec(
+        select(JournalEntry.entry_date).where(
+            JournalEntry.user_id == user_id,
+            JournalEntry.entry_date >= first_day,
+            JournalEntry.entry_date <= last_day,
+        ),
+    )
+    journal_dates = set(journal_result.all())
+
     days: list[dict] = []
 
     for d in range(1, num_days + 1):
@@ -528,6 +542,7 @@ async def calculate_calendar_month(
             "events": events_by_date.get(current, []),
             "day_in_cycle": day_in_cycle,
             "parent_phase": parent_phase,
+            "has_journal": current in journal_dates,
         })
 
     return days

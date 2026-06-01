@@ -38,8 +38,10 @@ async def _seed(session: AsyncSession, user: User) -> None:
                          helpful="soirée annulée", free="mieux que le mois dernier"))
     # An ovulatory-phase entry (day ~15) — must be filtered out of menstrual échos.
     session.add(_journal(user.id, date(2026, 1, 15), ["coquin"], helpful="sortie"))
-    # A current-cycle menstrual entry — must be excluded from the memory.
-    session.add(_journal(user.id, date(2026, 2, 27), ["fatigue"], helpful="ne compte pas"))
+    # Current-cycle menstrual entry, NOT today — included (option C).
+    session.add(_journal(user.id, date(2026, 2, 27), ["fatigue"], helpful="ce cycle inclus"))
+    # Today's own entry — excluded (no self-echo).
+    session.add(_journal(user.id, date(2026, 2, 28), ["fatigue"], helpful="aujourd'hui exclu"))
     await session.commit()
 
 
@@ -51,19 +53,20 @@ async def test_echoes_aggregate_menstrual(session: AsyncSession, user: User):
     assert echo.parent_phase == "menstrual"
     assert "menstruation" in echo.sub_phases
 
-    # Two past occurrences (current cycle excluded), most recent first.
-    assert len(echo.history) == 2
-    assert echo.history[0].cycle_start == date(2026, 1, 29)
-    assert echo.history[1].cycle_start == date(2026, 1, 1)
+    # Three occurrences (current cycle included, only today excluded), recent first.
+    assert len(echo.history) == 3
+    assert echo.history[0].cycle_start == date(2026, 2, 26)
+    assert echo.history[1].cycle_start == date(2026, 1, 29)
+    assert echo.history[2].cycle_start == date(2026, 1, 1)
 
-    # Helpful items, most recent first; the current-cycle one is absent.
-    assert echo.helpful == ["soirée annulée", "bouillotte"]
-    assert "ne compte pas" not in echo.helpful
+    # Helpful, most recent first; current-cycle entry present, today's own absent.
+    assert echo.helpful == ["ce cycle inclus", "soirée annulée", "bouillotte"]
+    assert "aujourd'hui exclu" not in echo.helpful
 
-    # Frequent pastilles: fatigue appears in both past entries.
+    # Frequent pastilles: fatigue appears in the 3 matching entries.
     freq = {f.pastille: f for f in echo.frequent}
-    assert freq["fatigue"].count == 2
-    assert freq["fatigue"].total == 2
+    assert freq["fatigue"].count == 3
+    assert freq["fatigue"].total == 3
     assert "coquin" not in freq  # ovulatory entry excluded
 
 

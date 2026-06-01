@@ -30,6 +30,7 @@ class CalendarDay(BaseModel):
     events: list[str]
     day_in_cycle: int | None = None
     parent_phase: str | None = None
+    has_journal: bool = False
 
 
 class CalendarMonth(BaseModel):

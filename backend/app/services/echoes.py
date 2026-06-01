@@ -68,8 +68,6 @@ async def aggregate_echoes(
         parent = today_info["parent_phase"]
 
     sub_phases = _sub_phases_of(parent)
-    current_cycle = _covering_cycle(cycles, target_date)
-    current_start = current_cycle.start_date if current_cycle else None
 
     journal_result = await session.exec(
         select(JournalEntry)
@@ -78,21 +76,23 @@ async def aggregate_echoes(
     )
     entries = list(journal_result.all())
 
-    # Keep entries whose parent phase matches, excluding the current cycle.
+    # Keep entries whose parent phase matches. The current cycle's earlier
+    # same-parent entries are included; only today's own entry is excluded —
+    # no point echoing the entry you're currently writing back at you.
     by_cycle: dict[date, list[tuple[int, JournalEntry]]] = {}
-    matching_past: list[JournalEntry] = []
+    matching: list[JournalEntry] = []
     for entry in entries:
+        if entry.entry_date == target_date:
+            continue
         covering = _covering_cycle(cycles, entry.entry_date)
         if covering is None:
             continue
-        if current_start is not None and covering.start_date == current_start:
-            continue  # exclude the current cycle from the memory
         info = calculate_phase(entry.entry_date, cycles, events)
         if PARENT_OF_SUBPHASE[Phase(info["phase"])] != parent:
             continue
         day_in_cycle = (entry.entry_date - covering.start_date).days + 1
         by_cycle.setdefault(covering.start_date, []).append((day_in_cycle, entry))
-        matching_past.append(entry)
+        matching.append(entry)
 
     # Build history (most recent cycle first, bounded).
     history: list[EchoOccurrence] = []
@@ -112,18 +112,18 @@ async def aggregate_echoes(
         )
 
     # Helpful / not-helpful, most recent first.
-    helpful = [e.helpful for e in reversed(matching_past) if e.helpful]
-    not_helpful = [e.not_helpful for e in reversed(matching_past) if e.not_helpful]
+    helpful = [e.helpful for e in reversed(matching) if e.helpful]
+    not_helpful = [e.not_helpful for e in reversed(matching) if e.not_helpful]
 
     # Frequent pastilles.
     counter: Counter[str] = Counter()
-    for e in matching_past:
+    for e in matching:
         try:
             for pid in json.loads(e.pastilles_json or "[]"):
                 counter[pid] += 1
         except (ValueError, TypeError):
             continue
-    total = len(matching_past)
+    total = len(matching)
     frequent = [
         FrequencyItem(pastille=pid, count=count, total=total)
         for pid, count in counter.most_common()
