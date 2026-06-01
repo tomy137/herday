@@ -11,7 +11,7 @@ interface Props {
 }
 
 const VBW = 600;
-const VBH = 220;
+const VBH = 232;
 const LEFT = 32;
 const RIGHT = 584;
 const TOP = 24;
@@ -206,19 +206,19 @@ export default function CycleGraph({
         );
       })}
 
-      {/* Legend */}
-      <g transform={`translate(${LEFT}, ${VBH - 8})`} fontSize={10} fontFamily="DM Sans, sans-serif" fill="#666">
-        <line x1={0} x2={14} y1={-3} y2={-3} stroke="#DC3D5A" strokeWidth={2.4} />
-        <text x={18} y={0}>Œstradiol</text>
+      {/* Legend — spread across the full chart width */}
+      <g transform={`translate(${LEFT}, ${VBH - 9})`} fontSize={12.5} fontFamily="DM Sans, sans-serif" fill="#555">
+        <line x1={0} x2={17} y1={-4} y2={-4} stroke="#DC3D5A" strokeWidth={2.6} />
+        <text x={23} y={0}>Œstradiol</text>
 
-        <line x1={84} x2={98} y1={-3} y2={-3} stroke="#7E4FD0" strokeWidth={2.4} strokeDasharray="5 3" />
-        <text x={102} y={0}>Progestérone</text>
+        <line x1={174} x2={191} y1={-4} y2={-4} stroke="#7E4FD0" strokeWidth={2.6} strokeDasharray="5 3" />
+        <text x={197} y={0}>Progestérone</text>
 
-        <line x1={186} x2={200} y1={-3} y2={-3} stroke="#444" strokeWidth={1.4} strokeDasharray="2 2" />
-        <text x={204} y={0}>LH</text>
+        <line x1={374} x2={391} y1={-4} y2={-4} stroke="#444" strokeWidth={1.8} strokeDasharray="2 2" />
+        <text x={397} y={0}>LH</text>
 
-        <line x1={226} x2={240} y1={-3} y2={-3} stroke="#888" strokeWidth={1.4} strokeDasharray="3 2" />
-        <text x={244} y={0}>FSH</text>
+        <line x1={503} x2={520} y1={-4} y2={-4} stroke="#888" strokeWidth={1.8} strokeDasharray="3 2" />
+        <text x={526} y={0}>FSH</text>
       </g>
     </svg>
   );
