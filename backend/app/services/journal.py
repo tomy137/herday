@@ -19,5 +19,5 @@ PASTILLE_IDS: tuple[str, ...] = (
     "bon-moment",
     "energie",
     "pulsion",
-    "soutien",
+    "conversation",
 )

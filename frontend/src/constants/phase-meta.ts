@@ -50,7 +50,7 @@ export const PASTILLE_IDS = [
   'bon-moment',
   'energie',
   'pulsion',
-  'soutien',
+  'conversation',
 ] as const;
 
 export type PastilleId = (typeof PASTILLE_IDS)[number];
@@ -67,7 +67,7 @@ export const PASTILLE_GLYPHS: Record<PastilleId, string> = {
   'bon-moment': '◆',
   energie: '↑',
   pulsion: '▤',
-  soutien: '⤳',
+  conversation: '⇄',
 };
 
 /**
