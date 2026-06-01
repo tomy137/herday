@@ -39,12 +39,5 @@
     "not_helped_placeholder": "Ex. j'ai argumenté sur la to-do du week-end",
     "save": "Enregistrer",
     "entry": "Entrée"
-  },
-  "override": {
-    "eyebrow": "Je l'observe différemment",
-    "title": "La prédiction est une hypothèse. Tu observes mieux qu'elle.",
-    "note": "Ton choix est journalisé. La phase prédite reste visible en arrière-plan.",
-    "predicted": "PRÉDIT",
-    "saved": "Phase mise à jour"
   }
 }

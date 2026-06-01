@@ -321,28 +321,19 @@ def calculate_phase(
     target_date: date,
     cycles: list[Cycle],
     events: list[Event] | None = None,
-    overrides: dict[date, Phase] | None = None,
 ) -> dict:
     """Calculate the menstrual phase for a given date.
 
-    Returns a dict matching the PhaseInfo schema:
-    - phase, day_in_cycle, cycle_length, confidence, system_state,
-      next_period_in, phase_ends_in, tips, plus parent_phase / is_override /
-      estimated_phase.
-
-    If ``overrides`` holds an entry for ``target_date``, the displayed phase is
-    forced to that value (a *display* correction): day_in_cycle/cycle_length/
-    next_period_in/system_state are kept, while phase_ends_in/tips/parent are
-    recomputed for the forced phase. ``estimated_phase`` preserves the original.
+    Returns a dict matching the PhaseInfo schema: phase, day_in_cycle,
+    cycle_length, confidence, system_state, next_period_in, phase_ends_in,
+    tips, and parent_phase (the 4-phase grouping used by the échos).
     """
     from app.services.phase import get_tips_for_phase
 
-    override = overrides.get(target_date) if overrides else None
     state = get_system_state(cycles)
 
     if state == SystemState.UNKNOWN:
-        estimated = Phase.POST_MENSTRUAL
-        phase = override or estimated
+        phase = Phase.POST_MENSTRUAL
         return {
             "phase": phase.value,
             "day_in_cycle": 0,
@@ -353,8 +344,6 @@ def calculate_phase(
             "phase_ends_in": None,
             "tips": get_tips_for_phase(phase),
             "parent_phase": PARENT_OF_SUBPHASE[phase],
-            "is_override": override is not None,
-            "estimated_phase": estimated.value,
         }
 
     avg_cycle_length = _average_cycle_length(cycles)
@@ -385,8 +374,7 @@ def calculate_phase(
     period_dur = avg_period_duration
     ovulation_day = cycle_length - LUTEAL_PHASE_LENGTH
 
-    estimated = _day_to_phase(day_in_cycle, period_dur, ovulation_day, cycle_length)
-    phase = override or estimated
+    phase = _day_to_phase(day_in_cycle, period_dur, ovulation_day, cycle_length)
     confidence = _STATE_CONFIDENCE[state]
 
     # Next period
@@ -394,7 +382,7 @@ def calculate_phase(
     if days_until_next <= 0:
         days_until_next = 1
 
-    # Days remaining in current phase (inclusive of today) — for the forced phase
+    # Days remaining in the current phase (inclusive of today)
     phase_end_day = _phase_end_day(phase, period_dur, ovulation_day, cycle_length)
     phase_ends_in = phase_end_day - day_in_cycle + 1
     if phase_ends_in <= 0:
@@ -410,8 +398,6 @@ def calculate_phase(
         "phase_ends_in": phase_ends_in,
         "tips": get_tips_for_phase(phase),
         "parent_phase": PARENT_OF_SUBPHASE[phase],
-        "is_override": override is not None,
-        "estimated_phase": estimated.value,
     }
 
 
@@ -488,25 +474,6 @@ def _day_to_phase(
 # ---------------------------------------------------------------------------
 
 
-async def load_overrides(
-    user_id: uuid.UUID,
-    session: AsyncSession,
-) -> dict[date, Phase]:
-    """Load a user's phase overrides as a {date: Phase} lookup."""
-    from app.models.phase_override import PhaseOverride
-
-    result = await session.exec(
-        select(PhaseOverride).where(PhaseOverride.user_id == user_id),
-    )
-    overrides: dict[date, Phase] = {}
-    for ov in result.all():
-        try:
-            overrides[ov.override_date] = Phase(ov.phase)
-        except ValueError:
-            continue  # ignore stale/invalid phase values
-    return overrides
-
-
 async def calculate_calendar_month(
     year: int,
     month: int,
@@ -532,8 +499,6 @@ async def calculate_calendar_month(
     )
     events = list(events_result.all())
 
-    overrides = await load_overrides(user_id, session)
-
     # Build event lookup by date
     events_by_date: dict[date, list[str]] = {}
     for ev in events:
@@ -546,24 +511,15 @@ async def calculate_calendar_month(
         current = date(year, month, d)
         day_in_cycle: int | None = None
         if cycles:
-            info = calculate_phase(current, cycles, events, overrides)
+            info = calculate_phase(current, cycles, events)
             phase = info["phase"]
             confidence = info["confidence"]
             parent_phase = info["parent_phase"]
-            is_override = info["is_override"]
             day_in_cycle = info["day_in_cycle"]
-        elif current in overrides:
-            # No cycles yet, but a manual override exists for this day.
-            forced = overrides[current]
-            phase = forced.value
-            confidence = 0.0
-            parent_phase = PARENT_OF_SUBPHASE[forced]
-            is_override = True
         else:
             phase = None
             confidence = 0.0
             parent_phase = None
-            is_override = False
 
         days.append({
             "date": current,
@@ -572,7 +528,6 @@ async def calculate_calendar_month(
             "events": events_by_date.get(current, []),
             "day_in_cycle": day_in_cycle,
             "parent_phase": parent_phase,
-            "is_override": is_override,
         })
 
     return days

@@ -9,19 +9,16 @@ import { formatDate, today } from '../lib/date-utils';
 import { PHASE_RANGES_28 } from '../constants/phase-meta';
 import { syncPhaseToWidget } from '../native/widgetBridge';
 import Header from '../components/layout/Header';
-import BottomSheet from '../components/ui/BottomSheet';
 import PhaseCard from '../components/home/PhaseCard';
 import EchoCard from '../components/home/EchoCard';
 import JournalQuick from '../components/home/JournalQuick';
 import GoFurther from '../components/home/GoFurther';
 import CycleGraph from '../components/CycleGraph';
-import OverrideSheetContent from '../components/override/OverrideSheetContent';
 import { useToast } from '../components/ui/Toast';
 
 export default function Home() {
   const { t: tCommon } = useTranslation('common');
   const { t: tPhases } = useTranslation('phases');
-  const { t: tJournal } = useTranslation('journal');
   const navigate = useNavigate();
   const { showToast } = useToast();
 
@@ -30,7 +27,6 @@ export default function Home() {
   const [echo, setEcho] = useState<EchoAggregate | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [overrideOpen, setOverrideOpen] = useState(false);
 
   const syncWidget = useCallback((phaseInfo: PhaseInfo, echoes: EchoAggregate | null) => {
     const phase = phaseInfo.phase as Phase;
@@ -90,19 +86,6 @@ export default function Home() {
     });
   }, [showToast, tCommon]);
 
-  const handlePickOverride = async (phase: string) => {
-    try {
-      const res = await api.phases.setOverride(formatDate(today()), phase);
-      setInfo(res);
-      setOverrideOpen(false);
-      showToast(tJournal('override.saved'));
-      syncWidget(res, echo);
-      api.echoes.current().then(setEcho).catch(() => {});
-    } catch {
-      showToast(tCommon('error'), 'error');
-    }
-  };
-
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center gap-3 py-24">
@@ -126,7 +109,7 @@ export default function Home() {
     <div>
       <Header />
       <div className="flex flex-col gap-[18px] px-[22px] pb-6 pt-1">
-        <PhaseCard info={info} onOverride={() => setOverrideOpen(true)} />
+        <PhaseCard info={info} />
 
         <div className="rounded-[14px] bg-warm-100 px-2 pb-2 pt-3.5">
           <CycleGraph dayInCycle={info.day_in_cycle} cycleLength={info.cycle_length} phase={phase} />
@@ -142,14 +125,6 @@ export default function Home() {
 
         <GoFurther phase={phase} />
       </div>
-
-      <BottomSheet
-        open={overrideOpen}
-        onClose={() => setOverrideOpen(false)}
-        title={tJournal('override.eyebrow')}
-      >
-        <OverrideSheetContent info={info} onPick={handlePickOverride} />
-      </BottomSheet>
     </div>
   );
 }

@@ -133,10 +133,6 @@ export const api = {
   phases: {
     today: () => request<PhaseInfo>('/phases/today'),
     calendar: (month: string) => request<{ days: CalendarDay[] }>(`/phases/calendar?month=${month}`),
-    setOverride: (date: string, phase: string) =>
-      request<PhaseInfo>(`/phases/override/${date}`, { method: 'PUT', body: JSON.stringify({ phase }) }),
-    clearOverride: (date: string) =>
-      request<PhaseInfo>(`/phases/override/${date}`, { method: 'DELETE' }),
   },
   journal: {
     today: () => request<JournalEntry>('/journal/today'),
@@ -152,7 +148,7 @@ export const api = {
   },
   users: {
     me: () => request<User>('/users/me'),
-    update: (data: { partner_name?: string; locale?: string; transparency_status?: TransparencyStatus }) =>
+    update: (data: { locale?: string; transparency_status?: TransparencyStatus }) =>
       request<User>('/users/me', { method: 'PATCH', body: JSON.stringify(data) }),
     delete: () => request('/users/me', { method: 'DELETE' }),
   },
@@ -195,8 +191,6 @@ export interface PhaseInfo {
   phase_ends_in: number | null;
   tips: string[];
   parent_phase: string | null;
-  is_override: boolean;
-  estimated_phase: string | null;
 }
 
 export interface CalendarDay {
@@ -206,7 +200,6 @@ export interface CalendarDay {
   events: string[];
   day_in_cycle: number | null;
   parent_phase: string | null;
-  is_override: boolean;
 }
 
 export type TransparencyStatus = 'not_yet' | 'told_soon' | 'told_already';
@@ -214,7 +207,6 @@ export type TransparencyStatus = 'not_yet' | 'told_soon' | 'told_already';
 export interface User {
   id: string;
   email: string;
-  partner_name: string | null;
   locale: string;
   transparency_status: TransparencyStatus;
   transparency_accepted_at: string | null;

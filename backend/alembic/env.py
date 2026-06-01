@@ -15,7 +15,6 @@ from app.models import (  # noqa: F401
     Event,
     JournalEntry,
     MagicLinkToken,
-    PhaseOverride,
     User,
 )
 from app.config import settings

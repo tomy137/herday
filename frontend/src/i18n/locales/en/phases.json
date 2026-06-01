@@ -1,7 +1,6 @@
 {
   "labels": {
     "she_needs_you_to_be": "She needs you to be:",
-    "observe_differently": "I see her differently",
     "days_left_one": "{{count}} more day in this phase",
     "days_left_other": "{{count}} more days in this phase",
     "switch_today": "Transition expected today",

@@ -23,7 +23,6 @@ from app.services.cycle_engine import (
     PARENT_OF_SUBPHASE,
     Phase,
     calculate_phase,
-    load_overrides,
 )
 
 _HISTORY_LIMIT = 6  # at most ~6 previous occurrences
@@ -63,11 +62,9 @@ async def aggregate_echoes(
     )
     events = list(events_result.all())
 
-    overrides = await load_overrides(user_id, session)
-
     # Current parent phase
     if parent is None:
-        today_info = calculate_phase(target_date, cycles, events, overrides)
+        today_info = calculate_phase(target_date, cycles, events)
         parent = today_info["parent_phase"]
 
     sub_phases = _sub_phases_of(parent)
@@ -90,7 +87,7 @@ async def aggregate_echoes(
             continue
         if current_start is not None and covering.start_date == current_start:
             continue  # exclude the current cycle from the memory
-        info = calculate_phase(entry.entry_date, cycles, events, overrides)
+        info = calculate_phase(entry.entry_date, cycles, events)
         if PARENT_OF_SUBPHASE[Phase(info["phase"])] != parent:
             continue
         day_in_cycle = (entry.entry_date - covering.start_date).days + 1

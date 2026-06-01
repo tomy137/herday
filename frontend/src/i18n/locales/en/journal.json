@@ -39,12 +39,5 @@
     "not_helped_placeholder": "e.g. I argued about the weekend to-do list",
     "save": "Save",
     "entry": "Entry"
-  },
-  "override": {
-    "eyebrow": "I see her differently",
-    "title": "The prediction is a hypothesis. You observe her better than it does.",
-    "note": "Your choice is logged. The predicted phase stays visible in the background.",
-    "predicted": "PREDICTED",
-    "saved": "Phase updated"
   }
 }

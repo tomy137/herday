@@ -34,10 +34,6 @@
     "sources_hint": "Kiffe ton cycle ! — G. Baldassari",
     "version": "Version"
   },
-  "partner_name": {
-    "label": "Your partner's first name",
-    "placeholder": "Optional, to personalize messages"
-  },
   "language": {
     "label": "Language",
     "fr": "Francais",

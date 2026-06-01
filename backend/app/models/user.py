@@ -18,7 +18,6 @@ class User(SQLModel, table=True):
 
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
     email: str = Field(unique=True, index=True)
-    partner_name: str | None = Field(default=None)
     locale: str = Field(default="fr")
     # Transparency pact: not_yet | told_soon | told_already
     transparency_status: str = Field(default="not_yet")

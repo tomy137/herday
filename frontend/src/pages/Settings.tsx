@@ -87,7 +87,6 @@ export default function Settings() {
 
         {/* Her data */}
         <SettingsGroup title={t('groups.her_data')}>
-          <SettingsRow label={t('partner_name.label')} value={user?.partner_name ?? '—'} />
           <SettingsRow label={t('her_data.last_period')} value={lastPeriod ?? '—'} />
         </SettingsGroup>
 

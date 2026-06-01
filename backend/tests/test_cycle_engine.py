@@ -285,32 +285,16 @@ def test_parent_phase_mapping():
 
 
 # ---------------------------------------------------------------------------
-# Tests: phase override (display correction)
+# Tests: parent phase exposed by calculate_phase
 # ---------------------------------------------------------------------------
 
 
-def test_calculate_phase_without_override_flags():
-    """Without an override, the flags reflect the pure estimate."""
+def test_calculate_phase_exposes_parent():
+    """calculate_phase returns the parent-phase grouping for the échos."""
     cycles = _make_cycles_for_phase_tests()
     info = calculate_phase(date(2026, 1, 3), cycles)
-    assert info["is_override"] is False
-    assert info["estimated_phase"] == Phase.MENSTRUATION.value
+    assert info["phase"] == Phase.MENSTRUATION.value
     assert info["parent_phase"] == "menstrual"
-
-
-def test_calculate_phase_with_override():
-    """An override forces the phase but preserves day_in_cycle and the estimate."""
-    cycles = _make_cycles_for_phase_tests()
-    info = calculate_phase(
-        date(2026, 1, 3),
-        cycles,
-        overrides={date(2026, 1, 3): Phase.PRE_MENSTRUAL},
-    )
-    assert info["phase"] == Phase.PRE_MENSTRUAL.value
-    assert info["is_override"] is True
-    assert info["estimated_phase"] == Phase.MENSTRUATION.value
-    assert info["parent_phase"] == "luteal"
-    assert info["day_in_cycle"] == 3  # day-in-cycle unaffected by the override
 
 
 async def test_cycle_length_info_applies(session: AsyncSession, user: User):

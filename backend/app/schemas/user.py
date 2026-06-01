@@ -15,7 +15,6 @@ class UserResponse(BaseModel):
 
     id: uuid.UUID
     email: str
-    partner_name: str | None
     locale: str
     transparency_status: str
     transparency_accepted_at: datetime | None = None
@@ -25,7 +24,6 @@ class UserResponse(BaseModel):
 class UserUpdate(BaseModel):
     """Schema for updating user profile."""
 
-    partner_name: str | None = None
     locale: str | None = None
     transparency_status: str | None = None
 

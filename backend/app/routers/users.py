@@ -13,7 +13,6 @@ from app.models.cycle import Cycle
 from app.models.event import Event
 from app.models.journal import JournalEntry
 from app.models.magic_link import MagicLinkToken
-from app.models.phase_override import PhaseOverride
 from app.models.user import User
 from app.schemas.user import UserResponse, UserUpdate
 
@@ -24,7 +23,6 @@ def _to_response(user: User) -> UserResponse:
     return UserResponse(
         id=user.id,
         email=user.email,
-        partner_name=user.partner_name,
         locale=user.locale,
         transparency_status=user.transparency_status,
         transparency_accepted_at=user.transparency_accepted_at,
@@ -45,8 +43,6 @@ async def update_me(
     session: AsyncSession = Depends(get_session),
 ):
     """Update the current user's profile."""
-    if body.partner_name is not None:
-        user.partner_name = body.partner_name
     if body.locale is not None:
         user.locale = body.locale
     if body.transparency_status is not None:
@@ -74,7 +70,7 @@ async def delete_me(
     Cascade deletes: events, cycles, magic link tokens, then the user.
     """
     # Delete all user data
-    for model in (Event, Cycle, JournalEntry, PhaseOverride, MagicLinkToken):
+    for model in (Event, Cycle, JournalEntry, MagicLinkToken):
         if model == MagicLinkToken:
             stmt = select(model).where(model.email == user.email)
         else:

@@ -39,12 +39,5 @@
     "not_helped_placeholder": "z. B. ich habe über die To-do-Liste fürs Wochenende diskutiert",
     "save": "Speichern",
     "entry": "Eintrag"
-  },
-  "override": {
-    "eyebrow": "Ich beobachte sie anders",
-    "title": "Die Vorhersage ist eine Hypothese. Du beobachtest besser als sie.",
-    "note": "Deine Wahl wird protokolliert. Die vorhergesagte Phase bleibt im Hintergrund sichtbar.",
-    "predicted": "VORHERGESAGT",
-    "saved": "Phase aktualisiert"
   }
 }

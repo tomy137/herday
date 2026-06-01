@@ -11,10 +11,9 @@ import PhaseProgress from './PhaseProgress';
 
 interface PhaseCardProps {
   info: PhaseInfo;
-  onOverride: () => void;
 }
 
-export default function PhaseCard({ info, onOverride }: PhaseCardProps) {
+export default function PhaseCard({ info }: PhaseCardProps) {
   const { t } = useTranslation('phases');
   const phase = info.phase as Phase;
   const content = usePhaseContent(phase);
@@ -59,16 +58,6 @@ export default function PhaseCard({ info, onOverride }: PhaseCardProps) {
 
       <div className="hd-caps mb-3 text-warm-500">{t('labels.she_needs_you_to_be')}</div>
       <PostureRail words={content.posture} />
-
-      <div className="mt-[18px]">
-        <button
-          type="button"
-          onClick={onOverride}
-          className="text-[12px] text-warm-500 transition-colors hover:text-ink"
-        >
-          → {t('labels.observe_differently')}
-        </button>
-      </div>
     </div>
   );
 }
