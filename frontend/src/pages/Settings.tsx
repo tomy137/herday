@@ -9,9 +9,9 @@ import { useToast } from '../components/ui/Toast';
 import Header from '../components/layout/Header';
 import SettingsGroup from '../components/settings/SettingsGroup';
 import SettingsRow from '../components/settings/SettingsRow';
+import { APP_VERSION } from '../constants/version';
 
 const LANGUAGES = ['fr', 'en', 'de'] as const;
-const APP_VERSION = '2.0.0-alpha';
 
 export default function Settings() {
   const { t, i18n } = useTranslation('settings');

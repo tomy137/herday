@@ -34,7 +34,7 @@ def create_app() -> FastAPI:
     """FastAPI application factory."""
     app = FastAPI(
         title="HerDay API",
-        version="0.1.0",
+        version="0.2.0-beta",
         lifespan=lifespan,
     )
 
