@@ -248,6 +248,23 @@ def test_phase_calculation_pre_menstrual():
     assert info["day_in_cycle"] == 25
 
 
+def test_outlier_cycle_length_excluded_from_average():
+    """A missed-log outlier (e.g. a 56-day span) must not skew the predicted
+    cycle length — regression for the "graph axis at J42" report."""
+    uid = uuid.uuid4()
+    cycles = [
+        Cycle(user_id=uid, start_date=date(2026, 2, 23), end_date=date(2026, 3, 21),
+              period_duration=5, cycle_length=27, source="confirmed", confidence=1.0),
+        Cycle(user_id=uid, start_date=date(2026, 3, 22), end_date=date(2026, 5, 16),
+              period_duration=5, cycle_length=56, source="confirmed", confidence=1.0),
+        Cycle(user_id=uid, start_date=date(2026, 5, 17),
+              period_duration=5, source="confirmed", confidence=1.0),
+    ]
+    info = calculate_phase(date(2026, 6, 1), cycles)
+    # 56 is dropped; only 27 remains. Without the guard this was round(41.5)=42.
+    assert info["cycle_length"] == 27
+
+
 # ---------------------------------------------------------------------------
 # Tests: parent-phase mapping
 # ---------------------------------------------------------------------------
@@ -313,6 +330,24 @@ async def test_cycle_length_info_applies(session: AsyncSession, user: User):
     cycles = await recalculate_cycles(user.id, session)
     confirmed = [c for c in cycles if c.source == "confirmed"]
     assert confirmed[0].cycle_length == 30
+
+
+async def test_long_gap_splits_into_coherent_cycles(session: AsyncSession, user: User):
+    """An 8-week gap between logged periods is modelled as multiple coherent
+    cycles (one gap-filled/inferred), not a single stretched 56-day cycle."""
+    session.add(_make_event(user.id, "period_started", date(2026, 3, 22)))
+    session.add(_make_event(user.id, "period_started", date(2026, 5, 17)))  # +56 days
+    await session.flush()
+
+    cycles = await recalculate_cycles(user.id, session)
+
+    # No cycle remains implausibly long.
+    lengths = [c.cycle_length for c in cycles if c.cycle_length is not None]
+    assert lengths and all(length <= 45 for length in lengths)
+    # A gap-filled inferred cycle was inserted mid-gap (around mid-April).
+    inferred = [c for c in cycles if c.source == "inferred"]
+    assert len(inferred) == 1
+    assert date(2026, 4, 10) <= inferred[0].start_date <= date(2026, 4, 28)
 
 
 # ---------------------------------------------------------------------------

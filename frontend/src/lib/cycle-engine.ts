@@ -5,6 +5,8 @@
 export const DEFAULT_CYCLE_LENGTH = 28;
 export const DEFAULT_PERIOD_DURATION = 5;
 export const LUTEAL_PHASE_LENGTH = 14;
+export const MIN_CYCLE_LENGTH = 18;
+export const MAX_CYCLE_LENGTH = 45; // above this, a "cycle" is almost certainly a missed log
 
 export type SystemState = 'unknown' | 'estimating' | 'partial' | 'learning' | 'confident';
 export type Phase =
@@ -57,11 +59,16 @@ export function getSystemState(cycles: CycleData[]): SystemState {
 }
 
 function averageCycleLength(cycles: CycleData[]): number {
+  // Mirror of the backend: only plausible lengths feed the average, so an
+  // outlier (e.g. a 56-day span from a missed period log) can't skew the
+  // predicted cycle length and the hormone-graph axis.
   const lengths = cycles
-    .filter(c => c.cycle_length != null && c.source === 'confirmed')
+    .filter(c => c.cycle_length != null && c.source === 'confirmed'
+      && c.cycle_length >= MIN_CYCLE_LENGTH && c.cycle_length <= MAX_CYCLE_LENGTH)
     .map(c => c.cycle_length!);
   if (lengths.length === 0) return DEFAULT_CYCLE_LENGTH;
-  return Math.round(lengths.reduce((a, b) => a + b, 0) / lengths.length);
+  const avg = Math.round(lengths.reduce((a, b) => a + b, 0) / lengths.length);
+  return Math.min(Math.max(avg, MIN_CYCLE_LENGTH), MAX_CYCLE_LENGTH);
 }
 
 function averagePeriodDuration(cycles: CycleData[]): number {

@@ -33,6 +33,7 @@ DEFAULT_CYCLE_LENGTH = 28
 DEFAULT_PERIOD_DURATION = 5
 LUTEAL_PHASE_LENGTH = 14  # Ogino method constant
 MIN_CYCLE_LENGTH = 18     # Biological minimum for cycle length
+MAX_CYCLE_LENGTH = 45     # Above this, a "cycle" is almost certainly a missed log
 
 
 # ---------------------------------------------------------------------------
@@ -198,6 +199,39 @@ async def recalculate_cycles(
             ).days
             cycles[i].end_date = cycles[i + 1].start_date - timedelta(days=1)
 
+    # Third pass: split implausibly long cycles. The partner WILL miss logging
+    # periods — that's normal — so a span far beyond a normal cycle almost
+    # always means one or more skipped logs (a 56-day "cycle" is really ~2
+    # cycles). We model such a span as N cycles of typical length: the first
+    # keeps the real (confirmed) start, the gap-filled ones are inferred (lower
+    # confidence). The timeline stays coherent instead of one stretched cycle,
+    # and it self-heals if the missed period is logged later (full recompute).
+    typical = _average_cycle_length(cycles)
+    rebuilt: list[Cycle] = []
+    for c in cycles:
+        if (
+            c.cycle_length is not None
+            and c.cycle_length > MAX_CYCLE_LENGTH
+            and c.source == "confirmed"
+        ):
+            total = c.cycle_length
+            n = max(2, round(total / typical))
+            for i in range(n):
+                offset_start = round(i * total / n)
+                offset_end = round((i + 1) * total / n)
+                rebuilt.append(Cycle(
+                    user_id=user_id,
+                    start_date=c.start_date + timedelta(days=offset_start),
+                    end_date=c.start_date + timedelta(days=offset_end - 1),
+                    period_duration=c.period_duration,
+                    cycle_length=offset_end - offset_start,
+                    source="confirmed" if i == 0 else "inferred",
+                    confidence=c.confidence if i == 0 else round(c.confidence * 0.5, 3),
+                ))
+        else:
+            rebuilt.append(c)
+    cycles = sorted(rebuilt, key=lambda c: c.start_date)
+
     # Fill missing period_duration with default for confirmed cycles
     for cycle in cycles:
         if cycle.period_duration is None and cycle.source == "confirmed":
@@ -225,19 +259,27 @@ def _average_period_duration(cycles: list[Cycle]) -> int:
 
 
 def _average_cycle_length(cycles: list[Cycle]) -> int:
-    """Compute average cycle length from cycles with known length.
+    """Compute average cycle length from cycles with a *plausible* known length.
 
     Includes both confirmed and inferred cycles (e.g. from user-provided
     cycle_length_info events) so that user hints influence predictions.
+
+    Only lengths within [MIN_CYCLE_LENGTH, MAX_CYCLE_LENGTH] feed the average:
+    a span far above the normal range almost always means a missed period log
+    (e.g. a 56-day "cycle" is two cycles with one period unlogged), not a real
+    long cycle. Letting such outliers in drags the predicted length — and the
+    hormone-graph axis — far too high.
     """
     lengths = [
         c.cycle_length
         for c in cycles
-        if c.cycle_length is not None and c.cycle_length >= MIN_CYCLE_LENGTH
+        if c.cycle_length is not None
+        and MIN_CYCLE_LENGTH <= c.cycle_length <= MAX_CYCLE_LENGTH
     ]
     if not lengths:
         return DEFAULT_CYCLE_LENGTH
-    return max(round(sum(lengths) / len(lengths)), MIN_CYCLE_LENGTH)
+    avg = round(sum(lengths) / len(lengths))
+    return min(max(avg, MIN_CYCLE_LENGTH), MAX_CYCLE_LENGTH)
 
 
 # ---------------------------------------------------------------------------
