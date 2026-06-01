@@ -1,9 +1,19 @@
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { api } from '../api/client';
+import type { PhaseInfo } from '../api/client';
+import type { Phase } from '../lib/cycle-engine';
+import CycleGraph from '../components/CycleGraph';
 
 export default function Info() {
   const { t } = useTranslation('info');
   const navigate = useNavigate();
+  const [phaseInfo, setPhaseInfo] = useState<PhaseInfo | null>(null);
+
+  useEffect(() => {
+    api.phases.today().then(setPhaseInfo).catch(() => {});
+  }, []);
 
   return (
     <div className="p-5 space-y-6">
@@ -19,10 +29,19 @@ export default function Info() {
         <h1 className="text-xl font-bold text-gray-900 tracking-tight">{t('title')}</h1>
       </div>
 
+      {/* Hormone graph */}
+      <section className="bg-white rounded-2xl p-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-warm-200/40">
+        <CycleGraph
+          dayInCycle={phaseInfo?.day_in_cycle ?? 0}
+          cycleLength={phaseInfo?.cycle_length ?? 28}
+          phase={(phaseInfo?.phase as Phase | undefined) ?? null}
+        />
+      </section>
+
       {/* Glossary */}
       <section className="bg-white rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-warm-200/40 space-y-3">
         <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">{t('glossary.title')}</h2>
-        {(['cycle', 'menstruation', 'follicular', 'ovulation', 'luteal', 'pms', 'ogino'] as const).map((key) => (
+        {(['cycle', 'menstruation', 'post_menstrual', 'pre_ovulatory', 'ovulation', 'post_ovulatory', 'pre_menstrual', 'pms', 'ogino'] as const).map((key) => (
           <div key={key}>
             <p className="text-sm font-semibold text-gray-800">{t(`glossary.${key}.term`)}</p>
             <p className="text-xs text-warm-500 leading-relaxed">{t(`glossary.${key}.def`)}</p>
@@ -39,7 +58,7 @@ export default function Info() {
         </div>
         <p className="text-xs text-warm-500 leading-relaxed">{t('phases.example')}</p>
         <div className="space-y-1.5">
-          {(['menstruation', 'follicular', 'ovulation', 'luteal'] as const).map((p) => (
+          {(['menstruation', 'post_menstrual', 'pre_ovulatory', 'ovulation', 'post_ovulatory', 'pre_menstrual'] as const).map((p) => (
             <div key={p} className="flex justify-between items-center rounded-lg bg-warm-50 px-3 py-2">
               <span className="text-xs font-semibold text-gray-800">{t(`phases.breakdown.${p}.name`)}</span>
               <span className="text-xs text-warm-400">{t(`phases.breakdown.${p}.days`)}</span>

@@ -1,0 +1,150 @@
+{
+  "labels": {
+    "she_needs_you_to_be": "Elle a besoin que tu sois :",
+    "observe_differently": "je l'observe différemment",
+    "days_left_one": "Encore {{count}} jour dans cette phase",
+    "days_left_other": "Encore {{count}} jours dans cette phase",
+    "switch_today": "Bascule attendue aujourd'hui",
+    "observe": "Ce que tu peux observer",
+    "propose": "Ce que tu peux proposer",
+    "avoid": "Il vaut mieux éviter"
+  },
+  "parent": {
+    "menstrual": "Menstruelle",
+    "follicular": "Folliculaire",
+    "ovulatory": "Ovulatoire",
+    "luteal": "Lutéale"
+  },
+  "menstruation": {
+    "name": "Phase menstruelle",
+    "short": "Menstruation",
+    "range": "Jours 1 à 5",
+    "headline": "À ce moment du cycle, beaucoup de femmes ressentent une fatigue physique réelle et une moindre tolérance au bruit ou à la sollicitation.",
+    "posture": ["SOLIDE", "FIABLE", "DISCRET", "LOGISTIQUE"],
+    "observable": [
+      "Sa tonalité physique : fatigue, sensibilité aux odeurs ou aux lumières fortes",
+      "Son rythme : un besoin probable de ralentir",
+      "Sa logistique domestique : ce qu'elle prend en charge habituellement"
+    ],
+    "propose": [
+      "Prendre le relais sans demander « je peux t'aider ? » — décider, exécuter",
+      "Alléger la charge domestique (repas, courses, enfants)",
+      "Proposer du temps calme : pas de soirée bruyante imposée"
+    ],
+    "avoid": [
+      "Faire des plans sociaux denses sans lui en parler en amont",
+      "Lui demander de trancher un sujet logistique de fond",
+      "Mentionner ses règles devant des tiers"
+    ]
+  },
+  "post_menstrual": {
+    "name": "Phase post-menstruelle",
+    "short": "Post-menstruelle",
+    "range": "Quelques jours après les règles",
+    "headline": "À ce moment du cycle, beaucoup de femmes retrouvent une énergie stable, encore basse, sans euphorie. La récupération est en cours.",
+    "posture": ["DISPONIBLE", "OUVERT", "CURIEUX", "ATTENTIF"],
+    "observable": [
+      "Une énergie qui revient, sans urgence",
+      "Une humeur stable, plus disponible au dialogue",
+      "Des envies qui réémergent (projets, conversations remises à plus tard)"
+    ],
+    "propose": [
+      "Reprendre les conversations qu'elle a laissées en pause",
+      "Lui demander où elle en est, sans la presser",
+      "Caler ensemble les engagements à venir"
+    ],
+    "avoid": [
+      "Lui imposer immédiatement un rythme intense",
+      "Réveiller un conflit non résolu dès le retour de l'énergie",
+      "Confondre l'énergie revenue avec une énergie pleine"
+    ]
+  },
+  "pre_ovulatory": {
+    "name": "Phase pré-ovulatoire",
+    "short": "Pré-ovulatoire",
+    "range": "2 à 3 jours avant l'ovulation",
+    "headline": "À ce moment du cycle, beaucoup de femmes connaissent une montée d'énergie, d'envie d'entreprendre, et de tolérance au risque.",
+    "posture": ["DANS L'ACTION", "COMPLICE", "CONFIANT", "JOUEUR"],
+    "observable": [
+      "Une initiative spontanée sur des sujets nouveaux",
+      "Une appétence pour les projets, les sorties, les rencontres",
+      "Une voix plus posée, un regard plus direct"
+    ],
+    "propose": [
+      "Lancer avec elle un projet, une sortie, un voyage court",
+      "Lui laisser de l'espace pour porter ses propres élans",
+      "Être présent physiquement et dans l'écoute des idées"
+    ],
+    "avoid": [
+      "Casser ses élans par excès de prudence",
+      "Ramener systématiquement la conversation au quotidien",
+      "Confondre son énergie avec une demande de coaching"
+    ]
+  },
+  "ovulation": {
+    "name": "Phase ovulatoire",
+    "short": "Ovulation",
+    "range": "Fenêtre fertile, 5 jours centrés sur J(L-14)",
+    "headline": "À ce moment du cycle, beaucoup de femmes vivent un pic de confiance, de sociabilité, et d'ouverture corporelle.",
+    "posture": ["PRÉSENT", "COMPLICE", "COQUIN", "RIEUR"],
+    "observable": [
+      "Une sociabilité élargie, plus extravertie",
+      "Une attention au corps, à l'apparence, au regard",
+      "Une appétence à la séduction et au jeu"
+    ],
+    "propose": [
+      "Lui donner du temps en tête-à-tête, sans agenda",
+      "Saisir les moments légers, les rires, la sensualité",
+      "Lui dire ce que tu observes chez elle, sans calcul"
+    ],
+    "avoid": [
+      "Programmer mécaniquement « un moment couple »",
+      "Confondre son rayonnement avec une invitation pour tous",
+      "Réduire cette phase à la seule fertilité"
+    ]
+  },
+  "post_ovulatory": {
+    "name": "Phase post-ovulatoire",
+    "short": "Post-ovulatoire",
+    "range": "Plateau lutéal, après l'ovulation",
+    "headline": "À ce moment du cycle, beaucoup de femmes connaissent un plateau stable, propice à la productivité et au recentrage.",
+    "posture": ["STABLE", "CONCRET", "PRÉSENT", "NON-DISPERSÉ"],
+    "observable": [
+      "Une énergie soutenue mais non euphorique",
+      "Une attention au cadre, au tri, à ce qui doit être fini",
+      "Une diminution graduelle de l'élan social"
+    ],
+    "propose": [
+      "Avancer avec elle sur du concret : décisions, dossiers, maison",
+      "Respecter ses moments de retrait sans les interpréter",
+      "Tenir vos engagements, même petits"
+    ],
+    "avoid": [
+      "Lancer un projet flou ou hypothétique de plus",
+      "Lui prendre du temps en surnombre pour soi",
+      "Interpréter le retrait comme une mise à distance personnelle"
+    ]
+  },
+  "pre_menstrual": {
+    "name": "Phase pré-menstruelle",
+    "short": "Pré-menstruelle",
+    "range": "6 derniers jours du cycle",
+    "headline": "À ce moment du cycle, beaucoup de femmes ont un regard plus exigeant, parfois plus sombre, et une grande créativité.",
+    "posture": ["PATIENT", "ROBUSTE", "À L'ÉCOUTE", "NON-RÉACTIF"],
+    "observable": [
+      "Sa tonalité émotionnelle",
+      "Sa fatigue physique",
+      "Sa tolérance aux contrariétés"
+    ],
+    "propose": [
+      "Alléger la logistique sans le mettre en scène",
+      "Lui donner du temps seule si elle en veut",
+      "Ne pas argumenter contre les reproches frontalement — écouter, reformuler"
+    ],
+    "avoid": [
+      "Lui demander de trancher une décision lourde aujourd'hui",
+      "Lui dire « c'est tes hormones »",
+      "Prendre personnellement chaque remarque"
+    ]
+  }
+}

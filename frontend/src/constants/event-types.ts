@@ -63,7 +63,7 @@ export const EVENT_TYPES: EventTypeDefinition[] = [
     labelKey: 'events:mood.irritable',
     icon: '😤',
     weight: 'weak',
-    phaseHint: 'luteal',
+    phaseHint: 'pre_menstrual',
     needsMetadata: false,
   },
   {
@@ -81,7 +81,7 @@ export const EVENT_TYPES: EventTypeDefinition[] = [
     labelKey: 'events:mood.energetic',
     icon: '⚡',
     weight: 'weak',
-    phaseHint: 'follicular',
+    phaseHint: 'pre_ovulatory',
     needsMetadata: false,
   },
   {
@@ -90,7 +90,7 @@ export const EVENT_TYPES: EventTypeDefinition[] = [
     labelKey: 'events:mood.emotional',
     icon: '🥺',
     weight: 'weak',
-    phaseHint: 'luteal',
+    phaseHint: 'pre_menstrual',
     needsMetadata: false,
   },
   {

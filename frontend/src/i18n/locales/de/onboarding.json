@@ -1,0 +1,36 @@
+{
+  "progress": "{{current}} / {{total}}",
+  "step1": {
+    "eyebrow": "Willkommen",
+    "title": "Dein Notizbuch. Nicht ihres.",
+    "body": "HerDay ist ein Beobachtungs-Notizbuch, das dir hilft, deine Partnerin besser zu begleiten. Keine Benachrichtigung, keine Eingabe wird je von ihr verlangt.",
+    "email_label": "E-Mail",
+    "email_placeholder": "du@beispiel.de",
+    "email_hint": "Wir schicken dir einen magischen Link. Kein Passwort.",
+    "cta": "Link erhalten"
+  },
+  "step2": {
+    "eyebrow": "Transparenzpakt",
+    "title": "Eine im Stillen genutzte App ersetzt das Gespräch, statt es zu nähren.",
+    "body1": "HerDay ist dein Notizbuch. Es schickt deiner Partnerin nichts. Es erscheint in keiner ihrer Benachrichtigungen.",
+    "body2": "Aber wir empfehlen dir sehr dringend, mit ihr darüber zu sprechen und es ihr sogar zu zeigen. Warum: Ein im Stillen genutztes Beobachtungswerkzeug ersetzt am Ende das Gespräch, statt es zu nähren. Das ist das Gegenteil von dem, was wir hier wollen.",
+    "choice_soon": "Ich werde bald mit ihr darüber sprechen",
+    "choice_already": "Ich habe bereits mit ihr darüber gesprochen",
+    "cta": "Weiter"
+  },
+  "step3": {
+    "eyebrow": "Der Zyklus, messbar",
+    "title": "Sechs Unterphasen, vier Hormone. Kein Rätsel.",
+    "body": "Die Standardsprache von HerDay ist die der medizinischen Fachliteratur. Nüchtern, präzise, ohne Metapher.",
+    "cta": "Weiter"
+  },
+  "step4": {
+    "eyebrow": "Erste Eingabe",
+    "title": "Wann hat ihre letzte Menstruation begonnen, soweit du weißt?",
+    "body": "Ungenauigkeit ist normal und macht nichts ungültig. Du kannst es jederzeit korrigieren.",
+    "date_label": "Ungefähres Datum",
+    "length_label": "Länge ihres Zyklus (optional)",
+    "length_hint": "Niedriger Vertrauenswert, solange du nicht sicher bist. Das ist gesund.",
+    "cta": "Mein Notizbuch öffnen"
+  }
+}

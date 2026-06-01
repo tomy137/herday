@@ -1,0 +1,50 @@
+{
+  "pastilles": {
+    "dispute": "Tension",
+    "fatigue": "Fatigue",
+    "repli": "Repli",
+    "coquin": "Coquin",
+    "tendresse": "Tendresse",
+    "rires": "Rires",
+    "douleur": "Douleur",
+    "larmes": "Larmes",
+    "bon-moment": "Bon moment",
+    "energie": "Énergie",
+    "pulsion": "Tri / ménage",
+    "soutien": "Soutien donné"
+  },
+  "quick": {
+    "title": "Ton observation du jour",
+    "duration": "10–30 s",
+    "free_placeholder": "Un mot de ta journée avec elle (facultatif)",
+    "helped": "A aidé",
+    "not_helped": "N'a pas aidé",
+    "helped_placeholder": "ex. soirée calme",
+    "not_helped_placeholder": "ex. argumenter",
+    "write_more": "Écrire plus",
+    "saved": "Observation enregistrée"
+  },
+  "full": {
+    "eyebrow": "Carnet",
+    "title": "Ton observation pour aujourd'hui.",
+    "disclaimer": "Note ce que tu as observé. Pas ce qu'elle ressent — tu ne sais pas. Pas de jugement.",
+    "moments": "Moments forts",
+    "free_label": "Texte libre",
+    "free_placeholder": "Ce que tu observes, en tes mots. Personne d'autre que toi ne le lira.",
+    "loop_label": "La boucle d'apprentissage",
+    "loop_hint": "Carburant de la mémoire inter-cycles. À ne pas zapper.",
+    "helped_label": "Ce qui a aidé aujourd'hui",
+    "helped_placeholder": "Ex. j'ai annulé le dîner pour qu'on soit tranquilles",
+    "not_helped_label": "Ce qui n'a pas aidé",
+    "not_helped_placeholder": "Ex. j'ai argumenté sur la to-do du week-end",
+    "save": "Enregistrer",
+    "entry": "Entrée"
+  },
+  "override": {
+    "eyebrow": "Je l'observe différemment",
+    "title": "La prédiction est une hypothèse. Tu observes mieux qu'elle.",
+    "note": "Ton choix est journalisé. La phase prédite reste visible en arrière-plan.",
+    "predicted": "PRÉDIT",
+    "saved": "Phase mise à jour"
+  }
+}

@@ -8,11 +8,15 @@ from sqlmodel.ext.asyncio.session import AsyncSession
 from app.config import settings
 from app.core.security import create_access_token, create_refresh_token, decode_token
 from app.database import get_session
-from app.schemas.auth import MagicLinkRequest, TokenResponse, VerifyRequest
+from app.schemas.auth import MagicLinkRequest, RefreshRequest, TokenResponse, VerifyRequest
 from app.services.auth import generate_magic_link, verify_magic_link
 from app.services.email import send_magic_link_email
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
+
+# Cross-origin cookies (Capacitor webview → backend) require SameSite=None + Secure.
+# Plain HTTP dev keeps "lax" since "none" mandates Secure=true.
+COOKIE_SAMESITE: str = "none" if settings.COOKIE_SECURE else "lax"
 
 
 @router.post("/magic-link", status_code=status.HTTP_202_ACCEPTED)
@@ -43,7 +47,7 @@ async def verify(
         value=access_token,
         httponly=True,
         secure=settings.COOKIE_SECURE,
-        samesite="lax",
+        samesite=COOKIE_SAMESITE,
         max_age=settings.JWT_ACCESS_TOKEN_EXPIRE_MINUTES * 60,
     )
     response.set_cookie(
@@ -51,19 +55,23 @@ async def verify(
         value=refresh_token,
         httponly=True,
         secure=settings.COOKIE_SECURE,
-        samesite="lax",
+        samesite=COOKIE_SAMESITE,
         max_age=settings.JWT_REFRESH_TOKEN_EXPIRE_DAYS * 86400,
     )
 
-    return TokenResponse(access_token=access_token)
+    # Native clients (Capacitor) can't rely on cross-origin cookies in WKWebView.
+    # Returning tokens in the body lets them store + send via Authorization header.
+    return TokenResponse(access_token=access_token, refresh_token=refresh_token)
 
 
 @router.post("/refresh", response_model=TokenResponse)
 async def refresh(
     response: Response,
-    refresh_token: str | None = Cookie(default=None),
+    body: RefreshRequest | None = None,
+    cookie_refresh_token: str | None = Cookie(default=None, alias="refresh_token"),
 ):
-    """Issue a new access token using the refresh token cookie."""
+    """Issue a new access token using the refresh token (cookie or body)."""
+    refresh_token = (body.refresh_token if body else None) or cookie_refresh_token
     if refresh_token is None:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -98,11 +106,11 @@ async def refresh(
         value=new_access_token,
         httponly=True,
         secure=settings.COOKIE_SECURE,
-        samesite="lax",
+        samesite=COOKIE_SAMESITE,
         max_age=settings.JWT_ACCESS_TOKEN_EXPIRE_MINUTES * 60,
     )
 
-    return TokenResponse(access_token=new_access_token)
+    return TokenResponse(access_token=new_access_token, refresh_token=refresh_token)
 
 
 @router.post("/logout")

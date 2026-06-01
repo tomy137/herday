@@ -4,6 +4,7 @@
 Uses an in-memory SQLite database so tests are fast and self-contained.
 """
 
+import json
 import uuid
 from datetime import date, datetime, timedelta, timezone
 
@@ -19,10 +20,12 @@ from app.services.cycle_engine import (
     DEFAULT_CYCLE_LENGTH,
     DEFAULT_PERIOD_DURATION,
     LUTEAL_PHASE_LENGTH,
+    PARENT_OF_SUBPHASE,
     Phase,
     SystemState,
     calculate_phase,
     get_system_state,
+    parent_phase_of,
     recalculate_cycles,
 )
 
@@ -195,14 +198,23 @@ def test_phase_calculation_menstruation():
     assert info["day_in_cycle"] == 3
 
 
-def test_phase_calculation_follicular():
-    """After period ends, before ovulation window, should be FOLLICULAR."""
+def test_phase_calculation_post_menstrual():
+    """After period ends, before the pre-ovulatory window, should be POST_MENSTRUAL."""
     cycles = _make_cycles_for_phase_tests()
-    # Day 8 of cycle (Jan 8) -- period_duration=5, ovulation_day=14
-    # day 8 is between 6 (period_duration+1) and 12 (ovulation_day-2)
+    # Day 8 of cycle (Jan 8) -- period_duration=5, ovulation_day=14.
+    # ovu_window_start=12, pre_ovulatory starts at 12-2=10; day 8 < 10 -> POST_MENSTRUAL
     info = calculate_phase(date(2026, 1, 8), cycles)
-    assert info["phase"] == Phase.FOLLICULAR.value
+    assert info["phase"] == Phase.POST_MENSTRUAL.value
     assert info["day_in_cycle"] == 8
+
+
+def test_phase_calculation_pre_ovulatory():
+    """The 2 days just before the fertile window should be PRE_OVULATORY."""
+    cycles = _make_cycles_for_phase_tests()
+    # Day 11 of cycle -- ovu_window_start=12, pre_ovulatory = days 10..11
+    info = calculate_phase(date(2026, 1, 11), cycles)
+    assert info["phase"] == Phase.PRE_OVULATORY.value
+    assert info["day_in_cycle"] == 11
 
 
 def test_phase_calculation_ovulation():
@@ -218,13 +230,89 @@ def test_phase_calculation_ovulation():
     assert info["day_in_cycle"] == 14
 
 
-def test_phase_calculation_luteal():
-    """After ovulation window until end of cycle should be LUTEAL."""
+def test_phase_calculation_post_ovulatory():
+    """After the ovulation window, before the PMS window, should be POST_OVULATORY."""
     cycles = _make_cycles_for_phase_tests()
-    # Day 20 of cycle (Jan 20) -- after ovulation_day+2 (16)
+    # Day 20 of cycle (Jan 20) -- after ovu_window_end (16), before pre_menstrual_start (23)
     info = calculate_phase(date(2026, 1, 20), cycles)
-    assert info["phase"] == Phase.LUTEAL.value
+    assert info["phase"] == Phase.POST_OVULATORY.value
     assert info["day_in_cycle"] == 20
+
+
+def test_phase_calculation_pre_menstrual():
+    """The last 6 days of the cycle should be PRE_MENSTRUAL (PMS window)."""
+    cycles = _make_cycles_for_phase_tests()
+    # Day 25 of cycle -- pre_menstrual_start = 28-6+1 = 23; day 25 >= 23 -> PRE_MENSTRUAL
+    info = calculate_phase(date(2026, 1, 25), cycles)
+    assert info["phase"] == Phase.PRE_MENSTRUAL.value
+    assert info["day_in_cycle"] == 25
+
+
+# ---------------------------------------------------------------------------
+# Tests: parent-phase mapping
+# ---------------------------------------------------------------------------
+
+
+def test_parent_phase_mapping():
+    """Every sub-phase maps to exactly one of the four parent phases."""
+    assert parent_phase_of(Phase.MENSTRUATION) == "menstrual"
+    assert parent_phase_of(Phase.POST_MENSTRUAL) == "follicular"
+    assert parent_phase_of(Phase.PRE_OVULATORY) == "follicular"
+    assert parent_phase_of(Phase.OVULATION) == "ovulatory"
+    assert parent_phase_of(Phase.POST_OVULATORY) == "luteal"
+    assert parent_phase_of(Phase.PRE_MENSTRUAL) == "luteal"
+    # accepts the string value too
+    assert parent_phase_of("menstruation") == "menstrual"
+    # all six sub-phases are covered
+    assert set(PARENT_OF_SUBPHASE.keys()) == set(Phase)
+
+
+# ---------------------------------------------------------------------------
+# Tests: phase override (display correction)
+# ---------------------------------------------------------------------------
+
+
+def test_calculate_phase_without_override_flags():
+    """Without an override, the flags reflect the pure estimate."""
+    cycles = _make_cycles_for_phase_tests()
+    info = calculate_phase(date(2026, 1, 3), cycles)
+    assert info["is_override"] is False
+    assert info["estimated_phase"] == Phase.MENSTRUATION.value
+    assert info["parent_phase"] == "menstrual"
+
+
+def test_calculate_phase_with_override():
+    """An override forces the phase but preserves day_in_cycle and the estimate."""
+    cycles = _make_cycles_for_phase_tests()
+    info = calculate_phase(
+        date(2026, 1, 3),
+        cycles,
+        overrides={date(2026, 1, 3): Phase.PRE_MENSTRUAL},
+    )
+    assert info["phase"] == Phase.PRE_MENSTRUAL.value
+    assert info["is_override"] is True
+    assert info["estimated_phase"] == Phase.MENSTRUATION.value
+    assert info["parent_phase"] == "luteal"
+    assert info["day_in_cycle"] == 3  # day-in-cycle unaffected by the override
+
+
+async def test_cycle_length_info_applies(session: AsyncSession, user: User):
+    """A cycle_length_info event applies its metadata length (regression: the
+    engine used to read the SQLAlchemy-reserved ``metadata`` attribute)."""
+    session.add(_make_event(user.id, "period_started", date(2026, 1, 1)))
+    session.add(
+        Event(
+            user_id=user.id,
+            event_type="cycle_length_info",
+            event_date=date(2026, 1, 2),
+            metadata_json=json.dumps({"cycle_length": 30}),
+        )
+    )
+    await session.flush()
+
+    cycles = await recalculate_cycles(user.id, session)
+    confirmed = [c for c in cycles if c.source == "confirmed"]
+    assert confirmed[0].cycle_length == 30
 
 
 # ---------------------------------------------------------------------------

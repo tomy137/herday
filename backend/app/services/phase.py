@@ -15,11 +15,17 @@ _TIPS: dict[Phase, list[str]] = {
         "tips.menstruation.patience",
         "tips.menstruation.rest",
     ],
-    Phase.FOLLICULAR: [
-        "tips.follicular.energy",
-        "tips.follicular.planning",
-        "tips.follicular.social",
-        "tips.follicular.new_activities",
+    Phase.POST_MENSTRUAL: [
+        "tips.post_menstrual.recovery",
+        "tips.post_menstrual.calm",
+        "tips.post_menstrual.routine",
+        "tips.post_menstrual.support",
+    ],
+    Phase.PRE_OVULATORY: [
+        "tips.pre_ovulatory.energy",
+        "tips.pre_ovulatory.planning",
+        "tips.pre_ovulatory.social",
+        "tips.pre_ovulatory.new_activities",
     ],
     Phase.OVULATION: [
         "tips.ovulation.connection",
@@ -27,11 +33,17 @@ _TIPS: dict[Phase, list[str]] = {
         "tips.ovulation.quality_time",
         "tips.ovulation.appreciation",
     ],
-    Phase.LUTEAL: [
-        "tips.luteal.understanding",
-        "tips.luteal.gentle",
-        "tips.luteal.cravings",
-        "tips.luteal.space",
+    Phase.POST_OVULATORY: [
+        "tips.post_ovulatory.productive",
+        "tips.post_ovulatory.focus",
+        "tips.post_ovulatory.cocoon",
+        "tips.post_ovulatory.nest",
+    ],
+    Phase.PRE_MENSTRUAL: [
+        "tips.pre_menstrual.understanding",
+        "tips.pre_menstrual.gentle",
+        "tips.pre_menstrual.cravings",
+        "tips.pre_menstrual.space",
     ],
 }
 

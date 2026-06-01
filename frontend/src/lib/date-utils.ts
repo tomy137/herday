@@ -1,7 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 export function formatDate(date: Date): string {
-  return date.toISOString().split('T')[0]; // YYYY-MM-DD
+  // Local calendar date (YYYY-MM-DD). Avoid toISOString(), which converts to
+  // UTC and shifts the day for positive timezones (e.g. UTC+2 → previous day).
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
 }
 
 export function parseDate(str: string): Date {

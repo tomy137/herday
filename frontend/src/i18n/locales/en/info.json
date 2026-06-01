@@ -10,17 +10,25 @@
       "term": "Menstruation",
       "def": "Bleeding phase (the \"period\"). Usually lasts 3 to 7 days."
     },
-    "follicular": {
-      "term": "Follicular phase",
-      "def": "After the period, the body prepares for ovulation. Estrogen rises, energy returns."
+    "post_menstrual": {
+      "term": "Post-menstrual phase",
+      "def": "Right after the period. Energy still low but stable, body recovering. Not at peak yet."
+    },
+    "pre_ovulatory": {
+      "term": "Pre-ovulatory phase",
+      "def": "Estrogen rises sharply, energy returns, mood lifts. The body is preparing for ovulation."
     },
     "ovulation": {
       "term": "Ovulation",
       "def": "Release of an egg. Occurs around day 14 of a 28-day cycle. Peak fertility window."
     },
-    "luteal": {
-      "term": "Luteal phase",
-      "def": "After ovulation. Progesterone rises then drops. Lasts about 14 days. PMS may appear during this phase."
+    "post_ovulatory": {
+      "term": "Post-ovulatory phase",
+      "def": "After ovulation, progesterone rises. Stable high energy, concrete productivity, focus turns inward."
+    },
+    "pre_menstrual": {
+      "term": "Pre-menstrual phase",
+      "def": "Last days before the period. Progesterone crashes, PMS may appear (irritability, fatigue, sensitivity)."
     },
     "pms": {
       "term": "PMS",
@@ -37,10 +45,12 @@
     "formula": "Ovulation day = Cycle length − 14",
     "example": "Example: 28-day cycle → ovulation on day 14. 32-day cycle → ovulation on day 18.",
     "breakdown": {
-      "menstruation": { "name": "🩸 Menstruation", "days": "Day 1 to 5" },
-      "follicular": { "name": "🌱 Follicular", "days": "Day 6 to 11" },
+      "menstruation": { "name": "🔴 Menstruation", "days": "Day 1 to 5" },
+      "post_menstrual": { "name": "🌱 Post-menstrual", "days": "Day 6 to 9" },
+      "pre_ovulatory": { "name": "🌿 Pre-ovulatory", "days": "Day 10 to 11" },
       "ovulation": { "name": "🌟 Ovulation", "days": "Day 12 to 16" },
-      "luteal": { "name": "🌙 Luteal", "days": "Day 17 to 28" }
+      "post_ovulatory": { "name": "🌙 Post-ovulatory", "days": "Day 17 to 22" },
+      "pre_menstrual": { "name": "🌑 Pre-menstrual", "days": "Day 23 to 28" }
     }
   },
   "confidence": {

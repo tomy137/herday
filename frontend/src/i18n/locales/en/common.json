@@ -3,6 +3,8 @@
   "nav": {
     "today": "Today",
     "calendar": "Calendar",
+    "echoes": "Echoes",
+    "journal": "Notebook",
     "settings": "Settings"
   },
   "actions": {

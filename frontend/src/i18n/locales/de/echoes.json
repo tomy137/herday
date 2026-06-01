@@ -1,0 +1,20 @@
+{
+  "eyebrow": "Zyklusübergreifendes Gedächtnis",
+  "title": "Wie du sie in der Phase {{phase}} während der letzten Zyklen erlebt hast.",
+  "frequent_title": "Häufige Momente in dieser Phase",
+  "loop_title": "Die Lernschleife",
+  "notes_title": "Auszüge aus deinen Notizen",
+  "helped": "Hat geholfen",
+  "not_helped": "Hat nicht geholfen",
+  "empty": "Noch keine Echos für diese Phase — dein Notizbuch lässt sie im Lauf der Zyklen erscheinen.",
+  "user_posture": {
+    "label": "Haltung, die du dir merken möchtest",
+    "hint": "Füge ein eigenes Wort für diese Phase hinzu. Es kommt bei jeder Wiederkehr der Phase in die Rotation.",
+    "placeholder": "z. B. SCHÜTZENDE HALTUNG"
+  },
+  "card": {
+    "eyebrow": "Echo · vorheriger Zyklus",
+    "title": "In derselben Phase vor einem Monat hattest du notiert:",
+    "see_all": "Alle Echos ansehen"
+  }
+}

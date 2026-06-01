@@ -21,4 +21,11 @@ class TokenResponse(BaseModel):
     """JWT token response."""
 
     access_token: str
+    refresh_token: str | None = None
     token_type: str = "bearer"
+
+
+class RefreshRequest(BaseModel):
+    """Optional body for refresh — used by native clients without cookies."""
+
+    refresh_token: str | None = None

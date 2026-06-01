@@ -1,0 +1,150 @@
+{
+  "labels": {
+    "she_needs_you_to_be": "Sie braucht dich als:",
+    "observe_differently": "ich beobachte sie anders",
+    "days_left_one": "Noch {{count}} Tag in dieser Phase",
+    "days_left_other": "Noch {{count}} Tage in dieser Phase",
+    "switch_today": "Wechsel heute erwartet",
+    "observe": "Was du beobachten kannst",
+    "propose": "Was du anbieten kannst",
+    "avoid": "Besser vermeiden"
+  },
+  "parent": {
+    "menstrual": "Menstruell",
+    "follicular": "Follikulär",
+    "ovulatory": "Ovulatorisch",
+    "luteal": "Luteal"
+  },
+  "menstruation": {
+    "name": "Menstruationsphase",
+    "short": "Menstruation",
+    "range": "Tag 1 bis 5",
+    "headline": "Zu diesem Zeitpunkt des Zyklus empfinden viele Frauen eine reale körperliche Erschöpfung und eine geringere Toleranz gegenüber Lärm oder Beanspruchung.",
+    "posture": ["VERLÄSSLICH", "STABIL", "DISKRET", "ORGANISIERT"],
+    "observable": [
+      "Ihre körperliche Verfassung: Müdigkeit, Empfindlichkeit gegenüber Gerüchen oder grellem Licht",
+      "Ihr Tempo: ein wahrscheinliches Bedürfnis, langsamer zu machen",
+      "Ihre häusliche Organisation: was sie üblicherweise übernimmt"
+    ],
+    "propose": [
+      "Aufgaben übernehmen, ohne zu fragen „kann ich helfen?“ — entscheiden, handeln",
+      "Die häusliche Last verringern (Mahlzeiten, Einkäufe, Kinder)",
+      "Ruhige Zeit anbieten: keinen lauten Abend aufzwingen"
+    ],
+    "avoid": [
+      "Dichte soziale Pläne machen, ohne es vorab mit ihr zu besprechen",
+      "Sie bitten, eine grundlegende organisatorische Frage zu entscheiden",
+      "Ihre Menstruation vor Dritten erwähnen"
+    ]
+  },
+  "post_menstrual": {
+    "name": "Postmenstruelle Phase",
+    "short": "Postmenstruell",
+    "range": "Einige Tage nach der Menstruation",
+    "headline": "Zu diesem Zeitpunkt des Zyklus finden viele Frauen zu einer stabilen, noch niedrigen Energie zurück, ohne Euphorie. Die Erholung ist im Gange.",
+    "posture": ["VERFÜGBAR", "OFFEN", "NEUGIERIG", "AUFMERKSAM"],
+    "observable": [
+      "Eine Energie, die zurückkehrt, ohne Dringlichkeit",
+      "Eine stabile Stimmung, offener für den Austausch",
+      "Wünsche, die wieder auftauchen (Vorhaben, aufgeschobene Gespräche)"
+    ],
+    "propose": [
+      "Die Gespräche wieder aufnehmen, die sie pausiert hat",
+      "Sie fragen, wo sie steht, ohne sie zu drängen",
+      "Gemeinsam anstehende Verpflichtungen abstimmen"
+    ],
+    "avoid": [
+      "Ihr sofort ein intensives Tempo aufzwingen",
+      "Einen ungelösten Konflikt gleich bei der Rückkehr der Energie aufwärmen",
+      "Die zurückgekehrte Energie mit voller Energie verwechseln"
+    ]
+  },
+  "pre_ovulatory": {
+    "name": "Präovulatorische Phase",
+    "short": "Präovulatorisch",
+    "range": "2 bis 3 Tage vor dem Eisprung",
+    "headline": "Zu diesem Zeitpunkt des Zyklus erleben viele Frauen einen Anstieg an Energie, Unternehmungslust und Risikobereitschaft.",
+    "posture": ["AKTIV", "VERBUNDEN", "ZUVERSICHTLICH", "VERSPIELT"],
+    "observable": [
+      "Eine spontane Initiative bei neuen Themen",
+      "Eine Lust auf Vorhaben, Unternehmungen, Begegnungen",
+      "Eine ruhigere Stimme, ein direkterer Blick"
+    ],
+    "propose": [
+      "Mit ihr ein Vorhaben, einen Ausflug, eine kurze Reise starten",
+      "Ihr Raum lassen, um ihre eigenen Impulse auszuleben",
+      "Körperlich präsent sein und ihren Ideen zuhören"
+    ],
+    "avoid": [
+      "Ihre Impulse durch übertriebene Vorsicht ausbremsen",
+      "Das Gespräch systematisch auf den Alltag zurückführen",
+      "Ihre Energie mit einer Bitte um Coaching verwechseln"
+    ]
+  },
+  "ovulation": {
+    "name": "Ovulatorische Phase",
+    "short": "Ovulation",
+    "range": "Fruchtbares Fenster, 5 Tage um Tag (L-14)",
+    "headline": "Zu diesem Zeitpunkt des Zyklus erleben viele Frauen einen Höhepunkt an Selbstvertrauen, Geselligkeit und körperlicher Offenheit.",
+    "posture": ["PRÄSENT", "VERBUNDEN", "SPIELERISCH", "HEITER"],
+    "observable": [
+      "Eine erweiterte Geselligkeit, extrovertierter",
+      "Eine Aufmerksamkeit für den Körper, das Aussehen, den Blick",
+      "Eine Lust auf Verführung und Spiel"
+    ],
+    "propose": [
+      "Ihr Zeit zu zweit schenken, ohne Programm",
+      "Die leichten Momente, das Lachen, die Sinnlichkeit ergreifen",
+      "Ihr sagen, was du an ihr beobachtest, ohne Kalkül"
+    ],
+    "avoid": [
+      "Mechanisch „einen Paarmoment“ planen",
+      "Ihre Ausstrahlung mit einer Einladung an alle verwechseln",
+      "Diese Phase allein auf die Fruchtbarkeit reduzieren"
+    ]
+  },
+  "post_ovulatory": {
+    "name": "Postovulatorische Phase",
+    "short": "Postovulatorisch",
+    "range": "Luteales Plateau, nach dem Eisprung",
+    "headline": "Zu diesem Zeitpunkt des Zyklus erleben viele Frauen ein stabiles Plateau, günstig für Produktivität und Konzentration auf das Wesentliche.",
+    "posture": ["STABIL", "KONKRET", "PRÄSENT", "FOKUSSIERT"],
+    "observable": [
+      "Eine anhaltende, aber nicht euphorische Energie",
+      "Eine Aufmerksamkeit für Struktur, Ordnung, für das, was abgeschlossen werden muss",
+      "Ein allmähliches Nachlassen des sozialen Schwungs"
+    ],
+    "propose": [
+      "Mit ihr Konkretes voranbringen: Entscheidungen, Vorgänge, Haushalt",
+      "Ihre Rückzugsmomente respektieren, ohne sie zu deuten",
+      "Eure Zusagen einhalten, auch die kleinen"
+    ],
+    "avoid": [
+      "Ein weiteres vages oder hypothetisches Vorhaben starten",
+      "Ihr übermäßig viel Zeit für dich nehmen",
+      "Den Rückzug als persönliche Distanzierung deuten"
+    ]
+  },
+  "pre_menstrual": {
+    "name": "Prämenstruelle Phase",
+    "short": "Prämenstruell",
+    "range": "Letzte 6 Tage des Zyklus",
+    "headline": "Zu diesem Zeitpunkt des Zyklus haben viele Frauen einen kritischeren, mitunter düstereren Blick und eine große Kreativität.",
+    "posture": ["GEDULDIG", "ROBUST", "ZUHÖREND", "GELASSEN"],
+    "observable": [
+      "Ihre emotionale Verfassung",
+      "Ihre körperliche Müdigkeit",
+      "Ihre Toleranz gegenüber Ärgernissen"
+    ],
+    "propose": [
+      "Die Organisation entlasten, ohne es zur Schau zu stellen",
+      "Ihr Zeit für sich allein geben, wenn sie das möchte",
+      "Nicht frontal gegen Vorwürfe argumentieren — zuhören, umformulieren"
+    ],
+    "avoid": [
+      "Sie bitten, heute eine schwerwiegende Entscheidung zu treffen",
+      "Ihr sagen „das sind deine Hormone“",
+      "Jede Bemerkung persönlich nehmen"
+    ]
+  }
+}

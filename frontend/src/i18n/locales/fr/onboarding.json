@@ -1,0 +1,36 @@
+{
+  "progress": "{{current}} / {{total}}",
+  "step1": {
+    "eyebrow": "Bienvenue",
+    "title": "Ton carnet. Pas le sien.",
+    "body": "HerDay est un carnet d'observation pour t'aider à mieux accompagner ta compagne. Aucune notification, aucune saisie ne lui sera jamais demandée.",
+    "email_label": "Email",
+    "email_placeholder": "toi@exemple.fr",
+    "email_hint": "On t'envoie un lien magique. Pas de mot de passe.",
+    "cta": "Recevoir le lien"
+  },
+  "step2": {
+    "eyebrow": "Pacte de transparence",
+    "title": "Une app utilisée en silence remplace la conversation au lieu de la nourrir.",
+    "body1": "HerDay est ton carnet. Il n'envoie rien à ta compagne. Il ne lui apparaît dans aucune notification.",
+    "body2": "Mais on te recommande très fortement de lui en parler, et même de lui montrer. Pourquoi : un outil d'observation utilisé en silence finit par remplacer la conversation au lieu de la nourrir. C'est l'inverse de ce qu'on veut ici.",
+    "choice_soon": "Je lui en parlerai bientôt",
+    "choice_already": "Je lui en ai déjà parlé",
+    "cta": "Continuer"
+  },
+  "step3": {
+    "eyebrow": "Le cycle, mesurable",
+    "title": "Six sous-phases, quatre hormones. Pas un mystère.",
+    "body": "Le langage par défaut de HerDay est celui de la littérature médicale. Sobre, exact, sans métaphore.",
+    "cta": "Continuer"
+  },
+  "step4": {
+    "eyebrow": "Première saisie",
+    "title": "Quand ses dernières règles ont-elles commencé, à ta connaissance ?",
+    "body": "L'imprécision est normale et n'invalide rien. Tu pourras corriger à tout moment.",
+    "date_label": "Date approximative",
+    "length_label": "Longueur de son cycle (facultatif)",
+    "length_hint": "Score de confiance bas tant que tu n'es pas sûr. C'est sain.",
+    "cta": "Ouvrir mon carnet"
+  }
+}

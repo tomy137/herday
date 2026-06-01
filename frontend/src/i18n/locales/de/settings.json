@@ -1,5 +1,39 @@
 {
   "title": "Einstellungen",
+  "transparency": {
+    "group": "Transparenzpakt",
+    "status_label": "aktiv",
+    "accepted_soon": "Ich werde bald mit ihr darüber sprechen",
+    "accepted_already": "Ich habe bereits mit ihr darüber gesprochen",
+    "not_yet": "Noch anzugehen",
+    "accepted_on": "angenommen am {{date}}",
+    "body": "Ein im Stillen genutztes Beobachtungswerkzeug ersetzt am Ende das Gespräch, statt es zu nähren. Das ist das Gegenteil von dem, was wir hier wollen.",
+    "mark_told": "Markieren als: „Ich habe bereits mit ihr darüber gesprochen“",
+    "mark_told_hint": "Status protokolliert",
+    "starters": "Einstiegssätze, um mit ihr darüber zu sprechen",
+    "starters_hint": "3 Vorschläge"
+  },
+  "groups": {
+    "her_data": "Daten zu ihr",
+    "journal": "Notizbuch",
+    "display": "Anzeige",
+    "about": "Über"
+  },
+  "her_data": {
+    "last_period": "Datum der letzten Menstruation",
+    "cycle_length": "Länge ihres Zyklus"
+  },
+  "journal_section": {
+    "history": "Verlauf der Beobachtungen",
+    "reset": "Mein Notizbuch zurücksetzen",
+    "reset_confirm": "Alle deine Beobachtungen werden gelöscht. Unwiderrufliche Aktion."
+  },
+  "about": {
+    "philosophy": "Produktphilosophie",
+    "sources": "Quellen",
+    "sources_hint": "Kiffe ton cycle ! — G. Baldassari",
+    "version": "Version"
+  },
   "partner_name": {
     "label": "Vorname Ihrer Partnerin",
     "placeholder": "Optional, zur Personalisierung der Nachrichten"

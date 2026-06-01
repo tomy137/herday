@@ -26,6 +26,10 @@ class Settings(BaseSettings):
     CORS_ORIGINS: list[str] = ["http://localhost:5173"]
     COOKIE_SECURE: bool = False  # Set True in production (HTTPS)
 
+    # Apple Universal Links — used to serve apple-app-site-association.
+    # Format of APPLE_APP_IDS: ["TEAMID.bundle.id", ...]. Empty disables the endpoint.
+    APPLE_APP_IDS: list[str] = []
+
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
 
 

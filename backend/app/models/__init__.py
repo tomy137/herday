@@ -3,7 +3,16 @@
 
 from app.models.cycle import Cycle
 from app.models.event import Event
+from app.models.journal import JournalEntry
 from app.models.magic_link import MagicLinkToken
+from app.models.phase_override import PhaseOverride
 from app.models.user import User
 
-__all__ = ["Cycle", "Event", "MagicLinkToken", "User"]
+__all__ = [
+    "Cycle",
+    "Event",
+    "JournalEntry",
+    "MagicLinkToken",
+    "PhaseOverride",
+    "User",
+]

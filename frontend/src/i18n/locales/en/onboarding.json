@@ -1,0 +1,36 @@
+{
+  "progress": "{{current}} / {{total}}",
+  "step1": {
+    "eyebrow": "Welcome",
+    "title": "Your notebook. Not hers.",
+    "body": "HerDay is an observation notebook to help you better support your partner. No notification, no entry will ever be asked of her.",
+    "email_label": "Email",
+    "email_placeholder": "you@example.com",
+    "email_hint": "We send you a magic link. No password.",
+    "cta": "Get the link"
+  },
+  "step2": {
+    "eyebrow": "Transparency pact",
+    "title": "An app used in silence replaces the conversation instead of nourishing it.",
+    "body1": "HerDay is your notebook. It sends nothing to your partner. It appears in no notification on her end.",
+    "body2": "But we strongly recommend you tell her about it, and even show it to her. Why: an observation tool used in silence ends up replacing the conversation instead of nourishing it. That's the opposite of what we want here.",
+    "choice_soon": "I'll tell her about it soon",
+    "choice_already": "I've already told her about it",
+    "cta": "Continue"
+  },
+  "step3": {
+    "eyebrow": "The cycle, measurable",
+    "title": "Six sub-phases, four hormones. Not a mystery.",
+    "body": "HerDay's default language is that of medical literature. Plain, precise, without metaphor.",
+    "cta": "Continue"
+  },
+  "step4": {
+    "eyebrow": "First entry",
+    "title": "When did her last period start, as far as you know?",
+    "body": "Imprecision is normal and invalidates nothing. You can correct it at any time.",
+    "date_label": "Approximate date",
+    "length_label": "Length of her cycle (optional)",
+    "length_hint": "Low confidence score until you're sure. That's healthy.",
+    "cta": "Open my notebook"
+  }
+}

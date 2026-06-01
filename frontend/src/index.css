@@ -11,10 +11,32 @@
   --color-warm-400: #B8A88E;
   --color-warm-500: #9A8A6E;
 
+  /* Editorial ink roles (V2) — text hierarchy over warm paper surfaces */
+  --color-ink: #2D2A26;
+  --color-ink-soft: #4A453E;
+  --color-rule-soft: #E8E0D2;
+
+  /* Phase accents (existing saturated palette — kept) */
   --color-phase-menstruation: #DC3D5A;
-  --color-phase-follicular: #2DA87E;
+  --color-phase-post-menstrual: #7FCFAE;
+  --color-phase-pre-ovulatory: #2DA87E;
   --color-phase-ovulation: #D4880F;
-  --color-phase-luteal: #7E4FD0;
+  --color-phase-post-ovulatory: #9E78E0;
+  --color-phase-pre-menstrual: #5D3A9E;
+
+  /* Per-phase soft (pale fill) + ink (readable dark text on soft) — AA-checked */
+  --color-phase-menstruation-soft: #FBEAEE;
+  --color-phase-menstruation-ink: #8E1F33;
+  --color-phase-post-menstrual-soft: #EAF6F0;
+  --color-phase-post-menstrual-ink: #2E7355;
+  --color-phase-pre-ovulatory-soft: #E6F4EE;
+  --color-phase-pre-ovulatory-ink: #1C6B50;
+  --color-phase-ovulation-soft: #FBF0DC;
+  --color-phase-ovulation-ink: #8A560A;
+  --color-phase-post-ovulatory-soft: #F0EAFA;
+  --color-phase-post-ovulatory-ink: #5B3D9E;
+  --color-phase-pre-menstrual-soft: #ECE7F5;
+  --color-phase-pre-menstrual-ink: #412A6E;
 }
 
 /* Smooth global defaults */
@@ -100,4 +122,102 @@ input[type="text"] {
 ::-webkit-scrollbar-thumb {
   background: var(--color-warm-300);
   border-radius: 4px;
+}
+
+/* ===========================================================================
+   V2 editorial primitives — rendered in DM Sans (no serif / no mono).
+   The handoff's serif/mono roles are reinterpreted via weight + tracking.
+   =========================================================================== */
+
+/* Caps label — replaces the handoff's mono ".caps" */
+.hd-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* Meta — replaces the handoff's JetBrains Mono role (dates, J{n}, counters) */
+.hd-meta {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  font-size: 10px;
+}
+
+/* Thin editorial rule (0.5px) */
+.hd-rule {
+  height: 0.5px;
+  width: 100%;
+  background: var(--color-warm-300);
+}
+.hd-rule-soft {
+  height: 0.5px;
+  width: 100%;
+  background: var(--color-rule-soft);
+}
+
+/* The posture word — THE design moment. Serif Newsreader -> DM Sans 700 caps. */
+.hd-posture-word {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+.hd-posture-sep {
+  color: var(--color-warm-400);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Tight editorial list with a dash marker (observable / propose / avoid) */
+.hd-list-tight {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+.hd-list-tight li {
+  list-style: none;
+  padding-left: 16px;
+  position: relative;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+}
+.hd-list-tight li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 0.5px;
+  background: var(--color-warm-400);
+}
+.hd-list-tight li[data-tone="avoid"]::before {
+  background: var(--color-phase-menstruation);
+}
+
+/* Card surfaces */
+.hd-card {
+  background: var(--color-warm-50);
+  border: 0.5px solid var(--color-warm-300);
+  border-radius: 14px;
+  padding: 18px;
+}
+.hd-card-flat {
+  background: var(--color-warm-100);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+/* Sheet animations (override sheet) */
+@keyframes hd-sheet-in {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.animate-sheet-in {
+  animation: hd-sheet-in 0.22s cubic-bezier(0.2, 0.7, 0.3, 1);
 }

@@ -1,0 +1,74 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+import { useTranslation } from 'react-i18next';
+import type { PhaseInfo } from '../../api/client';
+import type { Phase } from '../../lib/cycle-engine';
+import { PHASE_SOFT_HEX, PHASE_HEX } from '../../constants/phases';
+import { usePhaseContent } from '../../lib/use-phase-content';
+import PhaseTag from '../ui/PhaseTag';
+import ConfidenceBadge from '../ui/ConfidenceBadge';
+import PostureRail from '../posture/PostureRail';
+import PhaseProgress from './PhaseProgress';
+
+interface PhaseCardProps {
+  info: PhaseInfo;
+  onOverride: () => void;
+}
+
+export default function PhaseCard({ info, onOverride }: PhaseCardProps) {
+  const { t } = useTranslation('phases');
+  const phase = info.phase as Phase;
+  const content = usePhaseContent(phase);
+  const endsIn = info.phase_ends_in ?? 0;
+  const daysLabel =
+    endsIn > 0 ? t('labels.days_left', { count: endsIn }) : t('labels.switch_today');
+
+  return (
+    <div
+      className="rounded-[14px] px-5 pb-[18px] pt-5"
+      style={{ background: PHASE_SOFT_HEX[phase] }}
+    >
+      <div className="mb-3.5 flex items-start justify-between gap-3">
+        <div>
+          <PhaseTag phase={phase} suffix={`J${info.day_in_cycle}`} />
+          <h2 className="mt-2 text-[22px] font-bold leading-tight tracking-tight text-ink">
+            {content.name}{' '}
+            <span className="text-[18px] font-normal italic text-warm-500">
+              — {content.range.toLowerCase()}
+            </span>
+          </h2>
+          <p className="mt-2.5 text-[14.5px] leading-relaxed text-ink-soft" style={{ textWrap: 'pretty' }}>
+            {content.headline}
+          </p>
+        </div>
+        <div className="flex-none pt-1">
+          <ConfidenceBadge confidence={info.confidence} systemState={info.system_state} />
+        </div>
+      </div>
+
+      <div className="my-1.5 mb-3 flex items-center gap-2.5">
+        <PhaseProgress phase={phase} phaseEndsIn={endsIn} />
+        <span
+          className="hd-meta whitespace-nowrap uppercase"
+          style={{ color: PHASE_HEX[phase] }}
+        >
+          {daysLabel}
+        </span>
+      </div>
+
+      <div className="my-3.5 h-[0.5px]" style={{ background: `${PHASE_HEX[phase]}30` }} />
+
+      <div className="hd-caps mb-3 text-warm-500">{t('labels.she_needs_you_to_be')}</div>
+      <PostureRail words={content.posture} />
+
+      <div className="mt-[18px]">
+        <button
+          type="button"
+          onClick={onOverride}
+          className="text-[12px] text-warm-500 transition-colors hover:text-ink"
+        >
+          → {t('labels.observe_differently')}
+        </button>
+      </div>
+    </div>
+  );
+}

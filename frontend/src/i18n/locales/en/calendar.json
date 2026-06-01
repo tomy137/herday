@@ -1,5 +1,8 @@
 {
   "title": "Calendar",
+  "legend_title": "Phase legend",
+  "cross_cycle": "Cross-cycle filter",
+  "see_all_phases": "See all {{phase}} phases of recent months",
   "no_data": "Not enough data to display phases yet.",
   "no_data_hint": "Keep reporting events!",
   "learning_badge": "Learning phase",
@@ -33,18 +36,28 @@
       "season": "Winter",
       "desc": "Fatigue, cramps, need for rest. Be the guardian of rest."
     },
-    "follicular": {
-      "name": "Follicular",
+    "post_menstrual": {
+      "name": "Post-menstrual",
+      "season": "Thaw",
+      "desc": "Recovery, flat but stable energy. Stay attentive without overloading."
+    },
+    "pre_ovulatory": {
+      "name": "Pre-ovulatory",
       "season": "Spring",
-      "desc": "Energy returns, mood lifts. Encourage her!"
+      "desc": "Rising energy, drive to act. Launch projects with her."
     },
     "ovulation": {
       "name": "Ovulation",
       "season": "Summer",
       "desc": "Peak energy and confidence. Connect and be flirty."
     },
-    "luteal": {
-      "name": "Luteal",
+    "post_ovulatory": {
+      "name": "Post-ovulatory",
+      "season": "Late Summer",
+      "desc": "Stable energy, productivity, focus. Good time for concrete work."
+    },
+    "pre_menstrual": {
+      "name": "Pre-menstrual",
       "season": "Autumn",
       "desc": "Turbulence zone (PMS). Patience and empathy."
     }

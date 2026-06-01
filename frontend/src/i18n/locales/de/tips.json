@@ -7,13 +7,21 @@
     "attitude": "Bringen Sie Komfort: Wärmflasche, Tee, Decke. Schlagen Sie ruhige Abende zu Hause vor.",
     "avoid": "Ihr Müdigkeit oder mangelnde Motivation vorzuwerfen."
   },
-  "follicular": {
+  "post_menstrual": {
+    "season": "Das Tauwetter",
+    "role": "Der diskrete Begleiter",
+    "bio": "Die Blutung ist vorbei, der Körper erholt sich. Die Energie ist noch niedrig, aber stabil. Der Geist klärt sich, die Lust auf Aktivität kehrt langsam zurück.",
+    "action": "Bleiben Sie aufmerksam, ohne zu übertreiben. Schlagen Sie einen Spaziergang, einen ruhigen Kaffee, einfache Dinge vor. Vermeiden Sie volle Terminkalender.",
+    "attitude": "Seien Sie geduldig. Das ist eine Übergangsphase — respektieren Sie ihren wiederkehrenden Rhythmus.",
+    "avoid": "Ihren Kalender direkt nach dem Ende der Blutung zu überladen. Sie ist noch nicht auf dem Energiehöhepunkt."
+  },
+  "pre_ovulatory": {
     "season": "Der Frühling",
-    "role": "Der Unterstützer",
-    "bio": "Östrogen steigt. Die Energie kehrt zurück, die Stimmung hebt sich, sie will Projekte starten und sich bewegen.",
-    "action": "Ermutigen Sie sie! Schlagen Sie Ausflüge, Sport oder die nächste Urlaubsplanung vor.",
-    "attitude": "Genießen Sie ihre wiedergewonnene Leichtigkeit — lachen und ausgehen.",
-    "avoid": "Das ist der beste Moment für rationale Gespräche oder logistische Themen."
+    "role": "Der Komplize für Projekte",
+    "bio": "Östrogen steigt stark an, die Energie kehrt deutlich zurück. Helle Stimmung, Lust auf Neues, gesteigerte Geselligkeit.",
+    "action": "Starten Sie Projekte mit ihr! Jetzt ist die Zeit für wichtige Entscheidungen, strategische Gespräche, ambitionierte Ausflüge.",
+    "attitude": "Folgen Sie ihrem Schwung. Schlagen Sie Sport, Dates, Neues vor. Sie ist im Aufwind.",
+    "avoid": "Sie zu bremsen oder zu verschieben, was sie jetzt angehen will."
   },
   "ovulation": {
     "season": "Der Sommer",
@@ -23,10 +31,18 @@
     "attitude": "Machen Sie ihr Komplimente, seien Sie charmant. Sie ist offener für Kommunikation und Nähe.",
     "avoid": "Ihre Signale ignorieren, Zeit miteinander zu verbringen."
   },
-  "luteal": {
+  "post_ovulatory": {
+    "season": "Spätsommer",
+    "role": "Der Tatkraft-Partner",
+    "bio": "Progesteron steigt, die Energie bleibt hoch, richtet sich aber nach innen. Sie kann sehr produktiv, organisiert und detailorientiert sein.",
+    "action": "Unterstützen Sie ihre Produktivität. Guter Moment für konkrete Aufgaben (Aufräumen, Admin, operative Projekte). Seien Sie ihr effizienter Partner.",
+    "attitude": "Schätzen Sie ihre Fähigkeit, zu organisieren und abzuschließen. Nicht die Zeit für große abstrakte Ideen — es ist Umsetzungsmodus.",
+    "avoid": "Sie mit sozialem Schnickschnack abzulenken. Sie zieht oft ruhige, produktive Abende vor."
+  },
+  "pre_menstrual": {
     "season": "Der Herbst",
     "role": "Der unerschütterliche Fels",
-    "bio": "Progesteron steigt und stürzt dann ab (PMS). Reizbarkeit, Traurigkeit, Selbstkritik. Die Turbulenzzone.",
+    "bio": "Progesteron steigt und stürzt dann ab. PMS möglich: Reizbarkeit, Traurigkeit, Selbstkritik, Heißhunger. Hormonelle Turbulenzzone.",
     "action": "Nehmen Sie nichts persönlich. Wenn sie sich über Kleinigkeiten ärgert, ist einfach ihre Toleranzschwelle gesunken.",
     "attitude": "Zuhören und Geduld. Sie will Empathie, keine technische Lösung. Heißhunger nicht bewerten — das ist physiologisch.",
     "avoid": "Sagen Sie nie 'Bekommst du deine Tage?' — selbst wenn es stimmt, ist es der schlimmste Satz."

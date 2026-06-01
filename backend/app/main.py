@@ -18,7 +18,7 @@ from fastapi.staticfiles import StaticFiles
 
 from app.config import settings
 from app.database import create_db_and_tables
-from app.routers import auth, cycles, events, phases, users
+from app.routers import auth, cycles, echoes, events, journal, phases, users
 
 STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
 
@@ -38,9 +38,11 @@ def create_app() -> FastAPI:
         lifespan=lifespan,
     )
 
+    # Capacitor webviews use these origins: capacitor:// on iOS, https://localhost on Android.
+    capacitor_origins = ["capacitor://localhost", "https://localhost", "ionic://localhost"]
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.CORS_ORIGINS,
+        allow_origins=list(settings.CORS_ORIGINS) + capacitor_origins,
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
@@ -50,11 +52,33 @@ def create_app() -> FastAPI:
     app.include_router(events.router)
     app.include_router(cycles.router)
     app.include_router(phases.router)
+    app.include_router(journal.router)
+    app.include_router(echoes.router)
     app.include_router(users.router)
 
     @app.get("/api/health")
     async def health():
         return {"status": "ok"}
+
+    if settings.APPLE_APP_IDS:
+        @app.get("/.well-known/apple-app-site-association")
+        async def apple_app_site_association():
+            return {
+                "applinks": {
+                    "details": [
+                        {
+                            "appIDs": settings.APPLE_APP_IDS,
+                            "components": [
+                                {
+                                    "/": "/verify",
+                                    "?": {"token": "?*"},
+                                    "comment": "Magic link verify",
+                                }
+                            ],
+                        }
+                    ]
+                }
+            }
 
     # Serve frontend static files (Docker build copies them to /app/static)
     if STATIC_DIR.is_dir():

@@ -1,5 +1,39 @@
 {
   "title": "Réglages",
+  "transparency": {
+    "group": "Pacte de transparence",
+    "status_label": "actif",
+    "accepted_soon": "Je lui en parlerai bientôt",
+    "accepted_already": "Je lui en ai déjà parlé",
+    "not_yet": "À engager",
+    "accepted_on": "accepté le {{date}}",
+    "body": "Un outil d'observation utilisé en silence finit par remplacer la conversation au lieu de la nourrir. C'est l'inverse de ce qu'on veut ici.",
+    "mark_told": "Marquer comme : « je lui en ai déjà parlé »",
+    "mark_told_hint": "Statut journalisé",
+    "starters": "Phrases d'amorce pour lui en parler",
+    "starters_hint": "3 suggestions"
+  },
+  "groups": {
+    "her_data": "Données d'elle",
+    "journal": "Carnet",
+    "display": "Affichage",
+    "about": "À propos"
+  },
+  "her_data": {
+    "last_period": "Date des dernières règles",
+    "cycle_length": "Longueur de son cycle"
+  },
+  "journal_section": {
+    "history": "Historique des observations",
+    "reset": "Remettre à zéro mon carnet",
+    "reset_confirm": "Toutes tes observations seront effacées. Action irréversible."
+  },
+  "about": {
+    "philosophy": "Philosophie produit",
+    "sources": "Sources",
+    "sources_hint": "Kiffe ton cycle ! — G. Baldassari",
+    "version": "Version"
+  },
   "partner_name": {
     "label": "Prénom de votre compagne",
     "placeholder": "Optionnel, pour personnaliser les messages"

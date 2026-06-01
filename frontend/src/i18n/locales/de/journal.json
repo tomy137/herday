@@ -1,0 +1,50 @@
+{
+  "pastilles": {
+    "dispute": "Spannung",
+    "fatigue": "Müdigkeit",
+    "repli": "Rückzug",
+    "coquin": "Verspielt",
+    "tendresse": "Zärtlichkeit",
+    "rires": "Lachen",
+    "douleur": "Schmerz",
+    "larmes": "Tränen",
+    "bon-moment": "Schöner Moment",
+    "energie": "Energie",
+    "pulsion": "Ordnung / Haushalt",
+    "soutien": "Unterstützung gegeben"
+  },
+  "quick": {
+    "title": "Deine Beobachtung des Tages",
+    "duration": "10–30 s",
+    "free_placeholder": "Ein Wort zu deinem Tag mit ihr (optional)",
+    "helped": "Hat geholfen",
+    "not_helped": "Hat nicht geholfen",
+    "helped_placeholder": "z. B. ruhiger Abend",
+    "not_helped_placeholder": "z. B. diskutieren",
+    "write_more": "Mehr schreiben",
+    "saved": "Beobachtung gespeichert"
+  },
+  "full": {
+    "eyebrow": "Notizbuch",
+    "title": "Deine Beobachtung für heute.",
+    "disclaimer": "Notiere, was du beobachtet hast. Nicht, was sie empfindet — das weißt du nicht. Kein Urteil.",
+    "moments": "Markante Momente",
+    "free_label": "Freier Text",
+    "free_placeholder": "Was du beobachtest, in deinen Worten. Niemand außer dir wird es lesen.",
+    "loop_label": "Die Lernschleife",
+    "loop_hint": "Treibstoff des zyklusübergreifenden Gedächtnisses. Nicht überspringen.",
+    "helped_label": "Was heute geholfen hat",
+    "helped_placeholder": "z. B. ich habe das Abendessen abgesagt, damit wir Ruhe haben",
+    "not_helped_label": "Was nicht geholfen hat",
+    "not_helped_placeholder": "z. B. ich habe über die To-do-Liste fürs Wochenende diskutiert",
+    "save": "Speichern",
+    "entry": "Eintrag"
+  },
+  "override": {
+    "eyebrow": "Ich beobachte sie anders",
+    "title": "Die Vorhersage ist eine Hypothese. Du beobachtest besser als sie.",
+    "note": "Deine Wahl wird protokolliert. Die vorhergesagte Phase bleibt im Hintergrund sichtbar.",
+    "predicted": "VORHERGESAGT",
+    "saved": "Phase aktualisiert"
+  }
+}

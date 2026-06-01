@@ -14,6 +14,7 @@ See also: docs/CYCLE_ENGINE.md
 """
 
 import calendar
+import json
 import uuid
 from datetime import date, timedelta
 from enum import Enum
@@ -50,12 +51,33 @@ class SystemState(str, Enum):
 
 
 class Phase(str, Enum):
-    """Menstrual cycle phase."""
+    """Menstrual cycle phase (6 sub-phases for nuanced tracking)."""
 
     MENSTRUATION = "menstruation"
-    FOLLICULAR = "follicular"
-    OVULATION = "ovulation"
-    LUTEAL = "luteal"
+    POST_MENSTRUAL = "post_menstrual"      # flat low energy, recovery
+    PRE_OVULATORY = "pre_ovulatory"        # estrogen rising, energy ascending
+    OVULATION = "ovulation"                # fertile window
+    POST_OVULATORY = "post_ovulatory"      # stable high, productive
+    PRE_MENSTRUAL = "pre_menstrual"        # PMS window
+
+
+# Four "parent" phases group the six sub-phases. Used only for the cross-cycle
+# memory (échos) aggregation — never shown directly as a phase in the UI.
+PARENT_OF_SUBPHASE: dict[Phase, str] = {
+    Phase.MENSTRUATION: "menstrual",
+    Phase.POST_MENSTRUAL: "follicular",
+    Phase.PRE_OVULATORY: "follicular",
+    Phase.OVULATION: "ovulatory",
+    Phase.POST_OVULATORY: "luteal",
+    Phase.PRE_MENSTRUAL: "luteal",
+}
+
+
+def parent_phase_of(phase: Phase | str) -> str:
+    """Return the parent-phase key for a sub-phase (enum or its value)."""
+    if isinstance(phase, str):
+        phase = Phase(phase)
+    return PARENT_OF_SUBPHASE[phase]
 
 
 # ---------------------------------------------------------------------------
@@ -130,7 +152,9 @@ async def recalculate_cycles(
         elif event.event_type == "cycle_length_info":
             # User-provided cycle length: apply to current cycle or create
             # a lightweight inferred cycle so _average_cycle_length picks it up.
-            length = (event.metadata or {}).get("cycle_length")
+            # NB: read metadata_json — ``event.metadata`` is SQLAlchemy-reserved.
+            metadata = json.loads(event.metadata_json) if event.metadata_json else {}
+            length = metadata.get("cycle_length")
             if isinstance(length, (int, float)) and 15 <= length <= 50:
                 length = int(length)
                 if current_cycle is not None and current_cycle.cycle_length is None:
@@ -255,26 +279,40 @@ def calculate_phase(
     target_date: date,
     cycles: list[Cycle],
     events: list[Event] | None = None,
+    overrides: dict[date, Phase] | None = None,
 ) -> dict:
     """Calculate the menstrual phase for a given date.
 
     Returns a dict matching the PhaseInfo schema:
-    - phase, day_in_cycle, cycle_length, confidence,
-      system_state, next_period_in, tips
+    - phase, day_in_cycle, cycle_length, confidence, system_state,
+      next_period_in, phase_ends_in, tips, plus parent_phase / is_override /
+      estimated_phase.
+
+    If ``overrides`` holds an entry for ``target_date``, the displayed phase is
+    forced to that value (a *display* correction): day_in_cycle/cycle_length/
+    next_period_in/system_state are kept, while phase_ends_in/tips/parent are
+    recomputed for the forced phase. ``estimated_phase`` preserves the original.
     """
     from app.services.phase import get_tips_for_phase
 
+    override = overrides.get(target_date) if overrides else None
     state = get_system_state(cycles)
 
     if state == SystemState.UNKNOWN:
+        estimated = Phase.POST_MENSTRUAL
+        phase = override or estimated
         return {
-            "phase": Phase.FOLLICULAR.value,
+            "phase": phase.value,
             "day_in_cycle": 0,
             "cycle_length": DEFAULT_CYCLE_LENGTH,
             "confidence": 0.0,
             "system_state": state.value,
             "next_period_in": None,
-            "tips": get_tips_for_phase(Phase.FOLLICULAR),
+            "phase_ends_in": None,
+            "tips": get_tips_for_phase(phase),
+            "parent_phase": PARENT_OF_SUBPHASE[phase],
+            "is_override": override is not None,
+            "estimated_phase": estimated.value,
         }
 
     avg_cycle_length = _average_cycle_length(cycles)
@@ -305,13 +343,20 @@ def calculate_phase(
     period_dur = avg_period_duration
     ovulation_day = cycle_length - LUTEAL_PHASE_LENGTH
 
-    phase = _day_to_phase(day_in_cycle, period_dur, ovulation_day)
+    estimated = _day_to_phase(day_in_cycle, period_dur, ovulation_day, cycle_length)
+    phase = override or estimated
     confidence = _STATE_CONFIDENCE[state]
 
     # Next period
     days_until_next = cycle_length - day_in_cycle + 1
     if days_until_next <= 0:
         days_until_next = 1
+
+    # Days remaining in current phase (inclusive of today) — for the forced phase
+    phase_end_day = _phase_end_day(phase, period_dur, ovulation_day, cycle_length)
+    phase_ends_in = phase_end_day - day_in_cycle + 1
+    if phase_ends_in <= 0:
+        phase_ends_in = 1
 
     return {
         "phase": phase.value,
@@ -320,35 +365,104 @@ def calculate_phase(
         "confidence": confidence,
         "system_state": state.value,
         "next_period_in": days_until_next,
+        "phase_ends_in": phase_ends_in,
         "tips": get_tips_for_phase(phase),
+        "parent_phase": PARENT_OF_SUBPHASE[phase],
+        "is_override": override is not None,
+        "estimated_phase": estimated.value,
     }
+
+
+def _phase_end_day(
+    phase: Phase,
+    period_duration: int,
+    ovulation_day: int,
+    cycle_length: int,
+) -> int:
+    """Last day-in-cycle of the given phase (matches _day_to_phase boundaries)."""
+    ovu_window_start = ovulation_day - 2
+    ovu_window_end = ovulation_day + 2
+    pre_menstrual_start = cycle_length - _PRE_MENSTRUAL_DAYS + 1
+
+    if phase == Phase.MENSTRUATION:
+        return period_duration
+    if phase == Phase.POST_MENSTRUAL:
+        return ovu_window_start - _PRE_OVULATORY_DAYS - 1
+    if phase == Phase.PRE_OVULATORY:
+        return ovu_window_start - 1
+    if phase == Phase.OVULATION:
+        return ovu_window_end
+    if phase == Phase.POST_OVULATORY:
+        return pre_menstrual_start - 1
+    # PRE_MENSTRUAL
+    return cycle_length
+
+
+_PRE_OVULATORY_DAYS = 2   # days just before the fertile window
+_PRE_MENSTRUAL_DAYS = 6   # PMS window before next period
 
 
 def _day_to_phase(
     day: int,
     period_duration: int,
     ovulation_day: int,
+    cycle_length: int,
 ) -> Phase:
-    """Map a 1-indexed day-in-cycle to a Phase.
+    """Map a 1-indexed day-in-cycle to one of 6 phases.
 
-    Phase boundaries:
-    - Day 1 to period_duration                    -> MENSTRUATION
-    - period_duration+1 to ovulation_day-2         -> FOLLICULAR
-    - ovulation_day-2 to ovulation_day+2           -> OVULATION (4-day window)
-    - ovulation_day+2 to end of cycle              -> LUTEAL
+    Boundaries (28-day cycle, 5-day period, ovulation at day 14):
+    - 1..5    MENSTRUATION
+    - 6..9    POST_MENSTRUAL  (flat, recovery — 2/3 of the pre-ovu window)
+    - 10..11  PRE_OVULATORY   (estrogen rising — 2 days before fertile window)
+    - 12..16  OVULATION       (5-day fertile window)
+    - 17..22  POST_OVULATORY  (stable luteal — first ~6 days)
+    - 23..28  PRE_MENSTRUAL   (PMS — last 6 days)
+
+    Bounds scale with the user's actual cycle_length and period_duration.
     """
     if day <= period_duration:
         return Phase.MENSTRUATION
-    if day < ovulation_day - 2:
-        return Phase.FOLLICULAR
-    if day <= ovulation_day + 2:
+
+    ovu_window_start = ovulation_day - 2
+    ovu_window_end = ovulation_day + 2
+
+    if day < ovu_window_start:
+        pre_ovu_start = ovu_window_start - _PRE_OVULATORY_DAYS
+        if day < pre_ovu_start:
+            return Phase.POST_MENSTRUAL
+        return Phase.PRE_OVULATORY
+
+    if day <= ovu_window_end:
         return Phase.OVULATION
-    return Phase.LUTEAL
+
+    pre_menstrual_start = cycle_length - _PRE_MENSTRUAL_DAYS + 1
+    if day < pre_menstrual_start:
+        return Phase.POST_OVULATORY
+    return Phase.PRE_MENSTRUAL
 
 
 # ---------------------------------------------------------------------------
 # Calendar
 # ---------------------------------------------------------------------------
+
+
+async def load_overrides(
+    user_id: uuid.UUID,
+    session: AsyncSession,
+) -> dict[date, Phase]:
+    """Load a user's phase overrides as a {date: Phase} lookup."""
+    from app.models.phase_override import PhaseOverride
+
+    result = await session.exec(
+        select(PhaseOverride).where(PhaseOverride.user_id == user_id),
+    )
+    overrides: dict[date, Phase] = {}
+    for ov in result.all():
+        try:
+            overrides[ov.override_date] = Phase(ov.phase)
+        except ValueError:
+            continue  # ignore stale/invalid phase values
+    return overrides
 
 
 async def calculate_calendar_month(
@@ -376,6 +490,8 @@ async def calculate_calendar_month(
     )
     events = list(events_result.all())
 
+    overrides = await load_overrides(user_id, session)
+
     # Build event lookup by date
     events_by_date: dict[date, list[str]] = {}
     for ev in events:
@@ -386,19 +502,35 @@ async def calculate_calendar_month(
 
     for d in range(1, num_days + 1):
         current = date(year, month, d)
+        day_in_cycle: int | None = None
         if cycles:
-            info = calculate_phase(current, cycles, events)
+            info = calculate_phase(current, cycles, events, overrides)
             phase = info["phase"]
             confidence = info["confidence"]
+            parent_phase = info["parent_phase"]
+            is_override = info["is_override"]
+            day_in_cycle = info["day_in_cycle"]
+        elif current in overrides:
+            # No cycles yet, but a manual override exists for this day.
+            forced = overrides[current]
+            phase = forced.value
+            confidence = 0.0
+            parent_phase = PARENT_OF_SUBPHASE[forced]
+            is_override = True
         else:
             phase = None
             confidence = 0.0
+            parent_phase = None
+            is_override = False
 
         days.append({
             "date": current,
             "phase": phase,
             "confidence": confidence,
             "events": events_by_date.get(current, []),
+            "day_in_cycle": day_in_cycle,
+            "parent_phase": parent_phase,
+            "is_override": is_override,
         })
 
     return days

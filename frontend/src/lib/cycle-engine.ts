@@ -7,7 +7,16 @@ export const DEFAULT_PERIOD_DURATION = 5;
 export const LUTEAL_PHASE_LENGTH = 14;
 
 export type SystemState = 'unknown' | 'estimating' | 'partial' | 'learning' | 'confident';
-export type Phase = 'menstruation' | 'follicular' | 'ovulation' | 'luteal';
+export type Phase =
+  | 'menstruation'
+  | 'post_menstrual'
+  | 'pre_ovulatory'
+  | 'ovulation'
+  | 'post_ovulatory'
+  | 'pre_menstrual';
+
+const PRE_OVULATORY_DAYS = 2;
+const PRE_MENSTRUAL_DAYS = 6;
 
 export interface CycleData {
   id: string;
@@ -63,11 +72,24 @@ function averagePeriodDuration(cycles: CycleData[]): number {
   return Math.round(durations.reduce((a, b) => a + b, 0) / durations.length);
 }
 
-function dayToPhase(day: number, periodDuration: number, ovulationDay: number): Phase {
+function dayToPhase(
+  day: number,
+  periodDuration: number,
+  ovulationDay: number,
+  cycleLength: number,
+): Phase {
   if (day <= periodDuration) return 'menstruation';
-  if (day < ovulationDay - 2) return 'follicular';
-  if (day <= ovulationDay + 2) return 'ovulation';
-  return 'luteal';
+
+  const ovuStart = ovulationDay - 2;
+  const ovuEnd = ovulationDay + 2;
+
+  if (day < ovuStart) {
+    return day < ovuStart - PRE_OVULATORY_DAYS ? 'post_menstrual' : 'pre_ovulatory';
+  }
+  if (day <= ovuEnd) return 'ovulation';
+
+  const preMenstrualStart = cycleLength - PRE_MENSTRUAL_DAYS + 1;
+  return day < preMenstrualStart ? 'post_ovulatory' : 'pre_menstrual';
 }
 
 function diffDays(a: Date, b: Date): number {
@@ -79,7 +101,7 @@ export function calculatePhase(targetDate: Date, cycles: CycleData[]): PhaseInfo
 
   if (state === 'unknown') {
     return {
-      phase: 'follicular',
+      phase: 'post_menstrual',
       dayInCycle: 0,
       cycleLength: DEFAULT_CYCLE_LENGTH,
       confidence: 0.0,
@@ -114,7 +136,7 @@ export function calculatePhase(targetDate: Date, cycles: CycleData[]): PhaseInfo
   }
 
   const ovulationDay = avgCycleLen - LUTEAL_PHASE_LENGTH;
-  const phase = dayToPhase(dayInCycle, avgPeriodDur, ovulationDay);
+  const phase = dayToPhase(dayInCycle, avgPeriodDur, ovulationDay, avgCycleLen);
   const confidence = STATE_CONFIDENCE[state];
 
   let nextPeriodIn = avgCycleLen - dayInCycle + 1;

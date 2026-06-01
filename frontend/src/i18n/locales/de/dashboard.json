@@ -17,16 +17,20 @@
     "title": "Aktuelle Phase",
     "day_in_cycle": "Tag {{day}}",
     "menstruation": "Menstruation",
-    "follicular": "Follikelphase",
+    "post_menstrual": "Postmenstruell",
+    "pre_ovulatory": "Präovulatorisch",
     "ovulation": "Eisprung",
-    "luteal": "Lutealphase",
-    "next_period": "Nachste Periode in ~{{days}} Tagen",
-    "confidence_label": "Zuverlassigkeit der Vorhersage"
+    "post_ovulatory": "Postovulatorisch",
+    "pre_menstrual": "Prämenstruell",
+    "next_period": "Nächste Periode in ~{{days}} Tagen",
+    "ends_in_one": "Noch 1 Tag in dieser Phase",
+    "ends_in_other": "Noch {{count}} Tage in dieser Phase",
+    "confidence_label": "Zuverlässigkeit der Vorhersage"
   },
   "did_you_know": "Wussten Sie schon?",
   "education": {
     "cycle_average": "Ein Zyklus dauert durchschnittlich 28 Tage, aber jede Frau ist anders.",
-    "phases_exist": "Der Zyklus hat 4 Phasen, jede mit ihren Besonderheiten.",
+    "phases_exist": "Der Zyklus hat 6 Unterphasen, jede mit ihren Besonderheiten.",
     "track_helps": "Je mehr Ereignisse Sie melden, desto genauer werden die Vorhersagen."
   }
 }

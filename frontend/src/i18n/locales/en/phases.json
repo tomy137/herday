@@ -1,0 +1,150 @@
+{
+  "labels": {
+    "she_needs_you_to_be": "She needs you to be:",
+    "observe_differently": "I see her differently",
+    "days_left_one": "{{count}} more day in this phase",
+    "days_left_other": "{{count}} more days in this phase",
+    "switch_today": "Transition expected today",
+    "observe": "What you can observe",
+    "propose": "What you can offer",
+    "avoid": "Better to avoid"
+  },
+  "parent": {
+    "menstrual": "Menstrual",
+    "follicular": "Follicular",
+    "ovulatory": "Ovulatory",
+    "luteal": "Luteal"
+  },
+  "menstruation": {
+    "name": "Menstrual phase",
+    "short": "Menstruation",
+    "range": "Days 1 to 5",
+    "headline": "At this point in the cycle, many women feel real physical fatigue and lower tolerance for noise or demands.",
+    "posture": ["STEADY", "RELIABLE", "DISCREET", "LOGISTICAL"],
+    "observable": [
+      "Her physical state: fatigue, sensitivity to smells or bright lights",
+      "Her pace: a likely need to slow down",
+      "Her household logistics: what she usually takes care of"
+    ],
+    "propose": [
+      "Step in without asking \"can I help?\" — decide, act",
+      "Lighten the household load (meals, groceries, kids)",
+      "Offer quiet time: no loud evening imposed on her"
+    ],
+    "avoid": [
+      "Making packed social plans without talking to her first",
+      "Asking her to settle a substantial logistical matter",
+      "Mentioning her period in front of others"
+    ]
+  },
+  "post_menstrual": {
+    "name": "Post-menstrual phase",
+    "short": "Post-menstrual",
+    "range": "A few days after the period",
+    "headline": "At this point in the cycle, many women regain steady energy, still low, without euphoria. Recovery is underway.",
+    "posture": ["AVAILABLE", "OPEN", "CURIOUS", "ATTENTIVE"],
+    "observable": [
+      "Energy returning, without urgency",
+      "A stable mood, more open to conversation",
+      "Desires re-emerging (projects, conversations put off until later)"
+    ],
+    "propose": [
+      "Pick back up the conversations she left on pause",
+      "Ask her where she stands, without rushing her",
+      "Line up upcoming commitments together"
+    ],
+    "avoid": [
+      "Imposing an intense pace on her right away",
+      "Reviving an unresolved conflict the moment energy returns",
+      "Mistaking returning energy for full energy"
+    ]
+  },
+  "pre_ovulatory": {
+    "name": "Pre-ovulatory phase",
+    "short": "Pre-ovulatory",
+    "range": "2 to 3 days before ovulation",
+    "headline": "At this point in the cycle, many women feel a rise in energy, a drive to take things on, and greater tolerance for risk.",
+    "posture": ["IN MOTION", "PARTNER", "CONFIDENT", "PLAYFUL"],
+    "observable": [
+      "Spontaneous initiative on new topics",
+      "An appetite for projects, outings, encounters",
+      "A steadier voice, a more direct gaze"
+    ],
+    "propose": [
+      "Start a project, an outing, a short trip with her",
+      "Leave her room to carry her own momentum",
+      "Be present physically and in listening to her ideas"
+    ],
+    "avoid": [
+      "Cutting her momentum short out of excess caution",
+      "Constantly bringing the conversation back to daily routine",
+      "Mistaking her energy for a request for coaching"
+    ]
+  },
+  "ovulation": {
+    "name": "Ovulatory phase",
+    "short": "Ovulation",
+    "range": "Fertile window, 5 days centered on day (L-14)",
+    "headline": "At this point in the cycle, many women experience a peak in confidence, sociability, and physical openness.",
+    "posture": ["PRESENT", "PARTNER", "PLAYFUL", "LIGHTHEARTED"],
+    "observable": [
+      "Broader, more outgoing sociability",
+      "Attention to the body, to appearance, to how she's seen",
+      "An appetite for flirtation and play"
+    ],
+    "propose": [
+      "Give her one-on-one time, with no agenda",
+      "Seize the light moments, the laughter, the sensuality",
+      "Tell her what you notice in her, without calculation"
+    ],
+    "avoid": [
+      "Mechanically scheduling \"a couple's moment\"",
+      "Mistaking her radiance for an invitation to everyone",
+      "Reducing this phase to fertility alone"
+    ]
+  },
+  "post_ovulatory": {
+    "name": "Post-ovulatory phase",
+    "short": "Post-ovulatory",
+    "range": "Luteal plateau, after ovulation",
+    "headline": "At this point in the cycle, many women experience a stable plateau, well suited to productivity and refocusing.",
+    "posture": ["STABLE", "CONCRETE", "PRESENT", "FOCUSED"],
+    "observable": [
+      "Sustained but not euphoric energy",
+      "Attention to structure, sorting, what needs finishing",
+      "A gradual decline in social drive"
+    ],
+    "propose": [
+      "Move forward on concrete things with her: decisions, paperwork, home",
+      "Respect her moments of withdrawal without reading into them",
+      "Keep your commitments, even small ones"
+    ],
+    "avoid": [
+      "Launching yet another vague or hypothetical project",
+      "Taking up an excess of her time for yourself",
+      "Reading withdrawal as a personal distancing"
+    ]
+  },
+  "pre_menstrual": {
+    "name": "Pre-menstrual phase",
+    "short": "Pre-menstrual",
+    "range": "Last 6 days of the cycle",
+    "headline": "At this point in the cycle, many women have a more demanding, sometimes darker outlook, along with great creativity.",
+    "posture": ["PATIENT", "ROBUST", "LISTENING", "NON-REACTIVE"],
+    "observable": [
+      "Her emotional state",
+      "Her physical fatigue",
+      "Her tolerance for setbacks"
+    ],
+    "propose": [
+      "Lighten the logistics without making a show of it",
+      "Give her time alone if she wants it",
+      "Don't argue against criticism head-on — listen, reflect it back"
+    ],
+    "avoid": [
+      "Asking her to settle a weighty decision today",
+      "Telling her \"it's your hormones\"",
+      "Taking every remark personally"
+    ]
+  }
+}

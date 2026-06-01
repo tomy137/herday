@@ -1,0 +1,50 @@
+{
+  "pastilles": {
+    "dispute": "Tension",
+    "fatigue": "Fatigue",
+    "repli": "Withdrawal",
+    "coquin": "Playful",
+    "tendresse": "Tenderness",
+    "rires": "Laughter",
+    "douleur": "Pain",
+    "larmes": "Tears",
+    "bon-moment": "Good moment",
+    "energie": "Energy",
+    "pulsion": "Sorting / cleaning",
+    "soutien": "Support given"
+  },
+  "quick": {
+    "title": "Your observation for today",
+    "duration": "10–30 s",
+    "free_placeholder": "A word about your day with her (optional)",
+    "helped": "Helped",
+    "not_helped": "Didn't help",
+    "helped_placeholder": "e.g. quiet evening",
+    "not_helped_placeholder": "e.g. arguing",
+    "write_more": "Write more",
+    "saved": "Observation saved"
+  },
+  "full": {
+    "eyebrow": "Notebook",
+    "title": "Your observation for today.",
+    "disclaimer": "Note what you observed. Not what she feels — you don't know. No judgment.",
+    "moments": "Key moments",
+    "free_label": "Free text",
+    "free_placeholder": "What you observe, in your own words. No one but you will read it.",
+    "loop_label": "The learning loop",
+    "loop_hint": "Fuel for the cross-cycle memory. Don't skip it.",
+    "helped_label": "What helped today",
+    "helped_placeholder": "e.g. I canceled dinner so we could have some peace",
+    "not_helped_label": "What didn't help",
+    "not_helped_placeholder": "e.g. I argued about the weekend to-do list",
+    "save": "Save",
+    "entry": "Entry"
+  },
+  "override": {
+    "eyebrow": "I see her differently",
+    "title": "The prediction is a hypothesis. You observe her better than it does.",
+    "note": "Your choice is logged. The predicted phase stays visible in the background.",
+    "predicted": "PREDICTED",
+    "saved": "Phase updated"
+  }
+}

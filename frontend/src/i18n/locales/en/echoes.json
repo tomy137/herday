@@ -1,0 +1,20 @@
+{
+  "eyebrow": "Cross-cycle memory",
+  "title": "How you saw her, during the {{phase}} phase, in recent cycles.",
+  "frequent_title": "Frequent moments in this phase",
+  "loop_title": "The learning loop",
+  "notes_title": "Excerpts from your notes",
+  "helped": "Helped",
+  "not_helped": "Didn't help",
+  "empty": "No echoes for this phase yet — your notebook will surface them cycle after cycle.",
+  "user_posture": {
+    "label": "A posture you want to remember",
+    "hint": "Add a word of your own, for this phase. It will join the rotation each time the phase returns.",
+    "placeholder": "e.g. PROTECTIVE CURVE"
+  },
+  "card": {
+    "eyebrow": "Echo · previous cycle",
+    "title": "At the same phase a month ago, you noted:",
+    "see_all": "See all echoes"
+  }
+}

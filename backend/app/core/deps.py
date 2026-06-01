@@ -3,7 +3,7 @@
 
 import uuid
 
-from fastapi import Cookie, Depends, HTTPException, status
+from fastapi import Cookie, Depends, Header, HTTPException, status
 from jose import JWTError
 from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession
@@ -15,12 +15,18 @@ from app.models.user import User
 
 async def get_current_user(
     access_token: str | None = Cookie(default=None),
+    authorization: str | None = Header(default=None),
     session: AsyncSession = Depends(get_session),
 ) -> User:
-    """Extract and validate JWT from httpOnly cookie, return the current user.
+    """Validate JWT from httpOnly cookie or Bearer header, return the current user.
 
+    Web clients use the cookie path; Capacitor/native clients use Authorization: Bearer.
     Raises HTTP 401 if the token is missing, invalid, or the user does not exist.
     """
+    # Bearer header takes precedence over cookie when both are present (explicit > implicit).
+    if authorization and authorization.lower().startswith("bearer "):
+        access_token = authorization.split(" ", 1)[1].strip()
+
     if access_token is None:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

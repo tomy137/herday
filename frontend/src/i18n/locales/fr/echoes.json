@@ -1,0 +1,20 @@
+{
+  "eyebrow": "Mémoire inter-cycles",
+  "title": "Comment tu l'as vue, à la phase {{phase}}, lors des derniers cycles.",
+  "frequent_title": "Moments fréquents à cette phase",
+  "loop_title": "La boucle d'apprentissage",
+  "notes_title": "Extraits de tes notes",
+  "helped": "A aidé",
+  "not_helped": "N'a pas aidé",
+  "empty": "Pas encore d'échos pour cette phase — ton carnet les fera apparaître au fil des cycles.",
+  "user_posture": {
+    "label": "Posture que tu veux retenir",
+    "hint": "Ajoute un mot à toi, pour cette phase. Il rejoindra la rotation à chaque retour de phase.",
+    "placeholder": "ex. COURBE PROTECTRICE"
+  },
+  "card": {
+    "eyebrow": "Écho · cycle précédent",
+    "title": "À la même phase il y a un mois, tu avais noté :",
+    "see_all": "Voir tous les échos"
+  }
+}

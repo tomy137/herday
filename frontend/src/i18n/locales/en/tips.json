@@ -7,13 +7,21 @@
     "attitude": "Bring comfort: hot water bottle, tea, blanket. Suggest quiet evenings at home rather than going out.",
     "avoid": "Blaming her for being tired or unmotivated."
   },
-  "follicular": {
+  "post_menstrual": {
+    "season": "Thaw",
+    "role": "The Quiet Supporter",
+    "bio": "Bleeding has stopped, the body is recovering. Energy is still low but stable. Mind clears, the urge to act returns gently.",
+    "action": "Stay attentive without overdoing it. Suggest a walk, a quiet coffee, simple things. Avoid packed schedules.",
+    "attitude": "Be patient. This is a transition phase — respect her gradually returning rhythm.",
+    "avoid": "Overloading her schedule the moment bleeding ends. She's not at peak energy yet."
+  },
+  "pre_ovulatory": {
     "season": "Spring",
-    "role": "The Supporter",
-    "bio": "Estrogen rises. Energy returns, mood lifts, she wants to start projects and get moving.",
-    "action": "Encourage her! Suggest outings, sports, or plan the next vacation together.",
-    "attitude": "Enjoy her renewed lightness — laugh together, go out, have fun.",
-    "avoid": "This is the best time for rational discussions or sorting out logistics."
+    "role": "The Project Partner",
+    "bio": "Estrogen rises sharply, energy clearly returns. Bright mood, drive to undertake things, heightened sociability.",
+    "action": "Launch projects with her! This is the time for important decisions, strategic discussions, ambitious outings.",
+    "attitude": "Follow her momentum. Suggest sports, dates, new things. She's on an ascending curve.",
+    "avoid": "Holding her back or postponing what she wants to start now."
   },
   "ovulation": {
     "season": "Summer",
@@ -23,10 +31,18 @@
     "attitude": "Compliment her, be flirty. She's chemically more open to communication and connection.",
     "avoid": "Ignoring her cues to spend time together."
   },
-  "luteal": {
+  "post_ovulatory": {
+    "season": "Late Summer",
+    "role": "The Action Partner",
+    "bio": "Progesterone rises, energy stays high but turns inward. She may be highly productive, organized, detail-focused.",
+    "action": "Support her productivity. Good time for concrete tasks (tidying, admin, operational projects). Be her efficient teammate.",
+    "attitude": "Appreciate her capacity to organize and finalize. Not the time for grand abstract ideas — it's execution mode.",
+    "avoid": "Distracting her with social fluff. She often prefers quiet, productive evenings."
+  },
+  "pre_menstrual": {
     "season": "Autumn",
     "role": "The Steady Rock",
-    "bio": "Progesterone rises then crashes (PMS). Irritability, sadness, self-criticism. This is the turbulence zone.",
+    "bio": "Progesterone rises then crashes. PMS likely: irritability, sadness, self-criticism, cravings. Hormonal turbulence zone.",
     "action": "Don't take anything personally. If she snaps over a small thing, her tolerance threshold has simply dropped.",
     "attitude": "Listen and be patient. She wants empathy, not a technical fix. Don't judge her cravings — it's physiological.",
     "avoid": "Saying \"Are you about to get your period?\" — even if true, it's the worst possible thing to say."

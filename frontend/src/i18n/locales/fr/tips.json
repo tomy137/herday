@@ -7,13 +7,21 @@
     "attitude": "Apportez du confort : bouillotte, thé, plaid. Proposez des soirées calmes plutôt que des sorties.",
     "avoid": "Lui reprocher sa fatigue ou son manque de motivation."
   },
-  "follicular": {
+  "post_menstrual": {
+    "season": "Le Dégel",
+    "role": "Le Tuteur Discret",
+    "bio": "Les saignements ont cessé, le corps récupère. Énergie encore basse mais stable. Le mental s'éclaircit, l'envie d'agir revient doucement.",
+    "action": "Restez attentif sans en faire trop. Proposez une marche, un café tranquille, des choses simples. Évitez les agendas chargés.",
+    "attitude": "Soyez patient. C'est une phase de transition, respectez son rythme qui reprend progressivement.",
+    "avoid": "Surcharger son agenda dès la fin des règles. Elle n'est pas encore au pic d'énergie."
+  },
+  "pre_ovulatory": {
     "season": "Le Printemps",
-    "role": "Le Supporter",
-    "bio": "Les œstrogènes remontent. L'énergie revient, l'humeur s'allège, elle a envie de lancer des projets et de bouger.",
-    "action": "Encouragez-la ! Proposez des sorties, du sport, ou planifiez les prochaines vacances.",
-    "attitude": "Profitez de sa légèreté retrouvée pour rigoler et sortir ensemble.",
-    "avoid": "C'est le meilleur moment pour des discussions rationnelles ou régler des sujets logistiques."
+    "role": "Le Complice des Projets",
+    "bio": "Les œstrogènes grimpent, l'énergie remonte clairement. Humeur lumineuse, envie d'entreprendre, sociabilité accrue.",
+    "action": "Lancez les projets avec elle ! C'est le moment des décisions importantes, des discussions stratégiques, des sorties ambitieuses.",
+    "attitude": "Suivez son élan. Proposez du sport, des rendez-vous, du nouveau. Elle est dans une dynamique ascendante.",
+    "avoid": "La freiner ou repousser à plus tard ce qu'elle veut entreprendre maintenant."
   },
   "ovulation": {
     "season": "L'Été",
@@ -23,10 +31,18 @@
     "attitude": "Complimentez-la, soyez dans la séduction. Elle est plus ouverte à la communication.",
     "avoid": "Ignorer ses perches pour passer du temps ensemble."
   },
-  "luteal": {
+  "post_ovulatory": {
+    "season": "Fin d'été",
+    "role": "Le Partenaire d'Action",
+    "bio": "La progestérone monte, l'énergie reste élevée mais se recentre vers l'intérieur. Elle peut être très productive, organisée, focalisée sur les détails.",
+    "action": "Soutenez sa productivité. Bon moment pour les tâches concrètes (rangement, admin, projets opérationnels). Soyez son binôme efficace.",
+    "attitude": "Appréciez sa capacité à organiser et finaliser. Pas le moment des grandes idées abstraites, c'est l'exécution.",
+    "avoid": "La distraire avec du superflu social. Elle préfère souvent les soirées calmes et productives."
+  },
+  "pre_menstrual": {
     "season": "L'Automne",
     "role": "Le Roc Inébranlable",
-    "bio": "La progestérone monte puis chute brutalement (SPM). Irritabilité, tristesse, autocritique. C'est la zone de turbulences.",
+    "bio": "La progestérone monte puis chute brutalement. SPM possible : irritabilité, tristesse, autocritique, fringales. Zone de turbulences hormonales.",
     "action": "Ne prenez rien personnellement. Si elle s'agace pour un détail, son seuil de tolérance a simplement baissé.",
     "attitude": "Écoute et patience. Elle veut de l'empathie, pas une solution technique. Ne jugez pas ses fringales, c'est physiologique.",
     "avoid": "Dire « Tu vas avoir tes règles ? » — même si c'est vrai, c'est la pire phrase possible."

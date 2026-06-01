@@ -1,5 +1,8 @@
 {
   "title": "Kalender",
+  "legend_title": "Phasen-Legende",
+  "cross_cycle": "Zyklusübergreifender Filter",
+  "see_all_phases": "Alle {{phase}}-Phasen der letzten Monate ansehen",
   "no_data": "Noch nicht genug Daten, um Phasen anzuzeigen.",
   "no_data_hint": "Melden Sie weiterhin Ereignisse!",
   "learning_badge": "Lernphase",
@@ -33,18 +36,28 @@
       "season": "Der Winter",
       "desc": "Müdigkeit, Krämpfe, Ruhebedürfnis. Seien Sie der Hüter der Ruhe."
     },
-    "follicular": {
-      "name": "Follikelphase",
+    "post_menstrual": {
+      "name": "Postmenstruell",
+      "season": "Das Tauwetter",
+      "desc": "Erholung, flache aber stabile Energie. Aufmerksam bleiben, nicht überladen."
+    },
+    "pre_ovulatory": {
+      "name": "Präovulatorisch",
       "season": "Der Frühling",
-      "desc": "Energie kehrt zurück, Stimmung hebt sich. Ermutigen Sie sie!"
+      "desc": "Steigende Energie, Tatendrang. Starten Sie Projekte mit ihr."
     },
     "ovulation": {
       "name": "Eisprung",
       "season": "Der Sommer",
       "desc": "Höchste Energie und Selbstvertrauen. Verbinden und verführen."
     },
-    "luteal": {
-      "name": "Lutealphase",
+    "post_ovulatory": {
+      "name": "Postovulatorisch",
+      "season": "Spätsommer",
+      "desc": "Stabile Energie, Produktivität, Fokus. Gute Zeit für Konkretes."
+    },
+    "pre_menstrual": {
+      "name": "Prämenstruell",
       "season": "Der Herbst",
       "desc": "Turbulenzzone (PMS). Geduld und Empathie."
     }

@@ -1,5 +1,39 @@
 {
   "title": "Settings",
+  "transparency": {
+    "group": "Transparency pact",
+    "status_label": "active",
+    "accepted_soon": "I'll tell her about it soon",
+    "accepted_already": "I've already told her about it",
+    "not_yet": "To commit to",
+    "accepted_on": "accepted on {{date}}",
+    "body": "An observation tool used in silence ends up replacing the conversation instead of nourishing it. That's the opposite of what we want here.",
+    "mark_told": "Mark as: \"I've already told her about it\"",
+    "mark_told_hint": "Status logged",
+    "starters": "Opening lines to tell her about it",
+    "starters_hint": "3 suggestions"
+  },
+  "groups": {
+    "her_data": "Her data",
+    "journal": "Notebook",
+    "display": "Display",
+    "about": "About"
+  },
+  "her_data": {
+    "last_period": "Date of last period",
+    "cycle_length": "Length of her cycle"
+  },
+  "journal_section": {
+    "history": "Observation history",
+    "reset": "Reset my notebook",
+    "reset_confirm": "All your observations will be erased. This action is irreversible."
+  },
+  "about": {
+    "philosophy": "Product philosophy",
+    "sources": "Sources",
+    "sources_hint": "Kiffe ton cycle ! — G. Baldassari",
+    "version": "Version"
+  },
   "partner_name": {
     "label": "Your partner's first name",
     "placeholder": "Optional, to personalize messages"

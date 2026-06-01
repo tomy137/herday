@@ -39,21 +39,30 @@ async def generate_magic_link(email: str, session: AsyncSession) -> str:
             detail="error.rate_limit_exceeded",
         )
 
-    # Generate secure token
-    token = secrets.token_urlsafe(32)
+    # 6-digit numeric OTP. Scope to (email, token) for verification — collision risk at
+    # HerDay scale is negligible (~3 unused codes/email max via rate limit).
     expires_at = _utcnow() + timedelta(
         minutes=settings.MAGIC_LINK_EXPIRE_MINUTES,
     )
 
-    magic_link = MagicLinkToken(
-        email=email,
-        token=token,
-        expires_at=expires_at,
-    )
-    session.add(magic_link)
-    await session.commit()
+    for _ in range(10):
+        token = f"{secrets.randbelow(1_000_000):06d}"
+        magic_link = MagicLinkToken(
+            email=email,
+            token=token,
+            expires_at=expires_at,
+        )
+        session.add(magic_link)
+        try:
+            await session.commit()
+            return token
+        except Exception:
+            await session.rollback()
 
-    return token
+    raise HTTPException(
+        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        detail="error.code_generation_failed",
+    )
 
 
 async def verify_magic_link(

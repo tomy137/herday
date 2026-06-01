@@ -11,6 +11,10 @@ import frTips from './locales/fr/tips.json';
 import frAuth from './locales/fr/auth.json';
 import frSettings from './locales/fr/settings.json';
 import frInfo from './locales/fr/info.json';
+import frPhases from './locales/fr/phases.json';
+import frJournal from './locales/fr/journal.json';
+import frEchoes from './locales/fr/echoes.json';
+import frOnboarding from './locales/fr/onboarding.json';
 
 // EN
 import enCommon from './locales/en/common.json';
@@ -21,6 +25,10 @@ import enTips from './locales/en/tips.json';
 import enAuth from './locales/en/auth.json';
 import enSettings from './locales/en/settings.json';
 import enInfo from './locales/en/info.json';
+import enPhases from './locales/en/phases.json';
+import enJournal from './locales/en/journal.json';
+import enEchoes from './locales/en/echoes.json';
+import enOnboarding from './locales/en/onboarding.json';
 
 // DE
 import deCommon from './locales/de/common.json';
@@ -31,6 +39,10 @@ import deTips from './locales/de/tips.json';
 import deAuth from './locales/de/auth.json';
 import deSettings from './locales/de/settings.json';
 import deInfo from './locales/de/info.json';
+import dePhases from './locales/de/phases.json';
+import deJournal from './locales/de/journal.json';
+import deEchoes from './locales/de/echoes.json';
+import deOnboarding from './locales/de/onboarding.json';
 
 i18n
   .use(LanguageDetector)
@@ -46,6 +58,10 @@ i18n
         auth: frAuth,
         settings: frSettings,
         info: frInfo,
+        phases: frPhases,
+        journal: frJournal,
+        echoes: frEchoes,
+        onboarding: frOnboarding,
       },
       en: {
         common: enCommon,
@@ -56,6 +72,10 @@ i18n
         auth: enAuth,
         settings: enSettings,
         info: enInfo,
+        phases: enPhases,
+        journal: enJournal,
+        echoes: enEchoes,
+        onboarding: enOnboarding,
       },
       de: {
         common: deCommon,
@@ -66,10 +86,14 @@ i18n
         auth: deAuth,
         settings: deSettings,
         info: deInfo,
+        phases: dePhases,
+        journal: deJournal,
+        echoes: deEchoes,
+        onboarding: deOnboarding,
       },
     },
     fallbackLng: 'fr',
-    ns: ['common', 'dashboard', 'calendar', 'events', 'tips', 'auth', 'settings', 'info'],
+    ns: ['common', 'dashboard', 'calendar', 'events', 'tips', 'auth', 'settings', 'info', 'phases', 'journal', 'echoes', 'onboarding'],
     defaultNS: 'common',
     detection: {
       order: ['querystring', 'localStorage', 'navigator'],

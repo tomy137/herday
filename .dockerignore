@@ -1,0 +1,35 @@
+# Git
+.git
+.gitignore
+
+# Node
+**/node_modules
+**/dist
+**/.vite
+
+# Capacitor / iOS native project (huge, not needed for backend image)
+frontend/ios
+frontend/android
+
+# Python
+**/__pycache__
+**/*.pyc
+**/.venv
+**/venv
+
+# Backend local state
+backend/herday.db
+backend/herday.db-shm
+backend/herday.db-wal
+
+# Frontend local env
+frontend/.env
+frontend/.env.local
+
+# IDE / OS
+.vscode
+.idea
+.DS_Store
+
+# Docs/screenshots
+docs/*.png

@@ -10,7 +10,14 @@ from sqlalchemy.ext.asyncio import create_async_engine
 from sqlmodel import SQLModel
 
 # Import all models so they are registered in SQLModel.metadata
-from app.models import Cycle, Event, MagicLinkToken, User  # noqa: F401
+from app.models import (  # noqa: F401
+    Cycle,
+    Event,
+    JournalEntry,
+    MagicLinkToken,
+    PhaseOverride,
+    User,
+)
 from app.config import settings
 
 config = context.config

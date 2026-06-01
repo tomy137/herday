@@ -17,16 +17,20 @@
     "title": "Phase actuelle",
     "day_in_cycle": "Jour {{day}}",
     "menstruation": "Menstruation",
-    "follicular": "Folliculaire",
+    "post_menstrual": "Post-menstruelle",
+    "pre_ovulatory": "Pré-ovulatoire",
     "ovulation": "Ovulation",
-    "luteal": "Lutéale",
+    "post_ovulatory": "Post-ovulatoire",
+    "pre_menstrual": "Pré-menstruelle",
     "next_period": "Prochaines règles dans ~{{days}} jours",
+    "ends_in_one": "Encore 1 jour dans cette phase",
+    "ends_in_other": "Encore {{count}} jours dans cette phase",
     "confidence_label": "Fiabilité de l'estimation"
   },
   "did_you_know": "Le saviez-vous ?",
   "education": {
     "cycle_average": "Un cycle dure en moyenne 28 jours, mais chaque femme est différente.",
-    "phases_exist": "Le cycle comporte 4 phases, chacune avec ses particularités.",
+    "phases_exist": "Le cycle comporte 6 sous-phases, chacune avec ses particularités.",
     "track_helps": "Plus vous signalez d'événements, plus les prédictions seront précises."
   }
 }

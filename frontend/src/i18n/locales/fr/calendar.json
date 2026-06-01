@@ -1,5 +1,8 @@
 {
   "title": "Calendrier",
+  "legend_title": "Légende des phases",
+  "cross_cycle": "Filtre inter-cycles",
+  "see_all_phases": "Voir toutes les phases {{phase}} des derniers mois",
   "no_data": "Pas encore assez de données pour afficher les phases.",
   "no_data_hint": "Continuez à signaler des événements !",
   "learning_badge": "Phase d'apprentissage",
@@ -33,18 +36,28 @@
       "season": "L'Hiver",
       "desc": "Fatigue, crampes, besoin de repos. Soyez le gardien du repos."
     },
-    "follicular": {
-      "name": "Folliculaire",
+    "post_menstrual": {
+      "name": "Post-menstruelle",
+      "season": "Le Dégel",
+      "desc": "Récupération, énergie à plat mais stable. Restez attentif sans surcharger."
+    },
+    "pre_ovulatory": {
+      "name": "Pré-ovulatoire",
       "season": "Le Printemps",
-      "desc": "L'énergie revient, l'humeur s'allège. Encouragez-la !"
+      "desc": "Énergie ascendante, envie d'entreprendre. Lancez les projets avec elle."
     },
     "ovulation": {
       "name": "Ovulation",
       "season": "L'Été",
       "desc": "Pic de forme et de confiance. Connectez-vous, séduisez."
     },
-    "luteal": {
-      "name": "Lutéale",
+    "post_ovulatory": {
+      "name": "Post-ovulatoire",
+      "season": "Fin d'été",
+      "desc": "Énergie stable, productivité, recentrage. Bon moment pour le concret."
+    },
+    "pre_menstrual": {
+      "name": "Pré-menstruelle",
       "season": "L'Automne",
       "desc": "Zone de turbulences (SPM). Patience et empathie."
     }
