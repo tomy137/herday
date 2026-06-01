@@ -19,7 +19,7 @@ interface PhaseCardProps {
 /**
  * The "light" phase card: emoji + name + range + posture, plus the day-specific
  * row (J{n}, confidence, progress) only when showing the *current* phase.
- * Stack a <GoFurther> after it to get the "complete" card.
+ * Stack a <PhaseDetail> after it to get the "complete" card.
  */
 export default function PhaseCard({ phase, info }: PhaseCardProps) {
   const { t } = useTranslation('phases');

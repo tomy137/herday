@@ -130,17 +130,17 @@ export default function Home() {
           </button>
           <button
             type="button"
+            onClick={() => navigate('/calendar')}
+            className="rounded-[10px] bg-warm-200 px-5 py-3.5 text-[14px] font-medium text-ink transition-all hover:bg-warm-300 active:scale-[0.99]"
+          >
+            {tPhases('labels.more_details')}
+          </button>
+          <button
+            type="button"
             onClick={() => setPeriodOpen(true)}
             className="text-[12px] text-warm-500 transition-colors hover:text-ink"
           >
             {tCommon('period.declare')} →
-          </button>
-          <button
-            type="button"
-            onClick={() => navigate('/calendar')}
-            className="text-[12px] text-warm-500 transition-colors hover:text-ink"
-          >
-            {tPhases('labels.more_details')} →
           </button>
         </div>
 

@@ -11,7 +11,7 @@ import { PHASE_ORDER } from '../constants/phase-meta';
 import Header from '../components/layout/Header';
 import CycleGraph from '../components/CycleGraph';
 import PhaseCard from '../components/home/PhaseCard';
-import GoFurther from '../components/home/GoFurther';
+import PhaseDetail from '../components/phase/PhaseDetail';
 
 const MONTH_KEYS = [
   'january', 'february', 'march', 'april', 'may', 'june',
@@ -174,7 +174,7 @@ export default function Calendar() {
             {effectivePhase && info && (
               <>
                 <PhaseCard phase={effectivePhase} info={info} />
-                <GoFurther phase={effectivePhase} />
+                <PhaseDetail phase={effectivePhase} />
                 <button
                   type="button"
                   onClick={() => navigate(`/echoes?phase=${effectivePhase}`)}
