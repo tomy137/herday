@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { api } from '../api/client';
 import type { PhaseInfo, EchoAggregate } from '../api/client';
 import type { Phase } from '../lib/cycle-engine';
+import { MIN_CYCLE_LENGTH } from '../lib/cycle-engine';
 import { PHASE_RANGES_28 } from '../constants/phase-meta';
 import { syncPhaseToWidget } from '../native/widgetBridge';
 import Header from '../components/layout/Header';
@@ -13,7 +14,7 @@ import EchoCard from '../components/home/EchoCard';
 import CycleGraph from '../components/CycleGraph';
 import BottomSheet from '../components/ui/BottomSheet';
 import { useToast } from '../components/ui/Toast';
-import { formatDate, today, yesterday } from '../lib/date-utils';
+import { formatDate, parseDate, today, yesterday } from '../lib/date-utils';
 
 export default function Home() {
   const { t: tCommon } = useTranslation('common');
@@ -30,6 +31,15 @@ export default function Home() {
   const [showPicker, setShowPicker] = useState(false);
   const [customDate, setCustomDate] = useState(formatDate(today()));
   const [submitting, setSubmitting] = useState(false);
+  // Set when a new period_started is declared too close to an existing one
+  // (< MIN_CYCLE_LENGTH days). Almost always a false alarm → we ask instead of
+  // silently opening an implausibly short cycle.
+  const [conflict, setConflict] = useState<{
+    newDate: string;
+    existingDate: string;
+    gapDays: number;
+    existingIds: string[];
+  } | null>(null);
 
   const syncWidget = useCallback((phaseInfo: PhaseInfo, echoes: EchoAggregate | null) => {
     const phase = phaseInfo.phase as Phase;
@@ -76,14 +86,95 @@ export default function Home() {
     load();
   }, [load]);
 
+  const daysBetween = (a: string, b: string) =>
+    Math.round((parseDate(a).getTime() - parseDate(b).getTime()) / 86_400_000);
+
+  // Persist a confirmed period start, refresh the dashboard, and close sheets.
+  const createPeriodEvent = async (dateStr: string) => {
+    await api.events.create({ event_type: 'period_started', event_date: dateStr, confidence: 1.0 });
+    showToast(tCommon('period.saved'));
+    setPeriodOpen(false);
+    setShowPicker(false);
+    await load();
+  };
+
   const declarePeriod = async (dateStr: string) => {
     setSubmitting(true);
     try {
-      await api.events.create({ event_type: 'period_started', event_date: dateStr, confidence: 1.0 });
-      showToast(tCommon('period.saved'));
-      setPeriodOpen(false);
-      setShowPicker(false);
-      await load();
+      // Guard against false alarms: a new period start within an implausibly
+      // short span of an existing one would open a biologically impossible
+      // cycle (< MIN_CYCLE_LENGTH days). That's almost always a false alarm or
+      // a date typo, so surface a correction choice instead of creating it.
+      let near: { date: string; ids: string[]; gap: number } | null = null;
+      try {
+        const { items } = await api.events.list(0, 100);
+        const conflicting = items.filter(
+          (e) =>
+            e.event_type === 'period_started' &&
+            Math.abs(daysBetween(dateStr, e.event_date)) < MIN_CYCLE_LENGTH,
+        );
+        if (conflicting.length > 0) {
+          const nearest = conflicting.reduce((best, e) =>
+            Math.abs(daysBetween(dateStr, e.event_date)) <
+            Math.abs(daysBetween(dateStr, best.event_date))
+              ? e
+              : best,
+          );
+          near = {
+            date: nearest.event_date,
+            ids: conflicting.map((e) => e.id),
+            gap: Math.abs(daysBetween(dateStr, nearest.event_date)),
+          };
+        }
+      } catch {
+        // History unavailable: fall through and just create the event.
+      }
+
+      if (near) {
+        setPeriodOpen(false);
+        setShowPicker(false);
+        setConflict({
+          newDate: dateStr,
+          existingDate: near.date,
+          gapDays: near.gap,
+          existingIds: near.ids,
+        });
+        return;
+      }
+
+      await createPeriodEvent(dateStr);
+    } catch {
+      showToast(tCommon('error'), 'error');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // "It was a false alarm": drop the previous start(s) and re-anchor the cycle
+  // on the newly declared date — no phantom short cycle, confidence stays honest.
+  const correctCurrentCycle = async () => {
+    if (!conflict) return;
+    setSubmitting(true);
+    try {
+      for (const id of conflict.existingIds) {
+        await api.events.delete(id);
+      }
+      await createPeriodEvent(conflict.newDate);
+      setConflict(null);
+    } catch {
+      showToast(tCommon('error'), 'error');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  // "They really are new periods": keep both starts, as the user insists.
+  const keepBothPeriods = async () => {
+    if (!conflict) return;
+    setSubmitting(true);
+    try {
+      await createPeriodEvent(conflict.newDate);
+      setConflict(null);
     } catch {
       showToast(tCommon('error'), 'error');
     } finally {
@@ -216,6 +307,48 @@ export default function Home() {
             </div>
           )}
         </div>
+      </BottomSheet>
+
+      <BottomSheet
+        open={conflict !== null}
+        onClose={() => setConflict(null)}
+        title={tCommon('period.conflict.title')}
+      >
+        {conflict && (
+          <div className="flex flex-col gap-3">
+            <p className="text-[13.5px] leading-relaxed text-warm-500">
+              {conflict.gapDays === 0
+                ? tCommon('period.conflict.body_same')
+                : tCommon('period.conflict.body', { count: conflict.gapDays })}
+            </p>
+            <div className="flex flex-col gap-2">
+              <button
+                type="button"
+                onClick={correctCurrentCycle}
+                disabled={submitting}
+                className="rounded-[10px] bg-ink px-5 py-3 text-[14px] font-medium text-warm-50 disabled:opacity-50"
+              >
+                {tCommon('period.conflict.correct')}
+              </button>
+              <button
+                type="button"
+                onClick={keepBothPeriods}
+                disabled={submitting}
+                className="rounded-[10px] border-[0.5px] border-warm-300 px-5 py-3 text-[14px] font-medium text-ink transition-colors hover:bg-warm-100 disabled:opacity-50"
+              >
+                {tCommon('period.conflict.keep')}
+              </button>
+              <button
+                type="button"
+                onClick={() => setConflict(null)}
+                disabled={submitting}
+                className="rounded-[10px] px-5 py-3 text-[13px] font-medium text-warm-500 transition-colors hover:text-ink disabled:opacity-50"
+              >
+                {tCommon('actions.cancel')}
+              </button>
+            </div>
+          </div>
+        )}
       </BottomSheet>
     </div>
   );

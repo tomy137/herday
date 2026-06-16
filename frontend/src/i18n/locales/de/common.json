@@ -22,7 +22,15 @@
   "period": {
     "declare": "Ihre Periode hat begonnen",
     "title": "Wann hat ihre Periode begonnen?",
-    "saved": "Periodenbeginn gespeichert"
+    "saved": "Periodenbeginn gespeichert",
+    "conflict": {
+      "title": "Periode kürzlich bereits gemeldet",
+      "body_one": "Sie haben vor 1 Tag einen Periodenbeginn gemeldet. Ein so kurzer neuer Zyklus ist sehr unwahrscheinlich — war es ein Fehlalarm?",
+      "body_other": "Sie haben vor {{count}} Tagen einen Periodenbeginn gemeldet. Ein so kurzer neuer Zyklus ist sehr unwahrscheinlich — war es ein Fehlalarm?",
+      "body_same": "Sie haben für dieses Datum bereits einen Periodenbeginn gemeldet. Möchten Sie ihn korrigieren?",
+      "correct": "Korrigieren: Das ist der echte Beginn",
+      "keep": "Nein, das ist eine neue Periode"
+    }
   },
   "confidence": {
     "unknown": "Noch keine Daten — melden Sie ein erstes Ereignis",

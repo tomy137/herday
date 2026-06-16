@@ -22,7 +22,15 @@
   "period": {
     "declare": "Her period started",
     "title": "When did her period start?",
-    "saved": "Period start logged"
+    "saved": "Period start logged",
+    "conflict": {
+      "title": "Period already logged recently",
+      "body_one": "You logged a period start 1 day ago. A new cycle that short is very unlikely — was it a false alarm?",
+      "body_other": "You logged a period start {{count}} days ago. A new cycle that short is very unlikely — was it a false alarm?",
+      "body_same": "You already logged a period start on this date. Do you want to correct it?",
+      "correct": "Fix it: this is the real start",
+      "keep": "No, this is a new period"
+    }
   },
   "confidence": {
     "unknown": "No data yet — report a first event",

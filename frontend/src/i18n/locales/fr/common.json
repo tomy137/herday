@@ -22,7 +22,15 @@
   "period": {
     "declare": "Ses règles ont commencé",
     "title": "Quand ses règles ont-elles commencé ?",
-    "saved": "Début de règles enregistré"
+    "saved": "Début de règles enregistré",
+    "conflict": {
+      "title": "Des règles déjà signalées récemment",
+      "body_one": "Vous avez déjà signalé un début de règles il y a 1 jour. Un nouveau cycle aussi court est très improbable — était-ce une fausse alerte ?",
+      "body_other": "Vous avez déjà signalé un début de règles il y a {{count}} jours. Un nouveau cycle aussi court est très improbable — était-ce une fausse alerte ?",
+      "body_same": "Vous avez déjà signalé un début de règles à cette date. Voulez-vous le corriger ?",
+      "correct": "Je corrige : le vrai début, c'est cette date",
+      "keep": "Non, ce sont de nouvelles règles"
+    }
   },
   "confidence": {
     "unknown": "Pas encore de données — signalez un premier événement",
