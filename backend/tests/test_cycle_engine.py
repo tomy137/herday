@@ -137,6 +137,27 @@ async def test_two_cycles_learning_state(session: AsyncSession, user: User):
     assert cycles[0].cycle_length == 28
 
 
+async def test_false_alarm_short_cycle_not_counted(
+    session: AsyncSession,
+    user: User,
+):
+    """A false-alarm re-declaration must not inflate confidence.
+
+    Two ``period_started`` two days apart produce a 2-day "cycle". That span is
+    an artefact, not a real cycle, so the state must stay PARTIAL (one real
+    cycle), never jump to LEARNING.
+    """
+    session.add(_make_event(user.id, "period_started", date(2026, 1, 1)))
+    session.add(_make_event(user.id, "period_started", date(2026, 1, 3)))
+    await session.flush()
+
+    cycles = await recalculate_cycles(user.id, session)
+
+    short = [c for c in cycles if c.cycle_length == 2]
+    assert len(short) == 1  # the artefact cycle still exists in history...
+    assert get_system_state(cycles) == SystemState.PARTIAL  # ...but doesn't count
+
+
 async def test_three_cycles_confident_state(session: AsyncSession, user: User):
     """Three confirmed cycles produce CONFIDENT state."""
     session.add(_make_event(user.id, "period_started", date(2026, 1, 1)))

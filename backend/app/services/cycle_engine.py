@@ -289,8 +289,21 @@ def _average_cycle_length(cycles: list[Cycle]) -> int:
 
 
 def get_system_state(cycles: list[Cycle]) -> SystemState:
-    """Determine confidence level from the set of known cycles."""
-    confirmed = [c for c in cycles if c.source == "confirmed"]
+    """Determine confidence level from the set of known cycles.
+
+    A confirmed cycle whose *known* length is below the biological minimum is
+    almost always an artefact of a false-alarm re-declaration — two
+    ``period_started`` events a few days apart produce a 2-day "cycle". Such a
+    span is not a real, independent cycle, so it must never inflate confidence
+    (otherwise one mistaken tap jumps us from PARTIAL to LEARNING). Cycles that
+    are still open (``cycle_length is None``) keep counting — that is the
+    current cycle.
+    """
+    confirmed = [
+        c for c in cycles
+        if c.source == "confirmed"
+        and (c.cycle_length is None or c.cycle_length >= MIN_CYCLE_LENGTH)
+    ]
     inferred = [c for c in cycles if c.source == "inferred"]
 
     if not confirmed and not inferred:
