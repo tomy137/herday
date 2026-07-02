@@ -71,11 +71,11 @@ export default function Journal() {
         <button type="button" onClick={() => navigate(-1)} className="-ml-2 px-2 py-1.5 text-warm-500">
           ←
         </button>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={() => setSelectedDate((d) => addDays(d, -1))}
-            className="px-1.5 py-1 text-warm-400 hover:text-ink"
+            className="flex h-10 w-10 items-center justify-center rounded-full border-[0.5px] border-warm-300 bg-warm-100 text-[22px] leading-none text-ink transition-all duration-150 active:scale-[0.94]"
             aria-label="jour précédent"
           >
             ‹
@@ -95,7 +95,7 @@ export default function Journal() {
             type="button"
             onClick={() => setSelectedDate((d) => addDays(d, 1))}
             disabled={atToday}
-            className="px-1.5 py-1 text-warm-400 hover:text-ink disabled:opacity-30"
+            className="flex h-10 w-10 items-center justify-center rounded-full border-[0.5px] border-warm-300 bg-warm-100 text-[22px] leading-none text-ink transition-all duration-150 active:scale-[0.94] disabled:opacity-30"
             aria-label="jour suivant"
           >
             ›

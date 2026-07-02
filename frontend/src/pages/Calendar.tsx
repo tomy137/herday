@@ -67,11 +67,25 @@ export default function Calendar() {
       <div className="flex flex-col gap-[18px] px-[22px] pb-6 pt-2">
         {/* Month nav */}
         <div className="flex items-center justify-between">
-          <button type="button" onClick={goPrev} className="-ml-2 px-2 py-1.5 text-warm-400 hover:text-ink" aria-label="prev">‹</button>
+          <button
+            type="button"
+            onClick={goPrev}
+            className="-ml-1 flex h-10 w-10 items-center justify-center rounded-full border-[0.5px] border-warm-300 bg-warm-100 text-[22px] leading-none text-ink transition-all duration-150 active:scale-[0.94]"
+            aria-label="prev"
+          >
+            ‹
+          </button>
           <h2 className="text-[20px] font-normal text-ink">
             {t(`months.${MONTH_KEYS[month]}`)} {year}
           </h2>
-          <button type="button" onClick={goNext} className="-mr-2 px-2 py-1.5 text-warm-400 hover:text-ink" aria-label="next">›</button>
+          <button
+            type="button"
+            onClick={goNext}
+            className="-mr-1 flex h-10 w-10 items-center justify-center rounded-full border-[0.5px] border-warm-300 bg-warm-100 text-[22px] leading-none text-ink transition-all duration-150 active:scale-[0.94]"
+            aria-label="next"
+          >
+            ›
+          </button>
         </div>
 
         {/* Hormone graph — highlights the selected phase (click a band or the legend) */}
