@@ -54,7 +54,9 @@ async def test_feed_served_unauthenticated(
     r = await client.get(f"/api/calendar/{token}.ics")
     assert r.status_code == 200
     assert r.headers["content-type"].startswith("text/calendar")
-    assert r.headers["cache-control"] == "no-store, private"
+    # Feed must be cacheable so Google's subscription pipeline retains/displays it.
+    assert r.headers["cache-control"] == "public, max-age=3600"
+    assert "x-robots-tag" not in r.headers
     assert "BEGIN:VCALENDAR" in r.text
     assert "BEGIN:VEVENT" in r.text  # seeded cycles produce blocks
 

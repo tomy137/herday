@@ -151,7 +151,11 @@ async def get_feed(
         media_type="text/calendar; charset=utf-8",
         headers={
             "Content-Disposition": 'inline; filename="herday.ics"',
-            "Cache-Control": "no-store, private",
-            "X-Robots-Tag": "noindex, nofollow",
+            # Must be cacheable: Google's subscription fetcher (Google-Calendar-
+            # Importer) fetches the feed but silently won't retain/display it when
+            # told noindex/no-store, so those headers left the calendar empty in
+            # Google (Apple and manual import were unaffected). Access control is
+            # the unguessable URL token, not these headers.
+            "Cache-Control": "public, max-age=3600",
         },
     )
