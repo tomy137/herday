@@ -18,7 +18,7 @@ from fastapi.staticfiles import StaticFiles
 
 from app.config import settings
 from app.database import create_db_and_tables
-from app.routers import auth, cycles, echoes, events, journal, phases, users
+from app.routers import auth, calendar, cycles, echoes, events, journal, phases, users
 
 STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
 
@@ -55,6 +55,7 @@ def create_app() -> FastAPI:
     app.include_router(journal.router)
     app.include_router(echoes.router)
     app.include_router(users.router)
+    app.include_router(calendar.router)
 
     @app.get("/api/health")
     async def health():

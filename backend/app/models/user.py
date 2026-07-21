@@ -24,5 +24,11 @@ class User(SQLModel, table=True):
     transparency_accepted_at: datetime | None = Field(default=None)
     # Personal posture words per parent phase (JSON map), filled in a later lot.
     posture_words_json: str | None = Field(default=None)
+    # Living calendar feed (iCal subscription). Token is None until the user
+    # enables it; it is looked up on the unauthenticated feed path, hence indexed.
+    calendar_feed_token: str | None = Field(default=None, index=True)
+    calendar_feed_enabled: bool = Field(default=False)
+    # "discreet" (neutral glyph, default for privacy) | "explicit" (clear labels)
+    calendar_labels_mode: str = Field(default="discreet")
     created_at: datetime = Field(default_factory=_utcnow)
     updated_at: datetime = Field(default_factory=_utcnow)

@@ -26,6 +26,11 @@ class Settings(BaseSettings):
     CORS_ORIGINS: list[str] = ["http://localhost:5173"]
     COOKIE_SECURE: bool = False  # Set True in production (HTTPS)
 
+    # Public origin used to build the calendar feed URL (e.g. https://herday.app).
+    # Empty falls back to request.base_url — set this in production if the app
+    # runs behind a reverse proxy that doesn't forward the public host.
+    PUBLIC_BASE_URL: str = ""
+
     # Apple Universal Links — used to serve apple-app-site-association.
     # Format of APPLE_APP_IDS: ["TEAMID.bundle.id", ...]. Empty disables the endpoint.
     APPLE_APP_IDS: list[str] = []

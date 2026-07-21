@@ -51,5 +51,33 @@
     "delete": "Mein Konto loschen",
     "delete_confirm": "Diese Aktion kann nicht ruckgangig gemacht werden. Alle Ihre Daten werden geloscht.",
     "delete_final": "Loschung bestatigen"
+  },
+  "calendar_feed": {
+    "group": "Geteilter Kalender",
+    "body": "Füge die zwei wichtigen Phasen ihres Zyklus zu deinem eigenen Kalender hinzu (Google, Apple…). Der Link aktualisiert sich bei jedem neuen Zyklus von selbst.",
+    "not_enough_data": "Noch nicht genügend Daten, um ihre Zyklen vorherzusagen. Füge ein Menstruationsdatum hinzu, um den Kalender zu aktivieren.",
+    "enable": "Kalender aktivieren",
+    "disable": "Deaktivieren",
+    "labels_label": "Bezeichnungsstil",
+    "labels": {
+      "discreet": "Diskret",
+      "explicit": "Explizit"
+    },
+    "labels_hint": {
+      "discreet": "Neutrale Bezeichnungen (🌙 Phase A / ☀️ Phase B) — nichts Sensibles erscheint in deinem Kalender.",
+      "explicit": "Klare Bezeichnungen (PMS & Periode / Fruchtbares Fenster) + Erinnerung am Vortag."
+    },
+    "url_label": "Abonnement-Link",
+    "copy": "Kopieren",
+    "copied": "Link kopiert",
+    "subscribe": "Abonnieren (Apple Calendar)",
+    "google_help_toggle": "Wie füge ich ihn zu Google Kalender hinzu?",
+    "google_help": "Am Computer: Google Kalender öffnen → links „Weitere Kalender“ → „+“ → „Per URL“ → Link einfügen → „Kalender hinzufügen“.",
+    "refresh_notice": "Google und Apple aktualisieren den Kalender alle 12–24 Std. — neue Termine erscheinen nicht sofort.",
+    "regenerate": "Link neu erzeugen",
+    "regenerate_confirm": "Der alte Link funktioniert sofort nicht mehr. Du musst den neuen Link neu abonnieren.",
+    "regenerate_confirm_btn": "Neu erzeugen",
+    "cancel": "Abbrechen",
+    "error": "Ein Fehler ist aufgetreten"
   }
 }

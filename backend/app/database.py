@@ -22,6 +22,9 @@ _ADDED_COLUMNS: dict[str, list[tuple[str, str]]] = {
         ("transparency_status", "VARCHAR NOT NULL DEFAULT 'not_yet'"),
         ("transparency_accepted_at", "DATETIME"),
         ("posture_words_json", "VARCHAR"),
+        ("calendar_feed_token", "VARCHAR"),
+        ("calendar_feed_enabled", "BOOLEAN NOT NULL DEFAULT 0"),
+        ("calendar_labels_mode", "VARCHAR NOT NULL DEFAULT 'discreet'"),
     ],
 }
 
@@ -38,6 +41,15 @@ def _ensure_added_columns(sync_conn) -> None:
                 sync_conn.exec_driver_sql(
                     f'ALTER TABLE "{table}" ADD COLUMN {name} {ddl}'
                 )
+    # The calendar feed token is looked up on the unauthenticated feed path, so
+    # it needs an index. ``ALTER TABLE ADD COLUMN`` can't attach one on an
+    # existing DB; ``create_all`` already made it on a fresh DB, so IF NOT
+    # EXISTS turns this into a no-op there.
+    if "user" in tables:
+        sync_conn.exec_driver_sql(
+            'CREATE INDEX IF NOT EXISTS ix_user_calendar_feed_token '
+            'ON "user" (calendar_feed_token)'
+        )
 
 
 async def create_db_and_tables() -> None:

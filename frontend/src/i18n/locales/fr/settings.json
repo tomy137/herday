@@ -51,5 +51,33 @@
     "delete": "Supprimer mon compte",
     "delete_confirm": "Cette action est irréversible. Toutes vos données seront supprimées.",
     "delete_final": "Confirmer la suppression"
+  },
+  "calendar_feed": {
+    "group": "Calendrier partagé",
+    "body": "Ajoute les deux périodes clés de son cycle à ton propre agenda (Google, Apple…). Le lien se met à jour tout seul à chaque nouveau cycle.",
+    "not_enough_data": "Pas encore assez de données pour prédire ses cycles. Ajoute une date de règles pour activer le calendrier.",
+    "enable": "Activer le calendrier",
+    "disable": "Désactiver",
+    "labels_label": "Style des libellés",
+    "labels": {
+      "discreet": "Discret",
+      "explicit": "Explicite"
+    },
+    "labels_hint": {
+      "discreet": "Libellés neutres (🌙 Période A / ☀️ Période B) — rien de sensible n'apparaît dans ton agenda.",
+      "explicit": "Libellés clairs (SPM & Règles / Fenêtre fertile) + rappel la veille."
+    },
+    "url_label": "Lien d'abonnement",
+    "copy": "Copier",
+    "copied": "Lien copié",
+    "subscribe": "S'abonner (Apple Calendar)",
+    "google_help_toggle": "Comment l'ajouter à Google Agenda ?",
+    "google_help": "Sur ordinateur : ouvre Google Agenda → à gauche, « Autres agendas » → « + » → « À partir de l'URL » → colle le lien → « Ajouter l'agenda ».",
+    "refresh_notice": "Google et Apple actualisent le calendrier toutes les 12 à 24 h — les nouvelles dates n'apparaissent pas instantanément.",
+    "regenerate": "Régénérer le lien",
+    "regenerate_confirm": "L'ancien lien cessera de fonctionner immédiatement. Il faudra se réabonner avec le nouveau lien.",
+    "regenerate_confirm_btn": "Régénérer",
+    "cancel": "Annuler",
+    "error": "Une erreur est survenue"
   }
 }

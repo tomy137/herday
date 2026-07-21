@@ -9,6 +9,7 @@ import { useToast } from '../components/ui/Toast';
 import Header from '../components/layout/Header';
 import SettingsGroup from '../components/settings/SettingsGroup';
 import SettingsRow from '../components/settings/SettingsRow';
+import CalendarFeedSettings from '../components/settings/CalendarFeedSettings';
 import { APP_VERSION } from '../constants/version';
 
 const LANGUAGES = ['fr', 'en', 'de'] as const;
@@ -89,6 +90,9 @@ export default function Settings() {
         <SettingsGroup title={t('groups.her_data')}>
           <SettingsRow label={t('her_data.last_period')} value={lastPeriod ?? '—'} />
         </SettingsGroup>
+
+        {/* Shared calendar (living iCal feed) */}
+        <CalendarFeedSettings />
 
         {/* Journal */}
         <SettingsGroup title={t('groups.journal')}>

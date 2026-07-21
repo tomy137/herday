@@ -51,5 +51,33 @@
     "delete": "Delete my account",
     "delete_confirm": "This action cannot be undone. All your data will be deleted.",
     "delete_final": "Confirm deletion"
+  },
+  "calendar_feed": {
+    "group": "Shared calendar",
+    "body": "Add the two key periods of her cycle to your own calendar (Google, Apple…). The link updates itself with every new cycle.",
+    "not_enough_data": "Not enough data to predict her cycles yet. Add a period date to enable the calendar.",
+    "enable": "Enable the calendar",
+    "disable": "Disable",
+    "labels_label": "Label style",
+    "labels": {
+      "discreet": "Discreet",
+      "explicit": "Explicit"
+    },
+    "labels_hint": {
+      "discreet": "Neutral labels (🌙 Period A / ☀️ Period B) — nothing sensitive shows in your calendar.",
+      "explicit": "Clear labels (PMS & Period / Fertile window) + a reminder the day before."
+    },
+    "url_label": "Subscription link",
+    "copy": "Copy",
+    "copied": "Link copied",
+    "subscribe": "Subscribe (Apple Calendar)",
+    "google_help_toggle": "How to add it to Google Calendar?",
+    "google_help": "On desktop: open Google Calendar → on the left, \"Other calendars\" → \"+\" → \"From URL\" → paste the link → \"Add calendar\".",
+    "refresh_notice": "Google and Apple refresh the calendar every 12–24 h — new dates don't appear instantly.",
+    "regenerate": "Regenerate link",
+    "regenerate_confirm": "The old link will stop working immediately. You'll need to re-subscribe with the new link.",
+    "regenerate_confirm_btn": "Regenerate",
+    "cancel": "Cancel",
+    "error": "Something went wrong"
   }
 }

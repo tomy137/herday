@@ -152,6 +152,17 @@ export const api = {
       request<User>('/users/me', { method: 'PATCH', body: JSON.stringify(data) }),
     delete: () => request('/users/me', { method: 'DELETE' }),
   },
+  calendar: {
+    get: () => request<CalendarSubscription>('/calendar/subscription'),
+    enable: () => request<CalendarSubscription>('/calendar/subscription/enable', { method: 'POST' }),
+    rotate: () => request<CalendarSubscription>('/calendar/subscription/rotate', { method: 'POST' }),
+    setLabels: (labels_mode: CalendarLabelsMode) =>
+      request<CalendarSubscription>('/calendar/subscription', {
+        method: 'PATCH',
+        body: JSON.stringify({ labels_mode }),
+      }),
+    disable: () => request<CalendarSubscription>('/calendar/subscription', { method: 'DELETE' }),
+  },
 };
 
 // Types
@@ -204,6 +215,15 @@ export interface CalendarDay {
 }
 
 export type TransparencyStatus = 'not_yet' | 'told_soon' | 'told_already';
+
+export type CalendarLabelsMode = 'explicit' | 'discreet';
+
+export interface CalendarSubscription {
+  enabled: boolean;
+  labels_mode: CalendarLabelsMode;
+  feed_url: string | null;
+  webcal_url: string | null;
+}
 
 export interface User {
   id: string;
