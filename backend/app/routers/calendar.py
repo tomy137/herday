@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Calendar routes: the public living iCal feed and its authenticated management."""
 
+import hashlib
 import secrets
 from datetime import date, datetime, timezone
 
@@ -142,20 +143,31 @@ async def get_feed(
     events = list(events_result.all())
 
     today = date.today()
-    now = datetime.now(timezone.utc)
     blocks = compute_blocks(cycles, events, today)
-    body = render_ics(user, blocks, host=_host(request), now=now, today=today)
+    body = render_ics(user, blocks, host=_host(request), today=today)
+    body_bytes = body.encode("utf-8")
+
+    # Validators aligned on a Google-compatible subscription feed (Google Holidays):
+    # the body is byte-stable within a day, so the ETag/Last-Modified are stable and
+    # let Google's ingestion detect "unchanged" and 304 cheaply.
+    etag = '"' + hashlib.sha256(body_bytes).hexdigest()[:32] + '"'
+    day_start = datetime(today.year, today.month, today.day, tzinfo=timezone.utc)
+    last_modified = day_start.strftime("%a, %d %b %Y %H:%M:%S GMT")
+    headers = {
+        # Cacheable + no noindex/no-store: Google's subscription fetcher won't
+        # retain the feed otherwise. Access control is the unguessable URL token.
+        "Cache-Control": "public, max-age=3600",
+        "ETag": etag,
+        "Last-Modified": last_modified,
+    }
+
+    # Conditional GET: unchanged within the day → 304 (no body).
+    if_none_match = request.headers.get("if-none-match", "")
+    if etag in (tag.strip() for tag in if_none_match.split(",")):
+        return Response(status_code=status.HTTP_304_NOT_MODIFIED, headers=headers)
 
     return Response(
         content=body,
         media_type="text/calendar; charset=utf-8",
-        headers={
-            "Content-Disposition": 'inline; filename="herday.ics"',
-            # Must be cacheable: Google's subscription fetcher (Google-Calendar-
-            # Importer) fetches the feed but silently won't retain/display it when
-            # told noindex/no-store, so those headers left the calendar empty in
-            # Google (Apple and manual import were unaffected). Access control is
-            # the unguessable URL token, not these headers.
-            "Cache-Control": "public, max-age=3600",
-        },
+        headers=headers,
     )

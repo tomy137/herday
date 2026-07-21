@@ -14,7 +14,7 @@ to ~6 cycles forward; dates beyond ~3 months are flagged as tentative because th
 modular projection drifts the further out it runs.
 """
 
-from datetime import date, datetime, timedelta
+from datetime import date, timedelta
 
 from app.models.cycle import Cycle
 from app.models.event import Event
@@ -221,13 +221,16 @@ def render_ics(
     user: User,
     blocks: list[tuple[str, date, date]],
     host: str,
-    now: datetime,
     today: date,
 ) -> str:
     """Serialise blocks into a VCALENDAR string (CRLF line endings, folded)."""
     locale = _resolve_locale(user.locale)
     mode = _resolve_mode(user.calendar_labels_mode)
-    dtstamp = now.strftime("%Y%m%dT%H%M%SZ")
+    # Stable per-day timestamp: the feed changes at most once a day (the projection
+    # window rolls forward), so anchoring DTSTAMP/LAST-MODIFIED to the start of the
+    # current UTC day keeps the body byte-identical across same-day fetches — a
+    # stable version signature Google's subscription ingestion can rely on.
+    stamp = today.strftime("%Y%m%dT000000Z")
     uid_host = _uid_host(host)
 
     lines: list[str] = [
@@ -235,9 +238,7 @@ def render_ics(
         "VERSION:2.0",
         f"PRODID:-//HerDay//Calendar Feed//{locale.upper()}",
         "CALSCALE:GREGORIAN",
-        # No METHOD: a METHOD makes the .ics an iTIP scheduling message (invitation
-        # feed) rather than a plain subscription. Google Calendar in particular
-        # fetches such a feed (200) but won't render its events as calendar entries.
+        "METHOD:PUBLISH",
         "X-WR-CALNAME:HerDay",
         "X-PUBLISHED-TTL:PT12H",
         "REFRESH-INTERVAL;VALUE=DURATION:PT12H",
@@ -248,7 +249,10 @@ def render_ics(
         summary, description = _labels_for(locale, group_key, mode, tentative)
         lines.append("BEGIN:VEVENT")
         lines.append(f"UID:herday-{group_key}-{_fmt_date(start)}@{uid_host}")
-        lines.append(f"DTSTAMP:{dtstamp}")
+        lines.append(f"DTSTAMP:{stamp}")
+        lines.append(f"LAST-MODIFIED:{stamp}")
+        lines.append("SEQUENCE:0")
+        lines.append("STATUS:CONFIRMED")
         lines.append(f"DTSTART;VALUE=DATE:{_fmt_date(start)}")
         # DTEND is exclusive for all-day events → day after the last day.
         lines.append(f"DTEND;VALUE=DATE:{_fmt_date(end + timedelta(days=1))}")
@@ -256,7 +260,10 @@ def render_ics(
         if description:
             lines.append(f"DESCRIPTION:{_escape(description)}")
         lines.append("TRANSP:TRANSPARENT")
-        lines.append("CLASS:PRIVATE")
+        # CLASS:PUBLIC is required for a *subscription*: on a calendar the viewer
+        # doesn't own, Google shows PRIVATE events only to their attendees — ours
+        # have none, so PRIVATE hid all 17 events (import and Apple were unaffected).
+        lines.append("CLASS:PUBLIC")
         # Reminder the day before — only in explicit mode (an alarm would betray
         # a discreet event) and only within the confident window (an alarm on a
         # fuzzy far-future date would misfire).

@@ -54,11 +54,27 @@ async def test_feed_served_unauthenticated(
     r = await client.get(f"/api/calendar/{token}.ics")
     assert r.status_code == 200
     assert r.headers["content-type"].startswith("text/calendar")
-    # Feed must be cacheable so Google's subscription pipeline retains/displays it.
+    # Feed must be cacheable (with validators) so Google's subscription pipeline
+    # retains/displays it; no Content-Disposition (subscription feeds omit it).
     assert r.headers["cache-control"] == "public, max-age=3600"
     assert "x-robots-tag" not in r.headers
+    assert "content-disposition" not in r.headers
+    assert r.headers.get("etag")
     assert "BEGIN:VCALENDAR" in r.text
     assert "BEGIN:VEVENT" in r.text  # seeded cycles produce blocks
+
+
+async def test_feed_conditional_get_returns_304(
+    client: AsyncClient, session: AsyncSession, user: User
+):
+    await _seed_confident(session, user)
+    token = _token_from_url((await client.post("/api/calendar/subscription/enable")).json()["feed_url"])
+
+    first = await client.get(f"/api/calendar/{token}.ics")
+    etag = first.headers["etag"]
+    again = await client.get(f"/api/calendar/{token}.ics", headers={"If-None-Match": etag})
+    assert again.status_code == 304
+    assert again.text == ""
 
 
 async def test_unknown_token_is_404(client: AsyncClient):
