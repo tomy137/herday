@@ -17,6 +17,13 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
+      workbox: {
+        // Never serve the SPA fallback (index.html) for API routes. Without this,
+        // navigating to /api/calendar/*.ics in the browser returns the app HTML
+        // instead of the calendar feed. (Server-side fetchers like Google's are
+        // unaffected — they don't run the service worker.)
+        navigateFallbackDenylist: [/^\/api\//],
+      },
       manifest: {
         name: 'HerDay',
         short_name: 'HerDay',
