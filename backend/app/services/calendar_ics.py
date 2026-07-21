@@ -235,7 +235,9 @@ def render_ics(
         "VERSION:2.0",
         f"PRODID:-//HerDay//Calendar Feed//{locale.upper()}",
         "CALSCALE:GREGORIAN",
-        "METHOD:PUBLISH",
+        # No METHOD: a METHOD makes the .ics an iTIP scheduling message (invitation
+        # feed) rather than a plain subscription. Google Calendar in particular
+        # fetches such a feed (200) but won't render its events as calendar entries.
         "X-WR-CALNAME:HerDay",
         "X-PUBLISHED-TTL:PT12H",
         "REFRESH-INTERVAL;VALUE=DURATION:PT12H",
