@@ -59,6 +59,42 @@ async def test_pastilles_deduplicated(client: AsyncClient):
     assert resp.json()["pastilles"] == ["fatigue", "rires"]
 
 
+async def test_blank_entry_is_not_stored(client: AsyncClient):
+    """Nothing to say (or whitespace only) creates no row — hence no empty écho."""
+    for payload in (
+        {"pastilles": [], "free_text": None},
+        {"pastilles": [], "free_text": "   ", "helpful": "\n", "not_helpful": ""},
+    ):
+        resp = await client.put("/api/journal/2026-05-14", json=payload)
+        assert resp.status_code == 200
+        assert resp.json()["free_text"] is None
+
+    assert (await client.get("/api/journal")).json()["total"] == 0
+
+
+async def test_emptying_an_entry_removes_it(client: AsyncClient):
+    """Clearing an existing entry deletes it instead of leaving a blank row."""
+    d = "2026-05-15"
+    await client.put(f"/api/journal/{d}", json={"pastilles": ["rires"], "free_text": "chouette"})
+    assert (await client.get("/api/journal")).json()["total"] == 1
+
+    resp = await client.put(f"/api/journal/{d}", json={"pastilles": [], "free_text": "  "})
+    assert resp.status_code == 200
+    assert (await client.get("/api/journal")).json()["total"] == 0
+    assert (await client.get(f"/api/journal/{d}")).json()["free_text"] is None
+
+
+async def test_text_is_trimmed(client: AsyncClient):
+    """Surrounding whitespace never reaches storage."""
+    resp = await client.put(
+        "/api/journal/2026-05-16",
+        json={"pastilles": [], "free_text": "  une note  ", "helpful": " sieste \n"},
+    )
+    assert resp.status_code == 200
+    assert resp.json()["free_text"] == "une note"
+    assert resp.json()["helpful"] == "sieste"
+
+
 async def test_delete_entry(client: AsyncClient):
     d = "2026-05-13"
     await client.put(f"/api/journal/{d}", json={"pastilles": ["repli"]})

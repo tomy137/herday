@@ -11,6 +11,14 @@ _MAX_FREE = 2000
 _MAX_LOOP = 280
 
 
+def _normalize(value: str | None) -> str | None:
+    """Trim surrounding whitespace; whitespace-only text becomes ``None``."""
+    if value is None:
+        return None
+    value = value.strip()
+    return value or None
+
+
 class JournalUpsert(BaseModel):
     """Schema for creating/updating a daily journal entry."""
 
@@ -34,6 +42,7 @@ class JournalUpsert(BaseModel):
     @field_validator("free_text")
     @classmethod
     def _cap_free(cls, value: str | None) -> str | None:
+        value = _normalize(value)
         if value is not None and len(value) > _MAX_FREE:
             raise ValueError("error.text_too_long")
         return value
@@ -41,9 +50,21 @@ class JournalUpsert(BaseModel):
     @field_validator("helpful", "not_helpful")
     @classmethod
     def _cap_loop(cls, value: str | None) -> str | None:
+        value = _normalize(value)
         if value is not None and len(value) > _MAX_LOOP:
             raise ValueError("error.text_too_long")
         return value
+
+    @property
+    def is_empty(self) -> bool:
+        """True when the entry carries nothing worth remembering.
+
+        Blank entries would otherwise surface as empty échos (a dated line with
+        no content), so the router drops them instead of storing them.
+        """
+        return not (
+            self.pastilles or self.free_text or self.helpful or self.not_helpful
+        )
 
 
 class JournalResponse(BaseModel):

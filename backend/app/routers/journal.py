@@ -107,11 +107,22 @@ async def upsert_entry(
     user: User = Depends(get_current_user),
     session: AsyncSession = Depends(get_session),
 ):
-    """Create or update the entry for a given date."""
+    """Create or update the entry for a given date.
+
+    A blank entry (no pastille, no text) is never stored: emptying an existing
+    entry deletes it, so it stops surfacing as an empty écho.
+    """
     pastilles_json = json.dumps(body.pastilles)
     now = datetime.now(timezone.utc)
 
     entry = await _get_entry(user.id, entry_date, session)
+
+    if body.is_empty:
+        if entry is not None:
+            await session.delete(entry)
+            await session.commit()
+        return _empty_response(entry_date)
+
     if entry is None:
         entry = JournalEntry(
             user_id=user.id,

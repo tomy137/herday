@@ -11,6 +11,16 @@ import { useToast } from '../components/ui/Toast';
 
 const EMPTY: JournalDraft = { pastilles: [], free_text: null, helpful: null, not_helpful: null };
 
+/** Whitespace-only text is nothing: keep it out of the entry (and of the échos). */
+const trimmed = (value: string | null): string | null => value?.trim() || null;
+
+const normalize = (draft: JournalDraft): JournalDraft => ({
+  pastilles: draft.pastilles,
+  free_text: trimmed(draft.free_text),
+  helpful: trimmed(draft.helpful),
+  not_helpful: trimmed(draft.not_helpful),
+});
+
 export default function Journal() {
   const { t, i18n } = useTranslation('journal');
   const { t: tCommon } = useTranslation('common');
@@ -48,8 +58,10 @@ export default function Journal() {
 
   const save = async () => {
     setSaving(true);
+    const clean = normalize(draft);
     try {
-      await api.journal.upsert(formatDate(selectedDate), draft);
+      await api.journal.upsert(formatDate(selectedDate), clean);
+      setDraft(clean);
       showToast(t('quick.saved'));
     } catch {
       showToast(tCommon('error'), 'error');
