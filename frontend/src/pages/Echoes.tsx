@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { api } from '../api/client';
 import type { EchoAggregate } from '../api/client';
 import type { Phase } from '../lib/cycle-engine';
 import { PHASE_HEX } from '../constants/phases';
-import { PHASE_ORDER, PHASE_PARENT, PASTILLE_GLYPHS } from '../constants/phase-meta';
+import { PHASE_ORDER, PASTILLE_GLYPHS } from '../constants/phase-meta';
 import type { PastilleId } from '../constants/phase-meta';
 import Header from '../components/layout/Header';
 import EchoRow from '../components/home/EchoRow';
@@ -22,36 +22,43 @@ export default function Echoes() {
   const [selected, setSelected] = useState<Phase | null>(null);
   const [echo, setEcho] = useState<EchoAggregate | null>(null);
   const [loading, setLoading] = useState(true);
+  const requestId = useRef(0);
 
   useEffect(() => {
     (async () => {
+      const request = ++requestId.current;
       try {
         const param = searchParams.get('phase');
         const initial =
           param && (PHASE_ORDER as readonly string[]).includes(param) ? (param as Phase) : null;
-        if (initial) {
-          setSelected(initial);
-          setEcho(await api.echoes.forParent(PHASE_PARENT[initial]));
-        } else {
-          const info = await api.phases.today();
-          setSelected(info.phase as Phase);
-          setEcho(await api.echoes.current());
-        }
+        const phase = initial ?? ((await api.phases.today()).phase as Phase);
+        const next = initial ? await api.echoes.forPhase(initial) : await api.echoes.current();
+        if (request !== requestId.current) return; // the user already picked another phase
+        setSelected(phase);
+        setEcho(next);
       } catch {
         // ignore
       } finally {
-        setLoading(false);
+        if (request === requestId.current) setLoading(false);
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  /** Switch phase: drop the previous phase's content right away, then load the
+   *  new one. A slow answer never lands on a phase the user already left. */
   const selectPhase = async (phase: Phase) => {
+    const request = ++requestId.current;
     setSelected(phase);
+    setEcho(null);
+    setLoading(true);
     try {
-      setEcho(await api.echoes.forParent(PHASE_PARENT[phase]));
+      const next = await api.echoes.forPhase(phase);
+      if (request === requestId.current) setEcho(next);
     } catch {
-      setEcho(null);
+      if (request === requestId.current) setEcho(null);
+    } finally {
+      if (request === requestId.current) setLoading(false);
     }
   };
 

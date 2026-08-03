@@ -144,7 +144,7 @@ export const api = {
   },
   echoes: {
     current: () => request<EchoAggregate>('/echoes/current'),
-    forParent: (parent: string) => request<EchoAggregate>(`/echoes/${parent}`),
+    forPhase: (phase: string) => request<EchoAggregate>(`/echoes/${phase}`),
   },
   users: {
     me: () => request<User>('/users/me'),
