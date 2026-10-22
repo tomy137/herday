@@ -19,6 +19,9 @@ struct PhaseSnapshot {
     var phaseDayIdx: Int
     var echoHelpful: String?
     var systemState: String
+    var zone: String
+    var zoneLabel: String
+    var zoneEndsIn: Int?
 
     static let placeholder = PhaseSnapshot(
         phase: "pre_ovulatory",
@@ -27,12 +30,15 @@ struct PhaseSnapshot {
         dayInCycle: 11,
         cycleLength: 28,
         nextPeriodIn: 18,
-        phaseEndsIn: 1,
+        phaseEndsIn: 0,
         posture: ["COÉQUIPIER", "DISPONIBLE", "CURIEUX DE SES IDÉES", "DANS L'ACTION"],
-        phaseSpan: 3,
-        phaseDayIdx: 1,
+        phaseSpan: 2,
+        phaseDayIdx: 2,
         echoHelpful: "Dit oui à la sortie improvisée",
-        systemState: "active"
+        systemState: "active",
+        zone: "jour",
+        zoneLabel: "Jour",
+        zoneEndsIn: 5
     )
 
     static let unknown = PhaseSnapshot(
@@ -47,7 +53,10 @@ struct PhaseSnapshot {
         phaseSpan: 1,
         phaseDayIdx: 1,
         echoHelpful: nil,
-        systemState: "unknown"
+        systemState: "unknown",
+        zone: "",
+        zoneLabel: "",
+        zoneEndsIn: nil
     )
 
     static func load() -> PhaseSnapshot {
@@ -70,13 +79,27 @@ struct PhaseSnapshot {
             phaseSpan: json["phaseSpan"] as? Int ?? 1,
             phaseDayIdx: json["phaseDayIdx"] as? Int ?? 1,
             echoHelpful: json["echoHelpful"] as? String,
-            systemState: json["systemState"] as? String ?? ""
+            systemState: json["systemState"] as? String ?? "",
+            zone: json["zone"] as? String ?? "",
+            zoneLabel: json["zoneLabel"] as? String ?? "",
+            zoneEndsIn: json["zoneEndsIn"] as? Int
         )
     }
 
     var daysLeftLabel: String {
         guard let n = phaseEndsIn, n > 0 else { return "bascule aujourd'hui" }
         return n == 1 ? "1 j restant" : "\(n) j restants"
+    }
+
+    /// Zone from the app payload, else derived from the phase (older payloads).
+    var cycleZone: CycleZone {
+        CycleZone(rawValue: zone) ?? CycleZone.from(phase: phase)
+    }
+
+    var zoneDaysLeftLabel: String {
+        guard let n = zoneEndsIn else { return "" }
+        if n <= 0 { return "dernier jour" }
+        return n == 1 ? "encore 1 jour" : "encore \(n) jours"
     }
 }
 
@@ -100,7 +123,78 @@ struct PhaseProvider: TimelineProvider {
     }
 }
 
-// MARK: - Phase palette (matches the app's tokens)
+// MARK: - Palette "4 teintes" (matches the app's tokens, constants/phases.ts)
+
+private func hex(_ v: UInt32) -> Color {
+    Color(red: Double((v >> 16) & 0xFF) / 255, green: Double((v >> 8) & 0xFF) / 255, blue: Double(v & 0xFF) / 255)
+}
+
+/// The four zones of the dial; they group the phases like the ICS periods
+/// (Nuit = Période A, Jour = Période B).
+enum CycleZone: String, CaseIterable {
+    case nuit, aube, jour, crepuscule
+
+    static func from(phase: String) -> CycleZone {
+        switch phase {
+        case "post_menstrual": return .aube
+        case "pre_ovulatory", "ovulation": return .jour
+        case "post_ovulatory": return .crepuscule
+        default: return .nuit
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .nuit: return hex(0xDC3D5A)
+        case .aube: return hex(0xE5B30B)
+        case .jour: return hex(0x2DA87E)
+        case .crepuscule: return hex(0x4A6FB5)
+        }
+    }
+
+    /// Dark tone: centre disc and text (white on it ≥ 4.5:1).
+    var ink: Color {
+        switch self {
+        case .nuit: return hex(0x8E1F33)
+        case .aube: return hex(0x765600)
+        case .jour: return hex(0x1C6B50)
+        case .crepuscule: return hex(0x2B4475)
+        }
+    }
+
+    /// Widget background (zone hue mixed 85 % with white).
+    var background: Color {
+        switch self {
+        case .nuit: return hex(0xFAE2E6)
+        case .aube: return hex(0xFBF4DA)
+        case .jour: return hex(0xE0F2EC)
+        case .crepuscule: return hex(0xE4E9F4)
+        }
+    }
+
+    var symbol: String {
+        switch self {
+        case .nuit: return "moon"
+        case .aube: return "sunrise"
+        case .jour: return "sun.max"
+        case .crepuscule: return "sunset"
+        }
+    }
+
+    /// Day range of the zone for a cycle of length `L` (Nuit runs past the end
+    /// of the cycle into the next period: L+1 … L+P). Mirrors the engine's
+    /// phase bounds; nil when a very short cycle leaves the zone empty.
+    func bounds(cycleLength L: Int, periodDuration P: Int) -> (Int, Int)? {
+        let range: (Int, Int)
+        switch self {
+        case .nuit: range = (L - 5, L + P)
+        case .aube: range = (P + 1, L - 19)
+        case .jour: range = (max(P + 1, L - 18), L - 12)
+        case .crepuscule: range = (L - 11, L - 6)
+        }
+        return range.1 >= range.0 ? range : nil
+    }
+}
 
 private struct PhaseStyle {
     let primary: Color
@@ -108,37 +202,288 @@ private struct PhaseStyle {
     let ink: Color
 
     static func from(_ phase: String) -> PhaseStyle {
-        func c(_ r: Double, _ g: Double, _ b: Double) -> Color { Color(red: r, green: g, blue: b) }
         switch phase {
         case "menstruation":
-            return PhaseStyle(primary: c(0.863, 0.239, 0.353), soft: c(0.984, 0.918, 0.933), ink: c(0.557, 0.122, 0.200))
+            return PhaseStyle(primary: hex(0xDC3D5A), soft: hex(0xF7D4DB), ink: hex(0x8E1F33))
         case "post_menstrual":
-            return PhaseStyle(primary: c(0.498, 0.812, 0.682), soft: c(0.918, 0.965, 0.941), ink: c(0.180, 0.451, 0.333))
+            return PhaseStyle(primary: hex(0xE5B30B), soft: hex(0xF9EEC9), ink: hex(0x765600))
         case "pre_ovulatory":
-            return PhaseStyle(primary: c(0.176, 0.659, 0.494), soft: c(0.902, 0.957, 0.933), ink: c(0.110, 0.420, 0.314))
+            return PhaseStyle(primary: hex(0x8CCFB8), soft: hex(0xEAF6F2), ink: hex(0x1C6B50))
         case "ovulation":
-            return PhaseStyle(primary: c(0.831, 0.533, 0.059), soft: c(0.984, 0.941, 0.863), ink: c(0.541, 0.337, 0.039))
+            return PhaseStyle(primary: hex(0x2DA87E), soft: hex(0xD1ECE3), ink: hex(0x1C6B50))
         case "post_ovulatory":
-            return PhaseStyle(primary: c(0.620, 0.471, 0.878), soft: c(0.941, 0.918, 0.980), ink: c(0.357, 0.239, 0.620))
+            return PhaseStyle(primary: hex(0x4A6FB5), soft: hex(0xD7DFEF), ink: hex(0x2B4475))
         case "pre_menstrual":
-            return PhaseStyle(primary: c(0.365, 0.227, 0.620), soft: c(0.925, 0.906, 0.961), ink: c(0.255, 0.165, 0.431))
+            return PhaseStyle(primary: hex(0xEC94A4), soft: hex(0xFCECEF), ink: hex(0x8E1F33))
         default:
             return PhaseStyle(primary: .gray, soft: Color.gray.opacity(0.12), ink: Color.gray)
         }
     }
 }
 
-private struct WidgetHeader: View {
-    let style: PhaseStyle
-    let day: Int
+// MARK: - Dial geometry
+
+private let periodDurationGuess = 5
+
+/// Angle in degrees, 0 = top, clockwise. The dial is rotated so the ovulation
+/// day sits at the top (the "sun" is up).
+private func dialAngle(_ day: Double, cycleLength L: Int) -> Double {
+    let offset = -((Double(L) - 14 - 0.5) / Double(L)) * 360
+    return offset + day / Double(L) * 360
+}
+
+private func polar(_ c: CGPoint, _ r: CGFloat, _ deg: Double) -> CGPoint {
+    let t = (deg - 90) * .pi / 180
+    return CGPoint(x: c.x + r * CGFloat(cos(t)), y: c.y + r * CGFloat(sin(t)))
+}
+
+/// Annular sector between two angles; radii are fractions of the half-size.
+private struct RingSector: Shape {
+    let start: Double
+    let end: Double
+    let inner: CGFloat
+    let outer: CGFloat
+
+    func path(in rect: CGRect) -> Path {
+        let c = CGPoint(x: rect.midX, y: rect.midY)
+        let r = min(rect.width, rect.height) / 2
+        var p = Path()
+        p.addArc(center: c, radius: r * outer, startAngle: .degrees(start - 90), endAngle: .degrees(end - 90), clockwise: false)
+        p.addArc(center: c, radius: r * inner, startAngle: .degrees(end - 90), endAngle: .degrees(start - 90), clockwise: true)
+        p.closeSubpath()
+        return p
+    }
+}
+
+/// Potentiometer-style pointer: base outside the ring, tip pointing to the centre.
+private struct DialPointer: Shape {
+    let angle: Double
+    let tip: CGFloat
+    let base: CGFloat
+    let half: Double
+
+    func path(in rect: CGRect) -> Path {
+        let c = CGPoint(x: rect.midX, y: rect.midY)
+        let r = min(rect.width, rect.height) / 2
+        var p = Path()
+        p.move(to: polar(c, r * tip, angle))
+        p.addLine(to: polar(c, r * base, angle - half))
+        p.addQuadCurve(to: polar(c, r * base, angle + half), control: polar(c, r * (base - 0.027), angle))
+        p.closeSubpath()
+        return p
+    }
+}
+
+private struct DialNeedle: Shape {
+    let angle: Double
+    let from: CGFloat
+    let to: CGFloat
+
+    func path(in rect: CGRect) -> Path {
+        let c = CGPoint(x: rect.midX, y: rect.midY)
+        let r = min(rect.width, rect.height) / 2
+        var p = Path()
+        p.move(to: polar(c, r * from, angle))
+        p.addLine(to: polar(c, r * to, angle))
+        return p
+    }
+}
+
+/// Four-zone dial: the current zone in full colour, a pointer on today, and
+/// the zone's icon large in the centre. `mono` renders the lock-screen version.
+struct CycleDial: View {
+    let s: PhaseSnapshot
+    var mono = false
+
     var body: some View {
-        HStack {
-            HStack(spacing: 5) {
-                RoundedRectangle(cornerRadius: 2).fill(style.primary).frame(width: 7, height: 7)
-                Text("HERDAY").font(.system(size: 9, weight: .medium)).tracking(0.6).foregroundColor(.secondary)
+        GeometryReader { geo in
+            let size = min(geo.size.width, geo.size.height)
+            let L = max(s.cycleLength, 18)
+            let cur = s.cycleZone
+            let today = dialAngle(Double(s.dayInCycle) - 0.5, cycleLength: L)
+            ZStack {
+                ForEach(CycleZone.allCases, id: \.self) { z in
+                    if let b = z.bounds(cycleLength: L, periodDuration: periodDurationGuess) {
+                        RingSector(
+                            start: dialAngle(Double(b.0 - 1), cycleLength: L) + 1.2,
+                            end: dialAngle(Double(b.1), cycleLength: L) - 1.2,
+                            inner: 0.613,
+                            outer: 0.84
+                        )
+                        .fill(mono ? Color.white.opacity(z == cur ? 1 : 0.3) : z.color.opacity(z == cur ? 1 : 0.28))
+                    }
+                }
+                if !mono {
+                    DialNeedle(angle: today, from: 0.587, to: 0.853)
+                        .stroke(Color.white, style: StrokeStyle(lineWidth: size * 5 / 300, lineCap: .round))
+                    Circle()
+                        .fill(cur.ink)
+                        .frame(width: size * 0.547, height: size * 0.547)
+                }
+                DialPointer(angle: today, tip: 0.847, base: 0.993, half: 6.5)
+                    .fill(mono ? Color.white : cur.ink)
+                if !mono {
+                    DialPointer(angle: today, tip: 0.847, base: 0.993, half: 6.5)
+                        .stroke(Color.white, style: StrokeStyle(lineWidth: size * 4 / 300, lineJoin: .round))
+                }
+                Image(systemName: cur.symbol)
+                    .font(.system(size: size * (mono ? 0.3 : 0.24), weight: mono ? .semibold : .regular))
+                    .foregroundColor(.white)
             }
-            Spacer()
-            Text("J\(day)").font(.system(size: 9, weight: .medium)).foregroundColor(.secondary)
+            .frame(width: size, height: size)
+            .position(x: geo.size.width / 2, y: geo.size.height / 2)
+        }
+    }
+}
+
+// MARK: - Flat hormone chart (medium widget)
+
+private struct HormoneCurve: Shape {
+    let points: [(Double, Double)]
+    let cycleLength: Int
+
+    /// Smoothstep interpolation between control points (same look as CycleGraph.tsx).
+    static func level(_ pts: [(Double, Double)], _ d: Double) -> Double {
+        for i in 0..<(pts.count - 1) {
+            let a = pts[i], b = pts[i + 1]
+            if d <= b.0 {
+                let span = b.0 - a.0
+                let u = span > 0 ? min(1, max(0, (d - a.0) / span)) : 1
+                return a.1 + (b.1 - a.1) * u * u * (3 - 2 * u)
+            }
+        }
+        return pts.last?.1 ?? 0
+    }
+
+    func path(in rect: CGRect) -> Path {
+        var p = Path()
+        let L = Double(cycleLength)
+        var t = 0.0
+        while t <= L {
+            let pt = CGPoint(x: rect.minX + CGFloat(t / L) * rect.width,
+                             y: rect.maxY - CGFloat(Self.level(points, t)) * rect.height * 0.92)
+            if t == 0 { p.move(to: pt) } else { p.addLine(to: pt) }
+            t += 0.25
+        }
+        return p
+    }
+
+    /// Control points (day, level 0…1), anchored on ovulation (L − 14).
+    static func estradiol(_ L: Int, _ P: Int) -> [(Double, Double)] {
+        let o = Double(L - 14), e = Double(L), p = Double(P)
+        return [(0, 0.15), (p * 0.6, 0.10), (p + 1, 0.20), ((p + o) / 2, 0.35), (o - 1, 0.85), (o + 1, 0.45),
+                (o + (e - o) * 0.4, 0.62), (e - 2, 0.22), (e, 0.10)]
+    }
+
+    static func progesterone(_ L: Int, _ P: Int) -> [(Double, Double)] {
+        let o = Double(L - 14), e = Double(L)
+        return [(0, 0.08), (o - 1, 0.08), (o + 1, 0.22), (o + (e - o) * 0.5, 0.78), (e - 2, 0.30), (e, 0.05)]
+    }
+}
+
+struct FlatCycleChart: View {
+    let s: PhaseSnapshot
+
+    private struct Band: Identifiable {
+        let id: String
+        let from: Int
+        let to: Int
+        let color: Color
+        let opacity: Double
+    }
+
+    private func bands(_ L: Int) -> [Band] {
+        let cur = s.cycleZone
+        var out: [Band] = []
+        for z in CycleZone.allCases {
+            guard let b = z.bounds(cycleLength: L, periodDuration: periodDurationGuess) else { continue }
+            let op = z == cur ? 0.3 : 0.1
+            if b.1 > L {
+                out.append(Band(id: z.rawValue + "-end", from: b.0, to: L, color: z.color, opacity: op))
+                out.append(Band(id: z.rawValue + "-start", from: 1, to: b.1 - L, color: z.color, opacity: op))
+            } else {
+                out.append(Band(id: z.rawValue, from: b.0, to: b.1, color: z.color, opacity: op))
+            }
+        }
+        return out
+    }
+
+    var body: some View {
+        GeometryReader { geo in
+            let w = geo.size.width, h = geo.size.height
+            let L = max(s.cycleLength, 18)
+            let x = { (d: Double) -> CGFloat in CGFloat(d / Double(L)) * w }
+            let cursorX = x(Double(s.dayInCycle) - 0.5)
+            ZStack(alignment: .topLeading) {
+                ForEach(bands(L)) { b in
+                    Rectangle()
+                        .fill(b.color.opacity(b.opacity))
+                        .frame(width: x(Double(b.to)) - x(Double(b.from - 1)), height: h)
+                        .offset(x: x(Double(b.from - 1)))
+                }
+                HormoneCurve(points: HormoneCurve.estradiol(L, periodDurationGuess), cycleLength: L)
+                    .stroke(hex(0x2D2A26), lineWidth: 1.6)
+                HormoneCurve(points: HormoneCurve.progesterone(L, periodDurationGuess), cycleLength: L)
+                    .stroke(hex(0x7A6F5E), style: StrokeStyle(lineWidth: 1.6, dash: [3, 2]))
+                Rectangle()
+                    .fill(s.cycleZone.ink)
+                    .frame(width: 1.5, height: h)
+                    .offset(x: cursorX - 0.75)
+            }
+        }
+    }
+}
+
+// MARK: - Home-screen widgets
+
+private struct OpenAppHint: View {
+    var body: some View {
+        VStack(spacing: 2) {
+            Text("Ouvre HerDay").font(.headline)
+            Text("pour activer le suivi").font(.caption2).foregroundColor(.secondary)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
+struct SmallDialView: View {
+    let s: PhaseSnapshot
+    var body: some View {
+        if s.systemState == "unknown" {
+            OpenAppHint()
+        } else {
+            CycleDial(s: s)
+        }
+    }
+}
+
+struct MediumDialView: View {
+    let s: PhaseSnapshot
+    var body: some View {
+        if s.systemState == "unknown" {
+            OpenAppHint()
+        } else {
+            let ink = s.cycleZone.ink
+            HStack(spacing: 14) {
+                CycleDial(s: s)
+                    .frame(width: 132, height: 132)
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("\(s.zoneLabel.uppercased()) · J\(s.dayInCycle)")
+                        .font(.system(size: 9, weight: .medium)).tracking(0.5)
+                        .foregroundColor(ink)
+                    Text(s.phaseLabel)
+                        .font(.system(size: 15, weight: .bold)).foregroundColor(ink)
+                        .lineLimit(1).minimumScaleFactor(0.7)
+                    Text(s.zoneDaysLeftLabel)
+                        .font(.system(size: 11)).foregroundColor(ink)
+                    Spacer(minLength: 4)
+                    FlatCycleChart(s: s)
+                        .frame(height: 56)
+                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }
@@ -161,66 +506,18 @@ private struct PostureStack: View {
     }
 }
 
-// MARK: - Home-screen widgets
-
-struct SmallPostureView: View {
-    let s: PhaseSnapshot
+private struct WidgetHeader: View {
+    let style: PhaseStyle
+    let day: Int
     var body: some View {
-        let style = PhaseStyle.from(s.phase)
-        VStack(alignment: .leading, spacing: 4) {
-            WidgetHeader(style: style, day: s.dayInCycle)
-            if s.systemState == "unknown" {
-                Spacer(minLength: 0)
-                Text("Ouvre HerDay").font(.headline).foregroundColor(style.ink)
-                Text("pour activer le suivi").font(.caption2).foregroundColor(.secondary)
-            } else {
-                Text("ELLE A BESOIN QUE TU SOIS")
-                    .font(.system(size: 8, weight: .medium)).tracking(0.5)
-                    .foregroundColor(style.ink.opacity(0.7)).lineLimit(1).minimumScaleFactor(0.7)
-                Spacer(minLength: 0)
-                PostureStack(words: Array(s.posture.prefix(3)), color: style.ink, size: 15)
-                Spacer(minLength: 0)
-                HStack {
-                    Text(s.phaseLabel.lowercased()).font(.system(size: 9.5)).foregroundColor(style.ink.opacity(0.7)).lineLimit(1)
-                    Spacer()
-                    Text(s.daysLeftLabel).font(.system(size: 8.5, weight: .medium)).foregroundColor(style.ink.opacity(0.7))
-                }
+        HStack {
+            HStack(spacing: 5) {
+                RoundedRectangle(cornerRadius: 2).fill(style.primary).frame(width: 7, height: 7)
+                Text("HERDAY").font(.system(size: 9, weight: .medium)).tracking(0.6).foregroundColor(.secondary)
             }
+            Spacer()
+            Text("J\(day)").font(.system(size: 9, weight: .medium)).foregroundColor(.secondary)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-    }
-}
-
-struct MediumView: View {
-    let s: PhaseSnapshot
-    var body: some View {
-        let style = PhaseStyle.from(s.phase)
-        HStack(spacing: 14) {
-            VStack(alignment: .leading, spacing: 0) {
-                WidgetHeader(style: style, day: s.dayInCycle)
-                Spacer(minLength: 8)
-                Text("PHASE").font(.system(size: 8, weight: .medium)).tracking(0.5).foregroundColor(style.ink.opacity(0.7))
-                Text(s.phaseLabel).font(.system(size: 14, weight: .bold)).foregroundColor(style.ink).lineLimit(1).minimumScaleFactor(0.7)
-                Text(s.range.lowercased()).font(.system(size: 11)).italic().foregroundColor(style.ink.opacity(0.65)).lineLimit(2)
-            }
-            .frame(width: 122, alignment: .leading)
-
-            Rectangle().fill(style.primary.opacity(0.25)).frame(width: 0.5)
-
-            VStack(alignment: .leading, spacing: 0) {
-                Text("ELLE A BESOIN QUE TU SOIS")
-                    .font(.system(size: 8, weight: .medium)).tracking(0.5)
-                    .foregroundColor(style.ink.opacity(0.7)).lineLimit(1).minimumScaleFactor(0.7)
-                Spacer(minLength: 6)
-                PostureStack(words: Array(s.posture.prefix(4)), color: style.ink, size: 17)
-                Spacer(minLength: 6)
-                Text(s.daysLeftLabel.uppercased())
-                    .font(.system(size: 8, weight: .medium)).tracking(0.4)
-                    .foregroundColor(style.ink.opacity(0.55))
-            }
-            .frame(maxWidth: .infinity, alignment: .topLeading)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 }
 
@@ -258,7 +555,7 @@ struct LargeView: View {
                     HStack {
                         Text("ÉCHO · CYCLE PRÉCÉDENT").font(.system(size: 8, weight: .medium)).tracking(0.5).foregroundColor(.secondary)
                         Spacer()
-                        Text("A AIDÉ").font(.system(size: 8, weight: .medium)).foregroundColor(Color(red: 0.176, green: 0.659, blue: 0.494))
+                        Text("A AIDÉ").font(.system(size: 8, weight: .medium)).foregroundColor(hex(0x1C6B50))
                     }
                     Text("« \(echo) »").font(.system(size: 11.5)).foregroundColor(.primary.opacity(0.85)).lineLimit(2)
                 }
@@ -281,12 +578,14 @@ struct AccessoryInlineView: View {
 struct AccessoryCircularView: View {
     let s: PhaseSnapshot
     var body: some View {
-        Gauge(value: Double(s.phaseDayIdx), in: 0...Double(max(s.phaseSpan, 1))) {
-            Text("")
-        } currentValueLabel: {
-            Text("\(s.phaseDayIdx)").font(.system(size: 16, weight: .semibold))
+        ZStack {
+            AccessoryWidgetBackground()
+            if s.systemState == "unknown" {
+                Image(systemName: "moon").font(.system(size: 18))
+            } else {
+                CycleDial(s: s, mono: true).padding(2)
+            }
         }
-        .gaugeStyle(.accessoryCircular)
     }
 }
 
@@ -311,7 +610,7 @@ struct HerDayWidgetEntryView: View {
 
     var body: some View {
         let s = entry.snapshot
-        let style = PhaseStyle.from(s.phase)
+        let zoneBackground = s.systemState == "unknown" ? Color.gray.opacity(0.12) : s.cycleZone.background
         switch family {
         case .accessoryInline:
             AccessoryInlineView(s: s)
@@ -322,9 +621,9 @@ struct HerDayWidgetEntryView: View {
         case .systemLarge:
             LargeView(s: s).containerBackground(Color(red: 0.992, green: 0.984, blue: 0.969), for: .widget)
         case .systemMedium:
-            MediumView(s: s).containerBackground(style.soft, for: .widget)
+            MediumDialView(s: s).containerBackground(zoneBackground, for: .widget)
         default:
-            SmallPostureView(s: s).containerBackground(style.soft, for: .widget)
+            SmallDialView(s: s).containerBackground(zoneBackground, for: .widget)
         }
     }
 }
@@ -336,8 +635,8 @@ struct HerDayPhaseWidget: Widget {
         StaticConfiguration(kind: kind, provider: PhaseProvider()) { entry in
             HerDayWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Posture HerDay")
-        .description("La posture à adopter aujourd'hui, et la progression dans la phase.")
+        .configurationDisplayName("Cycle HerDay")
+        .description("Où on en est dans le cycle : Nuit, Aube, Jour ou Crépuscule.")
         .supportedFamilies([
             .systemSmall, .systemMedium, .systemLarge,
             .accessoryInline, .accessoryCircular, .accessoryRectangular,

@@ -61,12 +61,12 @@
     "formula": "Eisprungtag = Zykluslänge − 14",
     "example": "Beispiel: 28-Tage-Zyklus → Eisprung am Tag 14. 32-Tage-Zyklus → Eisprung am Tag 18.",
     "breakdown": {
-      "menstruation": { "name": "🔴 Menstruation", "days": "Tag 1 bis 5" },
-      "post_menstrual": { "name": "🌱 Postmenstruell", "days": "Tag 6 bis 9" },
-      "pre_ovulatory": { "name": "🌿 Präovulatorisch", "days": "Tag 10 bis 11" },
-      "ovulation": { "name": "🌟 Eisprung", "days": "Tag 12 bis 16" },
-      "post_ovulatory": { "name": "🌙 Postovulatorisch", "days": "Tag 17 bis 22" },
-      "pre_menstrual": { "name": "🌑 Prämenstruell", "days": "Tag 23 bis 28" }
+      "menstruation": { "name": "🌙 Menstruation", "days": "Tag 1 bis 5" },
+      "post_menstrual": { "name": "🌅 Postmenstruell", "days": "Tag 6 bis 9" },
+      "pre_ovulatory": { "name": "☀️ Präovulatorisch", "days": "Tag 10 bis 11" },
+      "ovulation": { "name": "☀️ Eisprung", "days": "Tag 12 bis 16" },
+      "post_ovulatory": { "name": "🌇 Postovulatorisch", "days": "Tag 17 bis 22" },
+      "pre_menstrual": { "name": "🌙 Prämenstruell", "days": "Tag 23 bis 28" }
     }
   },
   "confidence": {

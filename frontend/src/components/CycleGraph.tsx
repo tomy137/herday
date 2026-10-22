@@ -1,5 +1,5 @@
 import type { Phase } from '../lib/cycle-engine';
-import { PHASE_HEX } from '../constants/phases';
+import { PHASE_HEX, PHASE_INK_HEX } from '../constants/phases';
 
 interface Props {
   dayInCycle: number;
@@ -20,6 +20,10 @@ const CW = RIGHT - LEFT;
 const CH = BOTTOM - TOP;
 const PRE_OVULATORY_DAYS = 2;
 const PRE_MENSTRUAL_DAYS = 6;
+const CURVE_ESTRADIOL = '#2D2A26';
+const CURVE_PROGESTERONE = '#7A6F5E';
+const CURVE_LH = '#9A8A6E';
+const CURVE_FSH = '#B8A88E';
 
 // x position for a continuous day value in [0, cycleLength]
 function x(d: number, L: number) {
@@ -125,7 +129,7 @@ export default function CycleGraph({
 
   const showCursor = dayInCycle > 0 && dayInCycle <= L;
   const cursorX = showCursor ? x(dayInCycle - 0.5, L) : 0;
-  const cursorColor = phase ? PHASE_HEX[phase] : '#5D3A9E';
+  const cursorColor = phase ? PHASE_INK_HEX[phase] : '#2D2A26';
 
   return (
     <svg
@@ -175,11 +179,11 @@ export default function CycleGraph({
       {/* Baseline */}
       <line x1={LEFT} x2={RIGHT} y1={BOTTOM} y2={BOTTOM} stroke="#D9D2C0" strokeWidth={1} />
 
-      {/* Hormone curves */}
-      <path d={smoothPath(curves.fsh)} fill="none" stroke="#888" strokeWidth={1.4} strokeDasharray="3 2" opacity={0.55} />
-      <path d={smoothPath(curves.lh)} fill="none" stroke="#444" strokeWidth={1.4} strokeDasharray="2 2" opacity={0.65} />
-      <path d={smoothPath(curves.estradiol)} fill="none" stroke="#DC3D5A" strokeWidth={2.4} />
-      <path d={smoothPath(curves.progesterone)} fill="none" stroke="#7E4FD0" strokeWidth={2.4} strokeDasharray="5 3" />
+      {/* Hormone curves — neutral inks so the phase palette stays the only colour system */}
+      <path d={smoothPath(curves.fsh)} fill="none" stroke={CURVE_FSH} strokeWidth={1.4} strokeDasharray="3 2" opacity={0.8} />
+      <path d={smoothPath(curves.lh)} fill="none" stroke={CURVE_LH} strokeWidth={1.4} strokeDasharray="2 2" opacity={0.8} />
+      <path d={smoothPath(curves.estradiol)} fill="none" stroke={CURVE_ESTRADIOL} strokeWidth={2.4} />
+      <path d={smoothPath(curves.progesterone)} fill="none" stroke={CURVE_PROGESTERONE} strokeWidth={2.4} strokeDasharray="5 3" />
 
       {/* Cursor */}
       {showCursor && (
@@ -208,16 +212,16 @@ export default function CycleGraph({
 
       {/* Legend — spread across the full chart width */}
       <g transform={`translate(${LEFT}, ${VBH - 9})`} fontSize={12.5} fontFamily="DM Sans, sans-serif" fill="#555">
-        <line x1={0} x2={17} y1={-4} y2={-4} stroke="#DC3D5A" strokeWidth={2.6} />
+        <line x1={0} x2={17} y1={-4} y2={-4} stroke={CURVE_ESTRADIOL} strokeWidth={2.6} />
         <text x={23} y={0}>Œstradiol</text>
 
-        <line x1={174} x2={191} y1={-4} y2={-4} stroke="#7E4FD0" strokeWidth={2.6} strokeDasharray="5 3" />
+        <line x1={174} x2={191} y1={-4} y2={-4} stroke={CURVE_PROGESTERONE} strokeWidth={2.6} strokeDasharray="5 3" />
         <text x={197} y={0}>Progestérone</text>
 
-        <line x1={374} x2={391} y1={-4} y2={-4} stroke="#444" strokeWidth={1.8} strokeDasharray="2 2" />
+        <line x1={374} x2={391} y1={-4} y2={-4} stroke={CURVE_LH} strokeWidth={1.8} strokeDasharray="2 2" />
         <text x={397} y={0}>LH</text>
 
-        <line x1={503} x2={520} y1={-4} y2={-4} stroke="#888" strokeWidth={1.8} strokeDasharray="3 2" />
+        <line x1={503} x2={520} y1={-4} y2={-4} stroke={CURVE_FSH} strokeWidth={1.8} strokeDasharray="3 2" />
         <text x={526} y={0}>FSH</text>
       </g>
     </svg>

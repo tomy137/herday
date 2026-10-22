@@ -19,7 +19,7 @@ export default function SettingsRow({ label, value, hint, tone, onClick }: Setti
       <div className="flex flex-col gap-0.5">
         <span
           className="text-[14px]"
-          style={{ color: tone === 'warn' ? 'var(--color-phase-menstruation)' : 'var(--color-ink)' }}
+          style={{ color: tone === 'warn' ? 'var(--color-danger)' : 'var(--color-ink)' }}
         >
           {label}
         </span>

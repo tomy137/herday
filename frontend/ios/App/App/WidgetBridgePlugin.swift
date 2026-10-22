@@ -38,6 +38,10 @@ public class WidgetBridgePlugin: CAPPlugin, CAPBridgedPlugin {
             "phaseSpan": call.getInt("phaseSpan") ?? 1,
             "phaseDayIdx": call.getInt("phaseDayIdx") ?? 1,
             "echoHelpful": call.getString("echoHelpful") as Any,
+            // Dial widget fields
+            "zone": call.getString("zone") ?? "",
+            "zoneLabel": call.getString("zoneLabel") ?? "",
+            "zoneEndsIn": call.getInt("zoneEndsIn") as Any,
             "updatedAt": ISO8601DateFormatter().string(from: Date()),
         ]
 

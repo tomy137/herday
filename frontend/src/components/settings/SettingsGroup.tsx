@@ -15,7 +15,7 @@ export default function SettingsGroup({ title, status, children }: SettingsGroup
       <div className="mb-2.5 flex items-baseline justify-between">
         <span className="hd-caps text-warm-500">{title}</span>
         {status && (
-          <span className="hd-meta" style={{ color: 'var(--color-phase-pre-ovulatory)' }}>
+          <span className="hd-meta" style={{ color: 'var(--color-success)' }}>
             ● {status}
           </span>
         )}

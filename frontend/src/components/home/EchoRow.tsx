@@ -7,7 +7,7 @@ interface EchoRowProps {
 
 /** One "Helped / Didn't help" line, shared by EchoCard and the Echoes screen. */
 export default function EchoRow({ tone, label, item }: EchoRowProps) {
-  const color = tone === 'helpful' ? 'var(--color-phase-pre-ovulatory)' : 'var(--color-phase-menstruation)';
+  const color = tone === 'helpful' ? 'var(--color-success)' : 'var(--color-danger)';
   return (
     <div className="flex items-start gap-3">
       <span

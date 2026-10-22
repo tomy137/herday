@@ -15,6 +15,12 @@
     "ovulatory": "Ovulatorisch",
     "luteal": "Luteal"
   },
+  "zones": {
+    "nuit": "Nacht",
+    "aube": "Morgen",
+    "jour": "Tag",
+    "crepuscule": "Abend"
+  },
   "empty": {
     "title": "Warten auf Daten",
     "body": "Erfasse einen ersten Periodenbeginn, um die Phasenverfolgung zu aktivieren."

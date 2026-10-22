@@ -15,6 +15,12 @@
     "ovulatory": "Ovulatoire",
     "luteal": "Lutéale"
   },
+  "zones": {
+    "nuit": "Nuit",
+    "aube": "Aube",
+    "jour": "Jour",
+    "crepuscule": "Crépuscule"
+  },
   "empty": {
     "title": "En attente de données",
     "body": "Signale un premier début de ses règles pour activer le suivi des phases."

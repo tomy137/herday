@@ -76,7 +76,7 @@ export default function Settings() {
           status={status !== 'not_yet' ? t('transparency.status_label') : undefined}
         >
           <div className="px-[18px] py-4">
-            <div className="hd-caps mb-2" style={{ color: status !== 'not_yet' ? 'var(--color-phase-pre-ovulatory)' : 'var(--color-warm-500)' }}>
+            <div className="hd-caps mb-2" style={{ color: status !== 'not_yet' ? 'var(--color-success)' : 'var(--color-warm-500)' }}>
               {status !== 'not_yet' ? '✓ ' : ''}{statusLabel}
             </div>
             <p className="text-[13.5px] leading-relaxed text-ink-soft">{t('transparency.body')}</p>
@@ -133,7 +133,7 @@ export default function Settings() {
             <SettingsRow label={t('account.delete')} tone="warn" onClick={() => setShowDeleteConfirm(true)} />
           ) : (
             <div className="px-[18px] py-4">
-              <p className="mb-3 text-[13.5px] text-phase-menstruation">{t('account.delete_confirm')}</p>
+              <p className="mb-3 text-[13.5px] text-danger">{t('account.delete_confirm')}</p>
               <div className="flex gap-2">
                 <button
                   type="button"
@@ -147,7 +147,7 @@ export default function Settings() {
                   onClick={deleteAccount}
                   disabled={deleting}
                   className="flex-1 rounded-[10px] py-2.5 text-[13px] font-medium text-warm-50 disabled:opacity-50"
-                  style={{ background: 'var(--color-phase-menstruation)' }}
+                  style={{ background: 'var(--color-danger)' }}
                 >
                   {t('account.delete_final')}
                 </button>

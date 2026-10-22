@@ -163,7 +163,7 @@ export default function Journal() {
           <p className="mb-3.5 text-[12.5px] leading-snug text-warm-500">{t('full.loop_hint')}</p>
           <div className="flex flex-col gap-4">
             <div>
-              <label className="hd-caps mb-1.5 block" style={{ color: 'var(--color-phase-pre-ovulatory)' }}>
+              <label className="hd-caps mb-1.5 block" style={{ color: 'var(--color-success)' }}>
                 {t('full.helped_label')}
               </label>
               <textarea
@@ -175,7 +175,7 @@ export default function Journal() {
               />
             </div>
             <div>
-              <label className="hd-caps mb-1.5 block" style={{ color: 'var(--color-phase-menstruation)' }}>
+              <label className="hd-caps mb-1.5 block" style={{ color: 'var(--color-danger)' }}>
                 {t('full.not_helped_label')}
               </label>
               <textarea

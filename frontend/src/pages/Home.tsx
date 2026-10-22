@@ -7,6 +7,7 @@ import type { PhaseInfo, EchoAggregate } from '../api/client';
 import type { Phase } from '../lib/cycle-engine';
 import { MIN_CYCLE_LENGTH } from '../lib/cycle-engine';
 import { PHASE_RANGES_28 } from '../constants/phase-meta';
+import { PHASE_ZONE, zoneEndsIn } from '../constants/phases';
 import { syncPhaseToWidget } from '../native/widgetBridge';
 import Header from '../components/layout/Header';
 import PhaseCard from '../components/home/PhaseCard';
@@ -62,6 +63,9 @@ export default function Home() {
       phaseSpan: span,
       phaseDayIdx: idx,
       echoHelpful: echoes?.helpful[0] ?? null,
+      zone: PHASE_ZONE[phase] ?? 'nuit',
+      zoneLabel: tPhases(`zones.${PHASE_ZONE[phase] ?? 'nuit'}`),
+      zoneEndsIn: zoneEndsIn(phase, phaseInfo.phase_ends_in),
     });
   }, [tPhases]);
 
@@ -194,7 +198,7 @@ export default function Home() {
   if (error || !info) {
     return (
       <div className="flex items-center justify-center py-24">
-        <p className="font-medium text-phase-menstruation">{tCommon('error')}</p>
+        <p className="font-medium text-danger">{tCommon('error')}</p>
       </div>
     );
   }

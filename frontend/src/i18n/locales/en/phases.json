@@ -15,6 +15,12 @@
     "ovulatory": "Ovulatory",
     "luteal": "Luteal"
   },
+  "zones": {
+    "nuit": "Night",
+    "aube": "Dawn",
+    "jour": "Day",
+    "crepuscule": "Dusk"
+  },
   "empty": {
     "title": "Waiting for data",
     "body": "Log a first period start to activate phase tracking."

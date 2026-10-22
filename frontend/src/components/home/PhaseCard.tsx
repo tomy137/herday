@@ -2,7 +2,7 @@
 import { useTranslation } from 'react-i18next';
 import type { PhaseInfo } from '../../api/client';
 import type { Phase } from '../../lib/cycle-engine';
-import { PHASE_SOFT_HEX, PHASE_HEX, PHASE_ICONS } from '../../constants/phases';
+import { PHASE_SOFT_HEX, PHASE_HEX, PHASE_INK_HEX, PHASE_ICONS } from '../../constants/phases';
 import { usePhaseContent } from '../../lib/use-phase-content';
 import PhaseTag from '../ui/PhaseTag';
 import ConfidenceBadge from '../ui/ConfidenceBadge';
@@ -54,7 +54,7 @@ export default function PhaseCard({ phase, info }: PhaseCardProps) {
           <PhaseProgress phase={phase} phaseEndsIn={endsIn} />
           <span
             className="hd-meta whitespace-nowrap uppercase"
-            style={{ color: PHASE_HEX[phase] }}
+            style={{ color: PHASE_INK_HEX[phase] }}
           >
             {daysLabel}
           </span>

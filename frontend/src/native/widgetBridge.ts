@@ -21,6 +21,10 @@ export interface WidgetPhasePayload {
   phaseSpan: number;
   phaseDayIdx: number;
   echoHelpful: string | null;
+  // Dial widget fields (zone = Nuit / Aube / Jour / Crépuscule)
+  zone: string;
+  zoneLabel: string;
+  zoneEndsIn: number | null;
 }
 
 const WidgetBridge = registerPlugin<WidgetBridgePlugin>('WidgetBridge');

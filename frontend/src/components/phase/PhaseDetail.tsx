@@ -14,7 +14,7 @@ function DetailList({ items, avoid }: { items: string[]; avoid?: boolean }) {
         <li key={i} className="relative pl-4 text-[14.5px] leading-[1.62] text-ink-soft">
           <span
             className="absolute left-0 top-[0.72em] h-[0.5px] w-2"
-            style={{ background: avoid ? 'var(--color-phase-menstruation)' : 'var(--color-warm-400)' }}
+            style={{ background: avoid ? 'var(--color-danger)' : 'var(--color-warm-400)' }}
           />
           {x}
         </li>

@@ -16,27 +16,33 @@
   --color-ink-soft: #4A453E;
   --color-rule-soft: #E8E0D2;
 
-  /* Phase accents (existing saturated palette — kept) */
+  /* UI feedback (independent of the cycle palette) */
+  --color-success: #2DA87E;
+  --color-danger: #DC3D5A;
+
+  /* Phase accents — "4 teintes" palette, one hue per zone (mirror constants/phases.ts):
+     Nuit #DC3D5A, Aube #E5B30B, Jour #2DA87E, Crépuscule #4A6FB5.
+     A zone's secondary phase (pre-menstrual, pre-ovulatory) is a lighter tint. */
   --color-phase-menstruation: #DC3D5A;
-  --color-phase-post-menstrual: #7FCFAE;
-  --color-phase-pre-ovulatory: #2DA87E;
-  --color-phase-ovulation: #D4880F;
-  --color-phase-post-ovulatory: #9E78E0;
-  --color-phase-pre-menstrual: #5D3A9E;
+  --color-phase-post-menstrual: #E5B30B;
+  --color-phase-pre-ovulatory: #8CCFB8;
+  --color-phase-ovulation: #2DA87E;
+  --color-phase-post-ovulatory: #4A6FB5;
+  --color-phase-pre-menstrual: #EC94A4;
 
   /* Per-phase soft (pale fill) + ink (readable dark text on soft) — AA-checked */
-  --color-phase-menstruation-soft: #FBEAEE;
+  --color-phase-menstruation-soft: #F7D4DB;
   --color-phase-menstruation-ink: #8E1F33;
-  --color-phase-post-menstrual-soft: #EAF6F0;
-  --color-phase-post-menstrual-ink: #2E7355;
-  --color-phase-pre-ovulatory-soft: #E6F4EE;
+  --color-phase-post-menstrual-soft: #F9EEC9;
+  --color-phase-post-menstrual-ink: #765600;
+  --color-phase-pre-ovulatory-soft: #EAF6F2;
   --color-phase-pre-ovulatory-ink: #1C6B50;
-  --color-phase-ovulation-soft: #FBF0DC;
-  --color-phase-ovulation-ink: #8A560A;
-  --color-phase-post-ovulatory-soft: #F0EAFA;
-  --color-phase-post-ovulatory-ink: #5B3D9E;
-  --color-phase-pre-menstrual-soft: #ECE7F5;
-  --color-phase-pre-menstrual-ink: #412A6E;
+  --color-phase-ovulation-soft: #D1ECE3;
+  --color-phase-ovulation-ink: #1C6B50;
+  --color-phase-post-ovulatory-soft: #D7DFEF;
+  --color-phase-post-ovulatory-ink: #2B4475;
+  --color-phase-pre-menstrual-soft: #FCECEF;
+  --color-phase-pre-menstrual-ink: #8E1F33;
 }
 
 /* Smooth global defaults */
@@ -197,7 +203,7 @@ input[type="text"] {
   background: var(--color-warm-400);
 }
 .hd-list-tight li[data-tone="avoid"]::before {
-  background: var(--color-phase-menstruation);
+  background: var(--color-danger);
 }
 
 /* Card surfaces */
