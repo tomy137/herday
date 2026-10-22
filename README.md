@@ -130,6 +130,17 @@ herday.example.com {
 
 Caddy gère automatiquement les certificats HTTPS via Let's Encrypt.
 
+## iOS / TestFlight
+
+L'app iOS est un wrapper Capacitor (`frontend/ios`, bundle `app.herdays`, widget `app.herdays.HerDayWidget`, App Group `group.app.herdays.shared`). Elle appelle l'API définie par `VITE_API_URL_NATIVE` dans `frontend/.env`.
+
+```bash
+cd frontend
+TEAM_ID=XXXXXXXXXX npm run ios:testflight
+```
+
+Le script build le front, synchronise Capacitor, archive en Release avec un numéro de build horodaté puis envoie l'archive sur App Store Connect. La signature est automatique : compte Apple connecté dans Xcode, ou clé API via `ASC_KEY_ID` / `ASC_ISSUER_ID` / `ASC_KEY_PATH`.
+
 ## Structure du projet
 
 ```
