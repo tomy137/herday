@@ -22,6 +22,7 @@ struct PhaseSnapshot {
     var zone: String
     var zoneLabel: String
     var zoneEndsIn: Int?
+    var postureLabel: String
 
     static let placeholder = PhaseSnapshot(
         phase: "pre_ovulatory",
@@ -38,7 +39,8 @@ struct PhaseSnapshot {
         systemState: "active",
         zone: "jour",
         zoneLabel: "Jour",
-        zoneEndsIn: 5
+        zoneEndsIn: 5,
+        postureLabel: "Elle a besoin que tu sois"
     )
 
     static let unknown = PhaseSnapshot(
@@ -56,7 +58,8 @@ struct PhaseSnapshot {
         systemState: "unknown",
         zone: "",
         zoneLabel: "",
-        zoneEndsIn: nil
+        zoneEndsIn: nil,
+        postureLabel: ""
     )
 
     static func load() -> PhaseSnapshot {
@@ -82,7 +85,8 @@ struct PhaseSnapshot {
             systemState: json["systemState"] as? String ?? "",
             zone: json["zone"] as? String ?? "",
             zoneLabel: json["zoneLabel"] as? String ?? "",
-            zoneEndsIn: json["zoneEndsIn"] as? Int
+            zoneEndsIn: json["zoneEndsIn"] as? Int,
+            postureLabel: json["postureLabel"] as? String ?? ""
         )
     }
 
@@ -541,7 +545,7 @@ struct LargeView: View {
                 }
             }
             VStack(alignment: .leading, spacing: 4) {
-                Text("ELLE A BESOIN QUE TU SOIS").font(.system(size: 8, weight: .medium)).tracking(0.5).foregroundColor(style.ink.opacity(0.7))
+                Text((s.postureLabel.isEmpty ? "Elle a besoin que tu sois" : s.postureLabel).uppercased()).font(.system(size: 8, weight: .medium)).tracking(0.5).foregroundColor(style.ink.opacity(0.7))
                 Text(s.posture.prefix(4).map { $0.uppercased() }.joined(separator: " · "))
                     .font(.system(size: 15, weight: .bold)).foregroundColor(style.ink).lineLimit(2).minimumScaleFactor(0.7)
             }

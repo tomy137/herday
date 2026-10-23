@@ -60,5 +60,12 @@
       "season": "Autumn",
       "desc": "Turbulence zone (PMS). Patience and empathy."
     }
-  }
+  },
+  "legend_ovulation": "Ovulation (estimated)",
+  "prev_month": "Previous month",
+  "next_month": "Next month",
+  "swipe_hint": "Swipe to change month",
+  "noted": "note",
+  "note_day": "Note this day",
+  "edit_note_day": "See or edit the note"
 }

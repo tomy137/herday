@@ -5,14 +5,18 @@
     "calendar": "Calendar",
     "echoes": "Echoes",
     "journal": "Notebook",
-    "settings": "Settings"
+    "settings": "Settings",
+    "note": "Note",
+    "carnet": "Journal",
+    "label": "Main navigation"
   },
   "actions": {
     "cancel": "Cancel",
     "confirm": "Confirm",
     "save": "Save",
     "delete": "Delete",
-    "back": "Back"
+    "back": "Back",
+    "close": "Close"
   },
   "dates": {
     "today": "Today",
@@ -30,16 +34,34 @@
       "body_same": "You already logged a period start on this date. Do you want to correct it?",
       "correct": "Fix it: this is the real start",
       "keep": "No, this is a new period"
-    }
+    },
+    "prompt_title": "Has her period started?",
+    "prompt_body": "It’s expected soon. One tap realigns the whole calendar.",
+    "prompt_today": "Yes, today",
+    "prompt_other": "Another day"
   },
   "confidence": {
     "unknown": "No data yet — report a first event",
     "estimating": "Very rough estimate — based on little info",
     "partial": "Rough estimate — based on 1 cycle only",
     "learning": "Good estimate — based on 2 cycles",
-    "confident": "Reliable estimate — based on 3+ cycles"
+    "confident": "Reliable estimate — based on 3+ cycles",
+    "short": "Confidence"
   },
   "loading": "Loading...",
   "error": "Something went wrong",
-  "logout": "Log out"
+  "logout": "Log out",
+  "partner": {
+    "pronoun": {
+      "elle": "She",
+      "il": "He",
+      "iel": "They"
+    }
+  },
+  "home": {
+    "title": "Today",
+    "day": "Day {{day}} of {{length}}",
+    "understand": "Understand this moment",
+    "contraception": "On hormonal contraception, ovulation is often blocked: these phases are landmarks, not a forecast."
+  }
 }

@@ -60,5 +60,12 @@
       "season": "Der Herbst",
       "desc": "Turbulenzzone (PMS). Geduld und Empathie."
     }
-  }
+  },
+  "legend_ovulation": "Eisprung (geschätzt)",
+  "prev_month": "Vorheriger Monat",
+  "next_month": "Nächster Monat",
+  "swipe_hint": "Wischen, um den Monat zu wechseln",
+  "noted": "Notiz",
+  "note_day": "Für diesen Tag notieren",
+  "edit_note_day": "Notiz ansehen oder bearbeiten"
 }

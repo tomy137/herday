@@ -26,6 +26,10 @@ def _to_response(user: User) -> UserResponse:
         locale=user.locale,
         transparency_status=user.transparency_status,
         transparency_accepted_at=user.transparency_accepted_at,
+        partner_nickname=user.partner_nickname,
+        partner_pronouns=user.partner_pronouns or "elle",
+        expertise_level=user.expertise_level,
+        contraception=user.contraception,
         created_at=user.created_at,
     )
 
@@ -50,6 +54,14 @@ async def update_me(
         # Stamp the acceptance the first time the user engages the pact.
         if body.transparency_status != "not_yet" and user.transparency_accepted_at is None:
             user.transparency_accepted_at = datetime.now(timezone.utc)
+    if body.partner_nickname is not None:
+        user.partner_nickname = body.partner_nickname or None
+    if body.partner_pronouns is not None:
+        user.partner_pronouns = body.partner_pronouns
+    if body.expertise_level is not None:
+        user.expertise_level = body.expertise_level
+    if body.contraception is not None:
+        user.contraception = body.contraception
     user.updated_at = datetime.now(timezone.utc)
 
     session.add(user)

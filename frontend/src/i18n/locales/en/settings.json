@@ -17,22 +17,33 @@
     "her_data": "Her data",
     "journal": "Notebook",
     "display": "Display",
-    "about": "About"
+    "about": "About",
+    "partner": "Partner"
   },
   "her_data": {
     "last_period": "Date of last period",
-    "cycle_length": "Length of her cycle"
+    "cycle_length": "Length of her cycle",
+    "contraception": "Hormonal contraception",
+    "contraception_options": {
+      "non": "No",
+      "oui": "Yes",
+      "inconnu": "I don’t know"
+    }
   },
   "journal_section": {
-    "history": "Observation history",
+    "history": "Open the journal",
     "reset": "Reset my notebook",
     "reset_confirm": "All your observations will be erased. This action is irreversible."
   },
   "about": {
     "philosophy": "How it works",
     "sources": "Sources",
-    "sources_hint": "Kiffe ton cycle ! — G. Baldassari",
-    "version": "Version"
+    "sources_hint": "Books used, with links",
+    "version": "Version",
+    "philosophy_hint": "The cycle, the 4 moments, confidence",
+    "data": "Your data",
+    "data_hint": "Where it is, what is stored",
+    "data_body": "Your data (period dates, notes, settings) is stored on the HerDay server. It is never sold or shared, and no automatic analysis is run on your notes. You can delete everything at any time, below."
   },
   "language": {
     "label": "Language",
@@ -79,5 +90,18 @@
     "regenerate_confirm_btn": "Regenerate",
     "cancel": "Cancel",
     "error": "Something went wrong"
+  },
+  "partner": {
+    "nickname": "Nickname",
+    "nickname_hint": "Optional · used in the app’s sentences. Empty = her pronoun.",
+    "pronouns": "Pronouns"
+  },
+  "display": {
+    "theme": "Theme",
+    "themes": {
+      "nuit": "Night",
+      "clair": "Light",
+      "auto": "Auto"
+    }
   }
 }

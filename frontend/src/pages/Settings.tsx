@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../api/client';
-import type { Event } from '../api/client';
+import type { Contraception, Event, Pronouns, UserUpdate } from '../api/client';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../components/ui/Toast';
 import Header from '../components/layout/Header';
@@ -11,8 +11,44 @@ import SettingsGroup from '../components/settings/SettingsGroup';
 import SettingsRow from '../components/settings/SettingsRow';
 import CalendarFeedSettings from '../components/settings/CalendarFeedSettings';
 import { APP_VERSION } from '../constants/version';
+import { useThemePref } from '../lib/theme';
+import type { ThemePref } from '../lib/theme';
 
 const LANGUAGES = ['fr', 'en', 'de'] as const;
+const THEMES: ThemePref[] = ['nuit', 'clair', 'auto'];
+const PRONOUNS: Pronouns[] = ['elle', 'il', 'iel'];
+const CONTRACEPTION: Contraception[] = ['non', 'oui', 'inconnu'];
+
+/** Compact segmented control, one choice among a few. */
+function Choice<T extends string>({ label, options, value, onChange, labelOf }: {
+  label: string;
+  options: readonly T[];
+  value: T | null | undefined;
+  onChange: (v: T) => void;
+  labelOf: (v: T) => string;
+}) {
+  return (
+    <div className="px-[18px] py-3.5">
+      <div className="mb-2.5 text-[14px] text-ink">{label}</div>
+      <div role="radiogroup" aria-label={label} className="flex gap-1.5">
+        {options.map((o) => (
+          <button
+            key={o}
+            type="button"
+            role="radio"
+            aria-checked={value === o}
+            onClick={() => onChange(o)}
+            className={`min-h-[40px] flex-1 rounded-[10px] text-[13px] font-medium transition-colors ${
+              value === o ? 'bg-ink text-warm-50' : 'bg-warm-200 text-ink-soft hover:bg-warm-300'
+            }`}
+          >
+            {labelOf(o)}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Settings() {
   const { t, i18n } = useTranslation('settings');
@@ -20,8 +56,11 @@ export default function Settings() {
   const { user, logout, refreshUser } = useAuth();
   const navigate = useNavigate();
   const { showToast } = useToast();
+  const [themePref, setThemePref] = useThemePref();
 
   const [events, setEvents] = useState<Event[]>([]);
+  const [nickname, setNickname] = useState(user?.partner_nickname ?? '');
+  const [showData, setShowData] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
@@ -32,6 +71,20 @@ export default function Settings() {
   const changeLanguage = async (lang: string) => {
     await i18n.changeLanguage(lang);
     api.users.update({ locale: lang }).catch(() => {});
+  };
+
+  const updateProfile = async (data: UserUpdate) => {
+    try {
+      await api.users.update(data);
+      await refreshUser();
+    } catch {
+      showToast(tCommon('error'), 'error');
+    }
+  };
+
+  const saveNickname = () => {
+    if (nickname.trim() === (user?.partner_nickname ?? '')) return;
+    void updateProfile({ partner_nickname: nickname.trim() });
   };
 
   const markTold = async () => {
@@ -67,8 +120,35 @@ export default function Settings() {
   return (
     <div>
       <Header rightLabel={tCommon('nav.settings').toUpperCase()} />
-      <div className="flex flex-col gap-[22px] px-[22px] pb-6 pt-2">
-        <h1 className="text-[26px] font-bold leading-tight tracking-tight text-ink">{t('title')}</h1>
+      <div className="flex flex-col gap-[22px] px-5 pb-6 pt-2">
+        <h1 className="text-[30px] font-bold leading-tight tracking-tight text-ink">{t('title')}</h1>
+
+        {/* Partner: optional nickname + pronouns used in the app's sentences */}
+        <SettingsGroup title={t('groups.partner')}>
+          <div className="px-[18px] py-3.5">
+            <label htmlFor="set-nickname" className="mb-1.5 block text-[14px] text-ink">{t('partner.nickname')}</label>
+            <input
+              id="set-nickname"
+              type="text"
+              maxLength={40}
+              value={nickname}
+              placeholder={tCommon(`partner.pronoun.${user?.partner_pronouns ?? 'elle'}`)}
+              onChange={(e) => setNickname(e.target.value)}
+              onBlur={saveNickname}
+              onKeyDown={(e) => e.key === 'Enter' && (e.target as HTMLInputElement).blur()}
+              aria-describedby="set-nickname-hint"
+              className="w-full rounded-[12px] border border-warm-300 bg-warm-50 px-3.5 py-2.5 text-[15px] text-ink outline-none focus:border-ink"
+            />
+            <p id="set-nickname-hint" className="mt-1.5 text-[12px] leading-snug text-warm-500">{t('partner.nickname_hint')}</p>
+          </div>
+          <Choice
+            label={t('partner.pronouns')}
+            options={PRONOUNS}
+            value={user?.partner_pronouns}
+            onChange={(p) => updateProfile({ partner_pronouns: p })}
+            labelOf={(p) => tCommon(`partner.pronoun.${p}`).toLowerCase()}
+          />
+        </SettingsGroup>
 
         {/* Transparency pact */}
         <SettingsGroup
@@ -86,9 +166,16 @@ export default function Settings() {
           )}
         </SettingsGroup>
 
-        {/* Her data */}
+        {/* Her cycle */}
         <SettingsGroup title={t('groups.her_data')}>
           <SettingsRow label={t('her_data.last_period')} value={lastPeriod ?? '—'} />
+          <Choice
+            label={t('her_data.contraception')}
+            options={CONTRACEPTION}
+            value={user?.contraception ?? null}
+            onChange={(c) => updateProfile({ contraception: c })}
+            labelOf={(c) => t(`her_data.contraception_options.${c}`)}
+          />
         </SettingsGroup>
 
         {/* Shared calendar (living iCal feed) */}
@@ -96,34 +183,35 @@ export default function Settings() {
 
         {/* Journal */}
         <SettingsGroup title={t('groups.journal')}>
-          <SettingsRow label={t('journal_section.history')} hint={`${events.length}`} onClick={() => navigate('/journal')} />
+          <SettingsRow label={t('journal_section.history')} onClick={() => navigate('/echoes')} />
         </SettingsGroup>
 
-        {/* Display — language */}
+        {/* Display — theme + language */}
         <SettingsGroup title={t('groups.display')}>
-          <div className="px-[18px] py-3.5">
-            <div className="mb-2.5 text-[14px] text-ink">{t('language.label')}</div>
-            <div className="flex gap-2">
-              {LANGUAGES.map((lang) => (
-                <button
-                  key={lang}
-                  type="button"
-                  onClick={() => changeLanguage(lang)}
-                  className={`flex-1 rounded-[10px] py-2 text-[13px] font-medium transition-colors ${
-                    i18n.language === lang ? 'bg-ink text-warm-50' : 'bg-warm-100 text-warm-500 hover:bg-warm-200'
-                  }`}
-                >
-                  {t(`language.${lang}`)}
-                </button>
-              ))}
-            </div>
-          </div>
+          <Choice
+            label={t('display.theme')}
+            options={THEMES}
+            value={themePref}
+            onChange={setThemePref}
+            labelOf={(v) => t(`display.themes.${v}`)}
+          />
+          <Choice
+            label={t('language.label')}
+            options={LANGUAGES}
+            value={(LANGUAGES as readonly string[]).includes(i18n.language.slice(0, 2)) ? (i18n.language.slice(0, 2) as (typeof LANGUAGES)[number]) : null}
+            onChange={changeLanguage}
+            labelOf={(lang) => t(`language.${lang}`)}
+          />
         </SettingsGroup>
 
-        {/* About */}
+        {/* Understand & trust */}
         <SettingsGroup title={t('groups.about')}>
-          <SettingsRow label={t('about.philosophy')} onClick={() => navigate('/info')} />
-          <SettingsRow label={t('about.sources')} hint={t('about.sources_hint')} />
+          <SettingsRow label={t('about.philosophy')} hint={t('about.philosophy_hint')} onClick={() => navigate('/info')} />
+          <SettingsRow label={t('about.sources')} hint={t('about.sources_hint')} onClick={() => navigate('/info#sources')} />
+          <SettingsRow label={t('about.data')} hint={t('about.data_hint')} onClick={() => setShowData((v) => !v)} />
+          {showData && (
+            <p className="px-[18px] pb-4 text-[13.5px] leading-relaxed text-ink-soft">{t('about.data_body')}</p>
+          )}
           <SettingsRow label={t('about.version')} value={APP_VERSION} />
         </SettingsGroup>
 
@@ -138,7 +226,7 @@ export default function Settings() {
                 <button
                   type="button"
                   onClick={() => setShowDeleteConfirm(false)}
-                  className="flex-1 rounded-[10px] bg-warm-100 py-2.5 text-[13px] font-medium text-warm-500"
+                  className="min-h-[44px] flex-1 rounded-[10px] bg-warm-200 text-[13px] font-medium text-ink-soft"
                 >
                   {tCommon('actions.cancel')}
                 </button>
@@ -146,7 +234,7 @@ export default function Settings() {
                   type="button"
                   onClick={deleteAccount}
                   disabled={deleting}
-                  className="flex-1 rounded-[10px] py-2.5 text-[13px] font-medium text-warm-50 disabled:opacity-50"
+                  className="min-h-[44px] flex-1 rounded-[10px] text-[13px] font-medium text-warm-50 disabled:opacity-50"
                   style={{ background: 'var(--color-danger)' }}
                 >
                   {t('account.delete_final')}
@@ -159,7 +247,7 @@ export default function Settings() {
         <button
           type="button"
           onClick={logout}
-          className="rounded-[10px] bg-warm-100 py-3 text-[14px] font-medium text-warm-500 transition-colors hover:bg-warm-200"
+          className="min-h-[48px] rounded-[14px] bg-warm-100 text-[14px] font-medium text-warm-500 transition-colors hover:bg-warm-200"
         >
           {tCommon('logout')}
         </button>

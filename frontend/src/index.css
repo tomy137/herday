@@ -43,6 +43,85 @@
   --color-phase-post-ovulatory-ink: #2B4475;
   --color-phase-pre-menstrual-soft: #FCECEF;
   --color-phase-pre-menstrual-ink: #8E1F33;
+
+  /* Raised surfaces (cards, sheets) */
+  --color-surface: #FFFFFF;
+
+  /* Zones of the dial: ring hue, accent text (posture, selection), and the
+     colour drawn on top of a full ring segment. */
+  --color-zone-nuit: #DC3D5A;
+  --color-zone-aube: #E5B30B;
+  --color-zone-jour: #2DA87E;
+  --color-zone-crepuscule: #4A6FB5;
+  --color-zone-nuit-ink: #8E1F33;
+  --color-zone-aube-ink: #765600;
+  --color-zone-jour-ink: #1C6B50;
+  --color-zone-crepuscule-ink: #2B4475;
+  --color-zone-on: #1D1B22;
+  /* Text on an accent-ink fill (selected chips, badges) */
+  --color-on-accent: #FFFFFF;
+
+  /* Neutral hormone curves */
+  --color-curve-estradiol: #2D2A26;
+  --color-curve-progesterone: #7A6F5E;
+  --color-curve-lh: #9A8A6E;
+  --color-curve-fsh: #B8A88E;
+  --color-curve-axis: #D9D2C0;
+}
+
+/* Thème « nuit » (par défaut) : mêmes rôles, valeurs sombres. Les teintes des
+   moments s'éclaircissent d'un cran pour rester lumineuses sur fond bleu nuit ;
+   chaque couple texte / fond reste ≥ 4.5:1. Le thème clair est la base @theme. */
+:root[data-theme="nuit"] {
+  color-scheme: dark;
+  --color-warm-50: #0E1530;
+  --color-warm-100: #17214A;
+  --color-warm-200: #1F2A58;
+  --color-warm-300: #2A3566;
+  --color-warm-400: #8F98B8;
+  --color-warm-500: #AAB2CC;
+  --color-ink: #F4F1EA;
+  --color-ink-soft: #DDE1EE;
+  --color-rule-soft: #232D5C;
+  --color-surface: #17214A;
+  --color-success: #3FC093;
+  --color-danger: #FF8A65;
+
+  --color-phase-menstruation: #E8607A;
+  --color-phase-post-menstrual: #F0C53A;
+  --color-phase-pre-ovulatory: #82D6B9;
+  --color-phase-ovulation: #3FC093;
+  --color-phase-post-ovulatory: #7C9DE0;
+  --color-phase-pre-menstrual: #F098A9;
+  --color-phase-menstruation-soft: #4F2C46;
+  --color-phase-menstruation-ink: #F2A8B6;
+  --color-phase-post-menstrual-soft: #524A33;
+  --color-phase-post-menstrual-ink: #F7DF93;
+  --color-phase-pre-ovulatory-soft: #173442;
+  --color-phase-pre-ovulatory-ink: #95DCC4;
+  --color-phase-ovulation-soft: #1D484E;
+  --color-phase-ovulation-ink: #95DCC4;
+  --color-phase-post-ovulatory-soft: #2F3E65;
+  --color-phase-post-ovulatory-ink: #B7C9EE;
+  --color-phase-pre-menstrual-soft: #35233D;
+  --color-phase-pre-menstrual-ink: #F2A8B6;
+
+  --color-zone-nuit: #E8607A;
+  --color-zone-aube: #F0C53A;
+  --color-zone-jour: #3FC093;
+  --color-zone-crepuscule: #7C9DE0;
+  --color-zone-nuit-ink: #F2A8B6;
+  --color-zone-aube-ink: #F7DF93;
+  --color-zone-jour-ink: #95DCC4;
+  --color-zone-crepuscule-ink: #B7C9EE;
+  --color-zone-on: #0E1530;
+  --color-on-accent: #0E1530;
+
+  --color-curve-estradiol: #F4F1EA;
+  --color-curve-progesterone: #C9B99A;
+  --color-curve-lh: #8F98B8;
+  --color-curve-fsh: #6F7AA0;
+  --color-curve-axis: #3A4675;
 }
 
 /* Smooth global defaults */
@@ -54,7 +133,7 @@ html {
 body {
   font-family: 'DM Sans', system-ui, sans-serif;
   background: var(--color-warm-50);
-  color: #2D2A26;
+  color: var(--color-ink);
 }
 
 /* Phase ring animation */
@@ -105,7 +184,7 @@ body {
 }
 
 .loading-shimmer {
-  background: linear-gradient(90deg, #f0e9db 25%, #f9f5ed 50%, #f0e9db 75%);
+  background: linear-gradient(90deg, var(--color-warm-200) 25%, var(--color-warm-100) 50%, var(--color-warm-200) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
 }

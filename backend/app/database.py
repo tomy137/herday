@@ -25,6 +25,10 @@ _ADDED_COLUMNS: dict[str, list[tuple[str, str]]] = {
         ("calendar_feed_token", "VARCHAR"),
         ("calendar_feed_enabled", "BOOLEAN NOT NULL DEFAULT 0"),
         ("calendar_labels_mode", "VARCHAR NOT NULL DEFAULT 'discreet'"),
+        ("partner_nickname", "VARCHAR"),
+        ("partner_pronouns", "VARCHAR NOT NULL DEFAULT 'elle'"),
+        ("expertise_level", "VARCHAR"),
+        ("contraception", "VARCHAR"),
     ],
 }
 

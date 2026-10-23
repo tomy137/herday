@@ -12,7 +12,8 @@
     "bon-moment": "Good moment",
     "energie": "Energy",
     "pulsion": "Sorting / cleaning",
-    "conversation": "Deep conversation"
+    "conversation": "Deep conversation",
+    "ventre": "Belly"
   },
   "quick": {
     "title": "Your observation for today",
@@ -40,5 +41,43 @@
     "not_helped_placeholder": "e.g. I argued about the weekend to-do list",
     "save": "Save",
     "entry": "Entry"
+  },
+  "definitions": {
+    "dispute": "A disagreement or some tension between you, even brief.",
+    "fatigue": "She seems tired, drained, short on sleep.",
+    "repli": "A need for space and quiet, less wish to talk.",
+    "coquin": "A wish for physical closeness, play, flirting.",
+    "tendresse": "Hugs, gentle gestures, a need for affection.",
+    "rires": "Funny moments, lightness, fits of laughter.",
+    "douleur": "Cramps, headaches, pain she mentions.",
+    "ventre": "Bloating, digestive or bowel trouble.",
+    "larmes": "Strong emotion, tears, heightened sensitivity.",
+    "bon-moment": "A good moment together, worth remembering.",
+    "energie": "Full of drive, wanting to do, go out, start things.",
+    "pulsion": "An urge to tidy, sort, reorganise the home.",
+    "conversation": "A deep talk — about you two, life, what matters."
+  },
+  "note": {
+    "title": "Your note",
+    "for_date": "For {{date}}",
+    "change": "change",
+    "choose_date": "Choose the day of the note",
+    "moments": "What you noticed",
+    "long_press": "Long press: definition",
+    "helped_label": "What helped",
+    "helped_hint": "For example: a quiet evening, her favourite dish.",
+    "not_helped_label": "What didn’t help",
+    "not_helped_hint": "For example: arguing, suggesting a night out.",
+    "free_label": "A few words",
+    "optional": "(optional)",
+    "free_hint": "What you observed, in your own words.",
+    "no_ai": "No automatic analysis: your note stays yours and only feeds your echoes.",
+    "save": "Save",
+    "pastilles_count_one": "{{count}} pill",
+    "pastilles_count_other": "{{count}} pills",
+    "saved_title": "Note saved",
+    "saved_body": "You’ll find it in your journal, and it will come back as an echo at the same moment of the next cycle.",
+    "back_home": "Back to today",
+    "edit_again": "Edit this note"
   }
 }

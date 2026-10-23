@@ -5,14 +5,18 @@
     "calendar": "Calendrier",
     "echoes": "Échos",
     "journal": "Carnet",
-    "settings": "Réglages"
+    "settings": "Réglages",
+    "note": "Noter",
+    "carnet": "Carnet",
+    "label": "Navigation principale"
   },
   "actions": {
     "cancel": "Annuler",
     "confirm": "Confirmer",
     "save": "Enregistrer",
     "delete": "Supprimer",
-    "back": "Retour"
+    "back": "Retour",
+    "close": "Fermer"
   },
   "dates": {
     "today": "Aujourd'hui",
@@ -30,16 +34,34 @@
       "body_same": "Vous avez déjà signalé un début de règles à cette date. Voulez-vous le corriger ?",
       "correct": "Je corrige : le vrai début, c'est cette date",
       "keep": "Non, ce sont de nouvelles règles"
-    }
+    },
+    "prompt_title": "Ses règles ont commencé ?",
+    "prompt_body": "Elles sont attendues bientôt. Un seul geste recale tout le calendrier.",
+    "prompt_today": "Oui, aujourd’hui",
+    "prompt_other": "Un autre jour"
   },
   "confidence": {
     "unknown": "Pas encore de données — signalez un premier événement",
     "estimating": "Estimation très approximative — basée sur peu d'infos",
     "partial": "Estimation approximative — basée sur 1 seul cycle",
     "learning": "Bonne estimation — basée sur 2 cycles",
-    "confident": "Estimation fiable — basée sur 3+ cycles"
+    "confident": "Estimation fiable — basée sur 3+ cycles",
+    "short": "Confiance"
   },
   "loading": "Chargement...",
   "error": "Une erreur est survenue",
-  "logout": "Déconnexion"
+  "logout": "Déconnexion",
+  "partner": {
+    "pronoun": {
+      "elle": "Elle",
+      "il": "Il",
+      "iel": "Iel"
+    }
+  },
+  "home": {
+    "title": "Aujourd’hui",
+    "day": "J{{day}} sur {{length}}",
+    "understand": "Comprendre ce moment",
+    "contraception": "Sous contraception hormonale, l’ovulation est souvent bloquée : ces phases sont des repères, pas une prévision."
+  }
 }

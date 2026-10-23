@@ -21,10 +21,10 @@ export default function BottomSheet({ open, onClose, title, children }: BottomSh
         className="absolute inset-0 bg-black/30 backdrop-blur-[2px] transition-opacity"
         onClick={onClose}
       />
-      <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl max-h-[85vh] overflow-y-auto animate-slide-up shadow-[0_-8px_40px_rgba(0,0,0,0.08)]">
-        <div className="sticky top-0 bg-white/95 backdrop-blur-sm rounded-t-3xl px-5 pt-3 pb-3">
+      <div className="absolute bottom-0 left-0 right-0 bg-surface rounded-t-3xl max-h-[85vh] overflow-y-auto animate-slide-up shadow-[0_-8px_40px_rgba(0,0,0,0.08)]">
+        <div className="sticky top-0 bg-surface/95 backdrop-blur-sm rounded-t-3xl px-5 pt-3 pb-3">
           <div className="w-9 h-1 bg-warm-300 rounded-full mx-auto mb-4" />
-          <h2 className="text-[17px] font-semibold text-gray-900 tracking-tight">{title}</h2>
+          <h2 className="text-[17px] font-semibold text-ink tracking-tight">{title}</h2>
         </div>
         <div className="px-5 pt-1 pb-8">
           {children}

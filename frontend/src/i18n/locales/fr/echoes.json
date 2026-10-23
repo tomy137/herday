@@ -16,5 +16,15 @@
     "eyebrow": "Écho · cycle précédent",
     "title": "À la même phase il y a un mois, tu avais noté :",
     "see_all": "Voir tous les échos"
+  },
+  "carnet": {
+    "title": "Carnet",
+    "intro": "Tes notes, et ce qu’elles disent : au retour d’un moment du cycle, elles reviennent en échos.",
+    "add": "Ajouter une note",
+    "recent": "Tes dernières notes",
+    "empty_notes": "Pas encore de note. Le bouton « Noter », au centre de la barre, prend dix secondes.",
+    "empty_note": "Note vide",
+    "edit": "Modifier",
+    "echoes_title": "Échos"
   }
 }

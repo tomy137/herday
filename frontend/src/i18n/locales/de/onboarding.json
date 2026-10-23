@@ -3,7 +3,7 @@
   "step1": {
     "eyebrow": "Willkommen",
     "title": "Dein Notizbuch. Nicht ihres.",
-    "body": "HerDay ist ein Beobachtungs-Notizbuch, das dir hilft, deine Partnerin besser zu begleiten. Keine Benachrichtigung, keine Eingabe wird je von ihr verlangt.",
+    "body": "HerDay hilft dir, ihren Menstruationszyklus zu verstehen — wo sie steht, was das für sie bedeutet — und im richtigen Moment da zu sein. Sie bekommt nie eine Benachrichtigung und muss nie etwas eintragen.",
     "tagline": "Ihre Zyklen, deine mentale Last.",
     "body2": "HerDay hilft dir, ein proaktiver statt reaktiver Partner zu werden: Hör auf zu fragen, fang an zu verstehen und zu handeln.",
     "email_label": "E-Mail",
@@ -18,22 +18,23 @@
     "body2": "Aber wir empfehlen dir sehr dringend, mit ihr darüber zu sprechen und es ihr sogar zu zeigen. Warum: Ein im Stillen genutztes Beobachtungswerkzeug ersetzt am Ende das Gespräch, statt es zu nähren. Das ist das Gegenteil von dem, was wir hier wollen.",
     "choice_soon": "Ich werde bald mit ihr darüber sprechen",
     "choice_already": "Ich habe bereits mit ihr darüber gesprochen",
-    "cta": "Weiter"
+    "cta": "Weiter",
+    "change_later": "Du kannst deine Antwort jederzeit in den Einstellungen ändern."
   },
   "step3": {
-    "eyebrow": "Der Zyklus, messbar",
-    "title": "Sechs Unterphasen, vier Hormone. Kein Rätsel.",
-    "body": "Die Standardsprache von HerDay ist die der medizinischen Fachliteratur. Nüchtern, präzise, ohne Metapher.",
-    "more_info": "Die Details zu jeder Phase findest du in der App, Zyklus für Zyklus.",
+    "eyebrow": "Der Zyklus, einfach",
+    "title": "Ihr Zyklus, wie ein Tag.",
+    "body": "Vier Momente, die jeden Monat wiederkommen. Tippe sie an, um sie zu entdecken.",
+    "more_info": "Auf Grundlage der medizinischen Literatur. Jede Phase im Detail und die Quellen findest du in der App.",
     "cta": "Weiter"
   },
   "step_obs": {
     "eyebrow": "Die Lernschleife",
     "title": "Du beobachtest, die App erinnert sich.",
     "obs_label": "Deine Beobachtungen",
-    "obs_body": "Jeden Tag, in wenigen Sekunden: was du beobachtet hast, was geholfen hat, was nicht. Es ist dein Notizbuch — niemand sonst liest es.",
+    "obs_body": "Jeden Tag, in wenigen Sekunden: ein Punkt, was geholfen hat, was nicht. Deine Notizen landen in deinem Tagebuch — niemand sonst liest es.",
     "echo_label": "Die Echos",
-    "echo_body": "Bei jeder Wiederkehr einer Phase erinnert dich die App an deine Notizen aus früheren Zyklen: wiederholen, was funktioniert, vermeiden, was nicht.",
+    "echo_body": "Kommt derselbe Moment des Zyklus wieder, kehren deine Notizen als Echos zurück: wiederholen, was klappt, vermeiden, was nicht klappt.",
     "cta": "Weiter"
   },
   "step4": {
@@ -43,6 +44,73 @@
     "date_label": "Ungefähres Datum",
     "length_label": "Länge ihres Zyklus (optional)",
     "length_hint": "Niedriger Vertrauenswert, solange du nicht sicher bist. Das ist gesund.",
-    "cta": "Mein Notizbuch öffnen"
+    "cta": "Mein Notizbuch öffnen",
+    "cta_next": "Weiter",
+    "unknown": "Ich weiß es noch nicht",
+    "unknown_hint": "Kein Problem: Du entdeckst die App ohne Vorhersage. Sobald ihre Periode kommt, kannst du sie mit einem Knopf auf dem Startbildschirm eintragen, und das Tracking beginnt.",
+    "contraception_label": "Verhütet sie hormonell?",
+    "contraception": {
+      "non": "Nein",
+      "oui": "Ja",
+      "inconnu": "Weiß nicht"
+    },
+    "contraception_hint": "Pille, Implantat, Ring… unterdrücken oft den Eisprung: Die Phasen gelten nicht auf die gleiche Weise. Die App erinnert dich daran.",
+    "confidence_title": "Vertrauenswert.",
+    "confidence_body": "Er zeigt, wie verlässlich die Vorhersage ist. Anfangs niedrig, steigt er, sobald du zwei Periodenbeginne bestätigst."
+  },
+  "step_partner": {
+    "eyebrow": "Du und sie",
+    "title": "Wie gut kennst du den Menstruationszyklus?",
+    "body": "Keine falsche Antwort: Das bestimmt nur, wie viel die App erklärt.",
+    "cta": "Weiter",
+    "optional": "(optional)",
+    "nickname_label": "Wie nennst du sie?",
+    "nickname_hint": "Ein Vorname oder Spitzname, nur für die Sätze der App. Leer lassen, um das Pronomen zu behalten.",
+    "pronouns_label": "Pronomen",
+    "level": {
+      "decouverte": {
+        "title": "Ich fange an",
+        "body": "Wir erklären alles, einfach, Tag für Tag."
+      },
+      "bases": {
+        "title": "Ich kenne die Grundlagen",
+        "body": "Periode, Eisprung: klar. Der Rest weniger."
+      },
+      "expert": {
+        "title": "Ich kenne mich gut aus",
+        "body": "Kurzfassung, medizinische Begriffe."
+      }
+    }
+  },
+  "moments": {
+    "nuit": {
+      "phases": "Prämenstruell, dann Periode · etwa Tag 23 → 5",
+      "body": "Die Energie sinkt, dann kommt die Periode: Müdigkeit, mögliche Schmerzen, Bedürfnis nach Ruhe.",
+      "posture": "Geduldig, stabil, verlässlich sein."
+    },
+    "aube": {
+      "phases": "Postmenstruell · etwa Tag 6 → 9",
+      "body": "Die Erholung. Die Energie kehrt langsam zurück, die Stimmung steigt.",
+      "posture": "Ermutigend, leicht sein."
+    },
+    "jour": {
+      "phases": "Präovulatorisch, dann Eisprung · etwa Tag 10 → 16",
+      "body": "Höhepunkt von Energie und Selbstvertrauen. Der richtige Moment für Pläne und gemeinsame Unternehmungen.",
+      "posture": "Teamplayer, präsent, verspielt sein."
+    },
+    "crepuscule": {
+      "phases": "Postovulatorisch · etwa Tag 17 → 22",
+      "body": "Stabile Energie, Lust auf Konkretes und Sammlung.",
+      "posture": "Stabil, praktisch sein."
+    }
+  },
+  "step_tools": {
+    "eyebrow": "Letzter Schritt",
+    "title": "Behalte es im Blick, ganz diskret.",
+    "agenda_title": "In deinem Kalender",
+    "agenda_body": "Abonniere deinen Kalender (Google, Apple, Outlook) in den Einstellungen: zwei neutrale Marker, „Phase A“ und „Phase B“.",
+    "widget_title": "Das Widget",
+    "widget_body": "Das Zifferblatt auf deinem Startbildschirm: lange drücken, „+“, dann HerDay.",
+    "later": "Das alles kannst du auch später in den Einstellungen machen."
   }
 }

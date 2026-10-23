@@ -14,7 +14,7 @@ export default function SettingsRow({ label, value, hint, tone, onClick }: Setti
       type="button"
       onClick={onClick}
       disabled={!onClick}
-      className="flex w-full items-center justify-between gap-2.5 px-[18px] py-3.5 text-left transition-colors enabled:hover:bg-warm-100 disabled:cursor-default"
+      className="flex w-full items-center justify-between gap-2.5 px-[18px] py-3.5 text-left transition-colors enabled:hover:bg-warm-200 disabled:cursor-default"
     >
       <div className="flex flex-col gap-0.5">
         <span
@@ -23,7 +23,7 @@ export default function SettingsRow({ label, value, hint, tone, onClick }: Setti
         >
           {label}
         </span>
-        {hint && <span className="hd-meta text-warm-400">{hint}</span>}
+        {hint && <span className="text-[12px] leading-snug text-warm-500">{hint}</span>}
       </div>
       <div className="flex items-center gap-1.5">
         {value && <span className="text-[13px] text-warm-500">{value}</span>}

@@ -1,6 +1,6 @@
 {
   "labels": {
-    "she_needs_you_to_be": "Sie braucht dich als:",
+    "she_needs_you_to_be": "{{who}} braucht dich als:",
     "more_details": "Mehr zu dieser Phase",
     "days_left_one": "Noch {{count}} Tag in dieser Phase",
     "days_left_other": "Noch {{count}} Tage in dieser Phase",
@@ -29,7 +29,12 @@
     "name": "Menstruationsphase",
     "short": "Menstruation",
     "range": "Tag 1 bis 5",
-    "posture": ["SOLIDE", "VERLÄSSLICH", "ZURÜCKHALTEND", "ORGANISIERT"],
+    "posture": [
+      "SOLIDE",
+      "VERLÄSSLICH",
+      "ZURÜCKHALTEND",
+      "ORGANISIERT"
+    ],
     "bio": "Abrupter Abfall von Progesteron und Östradiol. Blutung, Abstoßung der Gebärmutterschleimhaut. Energie auf dem Tiefpunkt. Schmerzen möglich (Krämpfe, Rückenschmerzen, Migräne). Der Körper verlangt nach Rückzug, Wärme, Verlangsamung. Die Stimmung ist oft gefasst, die Intuition geschärft. Eine geeignete Zeit für Bilanzen und grundlegende Entscheidungen (emotional stabil, wenig \"hormonelle Interferenz\").",
     "advised": [
       "Die Logistik übernehmen, ohne ein Ereignis daraus zu machen. Kochen, Einkäufe, Kinder, Behördengänge, Grundhaushalt. Du machst es, du fragst nicht, ob du helfen darfst.",
@@ -57,7 +62,12 @@
     "name": "Postmenstruelle Phase",
     "short": "Postmenstruell",
     "range": "Einige Tage nach der Periode",
-    "posture": ["GEDULDIG", "ERMUTIGEND", "NEUGIERIG", "LEICHT"],
+    "posture": [
+      "GEDULDIG",
+      "ERMUTIGEND",
+      "NEUGIERIG",
+      "LEICHT"
+    ],
     "bio": "Die Periode endet, das Östradiol beginnt langsam wieder anzusteigen. Die Energie kehrt zurück, bleibt aber in den ersten Tagen niedrig — es ist ein Gradient, kein Schalter. Erholung läuft. Die Stimmung hellt sich auf, Pläne tauchen wieder in ihrem Kopf auf, doch der Körper ist noch nicht auf dem Höhepunkt. Eine oft unterschätzte Phase, weil sie weniger spektakulär ist als die folgenden.",
     "advised": [
       "Verfügbar sein, ohne zu drängen. Sie kehrt zurück. Sie hat vielleicht Lust zu teilen, zu planen, laut zu träumen. Zuhören, ohne sofort Lösungen anzubieten.",
@@ -81,7 +91,12 @@
     "name": "Präovulatorische Phase",
     "short": "Präovulatorisch",
     "range": "2 bis 3 Tage vor dem Eisprung",
-    "posture": ["TEAMPARTNER", "VERFÜGBAR", "NEUGIERIG AUF IHRE IDEEN", "TATKRÄFTIG"],
+    "posture": [
+      "TEAMPARTNER",
+      "VERFÜGBAR",
+      "NEUGIERIG AUF IHRE IDEEN",
+      "TATKRÄFTIG"
+    ],
     "bio": "Östradiol steigt deutlich, manchmal schnell. Das ist der Schwung. Hohes Selbstvertrauen, verringerte Angstempfindlichkeit, leichteres Eingehen von Risiken, maximale Produktivität. Mehrere Dinge parallel, eine Energie, die unerschöpflich wirken kann. Haut, Tonus, Schlaf oft auf dem besten Stand. Der \"Cocktail\" wird sozial sehr geschätzt, kann aber für das Umfeld, das kaum mithält, anstrengend sein.",
     "advised": [
       "Im Team spielen. Frag sie, worauf sie sich stürzen will, und biete an, das zu übernehmen, was du kannst, damit sie sich auf das konzentrieren kann, was ihr wirklich wichtig ist.",
@@ -107,7 +122,12 @@
     "name": "Ovulatorische Phase",
     "short": "Eisprung",
     "range": "Fruchtbares Fenster, 5 Tage um Tag (L-14) zentriert",
-    "posture": ["PRÄSENT", "VERBÜNDET", "VERSPIELT", "HEITER"],
+    "posture": [
+      "PRÄSENT",
+      "VERBÜNDET",
+      "VERSPIELT",
+      "HEITER"
+    ],
     "bio": "Östrogen-Höhepunkt, LH-Höhepunkt (der den Eisprung auslöst), kleiner Testosteron-Höhepunkt (Libido, Kampfgeist, Gedächtnis). Maximales fruchtbares Fenster (wichtig zu wissen, falls die Verhütung über andere Methoden läuft). Das Gesicht ist messbar symmetrischer, die Stimme oft etwas höher. Die Energie bleibt hoch, beschleunigt aber nicht mehr: eine offene Plateauphase, sozial, angenehm. Empathie, Suche nach Verbindung, Sinnesfreude. Es ist die sozial am meisten geschätzte Phase, manchmal zu sehr: Mach sie nicht zur \"Norm\" der Beziehung.",
     "advised": [
       "Volle Präsenz, keine abgelenkte Präsenz. Blick, Aufmerksamkeit, Zuhören. Kein zweiter Bildschirm beim Abendessen mit ihr.",
@@ -132,7 +152,12 @@
     "name": "Postovulatorische Phase",
     "short": "Postovulatorisch",
     "range": "Luteales Plateau, nach dem Eisprung",
-    "posture": ["STABIL", "KONKRET", "KONSTRUKTIV", "PRAKTISCH"],
+    "posture": [
+      "STABIL",
+      "KONKRET",
+      "KONSTRUKTIV",
+      "PRAKTISCH"
+    ],
     "bio": "Progesteron steigt, Östrogen mit einem zweiten, bescheideneren Höhepunkt. Die Energie ist noch hoch, verinnerlicht sich aber zunehmend. Die Konzentration verbessert sich, ebenso die Aufmerksamkeit fürs Detail. Es ist oft das produktivste Fenster für grundlegende Themen — weniger spektakulär als die präovulatorische Phase, aber tiefer. Die Stimmung ist meist stabil. Leichte soziale Verlangsamung zugunsten einer Rückkehr zu sich selbst.",
     "advised": [
       "Ihr ruhiges, gleichmäßiges Tempo aufnehmen. Kein Rennen, kein Stillstand. Eine Reisegeschwindigkeit, die hält.",
@@ -155,7 +180,12 @@
     "name": "Prämenstruelle Phase",
     "short": "Prämenstruell",
     "range": "Letzte 6 Tage des Zyklus",
-    "posture": ["GEDULDIG", "ROBUST", "AUFMERKSAM", "NICHT-REAKTIV"],
+    "posture": [
+      "GEDULDIG",
+      "ROBUST",
+      "AUFMERKSAM",
+      "NICHT-REAKTIV"
+    ],
     "bio": "Progesteron fällt, Östrogen in einem zweiten Rückgang, Immunabwehr am Tiefpunkt. Das ist für viele Frauen die emotional anspruchsvollste Phase — nicht weil sie \"mühsam\" wäre, sondern weil sich die Wahrnehmung schärft und der nachsichtige Filter, der die Dinge milderte, sich hebt. Ein anspruchsvollerer, manchmal dunklerer Blick auf Menschen und Projekte; feines Erkennen dessen, was nicht stimmt; hohe Kreativität; ausgeprägte körperliche und emotionale Empfindlichkeit. Impulse zum Aussortieren, Aufräumen, Umgestalten. Die \"prämenstruelle Strategie\": eine biologische Tendenz, die Fehler des Partners nach mehreren nicht fruchtbaren Zyklen zu verstärken. Gut zu wissen, um es nicht wörtlich zu nehmen.",
     "advised": [
       "Geduldig sein. Wirklich geduldig. Der defensive Reflex ist der Feind. Eine harte Bemerkung verlangt keine sofortige Antwort.",
@@ -181,5 +211,10 @@
       "Einen großen Streit über ein altes Thema vom Zaun brechen. Wenn ihr ein grundlegendes Thema zu klären habt, warte die follikuläre Phase oder den Eisprung ab.",
       "Alles auf den Zyklus zurückführen. Wenn sie dir etwas Konkretes vorwirft, kann dieser Vorwurf wahr sein. Der Zyklus verstärkt; er erfindet nicht immer."
     ]
+  },
+  "dial": {
+    "days_left_one": "noch {{count}} Tag",
+    "days_left_other": "noch {{count}} Tage",
+    "last_day": "letzter Tag"
   }
 }

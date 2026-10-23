@@ -12,7 +12,8 @@
     "bon-moment": "Bon moment",
     "energie": "Énergie",
     "pulsion": "Tri / ménage",
-    "conversation": "Conversation profonde"
+    "conversation": "Conversation profonde",
+    "ventre": "Ventre"
   },
   "quick": {
     "title": "Ton observation du jour",
@@ -40,5 +41,43 @@
     "not_helped_placeholder": "Ex. j'ai argumenté sur la to-do du week-end",
     "save": "Enregistrer",
     "entry": "Entrée"
+  },
+  "definitions": {
+    "dispute": "Un désaccord ou une tension entre vous, même brève.",
+    "fatigue": "Elle semble fatiguée, à plat, en manque de sommeil.",
+    "repli": "Besoin d’être seule, de calme, moins envie d’échanger.",
+    "coquin": "Une envie de proximité physique, de jeu, de séduction.",
+    "tendresse": "Câlins, gestes doux, besoin d’affection.",
+    "rires": "Des moments drôles, de la légèreté, des fous rires.",
+    "douleur": "Crampes, maux de tête, douleurs exprimées.",
+    "ventre": "Ventre gonflé, troubles digestifs ou intestinaux.",
+    "larmes": "Émotion forte, pleurs, sensibilité à fleur de peau.",
+    "bon-moment": "Un moment agréable partagé, qui vaut d’être retenu.",
+    "energie": "Pleine d’élan, envie de faire, de sortir, d’entreprendre.",
+    "pulsion": "Envie de ranger, trier, réorganiser la maison.",
+    "conversation": "Un échange de fond, sur vous, la vie, ce qui compte."
+  },
+  "note": {
+    "title": "Ta note",
+    "for_date": "Pour {{date}}",
+    "change": "changer",
+    "choose_date": "Choisir le jour de la note",
+    "moments": "Ce que tu as remarqué",
+    "long_press": "Appui long : définition",
+    "helped_label": "Ce qui a aidé",
+    "helped_hint": "Par exemple : une soirée calme, son plat préféré.",
+    "not_helped_label": "Ce qui n’a pas aidé",
+    "not_helped_hint": "Par exemple : argumenter, proposer une sortie.",
+    "free_label": "Un mot libre",
+    "optional": "(facultatif)",
+    "free_hint": "Ce que tu as observé, avec tes mots.",
+    "no_ai": "Aucune analyse automatique : ta note reste à toi et sert seulement à tes échos.",
+    "save": "Enregistrer",
+    "pastilles_count_one": "{{count}} pastille",
+    "pastilles_count_other": "{{count}} pastilles",
+    "saved_title": "Note enregistrée",
+    "saved_body": "Tu la retrouveras dans ton carnet, et elle reviendra en écho au même moment du prochain cycle.",
+    "back_home": "Retour à l’accueil",
+    "edit_again": "Modifier cette note"
   }
 }

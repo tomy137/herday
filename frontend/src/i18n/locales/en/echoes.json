@@ -16,5 +16,15 @@
     "eyebrow": "Echo · previous cycle",
     "title": "At the same phase a month ago, you noted:",
     "see_all": "See all echoes"
+  },
+  "carnet": {
+    "title": "Journal",
+    "intro": "Your notes, and what they tell you: when a moment of the cycle comes back, they return as echoes.",
+    "add": "Add a note",
+    "recent": "Your latest notes",
+    "empty_notes": "No note yet. The “Note” button, in the middle of the bar, takes ten seconds.",
+    "empty_note": "Empty note",
+    "edit": "Edit",
+    "echoes_title": "Echoes"
   }
 }

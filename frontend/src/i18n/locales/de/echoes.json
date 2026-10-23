@@ -16,5 +16,15 @@
     "eyebrow": "Echo · vorheriger Zyklus",
     "title": "In derselben Phase vor einem Monat hattest du notiert:",
     "see_all": "Alle Echos ansehen"
+  },
+  "carnet": {
+    "title": "Tagebuch",
+    "intro": "Deine Notizen und was sie sagen: Kommt ein Moment des Zyklus wieder, kehren sie als Echos zurück.",
+    "add": "Notiz hinzufügen",
+    "recent": "Deine letzten Notizen",
+    "empty_notes": "Noch keine Notiz. Der Knopf „Notieren“ in der Mitte der Leiste dauert zehn Sekunden.",
+    "empty_note": "Leere Notiz",
+    "edit": "Bearbeiten",
+    "echoes_title": "Echos"
   }
 }

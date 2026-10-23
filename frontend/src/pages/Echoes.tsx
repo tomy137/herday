@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { useState, useEffect, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { api } from '../api/client';
-import type { EchoAggregate } from '../api/client';
+import type { EchoAggregate, JournalEntry } from '../api/client';
+import { parseDate } from '../lib/date-utils';
 import type { Phase } from '../lib/cycle-engine';
 import { PHASE_HEX } from '../constants/phases';
 import { PHASE_ORDER, PASTILLE_GLYPHS } from '../constants/phase-meta';
@@ -12,8 +13,11 @@ import Header from '../components/layout/Header';
 import EchoRow from '../components/home/EchoRow';
 import FrequencyRow from '../components/echoes/FrequencyRow';
 
+const RECENT_NOTES = 5;
+
 export default function Echoes() {
-  const { t } = useTranslation('echoes');
+  const { t, i18n } = useTranslation('echoes');
+  const navigate = useNavigate();
   const { t: tPhases } = useTranslation('phases');
   const { t: tJournal } = useTranslation('journal');
   const { t: tCommon } = useTranslation('common');
@@ -22,7 +26,14 @@ export default function Echoes() {
   const [selected, setSelected] = useState<Phase | null>(null);
   const [echo, setEcho] = useState<EchoAggregate | null>(null);
   const [loading, setLoading] = useState(true);
+  const [notes, setNotes] = useState<JournalEntry[] | null>(null);
   const requestId = useRef(0);
+
+  useEffect(() => {
+    api.journal.list(0, RECENT_NOTES)
+      .then((d) => setNotes(d.items))
+      .catch(() => setNotes([]));
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -70,15 +81,73 @@ export default function Echoes() {
   const hasContent =
     echo && (echo.frequent.length > 0 || echo.helpful.length > 0 || echo.not_helpful.length > 0 || echo.history.length > 0);
 
+  const dayLabel = (iso: string) =>
+    new Intl.DateTimeFormat(i18n.language, { weekday: 'long', day: 'numeric', month: 'long' })
+      .format(parseDate(iso))
+      .replace(/^\w/, (c) => c.toUpperCase());
+  const noteSummary = (n: JournalEntry) =>
+    [
+      ...n.pastilles.map((p) => `${PASTILLE_GLYPHS[p as PastilleId] ?? '·'} ${tJournal(`pastilles.${p}`)}`),
+      n.helpful ? `${t('helped').toLowerCase()} : ${n.helpful}` : null,
+      n.not_helpful ? `${t('not_helped').toLowerCase()} : ${n.not_helpful}` : null,
+      n.free_text ? `« ${n.free_text} »` : null,
+    ]
+      .filter(Boolean)
+      .join(' · ');
+
   return (
     <div>
-      <Header rightLabel={tCommon('nav.echoes').toUpperCase()} />
-      <div className="flex flex-col gap-5 px-[22px] pb-6 pt-2">
+      <Header rightLabel={tCommon('nav.carnet').toUpperCase()} />
+      <div className="flex flex-col gap-5 px-5 pb-6 pt-2">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h1 className="text-[30px] font-bold leading-tight tracking-tight text-ink">{t('carnet.title')}</h1>
+            <p className="mt-1 text-[13.5px] leading-snug text-warm-500">{t('carnet.intro')}</p>
+          </div>
+          <button
+            type="button"
+            onClick={() => navigate('/journal')}
+            aria-label={t('carnet.add')}
+            className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-ink text-warm-50"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden="true">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Recent notes — each one opens in the note editor to complete or correct it */}
+        <section className="flex flex-col gap-2">
+          <h2 className="hd-caps text-warm-500">{t('carnet.recent')}</h2>
+          {notes === null ? (
+            <div className="loading-shimmer h-24 rounded-[20px]" />
+          ) : notes.length === 0 ? (
+            <p className="rounded-[20px] bg-warm-100 px-4 py-4 text-[13.5px] leading-relaxed text-warm-500">{t('carnet.empty_notes')}</p>
+          ) : (
+            <div className="overflow-hidden rounded-[20px] bg-warm-100">
+              {notes.map((n, i) => (
+                <button
+                  key={n.entry_date}
+                  type="button"
+                  onClick={() => navigate(`/journal?date=${n.entry_date}`)}
+                  className={`flex min-h-[60px] w-full items-center gap-3 px-4 py-2.5 text-left ${i > 0 ? 'border-t border-warm-300' : ''}`}
+                >
+                  <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+                    <span className="text-[12px] text-warm-500">{dayLabel(n.entry_date)}</span>
+                    <span className="truncate text-[14px] text-ink">{noteSummary(n) || t('carnet.empty_note')}</span>
+                  </span>
+                  <span className="text-[12px] text-ink-soft">{t('carnet.edit')}</span>
+                </button>
+              ))}
+            </div>
+          )}
+        </section>
+
         <div>
-          <div className="hd-caps mb-2 text-warm-400">{t('eyebrow')}</div>
-          <h1 className="text-[26px] font-bold leading-tight tracking-tight text-ink">
+          <h2 className="text-[20px] font-bold leading-tight tracking-tight text-ink">{t('carnet.echoes_title')}</h2>
+          <p className="mt-1 text-[13.5px] leading-snug text-warm-500">
             {t('title', { phase: selected ? tPhases(`${selected}.short`).toLowerCase() : '' })}
-          </h1>
+          </p>
         </div>
 
         {/* Phase selector */}

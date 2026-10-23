@@ -17,22 +17,33 @@
     "her_data": "Daten zu ihr",
     "journal": "Notizbuch",
     "display": "Anzeige",
-    "about": "Über"
+    "about": "Über",
+    "partner": "Partnerin"
   },
   "her_data": {
     "last_period": "Datum der letzten Menstruation",
-    "cycle_length": "Länge ihres Zyklus"
+    "cycle_length": "Länge ihres Zyklus",
+    "contraception": "Hormonelle Verhütung",
+    "contraception_options": {
+      "non": "Nein",
+      "oui": "Ja",
+      "inconnu": "Weiß nicht"
+    }
   },
   "journal_section": {
-    "history": "Verlauf der Beobachtungen",
+    "history": "Tagebuch öffnen",
     "reset": "Mein Notizbuch zurücksetzen",
     "reset_confirm": "Alle deine Beobachtungen werden gelöscht. Unwiderrufliche Aktion."
   },
   "about": {
     "philosophy": "Wie es funktioniert",
     "sources": "Quellen",
-    "sources_hint": "Kiffe ton cycle ! — G. Baldassari",
-    "version": "Version"
+    "sources_hint": "Verwendete Bücher, mit Links",
+    "version": "Version",
+    "philosophy_hint": "Der Zyklus, die 4 Momente, das Vertrauen",
+    "data": "Deine Daten",
+    "data_hint": "Wo sie liegen, was gespeichert wird",
+    "data_body": "Deine Daten (Periodendaten, Notizen, Einstellungen) werden auf dem HerDay-Server gespeichert. Sie werden weder verkauft noch geteilt, und deine Notizen werden nicht automatisch ausgewertet. Du kannst jederzeit alles löschen, siehe unten."
   },
   "language": {
     "label": "Sprache",
@@ -79,5 +90,18 @@
     "regenerate_confirm_btn": "Neu erzeugen",
     "cancel": "Abbrechen",
     "error": "Ein Fehler ist aufgetreten"
+  },
+  "partner": {
+    "nickname": "Spitzname",
+    "nickname_hint": "Optional · für die Sätze der App. Leer = ihr Pronomen.",
+    "pronouns": "Pronomen"
+  },
+  "display": {
+    "theme": "Design",
+    "themes": {
+      "nuit": "Nacht",
+      "clair": "Hell",
+      "auto": "Auto"
+    }
   }
 }

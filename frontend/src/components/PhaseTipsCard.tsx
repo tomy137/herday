@@ -19,19 +19,19 @@ export default function PhaseTipsCard({ phase, animationDelay }: Props) {
           {tTips(`${phase}.season`)}
         </span>
         <span className="text-warm-300">—</span>
-        <span className="text-xs font-semibold text-gray-700 italic">
+        <span className="text-xs font-semibold text-ink-soft italic">
           {tTips(`${phase}.role`)}
         </span>
       </div>
 
-      <p className="text-sm text-gray-700 leading-relaxed mb-3">
+      <p className="text-sm text-ink-soft leading-relaxed mb-3">
         {tTips(`${phase}.bio`)}
       </p>
 
       <div className="space-y-2 mb-3">
         <div className="flex gap-2">
           <span className="text-sm shrink-0">👉</span>
-          <p className="text-sm text-gray-700 leading-relaxed">{tTips(`${phase}.action`)}</p>
+          <p className="text-sm text-ink-soft leading-relaxed">{tTips(`${phase}.action`)}</p>
         </div>
         <div className="flex gap-2">
           <span className="text-sm shrink-0">💡</span>

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import type { Phase } from '../../lib/cycle-engine';
-import { PHASE_HEX } from '../../constants/phases';
+import { PHASE_HEX, withAlpha } from '../../constants/phases';
 import { PHASE_RANGES_28 } from '../../constants/phase-meta';
 
 interface PhaseProgressProps {
@@ -26,7 +26,7 @@ export default function PhaseProgress({ phase, phaseEndsIn }: PhaseProgressProps
         <span
           key={i}
           className="h-1 w-3.5 rounded-[1px]"
-          style={{ background: i < filled ? color : `${color}38` }}
+          style={{ background: i < filled ? color : withAlpha(color, 0.22) }}
         />
       ))}
     </span>

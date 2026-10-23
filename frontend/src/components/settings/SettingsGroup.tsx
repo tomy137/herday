@@ -20,7 +20,7 @@ export default function SettingsGroup({ title, status, children }: SettingsGroup
           </span>
         )}
       </div>
-      <div className="overflow-hidden rounded-[14px] border-[0.5px] border-warm-300 bg-warm-50">
+      <div className="overflow-hidden rounded-[20px] border border-warm-300 bg-warm-100">
         {rows.map((row, i) => (
           <Fragment key={i}>
             {i > 0 && <div className="hd-rule-soft" />}

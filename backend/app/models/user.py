@@ -30,5 +30,13 @@ class User(SQLModel, table=True):
     calendar_feed_enabled: bool = Field(default=False)
     # "discreet" (neutral glyph, default for privacy) | "explicit" (clear labels)
     calendar_labels_mode: str = Field(default="discreet")
+    # About the partner — all optional (data minimisation). Nickname is only
+    # used to personalise the app's sentences; pronouns: elle | il | iel.
+    partner_nickname: str | None = Field(default=None)
+    partner_pronouns: str = Field(default="elle")
+    # How much the user already knows: decouverte | bases | expert.
+    expertise_level: str | None = Field(default=None)
+    # Hormonal contraception: non | oui | inconnu (phases don't apply the same).
+    contraception: str | None = Field(default=None)
     created_at: datetime = Field(default_factory=_utcnow)
     updated_at: datetime = Field(default_factory=_utcnow)

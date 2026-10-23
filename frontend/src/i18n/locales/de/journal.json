@@ -12,7 +12,8 @@
     "bon-moment": "Schöner Moment",
     "energie": "Energie",
     "pulsion": "Ordnung / Haushalt",
-    "conversation": "Tiefes Gespräch"
+    "conversation": "Tiefes Gespräch",
+    "ventre": "Bauch"
   },
   "quick": {
     "title": "Deine Beobachtung des Tages",
@@ -40,5 +41,43 @@
     "not_helped_placeholder": "z. B. ich habe über die To-do-Liste fürs Wochenende diskutiert",
     "save": "Speichern",
     "entry": "Eintrag"
+  },
+  "definitions": {
+    "dispute": "Eine Meinungsverschiedenheit oder Spannung, auch kurz.",
+    "fatigue": "Sie wirkt müde, erschöpft, unausgeschlafen.",
+    "repli": "Bedürfnis nach Ruhe und Rückzug, weniger Lust zu reden.",
+    "coquin": "Lust auf körperliche Nähe, Spiel, Flirt.",
+    "tendresse": "Umarmungen, sanfte Gesten, Bedürfnis nach Zuneigung.",
+    "rires": "Lustige Momente, Leichtigkeit, Lachanfälle.",
+    "douleur": "Krämpfe, Kopfschmerzen, geäußerte Schmerzen.",
+    "ventre": "Blähbauch, Verdauungs- oder Darmbeschwerden.",
+    "larmes": "Starke Gefühle, Tränen, erhöhte Empfindsamkeit.",
+    "bon-moment": "Ein schöner gemeinsamer Moment, den man behalten will.",
+    "energie": "Voller Schwung, Lust etwas zu tun, auszugehen, anzupacken.",
+    "pulsion": "Drang aufzuräumen, auszusortieren, neu zu ordnen.",
+    "conversation": "Ein tiefes Gespräch — über euch, das Leben, das Wichtige."
+  },
+  "note": {
+    "title": "Deine Notiz",
+    "for_date": "Für {{date}}",
+    "change": "ändern",
+    "choose_date": "Tag der Notiz wählen",
+    "moments": "Was dir aufgefallen ist",
+    "long_press": "Lange drücken: Bedeutung",
+    "helped_label": "Was geholfen hat",
+    "helped_hint": "Zum Beispiel: ein ruhiger Abend, ihr Lieblingsgericht.",
+    "not_helped_label": "Was nicht geholfen hat",
+    "not_helped_hint": "Zum Beispiel: diskutieren, einen Abend auswärts vorschlagen.",
+    "free_label": "Ein paar Worte",
+    "optional": "(optional)",
+    "free_hint": "Was du beobachtet hast, in deinen Worten.",
+    "no_ai": "Keine automatische Auswertung: Deine Notiz bleibt bei dir und dient nur deinen Echos.",
+    "save": "Speichern",
+    "pastilles_count_one": "{{count}} Punkt",
+    "pastilles_count_other": "{{count}} Punkte",
+    "saved_title": "Notiz gespeichert",
+    "saved_body": "Du findest sie in deinem Tagebuch, und sie kommt im gleichen Moment des nächsten Zyklus als Echo zurück.",
+    "back_home": "Zurück zu Heute",
+    "edit_again": "Diese Notiz bearbeiten"
   }
 }

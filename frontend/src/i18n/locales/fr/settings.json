@@ -17,22 +17,33 @@
     "her_data": "Données d'elle",
     "journal": "Carnet",
     "display": "Affichage",
-    "about": "À propos"
+    "about": "À propos",
+    "partner": "Partenaire"
   },
   "her_data": {
     "last_period": "Date des dernières règles",
-    "cycle_length": "Longueur de son cycle"
+    "cycle_length": "Longueur de son cycle",
+    "contraception": "Contraception hormonale",
+    "contraception_options": {
+      "non": "Non",
+      "oui": "Oui",
+      "inconnu": "Je ne sais pas"
+    }
   },
   "journal_section": {
-    "history": "Historique des observations",
+    "history": "Ouvrir le carnet",
     "reset": "Remettre à zéro mon carnet",
     "reset_confirm": "Toutes tes observations seront effacées. Action irréversible."
   },
   "about": {
     "philosophy": "Comment ça marche",
     "sources": "Sources",
-    "sources_hint": "Kiffe ton cycle ! — G. Baldassari",
-    "version": "Version"
+    "sources_hint": "Ouvrages utilisés, avec liens",
+    "version": "Version",
+    "philosophy_hint": "Le cycle, les 4 moments, la confiance",
+    "data": "Tes données",
+    "data_hint": "Où elles sont, ce qui est stocké",
+    "data_body": "Tes données (dates de règles, notes, réglages) sont stockées sur le serveur de HerDay. Elles ne sont ni revendues ni partagées, et aucune analyse automatique n’est faite sur tes notes. Tu peux tout supprimer à tout moment, ci-dessous."
   },
   "language": {
     "label": "Langue",
@@ -79,5 +90,18 @@
     "regenerate_confirm_btn": "Régénérer",
     "cancel": "Annuler",
     "error": "Une erreur est survenue"
+  },
+  "partner": {
+    "nickname": "Surnom",
+    "nickname_hint": "Facultatif · utilisé dans les phrases de l’app. Vide = son pronom.",
+    "pronouns": "Pronoms"
+  },
+  "display": {
+    "theme": "Thème",
+    "themes": {
+      "nuit": "Nuit",
+      "clair": "Clair",
+      "auto": "Auto"
+    }
   }
 }

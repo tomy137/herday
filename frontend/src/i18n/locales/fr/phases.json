@@ -1,6 +1,6 @@
 {
   "labels": {
-    "she_needs_you_to_be": "Elle a besoin que tu sois :",
+    "she_needs_you_to_be": "{{who}} a besoin que tu sois :",
     "more_details": "Plus de détails sur cette phase",
     "days_left_one": "Encore {{count}} jour dans cette phase",
     "days_left_other": "Encore {{count}} jours dans cette phase",
@@ -29,7 +29,12 @@
     "name": "Phase menstruelle",
     "short": "Menstruation",
     "range": "Jours 1 à 5",
-    "posture": ["SOLIDE", "FIABLE", "DISCRET", "LOGISTIQUE"],
+    "posture": [
+      "SOLIDE",
+      "FIABLE",
+      "DISCRET",
+      "LOGISTIQUE"
+    ],
     "bio": "Chute brutale de progestérone et d'œstradiol. Saignement, desquamation utérine. Énergie au plus bas. Douleurs possibles (crampes, lombaires, migraines). Le corps appelle au repli, à la chaleur, au ralentissement. L'humeur est souvent posée, l'intuition aiguisée. Période propice aux bilans et aux décisions de fond (émotionnellement stable, peu d'« interférence hormonale »).",
     "advised": [
       "Décharger la logistique sans en faire un événement. Cuisine, courses, enfants, démarches, ménage de base. Tu fais, tu ne demandes pas si tu peux aider.",
@@ -57,7 +62,12 @@
     "name": "Phase post-menstruelle",
     "short": "Post-menstruelle",
     "range": "Quelques jours après les règles",
-    "posture": ["PATIENT", "ENCOURAGEANT", "CURIEUX", "LÉGER"],
+    "posture": [
+      "PATIENT",
+      "ENCOURAGEANT",
+      "CURIEUX",
+      "LÉGER"
+    ],
     "bio": "Les règles s'achèvent, l'œstradiol commence à remonter doucement. L'énergie revient mais reste basse les premiers jours — c'est un gradient, pas un interrupteur. Récupération en cours. L'humeur s'éclaircit, les projets recommencent à apparaître dans sa tête, mais le corps n'est pas encore au pic. Période souvent sous-estimée parce qu'elle est moins spectaculaire que les phases suivantes.",
     "advised": [
       "Être disponible sans être pressant. Elle revient. Elle peut avoir envie de partager, de planifier, de rêver à voix haute. Écoute sans solutionner immédiatement.",
@@ -81,7 +91,12 @@
     "name": "Phase pré-ovulatoire",
     "short": "Pré-ovulatoire",
     "range": "2 à 3 jours avant l'ovulation",
-    "posture": ["COÉQUIPIER", "DISPONIBLE", "CURIEUX DE SES IDÉES", "DANS L'ACTION"],
+    "posture": [
+      "COÉQUIPIER",
+      "DISPONIBLE",
+      "CURIEUX DE SES IDÉES",
+      "DANS L'ACTION"
+    ],
     "bio": "Œstradiol en montée franche, parfois rapide. C'est la prise d'élan. Confiance en soi élevée, sensibilité à la peur diminuée, prise de risque facilitée, productivité maximale. Plusieurs choses en parallèle, énergie qui peut sembler intarissable. Peau, tonus, sommeil souvent au mieux. Le « cocktail » est très valorisé socialement mais peut être fatigant pour l'entourage qui peine à suivre.",
     "advised": [
       "Jouer en équipe. Demande-lui sur quoi elle veut frapper, propose de prendre ce que tu peux pour qu'elle se concentre sur ce qui compte vraiment pour elle.",
@@ -107,7 +122,12 @@
     "name": "Phase ovulatoire",
     "short": "Ovulation",
     "range": "Fenêtre fertile, 5 jours centrés sur J(L-14)",
-    "posture": ["PRÉSENT", "COMPLICE", "COQUIN", "RIEUR"],
+    "posture": [
+      "PRÉSENT",
+      "COMPLICE",
+      "COQUIN",
+      "RIEUR"
+    ],
     "bio": "Pic d'œstrogènes, pic de LH (qui déclenche l'ovulation), petit pic de testostérone (libido, combativité, mémoire). Fenêtre fertile maximale (à savoir si la contraception passe par d'autres méthodes). Le visage est mesurablement plus symétrique, la voix souvent un peu plus haute. L'énergie reste haute mais ne s'accélère plus : phase de plateau ouvert, sociale, plaisante. Empathie, recherche du lien, plaisir des sens. C'est la phase la plus valorisée socialement, parfois trop : ne pas en faire la « norme » du couple.",
     "advised": [
       "Présence pleine, pas présence distraite. Regard, attention, écoute. Pas de second écran pendant un dîner avec elle.",
@@ -132,7 +152,12 @@
     "name": "Phase post-ovulatoire",
     "short": "Post-ovulatoire",
     "range": "Plateau lutéal, après l'ovulation",
-    "posture": ["STABLE", "CONCRET", "CONSTRUCTIF", "PRATIQUE"],
+    "posture": [
+      "STABLE",
+      "CONCRET",
+      "CONSTRUCTIF",
+      "PRATIQUE"
+    ],
     "bio": "Progestérone en montée, œstrogènes en second pic plus modeste. L'énergie est encore haute mais s'intériorise progressivement. La concentration s'améliore, l'attention au détail aussi. C'est souvent la fenêtre la plus productive sur les sujets de fond — moins spectaculaire que la pré-ovulatoire, mais plus profonde. L'humeur est généralement stable. Léger ralentissement social au profit d'un retour vers soi.",
     "advised": [
       "Matcher son rythme calme et constant. Pas de course, pas d'arrêt. Une cadence de croisière qui tient.",
@@ -155,7 +180,12 @@
     "name": "Phase pré-menstruelle",
     "short": "Pré-menstruelle",
     "range": "6 derniers jours du cycle",
-    "posture": ["PATIENT", "ROBUSTE", "À L'ÉCOUTE", "NON-RÉACTIF"],
+    "posture": [
+      "PATIENT",
+      "ROBUSTE",
+      "À L'ÉCOUTE",
+      "NON-RÉACTIF"
+    ],
     "bio": "Progestérone qui chute, œstrogènes en seconde baisse, défenses immunitaires en bas. C'est la phase la plus exigeante émotionnellement pour beaucoup de femmes — pas parce qu'elle est « pénible », mais parce que la perception s'aiguise et que le filtre indulgent qui adoucissait les choses se lève. Regard plus exigeant, parfois plus sombre, sur les personnes et les projets ; détection fine de ce qui ne va pas ; créativité élevée ; sensibilité physique et émotionnelle marquée. Pulsions de tri, de ménage, de réaménagement. La « stratégie prémenstruelle » : tendance biologique à amplifier les défauts du conjoint après plusieurs cycles non fertiles. À savoir, pour ne pas le prendre à la lettre.",
     "advised": [
       "Être patient. Vraiment patient. Le réflexe défensif est l'ennemi. Une remarque dure n'appelle pas une réponse immédiate.",
@@ -181,5 +211,10 @@
       "Lancer une grosse dispute sur un vieux sujet. Si vous avez un sujet de fond à traiter, attends la phase folliculaire ou l'ovulation.",
       "Ramener tout au cycle. Si elle te reproche quelque chose de spécifique, ce reproche peut être vrai. Le cycle amplifie ; il n'invente pas toujours."
     ]
+  },
+  "dial": {
+    "days_left_one": "encore {{count}} jour",
+    "days_left_other": "encore {{count}} jours",
+    "last_day": "dernier jour"
   }
 }

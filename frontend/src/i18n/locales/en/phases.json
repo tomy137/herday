@@ -1,13 +1,14 @@
 {
   "labels": {
-    "she_needs_you_to_be": "She needs you to be:",
+    "she_needs_you_to_be": "{{who}} needs you to be:",
     "more_details": "More about this phase",
     "days_left_one": "{{count}} more day in this phase",
     "days_left_other": "{{count}} more days in this phase",
     "switch_today": "Transition expected today",
     "bio": "Biological cues",
     "advised": "Advised",
-    "discouraged": "Not advised"
+    "discouraged": "Not advised",
+    "she_needs_you_to_be_iel": "{{who}} need you to be:"
   },
   "parent": {
     "menstrual": "Menstrual",
@@ -29,7 +30,12 @@
     "name": "Menstrual phase",
     "short": "Menstruation",
     "range": "Days 1 to 5",
-    "posture": ["SOLID", "RELIABLE", "LOW-KEY", "LOGISTICAL"],
+    "posture": [
+      "SOLID",
+      "RELIABLE",
+      "LOW-KEY",
+      "LOGISTICAL"
+    ],
     "bio": "Sharp drop in progesterone and estradiol. Bleeding, shedding of the uterine lining. Energy at its lowest. Pain is possible (cramps, lower-back pain, migraines). The body calls for withdrawal, warmth, and slowing down. Mood is often settled, intuition sharpened. A good time for taking stock and making fundamental decisions (emotionally stable, little \"hormonal interference\").",
     "advised": [
       "Take over the logistics without making it an event. Cooking, shopping, kids, errands, basic housework. You just do it, you don't ask whether you can help.",
@@ -57,7 +63,12 @@
     "name": "Post-menstrual phase",
     "short": "Post-menstrual",
     "range": "A few days after the period",
-    "posture": ["PATIENT", "ENCOURAGING", "CURIOUS", "EASYGOING"],
+    "posture": [
+      "PATIENT",
+      "ENCOURAGING",
+      "CURIOUS",
+      "EASYGOING"
+    ],
     "bio": "The period is ending, estradiol begins to rise gently. Energy returns but stays low in the first days — it's a gradient, not a switch. Recovery in progress. Mood lifts, projects start reappearing in her mind, but the body isn't at its peak yet. A phase often underestimated because it's less spectacular than the ones that follow.",
     "advised": [
       "Be available without being pushy. She's coming back. She may want to share, plan, dream out loud. Listen without solving immediately.",
@@ -81,7 +92,12 @@
     "name": "Pre-ovulatory phase",
     "short": "Pre-ovulatory",
     "range": "2 to 3 days before ovulation",
-    "posture": ["TEAMMATE", "AVAILABLE", "CURIOUS ABOUT HER IDEAS", "ACTION-DRIVEN"],
+    "posture": [
+      "TEAMMATE",
+      "AVAILABLE",
+      "CURIOUS ABOUT HER IDEAS",
+      "ACTION-DRIVEN"
+    ],
     "bio": "Estradiol rising steeply, sometimes fast. This is the run-up. High self-confidence, reduced sensitivity to fear, easier risk-taking, peak productivity. Several things in parallel, energy that can seem inexhaustible. Skin, tone, and sleep often at their best. This \"cocktail\" is highly valued socially but can be tiring for those around her who struggle to keep up.",
     "advised": [
       "Play as a team. Ask her what she wants to tackle, offer to take on what you can so she can focus on what truly matters to her.",
@@ -107,7 +123,12 @@
     "name": "Ovulatory phase",
     "short": "Ovulation",
     "range": "Fertile window, 5 days centered on day (L-14)",
-    "posture": ["PRESENT", "CONNECTED", "PLAYFUL", "LIGHT-HEARTED"],
+    "posture": [
+      "PRESENT",
+      "CONNECTED",
+      "PLAYFUL",
+      "LIGHT-HEARTED"
+    ],
     "bio": "Peak estrogen, LH surge (which triggers ovulation), small testosterone peak (libido, combativeness, memory). Maximum fertile window (worth knowing if contraception relies on other methods). The face is measurably more symmetrical, the voice often slightly higher. Energy stays high but no longer accelerates: an open, social, pleasant plateau. Empathy, seeking connection, enjoyment of the senses. It's the most socially valued phase, sometimes too much: don't make it the \"norm\" of the relationship.",
     "advised": [
       "Full presence, not distracted presence. Eye contact, attention, listening. No second screen during a dinner with her.",
@@ -132,7 +153,12 @@
     "name": "Post-ovulatory phase",
     "short": "Post-ovulatory",
     "range": "Luteal plateau, after ovulation",
-    "posture": ["STEADY", "CONCRETE", "CONSTRUCTIVE", "PRACTICAL"],
+    "posture": [
+      "STEADY",
+      "CONCRETE",
+      "CONSTRUCTIVE",
+      "PRACTICAL"
+    ],
     "bio": "Progesterone rising, estrogen in a second, more modest peak. Energy is still high but gradually turns inward. Focus improves, and so does attention to detail. This is often the most productive window for fundamental matters — less spectacular than the pre-ovulatory phase, but deeper. Mood is generally stable. A slight social slowdown in favor of a return to herself.",
     "advised": [
       "Match her calm, steady rhythm. No racing, no stopping. A cruising pace that holds.",
@@ -155,7 +181,12 @@
     "name": "Pre-menstrual phase",
     "short": "Pre-menstrual",
     "range": "Last 6 days of the cycle",
-    "posture": ["PATIENT", "STURDY", "LISTENING", "NON-REACTIVE"],
+    "posture": [
+      "PATIENT",
+      "STURDY",
+      "LISTENING",
+      "NON-REACTIVE"
+    ],
     "bio": "Progesterone dropping, estrogen in a second decline, immune defenses at a low. This is the most emotionally demanding phase for many women — not because it's \"a hassle,\" but because perception sharpens and the lenient filter that softened things lifts. A more demanding, sometimes darker, view of people and projects; fine-grained detection of what's wrong; high creativity; marked physical and emotional sensitivity. Urges to sort, clean, and rearrange. The \"premenstrual strategy\": a biological tendency to amplify a partner's flaws after several non-fertile cycles. Worth knowing, so as not to take it literally.",
     "advised": [
       "Be patient. Truly patient. The defensive reflex is the enemy. A harsh remark does not call for an immediate response.",
@@ -181,5 +212,10 @@
       "Starting a big argument over an old topic. If you have a fundamental issue to address, wait for the follicular phase or ovulation.",
       "Tracing everything back to the cycle. If she reproaches you for something specific, that reproach may be true. The cycle amplifies; it doesn't always invent."
     ]
+  },
+  "dial": {
+    "days_left_one": "{{count}} more day",
+    "days_left_other": "{{count}} more days",
+    "last_day": "last day"
   }
 }

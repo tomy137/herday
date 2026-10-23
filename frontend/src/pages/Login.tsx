@@ -60,12 +60,12 @@ export default function Login() {
               HerDay
             </span>
           </h1>
-          <h2 className="mt-5 text-xl font-semibold text-gray-900 tracking-tight">{t('login.title')}</h2>
+          <h2 className="mt-5 text-xl font-semibold text-ink tracking-tight">{t('login.title')}</h2>
           <p className="mt-2 text-warm-500 text-[15px]">{t('login.subtitle')}</p>
         </div>
 
         {step === 'email' ? (
-          <form onSubmit={handleSendCode} className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-warm-200/40">
+          <form onSubmit={handleSendCode} className="bg-surface rounded-3xl p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-warm-200/40">
             <input
               type="email"
               value={email}
@@ -73,7 +73,7 @@ export default function Login() {
               placeholder={t('login.email_placeholder')}
               required
               autoFocus
-              className="w-full px-4 py-3.5 rounded-2xl border border-warm-200 bg-warm-50 focus:outline-none focus:ring-2 focus:ring-[#DC3D5A]/30 focus:border-[#DC3D5A]/40 text-gray-900 placeholder-warm-400 transition-all"
+              className="w-full px-4 py-3.5 rounded-2xl border border-warm-200 bg-warm-50 focus:outline-none focus:ring-2 focus:ring-[#DC3D5A]/30 focus:border-[#DC3D5A]/40 text-ink placeholder-warm-400 transition-all"
             />
             {error && (
               <p className="mt-3 text-sm text-[#DC3D5A] font-medium">{error}</p>
@@ -87,14 +87,14 @@ export default function Login() {
             </button>
           </form>
         ) : (
-          <form onSubmit={handleVerifyCode} className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-warm-200/40 animate-scale-in">
+          <form onSubmit={handleVerifyCode} className="bg-surface rounded-3xl p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-warm-200/40 animate-scale-in">
             <div className="text-center mb-5">
               <div className="w-14 h-14 rounded-full bg-[#2DA87E]/10 flex items-center justify-center mx-auto mb-3">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2DA87E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 2L11 13" /><path d="M22 2L15 22L11 13L2 9L22 2Z" />
                 </svg>
               </div>
-              <p className="text-gray-900 font-semibold text-[15px]">{t('login.email_sent')}</p>
+              <p className="text-ink font-semibold text-[15px]">{t('login.email_sent')}</p>
               <p className="mt-2 text-sm text-warm-400">{t('login.check_spam')}</p>
             </div>
 
@@ -109,7 +109,7 @@ export default function Login() {
               placeholder={t('login.code_placeholder')}
               required
               autoFocus
-              className="w-full px-4 py-3.5 rounded-2xl border border-warm-200 bg-warm-50 focus:outline-none focus:ring-2 focus:ring-[#DC3D5A]/30 focus:border-[#DC3D5A]/40 text-gray-900 placeholder-warm-400 text-center text-2xl tracking-[0.5em] font-semibold transition-all placeholder:text-base placeholder:font-normal placeholder:tracking-normal"
+              className="w-full px-4 py-3.5 rounded-2xl border border-warm-200 bg-warm-50 focus:outline-none focus:ring-2 focus:ring-[#DC3D5A]/30 focus:border-[#DC3D5A]/40 text-ink placeholder-warm-400 text-center text-2xl tracking-[0.5em] font-semibold transition-all placeholder:text-base placeholder:font-normal placeholder:tracking-normal"
             />
             {error && (
               <p className="mt-3 text-sm text-[#DC3D5A] font-medium text-center">{error}</p>

@@ -25,6 +25,8 @@ export interface WidgetPhasePayload {
   zone: string;
   zoneLabel: string;
   zoneEndsIn: number | null;
+  /** « Elle a besoin que tu sois » with the partner’s nickname / pronoun. */
+  postureLabel: string;
 }
 
 const WidgetBridge = registerPlugin<WidgetBridgePlugin>('WidgetBridge');

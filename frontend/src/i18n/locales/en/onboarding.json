@@ -3,7 +3,7 @@
   "step1": {
     "eyebrow": "Welcome",
     "title": "Your notebook. Not hers.",
-    "body": "HerDay is an observation notebook to help you better support your partner. No notification, no entry will ever be asked of her.",
+    "body": "HerDay helps you understand her menstrual cycle — where she is, what it changes for her — and be there at the right moment. She’ll never get a notification or be asked to log anything.",
     "tagline": "Her cycles, your mental load.",
     "body2": "HerDay helps you become a proactive partner, not a reactive one: stop asking, start understanding and acting.",
     "email_label": "Email",
@@ -18,22 +18,23 @@
     "body2": "But we strongly recommend you tell her about it, and even show it to her. Why: an observation tool used in silence ends up replacing the conversation instead of nourishing it. That's the opposite of what we want here.",
     "choice_soon": "I'll tell her about it soon",
     "choice_already": "I've already told her about it",
-    "cta": "Continue"
+    "cta": "Continue",
+    "change_later": "You can change your answer at any time in the settings."
   },
   "step3": {
-    "eyebrow": "The cycle, measurable",
-    "title": "Six sub-phases, four hormones. Not a mystery.",
-    "body": "HerDay's default language is that of medical literature. Plain, precise, without metaphor.",
-    "more_info": "You'll find the details of each phase in the app, cycle after cycle.",
+    "eyebrow": "The cycle, simply",
+    "title": "Her cycle, like a day.",
+    "body": "Four moments that come back every month. Tap them to discover them.",
+    "more_info": "Based on the medical literature. Each phase in detail, and the sources, are in the app.",
     "cta": "Continue"
   },
   "step_obs": {
     "eyebrow": "The learning loop",
     "title": "You observe, the app remembers.",
     "obs_label": "Your observations",
-    "obs_body": "Each day, in a few seconds: what you observed, what helped, what didn't. It's your notebook — no one else reads it.",
+    "obs_body": "Every day, in a few seconds: a pill, what helped, what didn’t. Your notes go into your journal — nobody else reads it.",
     "echo_label": "The echoes",
-    "echo_body": "Each time a phase comes back, the app reminds you what you noted in previous cycles: repeat what works, avoid what doesn't.",
+    "echo_body": "When the same moment of the cycle comes back, your notes return as echoes: repeat what works, avoid what doesn’t.",
     "cta": "Continue"
   },
   "step4": {
@@ -43,6 +44,73 @@
     "date_label": "Approximate date",
     "length_label": "Length of her cycle (optional)",
     "length_hint": "Low confidence score until you're sure. That's healthy.",
-    "cta": "Open my notebook"
+    "cta": "Open my notebook",
+    "cta_next": "Continue",
+    "unknown": "I don’t know yet",
+    "unknown_hint": "No problem: you explore the app without a forecast. As soon as her period comes, a button on the home screen lets you log it, and tracking starts.",
+    "contraception_label": "Is she on hormonal contraception?",
+    "contraception": {
+      "non": "No",
+      "oui": "Yes",
+      "inconnu": "I don’t know"
+    },
+    "contraception_hint": "The pill, implant, ring… often block ovulation: the phases don’t apply the same way. The app will remind you.",
+    "confidence_title": "Confidence score.",
+    "confidence_body": "It tells how reliable the forecast is. Low at first, it rises once you confirm two period starts."
+  },
+  "step_partner": {
+    "eyebrow": "You and her",
+    "title": "How well do you know the menstrual cycle?",
+    "body": "No wrong answer: it only sets how much the app explains.",
+    "cta": "Continue",
+    "optional": "(optional)",
+    "nickname_label": "What do you call her?",
+    "nickname_hint": "A first name or a nickname, only for the app’s sentences. Leave empty to keep the pronoun.",
+    "pronouns_label": "Pronouns",
+    "level": {
+      "decouverte": {
+        "title": "I’m new to this",
+        "body": "We explain everything, simply, day by day."
+      },
+      "bases": {
+        "title": "I know the basics",
+        "body": "Period, ovulation: got it. The rest, less so."
+      },
+      "expert": {
+        "title": "I know it well",
+        "body": "Short version, medical terms."
+      }
+    }
+  },
+  "moments": {
+    "nuit": {
+      "phases": "Pre-menstrual then period · about day 23 → 5",
+      "body": "Energy drops, then the period comes: tiredness, possible pain, a need for calm.",
+      "posture": "Be patient, solid, reliable."
+    },
+    "aube": {
+      "phases": "Post-menstrual · about day 6 → 9",
+      "body": "Recovery. Energy slowly comes back, mood lifts.",
+      "posture": "Be encouraging, light."
+    },
+    "jour": {
+      "phases": "Pre-ovulatory then ovulation · about day 10 → 16",
+      "body": "Peak energy and confidence. The right time for plans and outings together.",
+      "posture": "Be a teammate, present, playful."
+    },
+    "crepuscule": {
+      "phases": "Post-ovulatory · about day 17 → 22",
+      "body": "Steady energy, a wish for concrete things and refocusing.",
+      "posture": "Be steady, practical."
+    }
+  },
+  "step_tools": {
+    "eyebrow": "Last step",
+    "title": "Keep an eye on it, discreetly.",
+    "agenda_title": "In your calendar",
+    "agenda_body": "Subscribe your calendar (Google, Apple, Outlook) from the settings: two neutral markers, “Period A” and “Period B”.",
+    "widget_title": "The widget",
+    "widget_body": "The dial on your home screen: long press, “+”, then HerDay.",
+    "later": "You can do all this later, in the settings."
   }
 }

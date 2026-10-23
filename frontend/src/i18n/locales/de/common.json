@@ -5,14 +5,18 @@
     "calendar": "Kalender",
     "echoes": "Echos",
     "journal": "Notizbuch",
-    "settings": "Einstellungen"
+    "settings": "Einstellungen",
+    "note": "Notieren",
+    "carnet": "Tagebuch",
+    "label": "Hauptnavigation"
   },
   "actions": {
     "cancel": "Abbrechen",
     "confirm": "Bestatigen",
     "save": "Speichern",
     "delete": "Loschen",
-    "back": "Zuruck"
+    "back": "Zuruck",
+    "close": "Schließen"
   },
   "dates": {
     "today": "Heute",
@@ -30,16 +34,34 @@
       "body_same": "Sie haben für dieses Datum bereits einen Periodenbeginn gemeldet. Möchten Sie ihn korrigieren?",
       "correct": "Korrigieren: Das ist der echte Beginn",
       "keep": "Nein, das ist eine neue Periode"
-    }
+    },
+    "prompt_title": "Hat ihre Periode begonnen?",
+    "prompt_body": "Sie wird bald erwartet. Ein Tippen richtet den ganzen Kalender neu aus.",
+    "prompt_today": "Ja, heute",
+    "prompt_other": "Ein anderer Tag"
   },
   "confidence": {
     "unknown": "Noch keine Daten — melden Sie ein erstes Ereignis",
     "estimating": "Sehr grobe Schatzung — wenig Informationen",
     "partial": "Grobe Schatzung — basierend auf 1 Zyklus",
     "learning": "Gute Schatzung — basierend auf 2 Zyklen",
-    "confident": "Zuverlassige Schatzung — basierend auf 3+ Zyklen"
+    "confident": "Zuverlassige Schatzung — basierend auf 3+ Zyklen",
+    "short": "Vertrauen"
   },
   "loading": "Wird geladen...",
   "error": "Ein Fehler ist aufgetreten",
-  "logout": "Abmelden"
+  "logout": "Abmelden",
+  "partner": {
+    "pronoun": {
+      "elle": "Sie",
+      "il": "Er",
+      "iel": "Sier"
+    }
+  },
+  "home": {
+    "title": "Heute",
+    "day": "Tag {{day}} von {{length}}",
+    "understand": "Diesen Moment verstehen",
+    "contraception": "Unter hormoneller Verhütung ist der Eisprung oft unterdrückt: Diese Phasen sind Orientierung, keine Vorhersage."
+  }
 }

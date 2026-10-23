@@ -2,12 +2,13 @@
 import { useTranslation } from 'react-i18next';
 import type { PhaseInfo } from '../../api/client';
 import type { Phase } from '../../lib/cycle-engine';
-import { PHASE_SOFT_HEX, PHASE_HEX, PHASE_INK_HEX, PHASE_ICONS } from '../../constants/phases';
+import { PHASE_SOFT_HEX, PHASE_HEX, PHASE_INK_HEX, PHASE_ICONS, withAlpha } from '../../constants/phases';
 import { usePhaseContent } from '../../lib/use-phase-content';
 import PhaseTag from '../ui/PhaseTag';
 import ConfidenceBadge from '../ui/ConfidenceBadge';
 import PostureRail from '../posture/PostureRail';
 import PhaseProgress from './PhaseProgress';
+import { usePartner } from '../../lib/partner';
 
 interface PhaseCardProps {
   /** The phase to display (may differ from the current one on the calendar). */
@@ -24,6 +25,7 @@ interface PhaseCardProps {
 export default function PhaseCard({ phase, info }: PhaseCardProps) {
   const { t } = useTranslation('phases');
   const content = usePhaseContent(phase);
+  const partner = usePartner();
   const isCurrent = phase === (info.phase as Phase);
   const endsIn = info.phase_ends_in ?? 0;
   const daysLabel =
@@ -61,9 +63,9 @@ export default function PhaseCard({ phase, info }: PhaseCardProps) {
         </div>
       )}
 
-      <div className="my-3.5 h-[0.5px]" style={{ background: `${PHASE_HEX[phase]}30` }} />
+      <div className="my-3.5 h-[0.5px]" style={{ background: withAlpha(PHASE_HEX[phase], 0.19) }} />
 
-      <div className="hd-caps mb-3 text-warm-500">{t('labels.she_needs_you_to_be')}</div>
+      <div className="hd-caps mb-3 text-warm-500">{t('labels.she_needs_you_to_be', partner.vars)}</div>
       <PostureRail words={content.posture} />
     </div>
   );

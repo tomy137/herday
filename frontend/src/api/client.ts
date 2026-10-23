@@ -148,7 +148,7 @@ export const api = {
   },
   users: {
     me: () => request<User>('/users/me'),
-    update: (data: { locale?: string; transparency_status?: TransparencyStatus }) =>
+    update: (data: UserUpdate) =>
       request<User>('/users/me', { method: 'PATCH', body: JSON.stringify(data) }),
     delete: () => request('/users/me', { method: 'DELETE' }),
   },
@@ -231,7 +231,25 @@ export interface User {
   locale: string;
   transparency_status: TransparencyStatus;
   transparency_accepted_at: string | null;
+  partner_nickname: string | null;
+  partner_pronouns: Pronouns;
+  expertise_level: ExpertiseLevel | null;
+  contraception: Contraception | null;
   created_at: string;
+}
+
+export type Pronouns = 'elle' | 'il' | 'iel';
+export type ExpertiseLevel = 'decouverte' | 'bases' | 'expert';
+export type Contraception = 'non' | 'oui' | 'inconnu';
+
+export interface UserUpdate {
+  locale?: string;
+  transparency_status?: TransparencyStatus;
+  /** Empty string clears the nickname. */
+  partner_nickname?: string;
+  partner_pronouns?: Pronouns;
+  expertise_level?: ExpertiseLevel;
+  contraception?: Contraception;
 }
 
 export interface JournalDraft {

@@ -61,22 +61,55 @@
     "formula": "Jour d'ovulation = Longueur du cycle − 14",
     "example": "Exemple : cycle de 28 jours → ovulation au jour 14. Cycle de 32 jours → ovulation au jour 18.",
     "breakdown": {
-      "menstruation": { "name": "🌙 Menstruation", "days": "Jour 1 à 5" },
-      "post_menstrual": { "name": "🌅 Post-menstruelle", "days": "Jour 6 à 9" },
-      "pre_ovulatory": { "name": "☀️ Pré-ovulatoire", "days": "Jour 10 à 11" },
-      "ovulation": { "name": "☀️ Ovulation", "days": "Jour 12 à 16" },
-      "post_ovulatory": { "name": "🌇 Post-ovulatoire", "days": "Jour 17 à 22" },
-      "pre_menstrual": { "name": "🌙 Pré-menstruelle", "days": "Jour 23 à 28" }
+      "menstruation": {
+        "name": "🌙 Menstruation",
+        "days": "Jour 1 à 5"
+      },
+      "post_menstrual": {
+        "name": "🌅 Post-menstruelle",
+        "days": "Jour 6 à 9"
+      },
+      "pre_ovulatory": {
+        "name": "☀️ Pré-ovulatoire",
+        "days": "Jour 10 à 11"
+      },
+      "ovulation": {
+        "name": "☀️ Ovulation",
+        "days": "Jour 12 à 16"
+      },
+      "post_ovulatory": {
+        "name": "🌇 Post-ovulatoire",
+        "days": "Jour 17 à 22"
+      },
+      "pre_menstrual": {
+        "name": "🌙 Pré-menstruelle",
+        "days": "Jour 23 à 28"
+      }
     }
   },
   "confidence": {
     "title": "Niveaux de confiance",
     "states": {
-      "unknown": { "label": "Inconnu", "condition": "Aucun événement" },
-      "estimating": { "label": "Estimation", "condition": "Signaux faibles" },
-      "partial": { "label": "Partiel", "condition": "1 cycle confirmé" },
-      "learning": { "label": "Apprentissage", "condition": "2 cycles confirmés" },
-      "confident": { "label": "Fiable", "condition": "3+ cycles confirmés" }
+      "unknown": {
+        "label": "Inconnu",
+        "condition": "Aucun événement"
+      },
+      "estimating": {
+        "label": "Estimation",
+        "condition": "Signaux faibles"
+      },
+      "partial": {
+        "label": "Partiel",
+        "condition": "1 cycle confirmé"
+      },
+      "learning": {
+        "label": "Apprentissage",
+        "condition": "2 cycles confirmés"
+      },
+      "confident": {
+        "label": "Fiable",
+        "condition": "3+ cycles confirmés"
+      }
     },
     "hint": "Plus vous signalez de débuts de règles, plus les prédictions sont précises. L'app fonctionne mieux après 2-3 cycles confirmés."
   },
@@ -86,5 +119,9 @@
     "mood_weak": "Les observations d'humeur sont des indicateurs faibles. Elles affinent la confiance mais n'ancrent pas les dates.",
     "irregular": "Les cycles irréguliers réduisent la confiance des prédictions.",
     "improves": "La précision augmente avec le temps. Les premières prédictions sont approximatives."
+  },
+  "sources": {
+    "title": "Sources",
+    "intro": "Les repères de chaque phase s’appuient sur ces ouvrages."
   }
 }

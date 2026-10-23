@@ -43,26 +43,26 @@ export default function Verify() {
         </h1>
 
         {status === 'loading' && (
-          <div className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-warm-200/40 animate-scale-in">
+          <div className="bg-surface rounded-3xl p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-warm-200/40 animate-scale-in">
             <div className="w-10 h-10 border-[3px] border-[#DC3D5A] border-t-transparent rounded-full mx-auto mb-5 animate-spin" />
             <p className="text-warm-500 font-medium">{t('verify.title')}</p>
           </div>
         )}
 
         {status === 'success' && (
-          <div className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-warm-200/40 animate-scale-in">
+          <div className="bg-surface rounded-3xl p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-warm-200/40 animate-scale-in">
             <div className="w-14 h-14 rounded-full bg-[#2DA87E]/10 flex items-center justify-center mx-auto mb-5">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2DA87E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M20 6L9 17L4 12" />
               </svg>
             </div>
-            <p className="text-gray-900 font-semibold">{t('verify.success')}</p>
+            <p className="text-ink font-semibold">{t('verify.success')}</p>
             <p className="mt-2 text-sm text-warm-400">{t('verify.redirect')}</p>
           </div>
         )}
 
         {status === 'error' && (
-          <div className="bg-white rounded-3xl p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-warm-200/40 animate-scale-in">
+          <div className="bg-surface rounded-3xl p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-warm-200/40 animate-scale-in">
             <div className="w-14 h-14 rounded-full bg-[#DC3D5A]/10 flex items-center justify-center mx-auto mb-5">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DC3D5A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 6L6 18M6 6l12 12" />

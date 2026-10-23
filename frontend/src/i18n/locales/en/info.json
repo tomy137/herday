@@ -61,22 +61,55 @@
     "formula": "Ovulation day = Cycle length − 14",
     "example": "Example: 28-day cycle → ovulation on day 14. 32-day cycle → ovulation on day 18.",
     "breakdown": {
-      "menstruation": { "name": "🌙 Menstruation", "days": "Day 1 to 5" },
-      "post_menstrual": { "name": "🌅 Post-menstrual", "days": "Day 6 to 9" },
-      "pre_ovulatory": { "name": "☀️ Pre-ovulatory", "days": "Day 10 to 11" },
-      "ovulation": { "name": "☀️ Ovulation", "days": "Day 12 to 16" },
-      "post_ovulatory": { "name": "🌇 Post-ovulatory", "days": "Day 17 to 22" },
-      "pre_menstrual": { "name": "🌙 Pre-menstrual", "days": "Day 23 to 28" }
+      "menstruation": {
+        "name": "🌙 Menstruation",
+        "days": "Day 1 to 5"
+      },
+      "post_menstrual": {
+        "name": "🌅 Post-menstrual",
+        "days": "Day 6 to 9"
+      },
+      "pre_ovulatory": {
+        "name": "☀️ Pre-ovulatory",
+        "days": "Day 10 to 11"
+      },
+      "ovulation": {
+        "name": "☀️ Ovulation",
+        "days": "Day 12 to 16"
+      },
+      "post_ovulatory": {
+        "name": "🌇 Post-ovulatory",
+        "days": "Day 17 to 22"
+      },
+      "pre_menstrual": {
+        "name": "🌙 Pre-menstrual",
+        "days": "Day 23 to 28"
+      }
     }
   },
   "confidence": {
     "title": "Confidence levels",
     "states": {
-      "unknown": { "label": "Unknown", "condition": "No events" },
-      "estimating": { "label": "Estimating", "condition": "Weak signals" },
-      "partial": { "label": "Partial", "condition": "1 confirmed cycle" },
-      "learning": { "label": "Learning", "condition": "2 confirmed cycles" },
-      "confident": { "label": "Reliable", "condition": "3+ confirmed cycles" }
+      "unknown": {
+        "label": "Unknown",
+        "condition": "No events"
+      },
+      "estimating": {
+        "label": "Estimating",
+        "condition": "Weak signals"
+      },
+      "partial": {
+        "label": "Partial",
+        "condition": "1 confirmed cycle"
+      },
+      "learning": {
+        "label": "Learning",
+        "condition": "2 confirmed cycles"
+      },
+      "confident": {
+        "label": "Reliable",
+        "condition": "3+ confirmed cycles"
+      }
     },
     "hint": "The more period starts you report, the more accurate predictions become. The app works best after 2-3 confirmed cycles."
   },
@@ -86,5 +119,9 @@
     "mood_weak": "Mood observations are weak signals. They refine confidence but don't anchor dates.",
     "irregular": "Irregular cycles reduce prediction confidence.",
     "improves": "Accuracy improves over time. Early predictions are approximate."
+  },
+  "sources": {
+    "title": "Sources",
+    "intro": "The landmarks of each phase are based on these books."
   }
 }

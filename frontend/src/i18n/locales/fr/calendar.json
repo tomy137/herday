@@ -60,5 +60,12 @@
       "season": "L'Automne",
       "desc": "Zone de turbulences (SPM). Patience et empathie."
     }
-  }
+  },
+  "legend_ovulation": "Ovulation (estimée)",
+  "prev_month": "Mois précédent",
+  "next_month": "Mois suivant",
+  "swipe_hint": "Balaie pour changer de mois",
+  "noted": "note",
+  "note_day": "Noter pour ce jour",
+  "edit_note_day": "Voir ou modifier la note"
 }

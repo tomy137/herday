@@ -29,21 +29,32 @@ export const ZONE_ICONS: Record<Zone, string> = {
   crepuscule: '🌇',
 };
 
-/** Full zone hue (ring segments, accents). */
+/**
+ * Colours are CSS custom properties (index.css) so they follow the theme
+ * (nuit / clair). Use them in `style` (or SVG `style={{ fill }}`), never as
+ * string prefixes for alpha — use `withAlpha()` for that.
+ */
+
+/** Zone hue (ring segments, legend swatches). */
 export const ZONE_HEX: Record<Zone, string> = {
-  nuit: '#DC3D5A',
-  aube: '#E5B30B',
-  jour: '#2DA87E',
-  crepuscule: '#4A6FB5',
+  nuit: 'var(--color-zone-nuit)',
+  aube: 'var(--color-zone-aube)',
+  jour: 'var(--color-zone-jour)',
+  crepuscule: 'var(--color-zone-crepuscule)',
 };
 
-/** Dark zone colour: text on soft fills, and the dial's centre disc (white text ≥ 4.5:1). */
+/** Readable zone accent: posture words, selected chips (with --color-on-accent text). */
 export const ZONE_INK_HEX: Record<Zone, string> = {
-  nuit: '#8E1F33',
-  aube: '#765600',
-  jour: '#1C6B50',
-  crepuscule: '#2B4475',
+  nuit: 'var(--color-zone-nuit-ink)',
+  aube: 'var(--color-zone-aube-ink)',
+  jour: 'var(--color-zone-jour-ink)',
+  crepuscule: 'var(--color-zone-crepuscule-ink)',
 };
+
+/** A theme colour at a given opacity (0–1), e.g. a faint divider in the phase hue. */
+export function withAlpha(color: string, alpha: number): string {
+  return `color-mix(in srgb, ${color} ${Math.round(alpha * 100)}%, transparent)`;
+}
 
 /**
  * Days left in the current zone (0 = last day), from the engine's phase_ends_in.
@@ -118,37 +129,28 @@ export const PHASE_ICONS: Record<Phase, string> = {
   pre_menstrual: ZONE_ICONS.nuit,
 };
 
-export const PHASE_HEX: Record<Phase, string> = {
-  menstruation: '#DC3D5A',
-  post_menstrual: '#E5B30B',
-  pre_ovulatory: '#8CCFB8',
-  ovulation: '#2DA87E',
-  post_ovulatory: '#4A6FB5',
-  pre_menstrual: '#EC94A4',
+const PHASE_CSS: Record<Phase, string> = {
+  menstruation: 'menstruation',
+  post_menstrual: 'post-menstrual',
+  pre_ovulatory: 'pre-ovulatory',
+  ovulation: 'ovulation',
+  post_ovulatory: 'post-ovulatory',
+  pre_menstrual: 'pre-menstrual',
 };
+
+const phaseVars = (suffix: string): Record<Phase, string> =>
+  Object.fromEntries(
+    (Object.keys(PHASE_CSS) as Phase[]).map((p) => [p, `var(--color-phase-${PHASE_CSS[p]}${suffix})`]),
+  ) as Record<Phase, string>;
+
+/** Phase hue (dots, bands, progress). */
+export const PHASE_HEX: Record<Phase, string> = phaseVars('');
 
 /**
  * Pale fill behind phase cards / calendar cells / hormone bands.
- * AA-checked against PHASE_INK_HEX (must mirror the CSS vars in index.css).
+ * AA-checked against PHASE_INK_HEX in both themes (values in index.css).
  */
-export const PHASE_SOFT_HEX: Record<Phase, string> = {
-  menstruation: '#F7D4DB',
-  post_menstrual: '#F9EEC9',
-  pre_ovulatory: '#EAF6F2',
-  ovulation: '#D1ECE3',
-  post_ovulatory: '#D7DFEF',
-  pre_menstrual: '#FCECEF',
-};
+export const PHASE_SOFT_HEX: Record<Phase, string> = phaseVars('-soft');
 
-/**
- * Readable dark text colour for a given phase, sits on PHASE_SOFT_HEX.
- * Each pair validated ≥ 4.5:1 contrast (WCAG AA for body text).
- */
-export const PHASE_INK_HEX: Record<Phase, string> = {
-  menstruation: ZONE_INK_HEX.nuit,
-  post_menstrual: ZONE_INK_HEX.aube,
-  pre_ovulatory: ZONE_INK_HEX.jour,
-  ovulation: ZONE_INK_HEX.jour,
-  post_ovulatory: ZONE_INK_HEX.crepuscule,
-  pre_menstrual: ZONE_INK_HEX.nuit,
-};
+/** Readable text colour for a given phase, sits on PHASE_SOFT_HEX (≥ 4.5:1). */
+export const PHASE_INK_HEX: Record<Phase, string> = phaseVars('-ink');

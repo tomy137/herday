@@ -61,22 +61,55 @@
     "formula": "Eisprungtag = Zykluslänge − 14",
     "example": "Beispiel: 28-Tage-Zyklus → Eisprung am Tag 14. 32-Tage-Zyklus → Eisprung am Tag 18.",
     "breakdown": {
-      "menstruation": { "name": "🌙 Menstruation", "days": "Tag 1 bis 5" },
-      "post_menstrual": { "name": "🌅 Postmenstruell", "days": "Tag 6 bis 9" },
-      "pre_ovulatory": { "name": "☀️ Präovulatorisch", "days": "Tag 10 bis 11" },
-      "ovulation": { "name": "☀️ Eisprung", "days": "Tag 12 bis 16" },
-      "post_ovulatory": { "name": "🌇 Postovulatorisch", "days": "Tag 17 bis 22" },
-      "pre_menstrual": { "name": "🌙 Prämenstruell", "days": "Tag 23 bis 28" }
+      "menstruation": {
+        "name": "🌙 Menstruation",
+        "days": "Tag 1 bis 5"
+      },
+      "post_menstrual": {
+        "name": "🌅 Postmenstruell",
+        "days": "Tag 6 bis 9"
+      },
+      "pre_ovulatory": {
+        "name": "☀️ Präovulatorisch",
+        "days": "Tag 10 bis 11"
+      },
+      "ovulation": {
+        "name": "☀️ Eisprung",
+        "days": "Tag 12 bis 16"
+      },
+      "post_ovulatory": {
+        "name": "🌇 Postovulatorisch",
+        "days": "Tag 17 bis 22"
+      },
+      "pre_menstrual": {
+        "name": "🌙 Prämenstruell",
+        "days": "Tag 23 bis 28"
+      }
     }
   },
   "confidence": {
     "title": "Vertrauensstufen",
     "states": {
-      "unknown": { "label": "Unbekannt", "condition": "Keine Ereignisse" },
-      "estimating": { "label": "Schätzung", "condition": "Schwache Signale" },
-      "partial": { "label": "Teilweise", "condition": "1 bestätigter Zyklus" },
-      "learning": { "label": "Lernend", "condition": "2 bestätigte Zyklen" },
-      "confident": { "label": "Zuverlässig", "condition": "3+ bestätigte Zyklen" }
+      "unknown": {
+        "label": "Unbekannt",
+        "condition": "Keine Ereignisse"
+      },
+      "estimating": {
+        "label": "Schätzung",
+        "condition": "Schwache Signale"
+      },
+      "partial": {
+        "label": "Teilweise",
+        "condition": "1 bestätigter Zyklus"
+      },
+      "learning": {
+        "label": "Lernend",
+        "condition": "2 bestätigte Zyklen"
+      },
+      "confident": {
+        "label": "Zuverlässig",
+        "condition": "3+ bestätigte Zyklen"
+      }
     },
     "hint": "Je mehr Periodenbeginne Sie melden, desto genauer werden die Vorhersagen. Die App funktioniert am besten nach 2-3 bestätigten Zyklen."
   },
@@ -86,5 +119,9 @@
     "mood_weak": "Stimmungsbeobachtungen sind schwache Signale. Sie verfeinern das Vertrauen, verankern aber keine Daten.",
     "irregular": "Unregelmäßige Zyklen verringern die Vorhersagegenauigkeit.",
     "improves": "Die Genauigkeit verbessert sich mit der Zeit. Frühe Vorhersagen sind ungefähr."
+  },
+  "sources": {
+    "title": "Quellen",
+    "intro": "Die Orientierungspunkte jeder Phase stützen sich auf diese Bücher."
   }
 }

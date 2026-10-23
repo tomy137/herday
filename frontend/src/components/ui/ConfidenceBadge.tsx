@@ -6,13 +6,15 @@ interface ConfidenceBadgeProps {
   systemState: string;
   /** Inline editorial variant (no boxed background). Default true. */
   inline?: boolean;
+  /** Pips only, the full label as accessible name — for tight headers. */
+  compact?: boolean;
 }
 
 /**
  * Confidence indicator: a caps label ("Confiance · élevée") + four pips.
  * Editorial inline styling by default; pass inline={false} for the boxed look.
  */
-export default function ConfidenceBadge({ confidence, systemState, inline = true }: ConfidenceBadgeProps) {
+export default function ConfidenceBadge({ confidence, systemState, inline = true, compact = false }: ConfidenceBadgeProps) {
   const { t } = useTranslation();
   const label = t(`confidence.${systemState}`);
   const filled = Math.max(0, Math.min(4, Math.round(confidence * 4)));
@@ -30,6 +32,16 @@ export default function ConfidenceBadge({ confidence, systemState, inline = true
       ))}
     </span>
   );
+
+  if (compact) {
+    return (
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-warm-300 px-2.5 py-1 hd-caps text-warm-500" title={label}>
+        <span className="sr-only">{label}</span>
+        {t('confidence.short')}
+        {pips}
+      </span>
+    );
+  }
 
   if (inline) {
     return (
