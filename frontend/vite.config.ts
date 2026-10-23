@@ -28,8 +28,8 @@ export default defineConfig({
         name: 'HerDay',
         short_name: 'HerDay',
         description: 'Calendrier de suivi du cycle pour mieux accompagner sa compagne',
-        theme_color: '#e11d48',
-        background_color: '#ffffff',
+        theme_color: '#0E1530',
+        background_color: '#0E1530',
         display: 'standalone',
         icons: [
           {
