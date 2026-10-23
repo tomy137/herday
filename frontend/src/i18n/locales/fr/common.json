@@ -38,7 +38,9 @@
     "prompt_title": "Ses règles ont commencé ?",
     "prompt_body": "Elles sont attendues bientôt. Un seul geste recale tout le calendrier.",
     "prompt_today": "Oui, aujourd’hui",
-    "prompt_other": "Un autre jour"
+    "prompt_other": "Un autre jour",
+    "early": "Règles en avance ? Le signaler",
+    "correct_start": "Corriger le début des règles"
   },
   "confidence": {
     "unknown": "Pas encore de données — signalez un premier événement",

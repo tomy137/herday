@@ -232,7 +232,7 @@ export default function Journal() {
       </div>
 
       <div
-        className="fixed bottom-0 left-0 right-0 flex flex-col gap-2 px-5 pb-7 pt-3"
+        className="safe-bottom fixed bottom-0 left-0 right-0 flex flex-col gap-2 px-5 pt-3"
         style={{ background: 'linear-gradient(to top, var(--color-warm-50) 75%, transparent)' }}
       >
         <div className="mx-auto flex w-full max-w-md items-start gap-2 text-[12px] leading-snug text-warm-500">

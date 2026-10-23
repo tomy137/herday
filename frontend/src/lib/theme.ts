@@ -5,6 +5,8 @@
  * switches the CSS custom properties defined in index.css.
  */
 import { useEffect, useState } from 'react';
+import { Capacitor } from '@capacitor/core';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 export type ThemePref = 'nuit' | 'clair' | 'auto';
 export type Theme = 'nuit' | 'clair';
@@ -36,6 +38,11 @@ function apply(pref: ThemePref) {
   document.documentElement.dataset.theme = theme;
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) meta.setAttribute('content', theme === 'nuit' ? '#0E1530' : '#FDFBF7');
+  // Native app: the page draws under the status bar, so its text must follow
+  // the theme (Style.Dark = light text, for dark backgrounds).
+  if (Capacitor.isNativePlatform()) {
+    StatusBar.setStyle({ style: theme === 'nuit' ? Style.Dark : Style.Light }).catch(() => {});
+  }
 }
 
 export function setThemePref(pref: ThemePref) {

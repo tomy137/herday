@@ -130,10 +130,23 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  background: var(--color-warm-50);
+}
+
 body {
   font-family: 'DM Sans', system-ui, sans-serif;
   background: var(--color-warm-50);
   color: var(--color-ink);
+}
+
+/* The native app draws under the notch and the home indicator (viewport-fit=cover,
+   contentInset never): keep content clear of them. No-op in a desktop browser. */
+#root {
+  padding-top: env(safe-area-inset-top);
+}
+.safe-bottom {
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
 }
 
 /* Phase ring animation */

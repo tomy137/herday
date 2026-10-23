@@ -26,7 +26,7 @@ export default function BottomSheet({ open, onClose, title, children }: BottomSh
           <div className="w-9 h-1 bg-warm-300 rounded-full mx-auto mb-4" />
           <h2 className="text-[17px] font-semibold text-ink tracking-tight">{title}</h2>
         </div>
-        <div className="px-5 pt-1 pb-8">
+        <div className="safe-bottom px-5 pt-1">
           {children}
         </div>
       </div>

@@ -38,7 +38,9 @@
     "prompt_title": "Has her period started?",
     "prompt_body": "It’s expected soon. One tap realigns the whole calendar.",
     "prompt_today": "Yes, today",
-    "prompt_other": "Another day"
+    "prompt_other": "Another day",
+    "early": "Period came early? Log it",
+    "correct_start": "Correct the period start"
   },
   "confidence": {
     "unknown": "No data yet — report a first event",

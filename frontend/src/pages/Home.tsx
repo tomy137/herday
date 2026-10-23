@@ -19,6 +19,9 @@ import { useAuth } from '../contexts/AuthContext';
 import { usePartner } from '../lib/partner';
 import { formatDate, parseDate, today, yesterday } from '../lib/date-utils';
 
+/** Spotlight the period prompt when it's expected within this many days (or late). */
+const PERIOD_DUE_DAYS = 2;
+
 const capitalize = (w: string) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
 const firstSentence = (text: string) => {
   const end = text.indexOf('. ');
@@ -232,23 +235,16 @@ export default function Home() {
   const zone = PHASE_ZONE[phase] ?? 'nuit';
   const accent = ZONE_INK_HEX[zone];
   const content = phaseContent(phase);
-  // The period button matters most when a period is due: give it the spotlight
-  // during the pre-menstrual phase (and while there is no data at all).
-  const periodSpotlight = phase === 'pre_menstrual';
+  // The period prompt matters when a period is due: spotlight it during the
+  // pre-menstrual phase, or when it's expected within 2 days (or late).
+  // Otherwise a quiet action at the bottom covers early periods / corrections.
+  const periodSpotlight =
+    phase === 'pre_menstrual' || (info.next_period_in != null && info.next_period_in <= PERIOD_DUE_DAYS);
+  const quietPeriodLabel =
+    phase === 'menstruation' ? tCommon('period.correct_start') : tCommon('period.early');
   const dateLabel = new Intl.DateTimeFormat(i18n.language, { weekday: 'long', day: 'numeric', month: 'long' })
     .format(new Date())
     .replace(/^\w/, (c) => c.toUpperCase());
-
-  const periodButton = (
-    <button
-      type="button"
-      onClick={() => setPeriodOpen(true)}
-      className="inline-flex min-h-[36px] items-center gap-1.5 rounded-full border border-warm-300 px-3 text-[12px] text-ink transition-colors hover:bg-warm-100"
-    >
-      <DropIcon color={ZONE_INK_HEX.nuit} />
-      {tCommon('period.declare')}
-    </button>
-  );
 
   return (
     <div>
@@ -297,10 +293,7 @@ export default function Home() {
           zoneEndsIn={zoneEndsIn(phase, info.phase_ends_in)}
         />
 
-        <div className="flex flex-wrap items-center justify-center gap-2.5">
-          <span className="text-[13px] text-warm-500">{content.short}</span>
-          {!periodSpotlight && periodButton}
-        </div>
+        <div className="text-center text-[13px] text-warm-500">{content.short}</div>
 
         <div className="rounded-[20px] bg-warm-100 px-4 py-4">
           <div className="hd-caps mb-1.5 text-warm-500">{tPhases('labels.she_needs_you_to_be', partner.vars)}</div>
@@ -348,6 +341,18 @@ export default function Home() {
         )}
 
         {echo && <EchoCard echo={echo} onSeeAll={() => navigate('/echoes')} />}
+
+        {!periodSpotlight && (
+          <button
+            type="button"
+            onClick={() => setPeriodOpen(true)}
+            className="flex min-h-[52px] items-center gap-3 rounded-[16px] border border-warm-300 px-4 text-left text-[14px] text-ink transition-colors hover:bg-warm-100 active:scale-[0.99]"
+          >
+            <DropIcon color={ZONE_INK_HEX.nuit} size={18} />
+            <span className="flex-1">{quietPeriodLabel}</span>
+            <span className="text-warm-500" aria-hidden="true">›</span>
+          </button>
+        )}
       </div>
       )}
 

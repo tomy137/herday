@@ -36,7 +36,7 @@ export default function AppShell() {
         </main>
         <nav
           aria-label={t('nav.label')}
-          className="fixed bottom-0 left-0 right-0 px-3 pb-6 pt-2 md:sticky md:bottom-auto"
+          className="safe-bottom fixed bottom-0 left-0 right-0 px-3 pt-2 md:sticky md:bottom-auto"
           style={{ background: 'linear-gradient(to top, var(--color-warm-50) 70%, transparent)' }}
         >
           <div className="mx-auto grid max-w-md grid-cols-5 items-center rounded-[26px] border border-warm-300 bg-warm-100/95 p-1.5 backdrop-blur-xl md:max-w-lg">

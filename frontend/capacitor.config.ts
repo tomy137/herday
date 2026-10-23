@@ -5,8 +5,8 @@ const config: CapacitorConfig = {
   appName: 'HerDay',
   webDir: 'dist',
   ios: {
-    contentInset: 'always',
-    backgroundColor: '#ffffff',
+    contentInset: 'never',
+    backgroundColor: '#0E1530',
   },
 };
 

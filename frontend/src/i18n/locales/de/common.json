@@ -38,7 +38,9 @@
     "prompt_title": "Hat ihre Periode begonnen?",
     "prompt_body": "Sie wird bald erwartet. Ein Tippen richtet den ganzen Kalender neu aus.",
     "prompt_today": "Ja, heute",
-    "prompt_other": "Ein anderer Tag"
+    "prompt_other": "Ein anderer Tag",
+    "early": "Periode früher gekommen? Eintragen",
+    "correct_start": "Periodenbeginn korrigieren"
   },
   "confidence": {
     "unknown": "Noch keine Daten — melden Sie ein erstes Ereignis",
