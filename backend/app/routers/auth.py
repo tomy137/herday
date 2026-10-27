@@ -9,7 +9,7 @@ from app.config import settings
 from app.core.security import create_access_token, create_refresh_token, decode_token
 from app.database import get_session
 from app.schemas.auth import MagicLinkRequest, RefreshRequest, TokenResponse, VerifyRequest
-from app.services.auth import generate_magic_link, verify_magic_link
+from app.services.auth import generate_magic_link, is_demo_email, verify_magic_link
 from app.services.email import send_magic_link_email
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
@@ -25,6 +25,8 @@ async def request_magic_link(
     session: AsyncSession = Depends(get_session),
 ):
     """Send a magic link to the given email address."""
+    if is_demo_email(body.email):
+        return {"detail": "auth.magic_link_sent"}
     token = await generate_magic_link(body.email, session)
     await send_magic_link_email(body.email, token)
     return {"detail": "auth.magic_link_sent"}

@@ -18,6 +18,11 @@ def _utcnow() -> datetime:
     return datetime.now(timezone.utc).replace(tzinfo=None)
 
 
+def is_demo_email(email: str) -> bool:
+    """True for the App Store review account (fixed code, no email)."""
+    return bool(settings.DEMO_CODE) and email.strip().lower() == settings.DEMO_EMAIL.lower()
+
+
 async def generate_magic_link(email: str, session: AsyncSession) -> str:
     """Generate a magic link token for the given email.
 
@@ -73,7 +78,16 @@ async def verify_magic_link(
     """Verify a magic link token and return (or create) the user.
 
     Marks the token as used. Creates the user account if it does not exist.
+    The demo account skips the token table and only checks DEMO_CODE.
     """
+    if is_demo_email(email):
+        if token != settings.DEMO_CODE:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="error.invalid_magic_link",
+            )
+        return await _get_or_create_user(settings.DEMO_EMAIL, session)
+
     statement = select(MagicLinkToken).where(
         MagicLinkToken.token == token,
         MagicLinkToken.email == email,
@@ -103,7 +117,11 @@ async def verify_magic_link(
     magic_link.used = True
     session.add(magic_link)
 
-    # Find or create user
+    return await _get_or_create_user(email, session)
+
+
+async def _get_or_create_user(email: str, session: AsyncSession) -> User:
+    """Find or create the user, committing any pending changes."""
     user_statement = select(User).where(User.email == email)
     user_result = await session.exec(user_statement)
     user = user_result.first()

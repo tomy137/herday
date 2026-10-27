@@ -22,6 +22,11 @@ class Settings(BaseSettings):
 
     MAGIC_LINK_EXPIRE_MINUTES: int = 15
 
+    # App Store review account: this email signs in with DEMO_CODE, no email sent.
+    # Empty DEMO_CODE disables it.
+    DEMO_EMAIL: str = "test@demo.fr"
+    DEMO_CODE: str = "123456"
+
     FRONTEND_URL: str = "http://localhost:5173"
     CORS_ORIGINS: list[str] = ["http://localhost:5173"]
     COOKIE_SECURE: bool = False  # Set True in production (HTTPS)
