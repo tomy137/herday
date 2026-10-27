@@ -11,6 +11,10 @@
 # la version marketing reste celle du projet (MARKETING_VERSION).
 set -euo pipefail
 
+# xcodebuild -exportArchive copie le .app avec le premier `rsync` du PATH : celui
+# de Homebrew (3.x) fait échouer l'empaquetage (« Copy failed »). Outils système d'abord.
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+
 cd "$(dirname "$0")/.."
 
 : "${TEAM_ID:?TEAM_ID requis (Team ID du compte Apple Developer payant)}"
