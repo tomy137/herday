@@ -25,8 +25,8 @@ export default defineConfig({
         navigateFallbackDenylist: [/^\/api\//],
       },
       manifest: {
-        name: 'HerDay',
-        short_name: 'HerDay',
+        name: 'HerDays',
+        short_name: 'HerDays',
         description: 'Calendrier de suivi du cycle pour mieux accompagner sa compagne',
         theme_color: '#0E1530',
         background_color: '#0E1530',

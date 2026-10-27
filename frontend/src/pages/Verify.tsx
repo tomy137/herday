@@ -38,7 +38,7 @@ export default function Verify() {
       <div className="w-full max-w-md text-center">
         <h1 className="text-4xl font-bold tracking-tight mb-8">
           <span className="bg-gradient-to-r from-[#DC3D5A] to-[#E8647D] bg-clip-text text-transparent">
-            HerDay
+            HerDays
           </span>
         </h1>
 

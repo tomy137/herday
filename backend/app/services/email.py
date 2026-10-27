@@ -26,13 +26,13 @@ async def send_magic_link_email(
     )
 
     subjects = {
-        "fr": f"Code HerDay : {token}",
-        "en": f"HerDay code: {token}",
+        "fr": f"Code HerDays : {token}",
+        "en": f"HerDays code: {token}",
     }
     bodies = {
         "fr": (
             f"Bonjour,\n\n"
-            f"Votre code de connexion HerDay :\n\n"
+            f"Votre code de connexion HerDays :\n\n"
             f"    {token}\n\n"
             f"Saisissez-le dans l'application pour vous connecter.\n\n"
             f"Ou cliquez sur ce lien si vous êtes sur navigateur :\n"
@@ -42,7 +42,7 @@ async def send_magic_link_email(
         ),
         "en": (
             f"Hello,\n\n"
-            f"Your HerDay login code:\n\n"
+            f"Your HerDays login code:\n\n"
             f"    {token}\n\n"
             f"Enter it in the app to sign in.\n\n"
             f"Or click this link if you're on a browser:\n"

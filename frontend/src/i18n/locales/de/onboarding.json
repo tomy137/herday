@@ -3,9 +3,9 @@
   "step1": {
     "eyebrow": "Willkommen",
     "title": "Dein Notizbuch. Nicht ihres.",
-    "body": "HerDay hilft dir, ihren Menstruationszyklus zu verstehen — wo sie steht, was das für sie bedeutet — und im richtigen Moment da zu sein. Sie bekommt nie eine Benachrichtigung und muss nie etwas eintragen.",
+    "body": "HerDays hilft dir, ihren Menstruationszyklus zu verstehen — wo sie steht, was das für sie bedeutet — und im richtigen Moment da zu sein. Sie bekommt nie eine Benachrichtigung und muss nie etwas eintragen.",
     "tagline": "Ihre Zyklen, deine mentale Last.",
-    "body2": "HerDay hilft dir, ein proaktiver statt reaktiver Partner zu werden: Hör auf zu fragen, fang an zu verstehen und zu handeln.",
+    "body2": "HerDays hilft dir, ein proaktiver statt reaktiver Partner zu werden: Hör auf zu fragen, fang an zu verstehen und zu handeln.",
     "email_label": "E-Mail",
     "email_placeholder": "du@beispiel.de",
     "email_hint": "Wir schicken dir einen magischen Link. Kein Passwort.",
@@ -14,7 +14,7 @@
   "step2": {
     "eyebrow": "Transparenzpakt",
     "title": "Du machst es, um ihr zu helfen, nicht hinter ihrem Rücken.",
-    "body1": "HerDay ist dein Notizbuch. Es schickt deiner Partnerin nichts. Es erscheint in keiner ihrer Benachrichtigungen.",
+    "body1": "HerDays ist dein Notizbuch. Es schickt deiner Partnerin nichts. Es erscheint in keiner ihrer Benachrichtigungen.",
     "body2": "Aber wir empfehlen dir sehr dringend, mit ihr darüber zu sprechen und es ihr sogar zu zeigen. Warum: Ein im Stillen genutztes Beobachtungswerkzeug ersetzt am Ende das Gespräch, statt es zu nähren. Das ist das Gegenteil von dem, was wir hier wollen.",
     "choice_soon": "Ich werde bald mit ihr darüber sprechen",
     "choice_already": "Ich habe bereits mit ihr darüber gesprochen",
@@ -110,7 +110,7 @@
     "agenda_title": "In deinem Kalender",
     "agenda_body": "Abonniere deinen Kalender (Google, Apple, Outlook) in den Einstellungen: zwei neutrale Marker, „Phase A“ und „Phase B“.",
     "widget_title": "Das Widget",
-    "widget_body": "Das Zifferblatt auf deinem Startbildschirm: lange drücken, „+“, dann HerDay.",
+    "widget_body": "Das Zifferblatt auf deinem Startbildschirm: lange drücken, „+“, dann HerDays.",
     "later": "Das alles kannst du auch später in den Einstellungen machen."
   }
 }

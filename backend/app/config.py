@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     CORS_ORIGINS: list[str] = ["http://localhost:5173"]
     COOKIE_SECURE: bool = False  # Set True in production (HTTPS)
 
-    # Public origin used to build the calendar feed URL (e.g. https://herday.app).
+    # Public origin used to build the calendar feed URL (e.g. https://herdays.app).
     # Empty falls back to request.base_url — set this in production if the app
     # runs behind a reverse proxy that doesn't forward the public host.
     PUBLIC_BASE_URL: str = ""

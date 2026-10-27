@@ -236,10 +236,10 @@ def render_ics(
     lines: list[str] = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        f"PRODID:-//HerDay//Calendar Feed//{locale.upper()}",
+        f"PRODID:-//HerDays//Calendar Feed//{locale.upper()}",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
-        "X-WR-CALNAME:HerDay",
+        "X-WR-CALNAME:HerDays",
         "X-PUBLISHED-TTL:PT12H",
         "REFRESH-INTERVAL;VALUE=DURATION:PT12H",
     ]

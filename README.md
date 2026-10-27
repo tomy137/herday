@@ -1,11 +1,11 @@
-# HerDay
+# HerDays
 
 Calendrier de suivi du cycle menstruel destiné aux hommes qui souhaitent mieux comprendre et accompagner leur compagne au quotidien.
 
-HerDay calcule les phases du cycle (règles, phase folliculaire, ovulation, phase lutéale) à partir des dates de début de règles saisies, et propose des conseils adaptés à chaque phase.
+HerDays calcule les phases du cycle (règles, phase folliculaire, ovulation, phase lutéale) à partir des dates de début de règles saisies, et propose des conseils adaptés à chaque phase.
 
 <p align="center">
-  <img src="docs/screenshot-dashboard.png" alt="HerDay — Dashboard" width="300" />
+  <img src="docs/screenshot-dashboard.png" alt="HerDays — Dashboard" width="300" />
 </p>
 
 ## Stack technique
@@ -62,7 +62,7 @@ Copier `.env.example` et renseigner les valeurs :
 | `SMTP_PORT` | Port SMTP | `587` |
 | `SMTP_USER` | Utilisateur SMTP | `you@gmail.com` |
 | `SMTP_PASSWORD` | Mot de passe SMTP | `app-password` |
-| `SMTP_FROM` | Adresse d'expédition | `noreply@herday.app` |
+| `SMTP_FROM` | Adresse d'expédition | `noreply@herdays.app` |
 | `FRONTEND_URL` | URL du frontend | `http://localhost:5173` |
 | `CORS_ORIGINS` | Origines CORS autorisées | `http://localhost:5173` |
 

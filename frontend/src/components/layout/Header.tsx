@@ -19,7 +19,7 @@ export default function Header({ rightLabel }: HeaderProps) {
   return (
     <header className="flex items-center justify-between px-[22px] pb-3 pt-4">
       <div className="text-[19px] font-semibold tracking-tight text-ink">
-        HerDay<sup className="hd-meta ml-1 align-super text-warm-500">{APP_VERSION}</sup>
+        HerDays<sup className="hd-meta ml-1 align-super text-warm-500">{APP_VERSION}</sup>
       </div>
       <span className="hd-meta text-warm-500">{right}</span>
     </header>

@@ -443,7 +443,7 @@ struct FlatCycleChart: View {
 private struct OpenAppHint: View {
     var body: some View {
         VStack(spacing: 2) {
-            Text("Ouvre HerDay").font(.headline)
+            Text("Ouvre HerDays").font(.headline)
             Text("pour activer le suivi").font(.caption2).foregroundColor(.secondary)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -517,7 +517,7 @@ private struct WidgetHeader: View {
         HStack {
             HStack(spacing: 5) {
                 RoundedRectangle(cornerRadius: 2).fill(style.primary).frame(width: 7, height: 7)
-                Text("HERDAY").font(.system(size: 9, weight: .medium)).tracking(0.6).foregroundColor(.secondary)
+                Text("HERDAYS").font(.system(size: 9, weight: .medium)).tracking(0.6).foregroundColor(.secondary)
             }
             Spacer()
             Text("J\(day)").font(.system(size: 9, weight: .medium)).foregroundColor(.secondary)
@@ -639,7 +639,7 @@ struct HerDayPhaseWidget: Widget {
         StaticConfiguration(kind: kind, provider: PhaseProvider()) { entry in
             HerDayWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Cycle HerDay")
+        .configurationDisplayName("Cycle HerDays")
         .description("Où on en est dans le cycle : Nuit, Aube, Jour ou Crépuscule.")
         .supportedFamilies([
             .systemSmall, .systemMedium, .systemLarge,

@@ -3,9 +3,9 @@
   "step1": {
     "eyebrow": "Bienvenue",
     "title": "Ton carnet. Pas le sien.",
-    "body": "HerDay t’aide à comprendre son cycle menstruel — où elle en est, ce que ça change pour elle — et à être là au bon moment. Aucune notification, aucune saisie ne lui sera jamais demandée.",
+    "body": "HerDays t’aide à comprendre son cycle menstruel — où elle en est, ce que ça change pour elle — et à être là au bon moment. Aucune notification, aucune saisie ne lui sera jamais demandée.",
     "tagline": "Ses cycles, ta charge mentale.",
-    "body2": "HerDay t'aide à devenir un partenaire proactif, pas réactif : arrête de demander, commence à comprendre et à agir.",
+    "body2": "HerDays t'aide à devenir un partenaire proactif, pas réactif : arrête de demander, commence à comprendre et à agir.",
     "email_label": "Email",
     "email_placeholder": "toi@exemple.fr",
     "email_hint": "On t'envoie un lien magique. Pas de mot de passe.",
@@ -14,7 +14,7 @@
   "step2": {
     "eyebrow": "Pacte de transparence",
     "title": "Tu le fais pour l'aider, tu ne le fais pas dans son dos.",
-    "body1": "HerDay est ton carnet. Il n'envoie rien à ta compagne. Il ne lui apparaît dans aucune notification.",
+    "body1": "HerDays est ton carnet. Il n'envoie rien à ta compagne. Il ne lui apparaît dans aucune notification.",
     "body2": "Mais on te recommande très fortement de lui en parler, et même de lui montrer. Pourquoi : un outil d'observation utilisé en silence finit par remplacer la conversation au lieu de la nourrir. C'est l'inverse de ce qu'on veut ici.",
     "choice_soon": "Je lui en parlerai bientôt",
     "choice_already": "Je lui en ai déjà parlé",
@@ -110,7 +110,7 @@
     "agenda_title": "Dans ton agenda",
     "agenda_body": "Abonne ton agenda (Google, Apple, Outlook) depuis les réglages : deux repères neutres, « Période A » et « Période B ».",
     "widget_title": "Le widget",
-    "widget_body": "Le cadran sur ton écran d’accueil : appui long, « + », puis HerDay.",
+    "widget_body": "Le cadran sur ton écran d’accueil : appui long, « + », puis HerDays.",
     "later": "Tu peux faire tout ça plus tard, dans les réglages."
   }
 }

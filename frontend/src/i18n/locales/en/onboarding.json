@@ -3,9 +3,9 @@
   "step1": {
     "eyebrow": "Welcome",
     "title": "Your notebook. Not hers.",
-    "body": "HerDay helps you understand her menstrual cycle — where she is, what it changes for her — and be there at the right moment. She’ll never get a notification or be asked to log anything.",
+    "body": "HerDays helps you understand her menstrual cycle — where she is, what it changes for her — and be there at the right moment. She’ll never get a notification or be asked to log anything.",
     "tagline": "Her cycles, your mental load.",
-    "body2": "HerDay helps you become a proactive partner, not a reactive one: stop asking, start understanding and acting.",
+    "body2": "HerDays helps you become a proactive partner, not a reactive one: stop asking, start understanding and acting.",
     "email_label": "Email",
     "email_placeholder": "you@example.com",
     "email_hint": "We send you a magic link. No password.",
@@ -14,7 +14,7 @@
   "step2": {
     "eyebrow": "Transparency pact",
     "title": "You do it to help her, not behind her back.",
-    "body1": "HerDay is your notebook. It sends nothing to your partner. It appears in no notification on her end.",
+    "body1": "HerDays is your notebook. It sends nothing to your partner. It appears in no notification on her end.",
     "body2": "But we strongly recommend you tell her about it, and even show it to her. Why: an observation tool used in silence ends up replacing the conversation instead of nourishing it. That's the opposite of what we want here.",
     "choice_soon": "I'll tell her about it soon",
     "choice_already": "I've already told her about it",
@@ -110,7 +110,7 @@
     "agenda_title": "In your calendar",
     "agenda_body": "Subscribe your calendar (Google, Apple, Outlook) from the settings: two neutral markers, “Period A” and “Period B”.",
     "widget_title": "The widget",
-    "widget_body": "The dial on your home screen: long press, “+”, then HerDay.",
+    "widget_body": "The dial on your home screen: long press, “+”, then HerDays.",
     "later": "You can do all this later, in the settings."
   }
 }

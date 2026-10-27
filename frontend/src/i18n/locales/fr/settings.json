@@ -43,7 +43,7 @@
     "philosophy_hint": "Le cycle, les 4 moments, la confiance",
     "data": "Tes données",
     "data_hint": "Où elles sont, ce qui est stocké",
-    "data_body": "Tes données (dates de règles, notes, réglages) sont stockées sur le serveur de HerDay. Elles ne sont ni revendues ni partagées, et aucune analyse automatique n’est faite sur tes notes. Tu peux tout supprimer à tout moment, ci-dessous."
+    "data_body": "Tes données (dates de règles, notes, réglages) sont stockées sur le serveur de HerDays. Elles ne sont ni revendues ni partagées, et aucune analyse automatique n’est faite sur tes notes. Tu peux tout supprimer à tout moment, ci-dessous."
   },
   "language": {
     "label": "Langue",

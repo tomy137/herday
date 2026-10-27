@@ -57,7 +57,7 @@ export default function Login() {
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold tracking-tight">
             <span className="bg-gradient-to-r from-[#DC3D5A] to-[#E8647D] bg-clip-text text-transparent">
-              HerDay
+              HerDays
             </span>
           </h1>
           <h2 className="mt-5 text-xl font-semibold text-ink tracking-tight">{t('login.title')}</h2>
