@@ -1,6 +1,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Authentication routes: magic link flow + JWT management."""
 
+import logging
+
+import aiosmtplib
 from fastapi import APIRouter, Cookie, Depends, HTTPException, Response, status
 from jose import JWTError
 from sqlmodel.ext.asyncio.session import AsyncSession
@@ -11,6 +14,8 @@ from app.database import get_session
 from app.schemas.auth import MagicLinkRequest, RefreshRequest, TokenResponse, VerifyRequest
 from app.services.auth import generate_magic_link, is_demo_email, verify_magic_link
 from app.services.email import send_magic_link_email
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
@@ -28,7 +33,20 @@ async def request_magic_link(
     if is_demo_email(body.email):
         return {"detail": "auth.magic_link_sent"}
     token = await generate_magic_link(body.email, session)
-    await send_magic_link_email(body.email, token)
+    try:
+        await send_magic_link_email(body.email, token)
+    except aiosmtplib.SMTPRecipientsRefused:
+        # Address rejected by the mail server (unknown domain, typo…).
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="error.email_rejected",
+        )
+    except (aiosmtplib.SMTPException, OSError):
+        logger.exception("Magic link email could not be sent")
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="error.email_send_failed",
+        )
     return {"detail": "auth.magic_link_sent"}
 
 

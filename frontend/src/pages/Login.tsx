@@ -26,6 +26,10 @@ export default function Login() {
     } catch (err) {
       if (err instanceof ApiError && err.status === 429) {
         setError(t('login.rate_limited'));
+      } else if (err instanceof ApiError && err.status === 400) {
+        setError(t('login.email_rejected'));
+      } else if (err instanceof ApiError && err.status === 503) {
+        setError(t('login.email_unavailable'));
       } else {
         setError(t('common:error'));
       }
