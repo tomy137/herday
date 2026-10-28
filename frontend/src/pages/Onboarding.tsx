@@ -130,8 +130,10 @@ export default function Onboarding() {
     return (
       <OnbStep index={0} total={TOTAL} eyebrow={t('step1.eyebrow')} title={t('step1.title')} cta={t('step1.cta')} onPrimary={next}>
         <p className={bodyClass}>{t('step1.body')}</p>
+        <p className={`mt-3 ${bodyClass}`}>{t('step1.body2')}</p>
         <p className="mt-5 text-[15px] font-semibold leading-relaxed text-ink">{t('step1.tagline')}</p>
-        <p className={`mt-1.5 ${bodyClass}`}>{t('step1.body2')}</p>
+        <p className={`mt-1.5 ${bodyClass}`}>{t('step1.body3')}</p>
+        <p className="mt-5 text-[13.5px] italic leading-relaxed text-warm-500">{t('step1.aside')}</p>
       </OnbStep>
     );
   }

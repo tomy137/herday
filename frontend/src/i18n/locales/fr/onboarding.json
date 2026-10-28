@@ -2,13 +2,12 @@
   "progress": "{{current}} / {{total}}",
   "step1": {
     "eyebrow": "Bienvenue",
-    "title": "Ton carnet. Pas le sien.",
-    "body": "HerDays t’aide à comprendre son cycle menstruel — où elle en est, ce que ça change pour elle — et à être là au bon moment. Aucune notification, aucune saisie ne lui sera jamais demandée.",
+    "title": "Soyons honnêtes.",
+    "body": "Le cycle de ta compagne, tu en sais quoi ? Une semaine par mois, ça fait mal… et c’est à peu près tout. Nous aussi, on en était là.",
+    "body2": "Pourtant, c’est hyper documenté : des semaines difficiles, d’autres où elle a une pêche d’enfer, et un avant-règles souvent plus dur que les règles elles-mêmes. Ça rythme sa vie, donc la vôtre.",
     "tagline": "Ses cycles, ta charge mentale.",
-    "body2": "HerDays t'aide à devenir un partenaire proactif, pas réactif : arrête de demander, commence à comprendre et à agir.",
-    "email_label": "Email",
-    "email_placeholder": "toi@exemple.fr",
-    "email_hint": "On t'envoie un lien magique. Pas de mot de passe.",
+    "body3": "Les apps de suivi existent déjà, mais c’est elle qui fait tout et toi tu regardes. Ici, c’est toi qui prends ta part : tu observes, tu notes quand ça te paraît utile, et l’app te rappelle ce qui a marché la dernière fois. Rien ne lui est demandé.",
+    "aside": "Les femmes à qui on en parle trouvent l’idée géniale. Les mecs disent « mouais ». Raison de plus.",
     "cta": "Commencer"
   },
   "step2": {
@@ -32,7 +31,7 @@
     "eyebrow": "La boucle d'apprentissage",
     "title": "Tu observes, l'app s'en souvient.",
     "obs_label": "Tes observations",
-    "obs_body": "Chaque jour, en quelques secondes : une pastille, ce qui a aidé, ce qui n’a pas aidé. Tes notes vont dans ton carnet — personne d’autre ne le lit.",
+    "obs_body": "Quand tu remarques quelque chose, en quelques secondes : une pastille, ce qui a aidé, ce qui n’a pas aidé. Aucune obligation : une note de temps en temps suffit. Tes notes vont dans ton carnet — personne d’autre ne le lit.",
     "echo_label": "Les échos",
     "echo_body": "Au retour d’un même moment du cycle, tes notes reviennent sous forme d’échos : répéter ce qui marche, éviter ce qui ne marche pas.",
     "cta": "Continuer"
@@ -108,7 +107,7 @@
     "eyebrow": "Dernière étape",
     "title": "Garde un œil dessus, en toute discrétion.",
     "agenda_title": "Dans ton agenda",
-    "agenda_body": "Abonne ton agenda (Google, Apple, Outlook) depuis les réglages : deux repères neutres, « Période A » et « Période B ».",
+    "agenda_body": "Abonne ton agenda (Google, Apple, Outlook) depuis les réglages : deux repères neutres, « Période A » et « Période B ». Pratique pour placer un week-end au bon moment, ou savoir quand elle aura besoin de plus de soutien.",
     "widget_title": "Le widget",
     "widget_body": "Le cadran sur ton écran d’accueil : appui long, « + », puis HerDays.",
     "later": "Tu peux faire tout ça plus tard, dans les réglages."

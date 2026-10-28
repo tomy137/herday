@@ -2,13 +2,12 @@
   "progress": "{{current}} / {{total}}",
   "step1": {
     "eyebrow": "Willkommen",
-    "title": "Dein Notizbuch. Nicht ihres.",
-    "body": "HerDays hilft dir, ihren Menstruationszyklus zu verstehen — wo sie steht, was das für sie bedeutet — und im richtigen Moment da zu sein. Sie bekommt nie eine Benachrichtigung und muss nie etwas eintragen.",
+    "title": "Mal ehrlich.",
+    "body": "Was weißt du eigentlich über den Zyklus deiner Partnerin? Eine Woche im Monat tut es weh … und das war’s. So ging es uns auch.",
+    "body2": "Dabei ist alles gut erforscht: schwierige Wochen, Wochen voller Energie und eine Zeit vor der Periode, die oft härter ist als die Periode selbst. Das prägt ihr Leben – und damit eures.",
     "tagline": "Ihre Zyklen, deine mentale Last.",
-    "body2": "HerDays hilft dir, ein proaktiver statt reaktiver Partner zu werden: Hör auf zu fragen, fang an zu verstehen und zu handeln.",
-    "email_label": "E-Mail",
-    "email_placeholder": "du@beispiel.de",
-    "email_hint": "Wir schicken dir einen magischen Link. Kein Passwort.",
+    "body3": "Zyklus-Apps gibt es schon, aber sie macht alles und du schaust zu. Hier übernimmst du deinen Teil: Du beobachtest, notierst, wenn es dir sinnvoll erscheint, und die App erinnert dich, was beim letzten Mal geholfen hat. Von ihr wird nichts verlangt.",
+    "aside": "Frauen, denen wir davon erzählen, finden die Idee großartig. Männer sagen „naja“. Ein Grund mehr.",
     "cta": "Loslegen"
   },
   "step2": {
@@ -32,7 +31,7 @@
     "eyebrow": "Die Lernschleife",
     "title": "Du beobachtest, die App erinnert sich.",
     "obs_label": "Deine Beobachtungen",
-    "obs_body": "Jeden Tag, in wenigen Sekunden: ein Punkt, was geholfen hat, was nicht. Deine Notizen landen in deinem Tagebuch — niemand sonst liest es.",
+    "obs_body": "Wenn dir etwas auffällt, in wenigen Sekunden: ein Punkt, was geholfen hat, was nicht. Keine Pflicht: Ab und zu eine Notiz reicht. Deine Notizen landen in deinem Tagebuch — niemand sonst liest es.",
     "echo_label": "Die Echos",
     "echo_body": "Kommt derselbe Moment des Zyklus wieder, kehren deine Notizen als Echos zurück: wiederholen, was klappt, vermeiden, was nicht klappt.",
     "cta": "Weiter"
@@ -108,7 +107,7 @@
     "eyebrow": "Letzter Schritt",
     "title": "Behalte es im Blick, ganz diskret.",
     "agenda_title": "In deinem Kalender",
-    "agenda_body": "Abonniere deinen Kalender (Google, Apple, Outlook) in den Einstellungen: zwei neutrale Marker, „Phase A“ und „Phase B“.",
+    "agenda_body": "Abonniere deinen Kalender (Google, Apple, Outlook) in den Einstellungen: zwei neutrale Marker, „Phase A“ und „Phase B“. Praktisch, um ein Wochenende zum richtigen Zeitpunkt zu planen oder zu wissen, wann sie mehr Unterstützung braucht.",
     "widget_title": "Das Widget",
     "widget_body": "Das Zifferblatt auf deinem Startbildschirm: lange drücken, „+“, dann HerDays.",
     "later": "Das alles kannst du auch später in den Einstellungen machen."

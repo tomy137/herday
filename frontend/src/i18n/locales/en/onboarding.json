@@ -2,13 +2,12 @@
   "progress": "{{current}} / {{total}}",
   "step1": {
     "eyebrow": "Welcome",
-    "title": "Your notebook. Not hers.",
-    "body": "HerDays helps you understand her menstrual cycle — where she is, what it changes for her — and be there at the right moment. She’ll never get a notification or be asked to log anything.",
+    "title": "Let’s be honest.",
+    "body": "Your partner’s cycle — what do you actually know? One week a month, it hurts… and that’s about it. We were there too.",
+    "body2": "Yet it’s thoroughly documented: tough weeks, weeks where she’s full of energy, and a pre-period stretch that’s often harder than the period itself. It shapes her life, so yours too.",
     "tagline": "Her cycles, your mental load.",
-    "body2": "HerDays helps you become a proactive partner, not a reactive one: stop asking, start understanding and acting.",
-    "email_label": "Email",
-    "email_placeholder": "you@example.com",
-    "email_hint": "We send you a magic link. No password.",
+    "body3": "Tracking apps already exist, but she does all the work and you just watch. Here, you do your share: you observe, jot things down when it feels useful, and the app reminds you what worked last time. Nothing is asked of her.",
+    "aside": "Women we tell about it love the idea. Guys say “meh”. All the more reason.",
     "cta": "Get started"
   },
   "step2": {
@@ -32,7 +31,7 @@
     "eyebrow": "The learning loop",
     "title": "You observe, the app remembers.",
     "obs_label": "Your observations",
-    "obs_body": "Every day, in a few seconds: a pill, what helped, what didn’t. Your notes go into your journal — nobody else reads it.",
+    "obs_body": "Whenever you notice something, in a few seconds: a pill, what helped, what didn’t. No obligation: a note now and then is enough. Your notes go into your journal — nobody else reads it.",
     "echo_label": "The echoes",
     "echo_body": "When the same moment of the cycle comes back, your notes return as echoes: repeat what works, avoid what doesn’t.",
     "cta": "Continue"
@@ -108,7 +107,7 @@
     "eyebrow": "Last step",
     "title": "Keep an eye on it, discreetly.",
     "agenda_title": "In your calendar",
-    "agenda_body": "Subscribe your calendar (Google, Apple, Outlook) from the settings: two neutral markers, “Period A” and “Period B”.",
+    "agenda_body": "Subscribe your calendar (Google, Apple, Outlook) from the settings: two neutral markers, “Period A” and “Period B”. Handy to plan a weekend at the right time, or to know when she’ll need more support.",
     "widget_title": "The widget",
     "widget_body": "The dial on your home screen: long press, “+”, then HerDays.",
     "later": "You can do all this later, in the settings."
