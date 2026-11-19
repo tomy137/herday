@@ -149,10 +149,10 @@ export default function Welcome() {
               {done.platform === 'ios' && done.links.testflight_url && (
                 <>
                   <p className={`mt-2 ${stepsClass}`}>{t('form.done_ios_link')}</p>
-                  <p className={`mt-3 ${stepsClass}`}>{t('ios.steps_link')}</p>
                   <a href={done.links.testflight_url} className={`${buttonClass} mt-4`} target="_blank" rel="noopener noreferrer">
                     {t('ios.cta')}
                   </a>
+                  <p className={`mt-4 ${stepsClass}`}>{t('ios.steps_link')}</p>
                 </>
               )}
               {done.platform === 'ios' && !done.links.testflight_url && (

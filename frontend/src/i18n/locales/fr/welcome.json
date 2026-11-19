@@ -11,7 +11,7 @@
   },
   "ios": {
     "title": "iPhone",
-    "steps_link": "1. Installe l’app TestFlight depuis l’App Store.\n2. Ouvre le lien d’invitation ci-dessous, puis installe HerDays.",
+    "steps_link": "1. Touche le bouton. Si TestFlight n’est pas encore installé, Apple te propose de l’installer depuis l’App Store.\n2. Reviens sur cette page et touche à nouveau le bouton, puis « Accepter » et « Installer ».\n3. Ouvre HerDays et saisis ton e-mail : ton code de connexion arrive alors par e-mail.\nPas de code à saisir dans TestFlight : s’il t’en demande un, annule et repasse par le bouton.",
     "cta": "Rejoindre la bêta iPhone"
   },
   "android": {
