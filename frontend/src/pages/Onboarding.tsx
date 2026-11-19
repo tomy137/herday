@@ -13,6 +13,7 @@ import OnbStep from '../components/onboarding/OnbStep';
 import PactChoice from '../components/onboarding/PactChoice';
 import CycleDial from '../components/home/CycleDial';
 import { zoneBounds } from '../lib/zones';
+import { openDatePicker } from '../lib/date-input';
 
 const TOTAL = 7;
 const LEVELS: ExpertiseLevel[] = ['decouverte', 'bases', 'expert'];
@@ -269,7 +270,7 @@ export default function Onboarding() {
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
             <label htmlFor="onb-date" className="text-[13px] font-medium text-ink-soft">{t('step4.date_label')}</label>
-            <input id="onb-date" type="date" max={formatDate(today())} value={date} disabled={unknownDate} onChange={(e) => setDate(e.target.value)} className={`${inputClass} disabled:opacity-40`} />
+            <input id="onb-date" type="date" max={formatDate(today())} value={date} disabled={unknownDate} onChange={(e) => setDate(e.target.value)} onClick={openDatePicker} className={`${inputClass} disabled:opacity-40`} />
             <label className="flex min-h-[44px] items-center gap-2.5 text-[14px] text-ink-soft">
               <input type="checkbox" checked={unknownDate} onChange={(e) => setUnknownDate(e.target.checked)} className="h-5 w-5" style={{ accentColor: 'var(--color-ink)' }} />
               {t('step4.unknown')}

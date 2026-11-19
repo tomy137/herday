@@ -128,6 +128,7 @@ export default function CalendarFeedSettings() {
             <button
               type="button"
               onClick={() => setShowHelp((v) => !v)}
+              aria-expanded={showHelp}
               className="text-left text-[12.5px] font-medium text-warm-500 underline"
             >
               {t('calendar_feed.google_help_toggle')}

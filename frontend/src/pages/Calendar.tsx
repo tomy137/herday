@@ -104,13 +104,14 @@ export default function Calendar() {
     .format(parseDate(selectedDay))
     .replace(/^\w/, (c) => c.toUpperCase());
 
+  // Cycle order, read like text (left → right, then down) in the 2-column grid.
   const legend: { phase: Phase; symbol: SymbolKey | null; label: string }[] = [
     { phase: 'menstruation', symbol: 'drop', label: tPhases('menstruation.short') },
-    { phase: 'pre_menstrual', symbol: 'wave', label: tPhases('pre_menstrual.short') },
     { phase: 'post_menstrual', symbol: null, label: tPhases('post_menstrual.short') },
-    { phase: 'ovulation', symbol: 'sun', label: t('legend_ovulation') },
     { phase: 'pre_ovulatory', symbol: null, label: tPhases('pre_ovulatory.short') },
+    { phase: 'ovulation', symbol: 'sun', label: t('legend_ovulation') },
     { phase: 'post_ovulatory', symbol: null, label: tPhases('post_ovulatory.short') },
+    { phase: 'pre_menstrual', symbol: 'wave', label: tPhases('pre_menstrual.short') },
   ];
 
   return (

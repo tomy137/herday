@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 @import "tailwindcss";
 
-@theme {
+/* `static`: emit every token, used by a utility class or not. Many colours are only read
+   through var() in inline styles (phase/zone palette, curves); without it Tailwind drops
+   their light-theme values from the build and the light calendar loses its colours. */
+@theme static {
   --font-sans: 'DM Sans', system-ui, sans-serif;
 
   --color-warm-50: #FDFBF7;

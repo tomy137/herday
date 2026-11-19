@@ -31,7 +31,12 @@ export default function AppShell() {
   return (
     <div className="min-h-screen bg-warm-50 md:flex md:justify-center">
       <div className="mx-auto flex min-h-screen max-w-md flex-col md:max-w-lg md:overflow-hidden md:border-x md:border-warm-300/60 md:bg-warm-50">
-        <main className="flex-1 overflow-y-auto pb-28">
+        {/* Room for the fixed tab bar, which grows with the bottom inset (gesture bar, Chrome's
+            bottom address bar): a flat pb-28 left the last card under it on Android web. */}
+        <main
+          className="flex-1 overflow-y-auto"
+          style={{ paddingBottom: 'calc(8.5rem + var(--safe-area-inset-bottom, env(safe-area-inset-bottom)))' }}
+        >
           <Outlet />
         </main>
         <nav

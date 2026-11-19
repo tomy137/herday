@@ -19,6 +19,7 @@ import { useToast } from '../components/ui/Toast';
 import { useAuth } from '../contexts/AuthContext';
 import { usePartner } from '../lib/partner';
 import { formatDate, parseDate, today, yesterday } from '../lib/date-utils';
+import { openDatePicker } from '../lib/date-input';
 
 /** Spotlight the period prompt when it's expected within this many days (or late). */
 const PERIOD_DUE_DAYS = 2;
@@ -418,6 +419,7 @@ export default function Home() {
                 value={customDate}
                 max={formatDate(today())}
                 onChange={(e) => setCustomDate(e.target.value)}
+                onClick={openDatePicker}
                 className="flex-1 rounded-[10px] border-[0.5px] border-warm-300 bg-warm-50 px-3.5 py-3 text-[14px] text-ink outline-none transition-colors focus:border-ink"
               />
               <button

@@ -9,6 +9,7 @@ import { PASTILLE_IDS, PASTILLE_GLYPHS } from '../constants/phase-meta';
 import type { PastilleId } from '../constants/phase-meta';
 import Pastille from '../components/ui/Pastille';
 import { useToast } from '../components/ui/Toast';
+import { openDatePicker } from '../lib/date-input';
 
 const EMPTY: JournalDraft = { pastilles: [], free_text: null, helpful: null, not_helpful: null };
 
@@ -139,6 +140,7 @@ export default function Journal() {
                 value={formatDate(selectedDate)}
                 max={formatDate(today())}
                 onChange={(e) => e.target.value && setSelectedDate(parseDate(e.target.value))}
+                onClick={openDatePicker}
                 className="absolute inset-0 cursor-pointer opacity-0"
                 aria-label={t('note.choose_date')}
               />
