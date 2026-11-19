@@ -12,6 +12,7 @@ import { syncPhaseToWidget } from '../native/widgetBridge';
 import Header from '../components/layout/Header';
 import EchoCard from '../components/home/EchoCard';
 import CycleDial from '../components/home/CycleDial';
+import FlatCycleChart from '../components/home/FlatCycleChart';
 import BottomSheet from '../components/ui/BottomSheet';
 import ConfidenceBadge from '../components/ui/ConfidenceBadge';
 import { useToast } from '../components/ui/Toast';
@@ -237,6 +238,8 @@ export default function Home() {
   const accent = ZONE_INK_HEX[zone];
   const content = phaseContent(phase);
   const medicalName = tPhases(`medical.${PHASE_PARENT[phase]}`);
+  const expert = user?.expertise_level === 'expert';
+  const zoneLeft = zoneEndsIn(phase, info.phase_ends_in);
   // The period prompt matters when a period is due: spotlight it during the
   // pre-menstrual phase, or when it's expected within 2 days (or late).
   // Otherwise a quiet action at the bottom covers early periods / corrections.
@@ -292,21 +295,29 @@ export default function Home() {
           dayInCycle={info.day_in_cycle}
           cycleLength={info.cycle_length}
           phase={phase}
-          zoneEndsIn={zoneEndsIn(phase, info.phase_ends_in)}
+          zoneEndsIn={zoneLeft}
+          showLabel={false}
         />
 
-        {/* Sub-phase + its medical name (luteal…), always from the sub-phase: zones don't map 1-1.
+        {/* Same reading as the medium widget: zone · day, sub-phase, its medical name (always from
+            the sub-phase: zones don't map 1-1), days left in the zone, flat hormone chart.
             "Expert" level asked for medical terms: they come first. */}
-        <div className="text-center text-[13px] text-warm-500">
-          {user?.expertise_level === 'expert' ? (
-            <>
-              <span className="font-semibold text-ink-soft">{capitalize(medicalName)}</span> · {content.short}
-            </>
-          ) : (
-            <>
-              {content.short} · <span className="italic">{medicalName}</span>
-            </>
+        <div className="rounded-[20px] bg-warm-100 px-4 py-4">
+          <div className="hd-caps text-warm-500">
+            {tPhases(`zones.${zone}`)} · {tPhases('dial.day', { day: info.day_in_cycle })}
+          </div>
+          <div className="mt-1 text-[22px] font-bold leading-tight" style={{ color: accent }}>
+            {expert ? capitalize(medicalName) : content.short}
+          </div>
+          <div className="mt-0.5 text-[14px] italic text-ink-soft">{expert ? content.short : medicalName}</div>
+          {zoneLeft != null && (
+            <div className="mt-1 text-[14px] text-ink-soft">
+              {zoneLeft <= 0 ? tPhases('dial.last_day') : tPhases('dial.days_left', { count: zoneLeft })}
+            </div>
           )}
+          <div className="mt-3">
+            <FlatCycleChart dayInCycle={info.day_in_cycle} cycleLength={info.cycle_length} phase={phase} />
+          </div>
         </div>
 
         <div className="rounded-[20px] bg-warm-100 px-4 py-4">

@@ -222,6 +222,7 @@
   "dial": {
     "days_left_one": "{{count}} more day",
     "days_left_other": "{{count}} more days",
-    "last_day": "last day"
+    "last_day": "last day",
+    "day": "D{{day}}"
   }
 }

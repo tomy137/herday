@@ -221,6 +221,7 @@
   "dial": {
     "days_left_one": "noch {{count}} Tag",
     "days_left_other": "noch {{count}} Tage",
-    "last_day": "letzter Tag"
+    "last_day": "letzter Tag",
+    "day": "T{{day}}"
   }
 }

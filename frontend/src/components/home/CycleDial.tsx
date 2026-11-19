@@ -11,6 +11,8 @@ interface CycleDialProps {
   /** Days left in the current zone (0 = last day); hides the line when null. */
   zoneEndsIn: number | null;
   size?: number;
+  /** Zone name + days left in the centre; off when a card next to the dial shows them (Home). */
+  showLabel?: boolean;
 }
 
 const C = 150; // viewBox centre (300×300)
@@ -46,7 +48,7 @@ function pointer(a: number): string {
  * today, and the zone's icon, name and days left in the centre. The ovulation
  * day sits at the top (the « sun » is up).
  */
-export default function CycleDial({ dayInCycle, cycleLength, phase, zoneEndsIn, size = 240 }: CycleDialProps) {
+export default function CycleDial({ dayInCycle, cycleLength, phase, zoneEndsIn, size = 240, showLabel = true }: CycleDialProps) {
   const { t } = useTranslation('phases');
   const L = cycleLength >= 18 ? cycleLength : 28;
   const offset = -((L - 14 - 0.5) / L) * 360;
@@ -93,7 +95,11 @@ export default function CycleDial({ dayInCycle, cycleLength, phase, zoneEndsIn, 
         <circle cx={C} cy={C} r={84} style={{ fill: 'var(--color-surface)' }} />
         <path
           d={ZONE_ICON_PATHS[current]}
-          transform={`translate(${C - 22} ${112 - 22}) scale(${round(44 / 24)})`}
+          transform={
+            showLabel
+              ? `translate(${C - 22} ${112 - 22}) scale(${round(44 / 24)})`
+              : `translate(${C - 34} ${C - 34}) scale(${round(68 / 24)})` // icon alone: centred, larger
+          }
           fill="none"
           strokeWidth={1.7}
           strokeLinecap="round"
@@ -101,13 +107,15 @@ export default function CycleDial({ dayInCycle, cycleLength, phase, zoneEndsIn, 
           style={{ stroke: ZONE_INK_HEX[current] }}
         />
       </svg>
-      <div
-        className="pointer-events-none absolute flex flex-col items-center gap-0.5 text-center"
-        style={{ top: size * 0.55, left: size * 0.19, right: size * 0.19 }}
-      >
-        <div className="text-[20px] font-bold leading-tight text-ink">{t(`zones.${current}`)}</div>
-        {remaining && <div className="text-[12px] text-ink-soft">{remaining}</div>}
-      </div>
+      {showLabel && (
+        <div
+          className="pointer-events-none absolute flex flex-col items-center gap-0.5 text-center"
+          style={{ top: size * 0.55, left: size * 0.19, right: size * 0.19 }}
+        >
+          <div className="text-[20px] font-bold leading-tight text-ink">{t(`zones.${current}`)}</div>
+          {remaining && <div className="text-[12px] text-ink-soft">{remaining}</div>}
+        </div>
+      )}
     </div>
   );
 }
