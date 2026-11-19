@@ -141,12 +141,14 @@ body {
 }
 
 /* The native app draws under the notch and the home indicator (viewport-fit=cover,
-   contentInset never): keep content clear of them. No-op in a desktop browser. */
+   contentInset never): keep content clear of them. No-op in a desktop browser.
+   On Android (edge-to-edge), Capacitor's SystemBars injects --safe-area-inset-*:
+   the WebView's env() values aren't reliable there. */
 #root {
-  padding-top: env(safe-area-inset-top);
+  padding-top: var(--safe-area-inset-top, env(safe-area-inset-top));
 }
 .safe-bottom {
-  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  padding-bottom: max(1.5rem, var(--safe-area-inset-bottom, env(safe-area-inset-bottom)));
 }
 
 /* Phase ring animation */

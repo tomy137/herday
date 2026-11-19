@@ -8,9 +8,11 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "ios:testflight": "./scripts/ios-testflight.sh"
+    "ios:testflight": "./scripts/ios-testflight.sh",
+    "android:release": "./scripts/android-release.sh"
   },
   "dependencies": {
+    "@capacitor/android": "^8.3.4",
     "@capacitor/app": "^8.1.0",
     "@capacitor/core": "^8.3.4",
     "@capacitor/ios": "^8.3.4",
