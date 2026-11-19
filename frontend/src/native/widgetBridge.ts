@@ -27,6 +27,8 @@ export interface WidgetPhasePayload {
   zoneEndsIn: number | null;
   /** « Elle a besoin que tu sois » with the partner’s nickname / pronoun. */
   postureLabel: string;
+  /** Medical name of the phase (« phase lutéale »), from the sub-phase. */
+  medicalLabel: string;
 }
 
 const WidgetBridge = registerPlugin<WidgetBridgePlugin>('WidgetBridge');

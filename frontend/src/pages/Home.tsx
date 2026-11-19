@@ -93,6 +93,7 @@ export default function Home() {
       zoneLabel: tPhases(`zones.${PHASE_ZONE[phase] ?? 'nuit'}`),
       zoneEndsIn: zoneEndsIn(phase, phaseInfo.phase_ends_in),
       postureLabel: tPhases('labels.she_needs_you_to_be', { who: partnerWho, context: partnerContext }).replace(/\s*:\s*$/, ''),
+      medicalLabel: tPhases(`medical.${PHASE_PARENT[phase]}`),
     });
   }, [tPhases, partnerWho, partnerContext]);
 

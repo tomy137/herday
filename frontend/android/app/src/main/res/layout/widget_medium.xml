@@ -43,6 +43,15 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/medical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:maxLines="1"
+            android:textSize="11sp"
+            android:textStyle="italic" />
+
+        <TextView
             android:id="@+id/days_left"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

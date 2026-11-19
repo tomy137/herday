@@ -43,6 +43,7 @@ public class WidgetBridgePlugin: CAPPlugin, CAPBridgedPlugin {
             "zoneLabel": call.getString("zoneLabel") ?? "",
             "zoneEndsIn": call.getInt("zoneEndsIn") as Any,
             "postureLabel": call.getString("postureLabel") ?? "",
+            "medicalLabel": call.getString("medicalLabel") ?? "",
             "updatedAt": ISO8601DateFormatter().string(from: Date()),
         ]
 

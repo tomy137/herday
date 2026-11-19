@@ -23,6 +23,8 @@ struct PhaseSnapshot {
     var zoneLabel: String
     var zoneEndsIn: Int?
     var postureLabel: String
+    /// Medical name of the phase (« phase lutéale »); empty from app builds that predate it.
+    var medicalLabel: String
 
     static let placeholder = PhaseSnapshot(
         phase: "pre_ovulatory",
@@ -40,7 +42,8 @@ struct PhaseSnapshot {
         zone: "jour",
         zoneLabel: "Jour",
         zoneEndsIn: 5,
-        postureLabel: "Elle a besoin que tu sois"
+        postureLabel: "Elle a besoin que tu sois",
+        medicalLabel: "phase folliculaire"
     )
 
     static let unknown = PhaseSnapshot(
@@ -59,7 +62,8 @@ struct PhaseSnapshot {
         zone: "",
         zoneLabel: "",
         zoneEndsIn: nil,
-        postureLabel: ""
+        postureLabel: "",
+        medicalLabel: ""
     )
 
     static func load() -> PhaseSnapshot {
@@ -86,7 +90,8 @@ struct PhaseSnapshot {
             zone: json["zone"] as? String ?? "",
             zoneLabel: json["zoneLabel"] as? String ?? "",
             zoneEndsIn: json["zoneEndsIn"] as? Int,
-            postureLabel: json["postureLabel"] as? String ?? ""
+            postureLabel: json["postureLabel"] as? String ?? "",
+            medicalLabel: json["medicalLabel"] as? String ?? ""
         )
     }
 
@@ -478,11 +483,16 @@ struct MediumDialView: View {
                     Text(s.phaseLabel)
                         .font(.system(size: 15, weight: .bold)).foregroundColor(ink)
                         .lineLimit(1).minimumScaleFactor(0.7)
+                    if !s.medicalLabel.isEmpty {
+                        Text(s.medicalLabel)
+                            .font(.system(size: 10)).italic().foregroundColor(ink.opacity(0.8))
+                            .lineLimit(1).minimumScaleFactor(0.8)
+                    }
                     Text(s.zoneDaysLeftLabel)
                         .font(.system(size: 11)).foregroundColor(ink)
                     Spacer(minLength: 4)
                     FlatCycleChart(s: s)
-                        .frame(height: 56)
+                        .frame(height: 50)
                         .clipShape(RoundedRectangle(cornerRadius: 4))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -535,6 +545,9 @@ struct LargeView: View {
                 VStack(alignment: .leading, spacing: 1) {
                     Text(s.phaseLabel).font(.system(size: 16, weight: .bold)).foregroundColor(.primary)
                     Text("— \(s.range.lowercased())").font(.system(size: 12)).italic().foregroundColor(.secondary).lineLimit(1)
+                    if !s.medicalLabel.isEmpty {
+                        Text(s.medicalLabel).font(.system(size: 11)).italic().foregroundColor(style.ink).lineLimit(1)
+                    }
                 }
                 Spacer()
                 if let n = s.phaseEndsIn {

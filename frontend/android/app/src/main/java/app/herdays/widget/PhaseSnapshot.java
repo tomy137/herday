@@ -135,6 +135,8 @@ public class PhaseSnapshot {
     String zoneLabel = "";
     Integer zoneEndsIn;
     String postureLabel = "";
+    /** Medical name of the phase (« phase lutéale »); empty from app builds that predate it. */
+    String medicalLabel = "";
 
     boolean isUnknown() {
         return "unknown".equals(systemState);
@@ -169,6 +171,7 @@ public class PhaseSnapshot {
             s.zoneLabel = json.optString("zoneLabel", "");
             s.zoneEndsIn = optInteger(json, "zoneEndsIn");
             s.postureLabel = json.optString("postureLabel", "");
+            s.medicalLabel = json.optString("medicalLabel", "");
         } catch (Exception e) {
             return new PhaseSnapshot();
         }

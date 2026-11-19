@@ -70,6 +70,14 @@
                 android:textColor="#8A8378"
                 android:textSize="12sp"
                 android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/medical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textSize="11sp"
+                android:textStyle="italic" />
         </LinearLayout>
 
         <TextView

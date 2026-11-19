@@ -90,6 +90,7 @@ public class HerDaysWidgetProvider extends AppWidgetProvider {
         v.setTextViewText(R.id.zone_day, s.zoneLabel.toUpperCase(Locale.getDefault()) + " · " + day);
         v.setTextViewText(R.id.phase, s.phaseLabel);
         v.setTextViewText(R.id.days_left, zoneDaysLeft(res, s));
+        setMedical(v, s, ink);
         v.setTextColor(R.id.zone_day, ink);
         v.setTextColor(R.id.phase, ink);
         v.setTextColor(R.id.days_left, ink);
@@ -106,6 +107,7 @@ public class HerDaysWidgetProvider extends AppWidgetProvider {
         v.setTextViewText(R.id.day, res.getString(R.string.widget_day, s.dayInCycle));
         v.setTextViewText(R.id.phase, s.phaseLabel);
         v.setTextViewText(R.id.range, s.range.isEmpty() ? "" : "— " + s.range.toLowerCase(Locale.getDefault()));
+        setMedical(v, s, style[2]);
         if (s.phaseEndsIn != null) {
             v.setTextViewText(R.id.days, s.phaseEndsIn + " " + res.getString(R.string.widget_days_unit));
             v.setTextColor(R.id.days, style[2]);
@@ -134,6 +136,16 @@ public class HerDaysWidgetProvider extends AppWidgetProvider {
         }
         setOpenApp(context, v);
         return v;
+    }
+
+    /** Medical name of the phase under the sub-phase; hidden when the app didn't send it. */
+    private static void setMedical(RemoteViews v, PhaseSnapshot s, int color) {
+        if (s.medicalLabel.isEmpty()) {
+            v.setViewVisibility(R.id.medical, View.GONE);
+            return;
+        }
+        v.setTextViewText(R.id.medical, s.medicalLabel);
+        v.setTextColor(R.id.medical, color);
     }
 
     private static String zoneDaysLeft(Resources res, PhaseSnapshot s) {
