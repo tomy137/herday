@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { api } from '../api/client';
-import type { BetaConfig, BetaPlatform, BetaSignupResult } from '../api/client';
+import type { BetaPlatform, BetaSignupResult } from '../api/client';
 import { ZONE_HEX, ZONE_ORDER } from '../constants/phases';
 import type { Zone } from '../constants/phases';
 import { ZONE_ICON_PATHS } from '../lib/zones';
@@ -65,13 +65,10 @@ const inputClass =
 const labelClass = 'mb-1.5 block text-[14px] font-semibold text-ink';
 const buttonClass =
   'inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#DC3D5A] to-[#E8647D] px-5 py-3.5 text-[15px] font-semibold text-white transition-opacity disabled:opacity-60';
-const secondaryButtonClass =
-  'mt-4 inline-flex w-full items-center justify-center rounded-2xl border border-warm-200 px-5 py-3 text-[15px] font-semibold text-ink';
 const stepsClass = 'whitespace-pre-line text-[14px] leading-relaxed text-ink-soft';
 
 export default function Welcome() {
   const { t } = useTranslation(['welcome', 'onboarding']);
-  const [config, setConfig] = useState<BetaConfig | null>(null);
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
   const [platform, setPlatform] = useState<BetaPlatform | null>(null);
@@ -82,9 +79,6 @@ export default function Welcome() {
   const [error, setError] = useState(false);
   const [done, setDone] = useState<Done | null>(loadDone);
 
-  useEffect(() => {
-    api.beta.config().then(setConfig).catch(() => setConfig({ testflight_available: false, android_apk_available: false }));
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -148,36 +142,6 @@ export default function Welcome() {
               </div>
             </div>
           ))}
-        </section>
-
-        {/* How to test */}
-        <section className="mt-12">
-          <h2 className="text-2xl font-bold tracking-tight text-ink">{t('test_title')}</h2>
-          <p className="mt-2 text-[15px] text-ink-soft">{t('test_body')}</p>
-
-          <div className="mt-5 flex flex-col gap-4">
-            <div className={cardClass}>
-              <h3 className="text-[18px] font-bold text-ink">{t('ios.title')}</h3>
-              <p className={`mt-2 ${stepsClass}`}>
-                {config?.testflight_available ? t('ios.steps_gate') : t('ios.steps_invite')}
-              </p>
-              {!done && (
-                <a href="#inscription" className={secondaryButtonClass}>
-                  {t('signup_cta')}
-                </a>
-              )}
-            </div>
-
-            <div className={cardClass}>
-              <h3 className="text-[18px] font-bold text-ink">{t('android.title')}</h3>
-              <p className={`mt-2 ${stepsClass}`}>{t('android.steps_gate')}</p>
-              {!done && (
-                <a href="#inscription" className={secondaryButtonClass}>
-                  {t('signup_cta')}
-                </a>
-              )}
-            </div>
-          </div>
         </section>
 
         {/* Sign-up */}

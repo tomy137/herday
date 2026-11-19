@@ -9,25 +9,19 @@
     "agenda_title": "In deinem Kalender",
     "agenda_body": "Die wichtigen Phasen in deinem Kalender und ein Widget auf deinem Startbildschirm."
   },
-  "test_title": "Teste die Beta",
-  "test_body": "Sie läuft auf iPhone und Android. Wähle dein Handy:",
-  "signup_cta": "Anmelden",
   "ios": {
     "title": "iPhone",
     "steps_link": "1. Installiere die App TestFlight aus dem App Store.\n2. Öffne den Einladungslink unten und installiere HerDays.",
-    "cta": "Der iPhone-Beta beitreten",
-    "steps_invite": "Die Beta läuft über TestFlight, die Test-App von Apple. Melde dich unten mit der E-Mail deiner Apple-ID an: Ich schicke dir die Einladung.",
-    "steps_gate": "Die Beta läuft über TestFlight, die Test-App von Apple. Melde dich unten an: Der Einladungslink erscheint direkt danach."
+    "cta": "Der iPhone-Beta beitreten"
   },
   "android": {
     "title": "Android",
     "cta": "App herunterladen (APK)",
-    "steps": "1. Öffne die heruntergeladene Datei.\n2. Wenn Android blockiert, erlaube Installationen aus dieser Quelle.\n3. Wenn Play Protect warnt: „Trotzdem installieren“.\nAuf Samsung: „Automatische Sperre“ für die Installation ausschalten.",
-    "steps_gate": "Melde dich unten an: Der Download-Link erscheint direkt danach."
+    "steps": "1. Öffne die heruntergeladene Datei.\n2. Wenn Android blockiert, erlaube Installationen aus dieser Quelle.\n3. Wenn Play Protect warnt: „Trotzdem installieren“.\nAuf Samsung: „Automatische Sperre“ für die Installation ausschalten."
   },
   "form": {
     "title": "Melde dich an",
-    "body": "Damit ich weiß, wer testet, und dir neue Versionen ankündigen kann.",
+    "body": "Damit ich weiß, wer testet, und dir neue Versionen ankündigen kann. Funktioniert auf iPhone und Android: Dein Installationslink erscheint direkt danach.",
     "first_name": "Vorname",
     "email": "E-Mail",
     "email_hint": "Auf dem iPhone die deiner Apple-ID.",

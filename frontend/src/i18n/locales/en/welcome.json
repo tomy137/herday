@@ -9,25 +9,19 @@
     "agenda_title": "In your calendar",
     "agenda_body": "The key periods in your calendar, and a widget on your home screen."
   },
-  "test_title": "Try the beta",
-  "test_body": "It runs on iPhone and Android. Pick your phone:",
-  "signup_cta": "Sign up",
   "ios": {
     "title": "iPhone",
     "steps_link": "1. Install the TestFlight app from the App Store.\n2. Open the invitation link below, then install HerDays.",
-    "cta": "Join the iPhone beta",
-    "steps_invite": "The beta goes through TestFlight, Apple’s testing app. Sign up below with your Apple ID email: I’ll send you the invitation.",
-    "steps_gate": "The beta goes through TestFlight, Apple’s testing app. Sign up below: the invitation link shows up right after."
+    "cta": "Join the iPhone beta"
   },
   "android": {
     "title": "Android",
     "cta": "Download the app (APK)",
-    "steps": "1. Open the downloaded file.\n2. If Android blocks it, allow installs from this source.\n3. If Play Protect warns you: “Install anyway”.\nOn Samsung, turn off “Auto Blocker” while installing.",
-    "steps_gate": "Sign up below: the download link shows up right after."
+    "steps": "1. Open the downloaded file.\n2. If Android blocks it, allow installs from this source.\n3. If Play Protect warns you: “Install anyway”.\nOn Samsung, turn off “Auto Blocker” while installing."
   },
   "form": {
     "title": "Sign up",
-    "body": "So I know who’s testing, and to let you know about new versions.",
+    "body": "So I know who’s testing, and to let you know about new versions. It works on iPhone and Android: your install link shows up right after.",
     "first_name": "First name",
     "email": "Email",
     "email_hint": "On iPhone, the one of your Apple ID.",

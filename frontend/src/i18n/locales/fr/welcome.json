@@ -9,25 +9,19 @@
     "agenda_title": "Dans ton agenda",
     "agenda_body": "Les périodes clés dans ton agenda, et un widget sur ton écran d’accueil."
   },
-  "test_title": "Teste la bêta",
-  "test_body": "Elle marche sur iPhone et sur Android. Choisis ton téléphone :",
-  "signup_cta": "S’inscrire",
   "ios": {
     "title": "iPhone",
     "steps_link": "1. Installe l’app TestFlight depuis l’App Store.\n2. Ouvre le lien d’invitation ci-dessous, puis installe HerDays.",
-    "cta": "Rejoindre la bêta iPhone",
-    "steps_invite": "La bêta passe par TestFlight, l’app de test d’Apple. Inscris-toi ci-dessous avec l’e-mail de ton identifiant Apple : je t’envoie l’invitation.",
-    "steps_gate": "La bêta passe par TestFlight, l’app de test d’Apple. Inscris-toi ci-dessous : le lien d’invitation s’affiche juste après."
+    "cta": "Rejoindre la bêta iPhone"
   },
   "android": {
     "title": "Android",
     "cta": "Télécharger l’app (APK)",
-    "steps": "1. Ouvre le fichier téléchargé.\n2. Si Android bloque, autorise l’installation pour cette source.\n3. Si Play Protect avertit : « Installer quand même ».\nSur Samsung, désactive « Blocage automatique » le temps de l’installation.",
-    "steps_gate": "Inscris-toi ci-dessous : le lien de téléchargement s’affiche juste après."
+    "steps": "1. Ouvre le fichier téléchargé.\n2. Si Android bloque, autorise l’installation pour cette source.\n3. Si Play Protect avertit : « Installer quand même ».\nSur Samsung, désactive « Blocage automatique » le temps de l’installation."
   },
   "form": {
     "title": "Inscris-toi",
-    "body": "Pour que je sache qui teste, et pour te prévenir des nouvelles versions.",
+    "body": "Pour que je sache qui teste, et pour te prévenir des nouvelles versions. Ça marche sur iPhone et sur Android : ton lien d’installation s’affiche juste après.",
     "first_name": "Prénom",
     "email": "E-mail",
     "email_hint": "Sur iPhone, celui de ton identifiant Apple.",
