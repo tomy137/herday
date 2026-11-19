@@ -87,6 +87,16 @@
       }
     }
   },
+  "medical": {
+    "title": "The 4 phases, in medical terms",
+    "intro": "These are the words doctors, books and other apps use. HerDays splits the cycle more finely, but everything fits into them:",
+    "in_app": "In HerDays:",
+    "menstrual": "The period: the uterine lining is shed. Estrogen and progesterone are at their lowest.",
+    "follicular": "A follicle matures in the ovary and estrogen rises: energy and mood pick up.",
+    "ovulatory": "The LH surge releases the egg. It’s the fertile window, with energy and confidence at their peak.",
+    "luteal": "The corpus luteum produces progesterone: a steady plateau, then hormones drop at the end of the phase, which is where PMS sits.",
+    "note": "Medically, the follicular phase starts on the first day of the period, so it overlaps the menstrual phase. Like most popular books, HerDays keeps them apart to match what she goes through."
+  },
   "confidence": {
     "title": "Confidence levels",
     "states": {

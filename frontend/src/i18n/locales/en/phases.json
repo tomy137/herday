@@ -16,6 +16,12 @@
     "ovulatory": "Ovulatory",
     "luteal": "Luteal"
   },
+  "medical": {
+    "menstrual": "menstrual phase",
+    "follicular": "follicular phase",
+    "ovulatory": "ovulatory phase",
+    "luteal": "luteal phase"
+  },
   "zones": {
     "nuit": "Night",
     "aube": "Dawn",

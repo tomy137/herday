@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { api } from '../api/client';
 import type { BetaPlatform, BetaSignupResult } from '../api/client';
-import { ZONE_HEX, ZONE_ORDER } from '../constants/phases';
+import { ZONE_ORDER } from '../constants/phases';
 import type { Zone } from '../constants/phases';
-import { ZONE_ICON_PATHS } from '../lib/zones';
+import ZoneIcon from '../components/ui/ZoneIcon';
 
 /**
  * Public landing page for beta testers: what the app does, sign-up form, then the install
@@ -33,24 +33,6 @@ function saveDone(done: Done | null) {
   } catch {
     // storage unavailable (private mode): the links stay shown for this visit
   }
-}
-
-function ZoneIcon({ zone, size = 22 }: { zone: Zone; size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      style={{ stroke: ZONE_HEX[zone] }}
-      aria-hidden="true"
-    >
-      <path d={ZONE_ICON_PATHS[zone]} />
-    </svg>
-  );
 }
 
 const FEATURES: { key: 'dial' | 'notebook' | 'agenda'; zone: Zone }[] = [

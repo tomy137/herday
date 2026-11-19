@@ -5,8 +5,10 @@
 import type { Phase } from '../lib/cycle-engine';
 
 /**
- * Four "parent" phases group the six sub-phases. Used only for the cross-cycle
- * memory (échos) aggregation — never shown directly as a phase in the UI.
+ * Four "parent" phases group the six sub-phases: the medical vocabulary (menstrual,
+ * follicular, ovulatory, luteal). Used for the cross-cycle memory (échos) and shown
+ * as a secondary label (Home, Info) — always derived from the sub-phase, never from
+ * the zone (Nuit spans the end of the luteal phase and the menstrual one).
  */
 export type ParentPhase = 'menstrual' | 'follicular' | 'ovulatory' | 'luteal';
 

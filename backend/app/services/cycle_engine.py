@@ -63,8 +63,9 @@ class Phase(str, Enum):
     PRE_MENSTRUAL = "pre_menstrual"        # PMS window
 
 
-# Four "parent" phases group the six sub-phases. Used only for the cross-cycle
-# memory (échos) aggregation — never shown directly as a phase in the UI.
+# Four "parent" phases group the six sub-phases: the medical vocabulary (menstrual,
+# follicular, ovulatory, luteal). Used for the cross-cycle memory (échos); the app
+# also shows it as a secondary label next to the sub-phase.
 PARENT_OF_SUBPHASE: dict[Phase, str] = {
     Phase.MENSTRUATION: "menstrual",
     Phase.POST_MENSTRUAL: "follicular",

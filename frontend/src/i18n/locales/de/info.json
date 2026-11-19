@@ -87,6 +87,16 @@
       }
     }
   },
+  "medical": {
+    "title": "Die 4 Phasen, medizinisch gesehen",
+    "intro": "Das sind die Begriffe von Ärztinnen, Büchern und anderen Apps. HerDays teilt den Zyklus feiner auf, aber alles lässt sich zuordnen:",
+    "in_app": "In HerDays:",
+    "menstrual": "Die Periode: Die Gebärmutterschleimhaut wird abgestoßen. Östrogen und Progesteron sind am niedrigsten.",
+    "follicular": "Ein Follikel reift im Eierstock heran und das Östrogen steigt: Energie und Stimmung kommen zurück.",
+    "ovulatory": "Der LH-Anstieg setzt die Eizelle frei. Das ist das fruchtbare Fenster, mit Energie und Selbstvertrauen auf dem Höhepunkt.",
+    "luteal": "Der Gelbkörper bildet Progesteron: ein stabiles Plateau, dann fallen die Hormone am Ende der Phase ab, genau dort liegt das PMS.",
+    "note": "Medizinisch beginnt die Follikelphase schon am ersten Tag der Periode und überschneidet sich daher mit der Menstruationsphase. Wie die meisten populären Bücher trennt HerDays sie, um näher an ihrem Erleben zu sein."
+  },
   "confidence": {
     "title": "Vertrauensstufen",
     "states": {

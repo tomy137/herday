@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { api } from '../api/client';
 import type { PhaseInfo } from '../api/client';
 import type { Phase } from '../lib/cycle-engine';
-import { PHASE_HEX, PHASE_SOFT_HEX, PHASE_INK_HEX } from '../constants/phases';
-import { PHASE_ORDER } from '../constants/phase-meta';
+import { PHASE_HEX, PHASE_SOFT_HEX, PHASE_INK_HEX, PHASE_ZONE } from '../constants/phases';
+import { PARENT_PHASES, PHASE_ORDER, PHASE_PARENT, SUBPHASES_OF_PARENT } from '../constants/phase-meta';
 import CycleGraph from '../components/CycleGraph';
+import ZoneIcon from '../components/ui/ZoneIcon';
+
+const capitalize = (w: string) => w.charAt(0).toUpperCase() + w.slice(1);
 
 /** References behind the phase content. Links open a public search, not a shop. */
 const SOURCES = [
@@ -96,11 +99,36 @@ export default function Info() {
                   </span>
                   <span className="text-xs text-warm-400 shrink-0">{t(`phases.breakdown.${p}.days`)}</span>
                 </div>
+                <p className="mt-0.5 text-[11px] italic text-warm-400">{t(`phases:medical.${PHASE_PARENT[p]}`)}</p>
                 <p className="mt-1 text-xs leading-relaxed text-warm-500">{t(`glossary.${p}.def`)}</p>
               </button>
             );
           })}
         </div>
+      </section>
+
+      {/* The 4 medical phases, and which app sub-phases / zones each one covers */}
+      <section className="bg-surface rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-warm-200/40 space-y-3">
+        <h2 className="text-sm font-bold text-ink uppercase tracking-wider">{t('medical.title')}</h2>
+        <p className="text-xs text-warm-500 leading-relaxed">{t('medical.intro')}</p>
+        <div className="space-y-2">
+          {PARENT_PHASES.map((parent) => (
+            <div key={parent} className="rounded-lg bg-warm-50 px-3 py-2.5">
+              <p className="text-sm font-semibold text-ink">{capitalize(t(`phases:medical.${parent}`))}</p>
+              <p className="mt-1 text-xs leading-relaxed text-warm-500">{t(`medical.${parent}`)}</p>
+              <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span className="text-[11px] text-warm-400">{t('medical.in_app')}</span>
+                {SUBPHASES_OF_PARENT[parent].map((p) => (
+                  <span key={p} className="inline-flex items-center gap-1 text-[12px] font-medium text-ink-soft">
+                    <ZoneIcon zone={PHASE_ZONE[p]} size={14} />
+                    {t(`phases:${p}.short`)}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-warm-500 leading-relaxed">{t('medical.note')}</p>
       </section>
 
       {/* Glossary — only the non-phase terms now (phase defs live above) */}

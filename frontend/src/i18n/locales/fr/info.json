@@ -87,6 +87,16 @@
       }
     }
   },
+  "medical": {
+    "title": "Les 4 phases, en termes médicaux",
+    "intro": "Ce sont les mots des médecins, des livres et des autres apps. HerDays découpe le cycle plus finement, mais tout se range dedans :",
+    "in_app": "Dans HerDays :",
+    "menstrual": "Les règles : la muqueuse de l’utérus s’élimine. Œstrogènes et progestérone sont au plus bas.",
+    "follicular": "Un follicule mûrit dans l’ovaire et les œstrogènes montent : l’énergie et l’humeur remontent.",
+    "ovulatory": "Le pic de LH libère l’ovule. C’est la fenêtre fertile, avec l’énergie et la confiance au plus haut.",
+    "luteal": "Le corps jaune produit de la progestérone : un plateau stable, puis la chute des hormones en fin de phase, là où se loge le SPM.",
+    "note": "Médicalement, la phase folliculaire commence dès le premier jour des règles et chevauche donc la phase menstruelle. HerDays les sépare, comme la plupart des livres grand public, pour coller à ce qu’elle vit."
+  },
   "confidence": {
     "title": "Niveaux de confiance",
     "states": {

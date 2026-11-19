@@ -6,7 +6,7 @@ import { api } from '../api/client';
 import type { PhaseInfo, EchoAggregate } from '../api/client';
 import type { Phase } from '../lib/cycle-engine';
 import { MIN_CYCLE_LENGTH } from '../lib/cycle-engine';
-import { PHASE_RANGES_28 } from '../constants/phase-meta';
+import { PHASE_PARENT, PHASE_RANGES_28 } from '../constants/phase-meta';
 import { PHASE_ZONE, ZONE_HEX, ZONE_INK_HEX, zoneEndsIn } from '../constants/phases';
 import { syncPhaseToWidget } from '../native/widgetBridge';
 import Header from '../components/layout/Header';
@@ -235,6 +235,7 @@ export default function Home() {
   const zone = PHASE_ZONE[phase] ?? 'nuit';
   const accent = ZONE_INK_HEX[zone];
   const content = phaseContent(phase);
+  const medicalName = tPhases(`medical.${PHASE_PARENT[phase]}`);
   // The period prompt matters when a period is due: spotlight it during the
   // pre-menstrual phase, or when it's expected within 2 days (or late).
   // Otherwise a quiet action at the bottom covers early periods / corrections.
@@ -293,7 +294,19 @@ export default function Home() {
           zoneEndsIn={zoneEndsIn(phase, info.phase_ends_in)}
         />
 
-        <div className="text-center text-[13px] text-warm-500">{content.short}</div>
+        {/* Sub-phase + its medical name (luteal…), always from the sub-phase: zones don't map 1-1.
+            "Expert" level asked for medical terms: they come first. */}
+        <div className="text-center text-[13px] text-warm-500">
+          {user?.expertise_level === 'expert' ? (
+            <>
+              <span className="font-semibold text-ink-soft">{capitalize(medicalName)}</span> · {content.short}
+            </>
+          ) : (
+            <>
+              {content.short} · <span className="italic">{medicalName}</span>
+            </>
+          )}
+        </div>
 
         <div className="rounded-[20px] bg-warm-100 px-4 py-4">
           <div className="hd-caps mb-1.5 text-warm-500">{tPhases('labels.she_needs_you_to_be', partner.vars)}</div>
