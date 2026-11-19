@@ -37,8 +37,6 @@
   },
   "about": {
     "philosophy": "Comment ça marche",
-    "sources": "Sources",
-    "sources_hint": "Ouvrages utilisés, avec liens",
     "version": "Version",
     "philosophy_hint": "Le cycle, les 4 moments, la confiance",
     "data": "Tes données",

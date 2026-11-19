@@ -129,9 +129,5 @@
     "mood_weak": "Stimmungsbeobachtungen sind schwache Signale. Sie verfeinern das Vertrauen, verankern aber keine Daten.",
     "irregular": "Unregelmäßige Zyklen verringern die Vorhersagegenauigkeit.",
     "improves": "Die Genauigkeit verbessert sich mit der Zeit. Frühe Vorhersagen sind ungefähr."
-  },
-  "sources": {
-    "title": "Quellen",
-    "intro": "Die Orientierungspunkte jeder Phase stützen sich auf diese Bücher."
   }
 }

@@ -37,8 +37,6 @@
   },
   "about": {
     "philosophy": "Wie es funktioniert",
-    "sources": "Quellen",
-    "sources_hint": "Verwendete Bücher, mit Links",
     "version": "Version",
     "philosophy_hint": "Der Zyklus, die 4 Momente, das Vertrauen",
     "data": "Deine Daten",

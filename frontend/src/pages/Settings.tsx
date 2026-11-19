@@ -207,7 +207,6 @@ export default function Settings() {
         {/* Understand & trust */}
         <SettingsGroup title={t('groups.about')}>
           <SettingsRow label={t('about.philosophy')} hint={t('about.philosophy_hint')} onClick={() => navigate('/info')} />
-          <SettingsRow label={t('about.sources')} hint={t('about.sources_hint')} onClick={() => navigate('/info#sources')} />
           <SettingsRow label={t('about.data')} hint={t('about.data_hint')} onClick={() => setShowData((v) => !v)} />
           {showData && (
             <p className="px-[18px] pb-4 text-[13.5px] leading-relaxed text-ink-soft">{t('about.data_body')}</p>

@@ -11,27 +11,11 @@ import ZoneIcon from '../components/ui/ZoneIcon';
 
 const capitalize = (w: string) => w.charAt(0).toUpperCase() + w.slice(1);
 
-/** References behind the phase content. Links open a public search, not a shop. */
-const SOURCES = [
-  {
-    title: 'Kiffe ton cycle !',
-    author: 'G. Baldassari',
-    url: 'https://www.google.com/search?q=%22Kiffe+ton+cycle%22+Baldassari',
-  },
-];
-
 export default function Info() {
   const { t } = useTranslation('info');
   const navigate = useNavigate();
   const [phaseInfo, setPhaseInfo] = useState<PhaseInfo | null>(null);
   const [selectedPhase, setSelectedPhase] = useState<Phase | null>(null);
-
-  // Deep link from Settings › Sources (/info#sources).
-  useEffect(() => {
-    if (window.location.hash === '#sources') {
-      window.setTimeout(() => document.getElementById('sources')?.scrollIntoView({ behavior: 'smooth' }), 100);
-    }
-  }, []);
 
   useEffect(() => {
     api.phases.today()
@@ -165,27 +149,6 @@ export default function Info() {
             <p className="text-xs text-warm-500 leading-relaxed">{t(`limits.${key}`)}</p>
           </div>
         ))}
-      </section>
-
-      {/* Sources */}
-      <section id="sources" className="bg-surface rounded-2xl p-5 border border-warm-200/40 space-y-3 scroll-mt-4">
-        <h2 className="text-sm font-bold text-ink uppercase tracking-wider">{t('sources.title')}</h2>
-        <p className="text-xs text-warm-500 leading-relaxed">{t('sources.intro')}</p>
-        <ul className="space-y-2">
-          {SOURCES.map((s) => (
-            <li key={s.title}>
-              <a
-                href={s.url}
-                target="_blank"
-                rel="noreferrer"
-                className="block rounded-xl border border-warm-300 px-3.5 py-3 text-ink transition-colors hover:bg-warm-100"
-              >
-                <span className="block text-[14px] font-semibold">{s.title}</span>
-                <span className="block text-[12px] text-warm-500">{s.author} ↗</span>
-              </a>
-            </li>
-          ))}
-        </ul>
       </section>
     </div>
   );

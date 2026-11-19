@@ -129,9 +129,5 @@
     "mood_weak": "Mood observations are weak signals. They refine confidence but don't anchor dates.",
     "irregular": "Irregular cycles reduce prediction confidence.",
     "improves": "Accuracy improves over time. Early predictions are approximate."
-  },
-  "sources": {
-    "title": "Sources",
-    "intro": "The landmarks of each phase are based on these books."
   }
 }

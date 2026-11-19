@@ -129,9 +129,5 @@
     "mood_weak": "Les observations d'humeur sont des indicateurs faibles. Elles affinent la confiance mais n'ancrent pas les dates.",
     "irregular": "Les cycles irréguliers réduisent la confiance des prédictions.",
     "improves": "La précision augmente avec le temps. Les premières prédictions sont approximatives."
-  },
-  "sources": {
-    "title": "Sources",
-    "intro": "Les repères de chaque phase s’appuient sur ces ouvrages."
   }
 }
