@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_name">HerDays-Zyklus</string>
+    <string name="widget_description">Wo ihr gerade im Zyklus steht: Nacht, Morgen, Tag oder Abend.</string>
+    <string name="widget_open_app">HerDays öffnen</string>
+    <string name="widget_open_app_hint">um das Tracking zu starten</string>
+    <string name="widget_last_day">letzter Tag</string>
+    <plurals name="widget_days_left">
+        <item quantity="one">noch %d Tag</item>
+        <item quantity="other">noch %d Tage</item>
+    </plurals>
+    <string name="widget_posture_fallback">Sie braucht, dass du bist</string>
+    <string name="widget_echo_title">ECHO · LETZTER ZYKLUS</string>
+    <string name="widget_echo_helped">HAT GEHOLFEN</string>
+    <string name="widget_day">T%d</string>
+    <string name="widget_days_unit">T</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_name">Cycle HerDays</string>
+    <string name="widget_description">Où on en est dans le cycle : Nuit, Aube, Jour ou Crépuscule.</string>
+    <string name="widget_open_app">Ouvre HerDays</string>
+    <string name="widget_open_app_hint">pour activer le suivi</string>
+    <string name="widget_last_day">dernier jour</string>
+    <plurals name="widget_days_left">
+        <item quantity="one">encore %d jour</item>
+        <item quantity="other">encore %d jours</item>
+    </plurals>
+    <string name="widget_posture_fallback">Elle a besoin que tu sois</string>
+    <string name="widget_echo_title">ÉCHO · CYCLE PRÉCÉDENT</string>
+    <string name="widget_echo_helped">A AIDÉ</string>
+    <string name="widget_day">J%d</string>
+    <string name="widget_days_unit">j</string>
+</resources>

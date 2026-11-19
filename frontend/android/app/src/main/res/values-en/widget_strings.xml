@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_name">HerDays cycle</string>
+    <string name="widget_description">Where you are in the cycle: Night, Dawn, Day or Dusk.</string>
+    <string name="widget_open_app">Open HerDays</string>
+    <string name="widget_open_app_hint">to start tracking</string>
+    <string name="widget_last_day">last day</string>
+    <plurals name="widget_days_left">
+        <item quantity="one">%d more day</item>
+        <item quantity="other">%d more days</item>
+    </plurals>
+    <string name="widget_posture_fallback">She needs you to be</string>
+    <string name="widget_echo_title">ECHO · PREVIOUS CYCLE</string>
+    <string name="widget_echo_helped">HELPED</string>
+    <string name="widget_day">D%d</string>
+    <string name="widget_days_unit">d</string>
+</resources>

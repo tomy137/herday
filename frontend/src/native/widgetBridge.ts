@@ -31,8 +31,11 @@ export interface WidgetPhasePayload {
 
 const WidgetBridge = registerPlugin<WidgetBridgePlugin>('WidgetBridge');
 
+/** Home-screen widgets exist on iOS (WidgetKit) and Android (app.herdays.widget). */
+const hasWidget = () => ['ios', 'android'].includes(Capacitor.getPlatform());
+
 export async function syncPhaseToWidget(payload: WidgetPhasePayload): Promise<{ ok: boolean; error?: string }> {
-  if (Capacitor.getPlatform() !== 'ios') return { ok: true };
+  if (!hasWidget()) return { ok: true };
   try {
     await WidgetBridge.setPhaseData(payload);
     return { ok: true };
@@ -44,7 +47,7 @@ export async function syncPhaseToWidget(payload: WidgetPhasePayload): Promise<{ 
 }
 
 export async function clearWidget(): Promise<void> {
-  if (Capacitor.getPlatform() !== 'ios') return;
+  if (!hasWidget()) return;
   try {
     await WidgetBridge.clearPhaseData();
   } catch (err) {
