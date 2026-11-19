@@ -70,7 +70,7 @@ const secondaryButtonClass =
 const stepsClass = 'whitespace-pre-line text-[14px] leading-relaxed text-ink-soft';
 
 export default function Welcome() {
-  const { t } = useTranslation('welcome');
+  const { t } = useTranslation(['welcome', 'onboarding']);
   const [config, setConfig] = useState<BetaConfig | null>(null);
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
@@ -122,9 +122,18 @@ export default function Welcome() {
               <ZoneIcon key={z} zone={z} size={20} />
             ))}
           </div>
-          <p className="mt-5 text-[19px] font-semibold text-ink">{t('tagline')}</p>
-          <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{t('intro')}</p>
+          <p className="mt-5 text-[16px] leading-relaxed text-ink-soft">{t('intro')}</p>
         </header>
+
+        {/* The straight talk from the onboarding's first screen (same texts, single source). */}
+        <section className={`${cardClass} mt-8`}>
+          <h2 className="text-2xl font-bold tracking-tight text-ink">{t('onboarding:step1.title')}</h2>
+          <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{t('onboarding:step1.body')}</p>
+          <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{t('onboarding:step1.body2')}</p>
+          <p className="mt-5 text-[16px] font-semibold leading-relaxed text-ink">{t('onboarding:step1.tagline')}</p>
+          <p className="mt-1.5 text-[15px] leading-relaxed text-ink-soft">{t('onboarding:step1.body3')}</p>
+          <p className="mt-5 text-[14px] italic leading-relaxed text-warm-500">{t('onboarding:step1.aside')}</p>
+        </section>
 
         {/* What it does */}
         <section className="mt-10 flex flex-col gap-3">

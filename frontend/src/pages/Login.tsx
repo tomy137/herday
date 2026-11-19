@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { Capacitor } from '@capacitor/core';
 import { api, ApiError } from '../api/client';
 import { useAuth } from '../contexts/AuthContext';
+
+const IS_NATIVE = Capacitor.isNativePlatform();
 
 type Step = 'email' | 'code';
 
@@ -133,6 +137,15 @@ export default function Login() {
               {t('login.back_to_email')}
             </button>
           </form>
+        )}
+
+        {/* Web only: the native apps are already installed, the beta page is for newcomers. */}
+        {!IS_NATIVE && step === 'email' && (
+          <p className="mt-8 text-center">
+            <Link to="/welcome" className="text-[14px] font-medium text-warm-500 underline-offset-4 hover:underline">
+              {t('login.beta_link')}
+            </Link>
+          </p>
         )}
       </div>
     </div>
