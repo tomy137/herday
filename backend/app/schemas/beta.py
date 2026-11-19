@@ -34,7 +34,15 @@ class BetaSignupCreate(BaseModel):
 
 
 class BetaConfig(BaseModel):
-    """What the /welcome page can offer right now."""
+    """What the /welcome page can offer right now (links only come with the sign-up)."""
 
-    testflight_url: str | None
+    testflight_available: bool
     android_apk_available: bool
+
+
+class BetaSignupResult(BaseModel):
+    """Install links, given only once the form is filled."""
+
+    detail: str
+    download_url: str | None
+    testflight_url: str | None

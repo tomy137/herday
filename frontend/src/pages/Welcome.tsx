@@ -2,14 +2,38 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { api } from '../api/client';
-import type { BetaConfig, BetaPlatform } from '../api/client';
+import type { BetaConfig, BetaPlatform, BetaSignupResult } from '../api/client';
 import { ZONE_HEX, ZONE_ORDER } from '../constants/phases';
 import type { Zone } from '../constants/phases';
 import { ZONE_ICON_PATHS } from '../lib/zones';
 
-/** Public landing page for beta testers: what the app does, how to install it, sign-up form. */
+/**
+ * Public landing page for beta testers: what the app does, sign-up form, then the install
+ * links (personal APK link, TestFlight), which are only given once the form is filled.
+ */
 
-const APK_URL = '/download/herdays.apk';
+type Done = { name: string; platform: BetaPlatform; links: BetaSignupResult };
+
+// Lets a tester coming back find their links without signing up again.
+const DONE_KEY = 'herdays-beta-signup';
+
+function loadDone(): Done | null {
+  try {
+    const raw = localStorage.getItem(DONE_KEY);
+    return raw ? (JSON.parse(raw) as Done) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveDone(done: Done | null) {
+  try {
+    if (done) localStorage.setItem(DONE_KEY, JSON.stringify(done));
+    else localStorage.removeItem(DONE_KEY);
+  } catch {
+    // storage unavailable (private mode): the links stay shown for this visit
+  }
+}
 
 function ZoneIcon({ zone, size = 22 }: { zone: Zone; size?: number }) {
   return (
@@ -41,6 +65,9 @@ const inputClass =
 const labelClass = 'mb-1.5 block text-[14px] font-semibold text-ink';
 const buttonClass =
   'inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#DC3D5A] to-[#E8647D] px-5 py-3.5 text-[15px] font-semibold text-white transition-opacity disabled:opacity-60';
+const secondaryButtonClass =
+  'mt-4 inline-flex w-full items-center justify-center rounded-2xl border border-warm-200 px-5 py-3 text-[15px] font-semibold text-ink';
+const stepsClass = 'whitespace-pre-line text-[14px] leading-relaxed text-ink-soft';
 
 export default function Welcome() {
   const { t } = useTranslation('welcome');
@@ -53,10 +80,10 @@ export default function Welcome() {
   const [website, setWebsite] = useState('');
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
-  const [done, setDone] = useState<{ name: string; platform: BetaPlatform } | null>(null);
+  const [done, setDone] = useState<Done | null>(loadDone);
 
   useEffect(() => {
-    api.beta.config().then(setConfig).catch(() => setConfig({ testflight_url: null, android_apk_available: false }));
+    api.beta.config().then(setConfig).catch(() => setConfig({ testflight_available: false, android_apk_available: false }));
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -65,8 +92,10 @@ export default function Welcome() {
     setSending(true);
     setError(false);
     try {
-      await api.beta.signup({ first_name: firstName.trim(), email: email.trim(), platform, source, message, website });
-      setDone({ name: firstName.trim(), platform });
+      const links = await api.beta.signup({ first_name: firstName.trim(), email: email.trim(), platform, source, message, website });
+      const next = { name: firstName.trim(), platform, links };
+      setDone(next);
+      saveDone(next);
     } catch {
       setError(true);
     } finally {
@@ -74,9 +103,9 @@ export default function Welcome() {
     }
   };
 
-  const doneText = (p: BetaPlatform) => {
-    if (p === 'ios') return config?.testflight_url ? t('form.done_ios_link') : t('form.done_ios_invite');
-    return config?.android_apk_available ? t('form.done_android_link') : t('form.done_android_invite');
+  const restart = () => {
+    setDone(null);
+    saveDone(null);
   };
 
   return (
@@ -120,29 +149,23 @@ export default function Welcome() {
           <div className="mt-5 flex flex-col gap-4">
             <div className={cardClass}>
               <h3 className="text-[18px] font-bold text-ink">{t('ios.title')}</h3>
-              {config?.testflight_url ? (
-                <>
-                  <p className="mt-2 whitespace-pre-line text-[14px] leading-relaxed text-ink-soft">{t('ios.steps_link')}</p>
-                  <a href={config.testflight_url} className={`${buttonClass} mt-4`} target="_blank" rel="noopener noreferrer">
-                    {t('ios.cta')}
-                  </a>
-                </>
-              ) : (
-                <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">{t('ios.steps_invite')}</p>
+              <p className={`mt-2 ${stepsClass}`}>
+                {config?.testflight_available ? t('ios.steps_gate') : t('ios.steps_invite')}
+              </p>
+              {!done && (
+                <a href="#inscription" className={secondaryButtonClass}>
+                  {t('signup_cta')}
+                </a>
               )}
             </div>
 
             <div className={cardClass}>
               <h3 className="text-[18px] font-bold text-ink">{t('android.title')}</h3>
-              {config?.android_apk_available ? (
-                <>
-                  <a href={APK_URL} className={`${buttonClass} mt-4`} download>
-                    {t('android.cta')}
-                  </a>
-                  <p className="mt-4 whitespace-pre-line text-[14px] leading-relaxed text-ink-soft">{t('android.steps')}</p>
-                </>
-              ) : (
-                <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">{t('android.steps_invite')}</p>
+              <p className={`mt-2 ${stepsClass}`}>{t('android.steps_gate')}</p>
+              {!done && (
+                <a href="#inscription" className={secondaryButtonClass}>
+                  {t('signup_cta')}
+                </a>
               )}
             </div>
           </div>
@@ -156,7 +179,33 @@ export default function Welcome() {
           {done ? (
             <div className={`${cardClass} mt-5`} role="status">
               <div className="text-[17px] font-bold text-ink">{t('form.done_title', { name: done.name })}</div>
-              <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">{doneText(done.platform)}</p>
+              {done.platform === 'android' && done.links.download_url && (
+                <>
+                  <p className={`mt-2 ${stepsClass}`}>{t('form.done_android_link')}</p>
+                  <a href={done.links.download_url} className={`${buttonClass} mt-4`} download>
+                    {t('android.cta')}
+                  </a>
+                  <p className={`mt-4 ${stepsClass}`}>{t('android.steps')}</p>
+                </>
+              )}
+              {done.platform === 'android' && !done.links.download_url && (
+                <p className={`mt-2 ${stepsClass}`}>{t('form.done_android_invite')}</p>
+              )}
+              {done.platform === 'ios' && done.links.testflight_url && (
+                <>
+                  <p className={`mt-2 ${stepsClass}`}>{t('form.done_ios_link')}</p>
+                  <p className={`mt-3 ${stepsClass}`}>{t('ios.steps_link')}</p>
+                  <a href={done.links.testflight_url} className={`${buttonClass} mt-4`} target="_blank" rel="noopener noreferrer">
+                    {t('ios.cta')}
+                  </a>
+                </>
+              )}
+              {done.platform === 'ios' && !done.links.testflight_url && (
+                <p className={`mt-2 ${stepsClass}`}>{t('form.done_ios_invite')}</p>
+              )}
+              <button type="button" onClick={restart} className="mt-5 text-[13px] font-medium text-warm-500 underline-offset-4 hover:underline">
+                {t('form.change')}
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className={`${cardClass} mt-5 flex flex-col gap-5`}>

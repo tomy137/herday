@@ -12,17 +12,19 @@
   },
   "test_title": "Teste la bêta",
   "test_body": "Elle marche sur iPhone et sur Android. Choisis ton téléphone :",
+  "signup_cta": "S’inscrire",
   "ios": {
     "title": "iPhone",
     "steps_link": "1. Installe l’app TestFlight depuis l’App Store.\n2. Ouvre le lien d’invitation ci-dessous, puis installe HerDays.",
     "cta": "Rejoindre la bêta iPhone",
-    "steps_invite": "La bêta passe par TestFlight, l’app de test d’Apple. Inscris-toi ci-dessous avec l’e-mail de ton identifiant Apple : je t’envoie l’invitation."
+    "steps_invite": "La bêta passe par TestFlight, l’app de test d’Apple. Inscris-toi ci-dessous avec l’e-mail de ton identifiant Apple : je t’envoie l’invitation.",
+    "steps_gate": "La bêta passe par TestFlight, l’app de test d’Apple. Inscris-toi ci-dessous : le lien d’invitation s’affiche juste après."
   },
   "android": {
     "title": "Android",
     "cta": "Télécharger l’app (APK)",
     "steps": "1. Ouvre le fichier téléchargé.\n2. Si Android bloque, autorise l’installation pour cette source.\n3. Si Play Protect avertit : « Installer quand même ».\nSur Samsung, désactive « Blocage automatique » le temps de l’installation.",
-    "steps_invite": "Inscris-toi ci-dessous : je t’envoie le lien de téléchargement."
+    "steps_gate": "Inscris-toi ci-dessous : le lien de téléchargement s’affiche juste après."
   },
   "form": {
     "title": "Inscris-toi",
@@ -41,10 +43,11 @@
     "error": "L’inscription n’est pas passée. Vérifie ton e-mail et réessaie.",
     "privacy": "Ces infos servent uniquement à organiser la bêta. Elles ne sont ni partagées ni revendues.",
     "done_title": "Merci {{name}}, c’est noté !",
-    "done_ios_link": "Tu peux rejoindre la bêta avec le lien TestFlight plus haut. Je te préviendrai des nouvelles versions.",
+    "done_ios_link": "Voici ton lien d’invitation TestFlight. Je te préviendrai des nouvelles versions.",
     "done_ios_invite": "Je t’envoie l’invitation TestFlight très vite, sur cet e-mail.",
-    "done_android_link": "Tu peux télécharger l’app plus haut. Je te préviendrai des nouvelles versions.",
-    "done_android_invite": "Je t’envoie le lien de téléchargement très vite."
+    "done_android_link": "Voici ton lien de téléchargement, rien que pour toi. Je te préviendrai des nouvelles versions.",
+    "done_android_invite": "Je t’envoie le lien de téléchargement très vite.",
+    "change": "Pas ton téléphone ? Refaire l’inscription"
   },
   "footer_login": "Déjà testeur ? Ouvrir HerDays dans le navigateur"
 }

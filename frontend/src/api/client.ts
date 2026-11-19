@@ -166,13 +166,21 @@ export const api = {
   beta: {
     config: () => request<BetaConfig>('/beta/config'),
     signup: (data: BetaSignup) =>
-      request('/beta/signup', { method: 'POST', body: JSON.stringify(data) }),
+      request<BetaSignupResult>('/beta/signup', { method: 'POST', body: JSON.stringify(data) }),
   },
 };
 
+/** What /welcome can promise before the sign-up; the links themselves come with it. */
 export interface BetaConfig {
-  testflight_url: string | null;
+  testflight_available: boolean;
   android_apk_available: boolean;
+}
+
+export interface BetaSignupResult {
+  detail: string;
+  /** Personal APK link (carries the tester's token). */
+  download_url: string | null;
+  testflight_url: string | null;
 }
 
 export type BetaPlatform = 'ios' | 'android';

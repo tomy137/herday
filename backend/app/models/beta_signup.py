@@ -22,4 +22,6 @@ class BetaSignup(SQLModel, table=True):
     platform: str = Field(max_length=10)  # ios | android
     source: str | None = Field(default=None, max_length=200)
     message: str | None = Field(default=None, max_length=1000)
+    # Personal link to the APK: the download is only offered after signing up.
+    download_token: str | None = Field(default=None, index=True)
     created_at: datetime = Field(default_factory=_utcnow)

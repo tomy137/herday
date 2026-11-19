@@ -30,6 +30,9 @@ _ADDED_COLUMNS: dict[str, list[tuple[str, str]]] = {
         ("expertise_level", "VARCHAR"),
         ("contraception", "VARCHAR"),
     ],
+    "beta_signup": [
+        ("download_token", "VARCHAR"),
+    ],
 }
 
 
@@ -53,6 +56,12 @@ def _ensure_added_columns(sync_conn) -> None:
         sync_conn.exec_driver_sql(
             'CREATE INDEX IF NOT EXISTS ix_user_calendar_feed_token '
             'ON "user" (calendar_feed_token)'
+        )
+    # Same for the beta APK download token (looked up on /download).
+    if "beta_signup" in tables:
+        sync_conn.exec_driver_sql(
+            'CREATE INDEX IF NOT EXISTS ix_beta_signup_download_token '
+            'ON "beta_signup" (download_token)'
         )
 
 

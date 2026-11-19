@@ -12,17 +12,19 @@
   },
   "test_title": "Try the beta",
   "test_body": "It runs on iPhone and Android. Pick your phone:",
+  "signup_cta": "Sign up",
   "ios": {
     "title": "iPhone",
     "steps_link": "1. Install the TestFlight app from the App Store.\n2. Open the invitation link below, then install HerDays.",
     "cta": "Join the iPhone beta",
-    "steps_invite": "The beta goes through TestFlight, Apple’s testing app. Sign up below with your Apple ID email: I’ll send you the invitation."
+    "steps_invite": "The beta goes through TestFlight, Apple’s testing app. Sign up below with your Apple ID email: I’ll send you the invitation.",
+    "steps_gate": "The beta goes through TestFlight, Apple’s testing app. Sign up below: the invitation link shows up right after."
   },
   "android": {
     "title": "Android",
     "cta": "Download the app (APK)",
     "steps": "1. Open the downloaded file.\n2. If Android blocks it, allow installs from this source.\n3. If Play Protect warns you: “Install anyway”.\nOn Samsung, turn off “Auto Blocker” while installing.",
-    "steps_invite": "Sign up below: I’ll send you the download link."
+    "steps_gate": "Sign up below: the download link shows up right after."
   },
   "form": {
     "title": "Sign up",
@@ -41,10 +43,11 @@
     "error": "Sign-up didn’t go through. Check your email and try again.",
     "privacy": "This information is only used to run the beta. It is never shared or sold.",
     "done_title": "Thanks {{name}}, you’re in!",
-    "done_ios_link": "You can join the beta with the TestFlight link above. I’ll let you know about new versions.",
+    "done_ios_link": "Here’s your TestFlight invitation link. I’ll let you know about new versions.",
     "done_ios_invite": "I’ll send you the TestFlight invitation very soon, to this email.",
-    "done_android_link": "You can download the app above. I’ll let you know about new versions.",
-    "done_android_invite": "I’ll send you the download link very soon."
+    "done_android_link": "Here’s your download link, just for you. I’ll let you know about new versions.",
+    "done_android_invite": "I’ll send you the download link very soon.",
+    "change": "Wrong phone? Sign up again"
   },
   "footer_login": "Already testing? Open HerDays in your browser"
 }
