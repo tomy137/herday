@@ -1,0 +1,50 @@
+{
+  "eyebrow": "Private Beta",
+  "tagline": "Ihre Zyklen, deine mentale Last.",
+  "intro": "Eine App für Männer, die den Zyklus ihrer Partnerin verstehen und im richtigen Moment da sein wollen. Sie muss nichts eintragen: Du beobachtest, die App merkt es sich.",
+  "features": {
+    "dial_title": "Der Zyklus wie ein Tag",
+    "dial_body": "Nacht, Morgen, Tag, Abend: wo sie heute steht, was das für sie bedeutet und wie du für sie da bist.",
+    "notebook_title": "Dein Notizbuch",
+    "notebook_body": "Notiere, wenn dir etwas auffällt. Im nächsten Zyklus erinnert dich die App, was geholfen hat.",
+    "agenda_title": "In deinem Kalender",
+    "agenda_body": "Die wichtigen Phasen in deinem Kalender und ein Widget auf deinem Startbildschirm."
+  },
+  "test_title": "Teste die Beta",
+  "test_body": "Sie läuft auf iPhone und Android. Wähle dein Handy:",
+  "ios": {
+    "title": "iPhone",
+    "steps_link": "1. Installiere die App TestFlight aus dem App Store.\n2. Öffne den Einladungslink unten und installiere HerDays.",
+    "cta": "Der iPhone-Beta beitreten",
+    "steps_invite": "Die Beta läuft über TestFlight, die Test-App von Apple. Melde dich unten mit der E-Mail deiner Apple-ID an: Ich schicke dir die Einladung."
+  },
+  "android": {
+    "title": "Android",
+    "cta": "App herunterladen (APK)",
+    "steps": "1. Öffne die heruntergeladene Datei.\n2. Wenn Android blockiert, erlaube Installationen aus dieser Quelle.\n3. Wenn Play Protect warnt: „Trotzdem installieren“.\nAuf Samsung: „Automatische Sperre“ für die Installation ausschalten.",
+    "steps_invite": "Melde dich unten an: Ich schicke dir den Download-Link."
+  },
+  "form": {
+    "title": "Melde dich an",
+    "body": "Damit ich weiß, wer testet, und dir neue Versionen ankündigen kann.",
+    "first_name": "Vorname",
+    "email": "E-Mail",
+    "email_hint": "Auf dem iPhone die deiner Apple-ID.",
+    "platform": "Dein Handy",
+    "source": "Wie hast du von HerDays erfahren?",
+    "source_placeholder": "Ein Freund, Thomas, ein Post…",
+    "message": "Noch etwas?",
+    "message_placeholder": "Was du dir von der App erwartest, eine Frage…",
+    "optional": "optional",
+    "submit": "Anmelden",
+    "sending": "Wird gesendet…",
+    "error": "Die Anmeldung hat nicht geklappt. Prüfe deine E-Mail und versuche es erneut.",
+    "privacy": "Diese Angaben dienen nur der Organisation der Beta. Sie werden weder weitergegeben noch verkauft.",
+    "done_title": "Danke {{name}}, du bist dabei!",
+    "done_ios_link": "Du kannst der Beta über den TestFlight-Link oben beitreten. Ich sage dir Bescheid, wenn es neue Versionen gibt.",
+    "done_ios_invite": "Ich schicke dir die TestFlight-Einladung ganz bald an diese E-Mail.",
+    "done_android_link": "Du kannst die App oben herunterladen. Ich sage dir Bescheid, wenn es neue Versionen gibt.",
+    "done_android_invite": "Ich schicke dir den Download-Link ganz bald."
+  },
+  "footer_login": "Schon Tester? HerDays im Browser öffnen"
+}

@@ -14,6 +14,7 @@ import Onboarding from './pages/Onboarding';
 import Info from './pages/Info';
 import Login from './pages/Login';
 import Verify from './pages/Verify';
+import Welcome from './pages/Welcome';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -75,6 +76,7 @@ function AppRoutes() {
       <Routes>
         <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
         <Route path="/verify" element={<Verify />} />
+        <Route path="/welcome" element={<Welcome />} />
         <Route path="/onboarding" element={<ProtectedRoute><Onboarding /></ProtectedRoute>} />
         <Route path="/journal" element={<ProtectedRoute><Journal /></ProtectedRoute>} />
         <Route element={<ProtectedRoute><OnboardingGate><AppShell /></OnboardingGate></ProtectedRoute>}>

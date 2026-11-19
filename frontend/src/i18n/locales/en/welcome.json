@@ -1,0 +1,50 @@
+{
+  "eyebrow": "Private beta",
+  "tagline": "Her cycles, your mental load.",
+  "intro": "An app for guys who want to understand their partner’s cycle and be there at the right moment. She has nothing to log: you observe, the app remembers.",
+  "features": {
+    "dial_title": "The cycle, like a day",
+    "dial_body": "Night, Dawn, Day, Dusk: where she is today, what it changes for her, and how to be there.",
+    "notebook_title": "Your notebook",
+    "notebook_body": "Jot things down when you notice something. Next cycle, the app reminds you what helped.",
+    "agenda_title": "In your calendar",
+    "agenda_body": "The key periods in your calendar, and a widget on your home screen."
+  },
+  "test_title": "Try the beta",
+  "test_body": "It runs on iPhone and Android. Pick your phone:",
+  "ios": {
+    "title": "iPhone",
+    "steps_link": "1. Install the TestFlight app from the App Store.\n2. Open the invitation link below, then install HerDays.",
+    "cta": "Join the iPhone beta",
+    "steps_invite": "The beta goes through TestFlight, Apple’s testing app. Sign up below with your Apple ID email: I’ll send you the invitation."
+  },
+  "android": {
+    "title": "Android",
+    "cta": "Download the app (APK)",
+    "steps": "1. Open the downloaded file.\n2. If Android blocks it, allow installs from this source.\n3. If Play Protect warns you: “Install anyway”.\nOn Samsung, turn off “Auto Blocker” while installing.",
+    "steps_invite": "Sign up below: I’ll send you the download link."
+  },
+  "form": {
+    "title": "Sign up",
+    "body": "So I know who’s testing, and to let you know about new versions.",
+    "first_name": "First name",
+    "email": "Email",
+    "email_hint": "On iPhone, the one of your Apple ID.",
+    "platform": "Your phone",
+    "source": "How did you hear about HerDays?",
+    "source_placeholder": "A friend, Thomas, a post…",
+    "message": "Anything to add?",
+    "message_placeholder": "What you expect from the app, a question…",
+    "optional": "optional",
+    "submit": "Sign me up",
+    "sending": "Sending…",
+    "error": "Sign-up didn’t go through. Check your email and try again.",
+    "privacy": "This information is only used to run the beta. It is never shared or sold.",
+    "done_title": "Thanks {{name}}, you’re in!",
+    "done_ios_link": "You can join the beta with the TestFlight link above. I’ll let you know about new versions.",
+    "done_ios_invite": "I’ll send you the TestFlight invitation very soon, to this email.",
+    "done_android_link": "You can download the app above. I’ll let you know about new versions.",
+    "done_android_invite": "I’ll send you the download link very soon."
+  },
+  "footer_login": "Already testing? Open HerDays in your browser"
+}

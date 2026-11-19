@@ -163,7 +163,29 @@ export const api = {
       }),
     disable: () => request<CalendarSubscription>('/calendar/subscription', { method: 'DELETE' }),
   },
+  beta: {
+    config: () => request<BetaConfig>('/beta/config'),
+    signup: (data: BetaSignup) =>
+      request('/beta/signup', { method: 'POST', body: JSON.stringify(data) }),
+  },
 };
+
+export interface BetaConfig {
+  testflight_url: string | null;
+  android_apk_available: boolean;
+}
+
+export type BetaPlatform = 'ios' | 'android';
+
+export interface BetaSignup {
+  first_name: string;
+  email: string;
+  platform: BetaPlatform;
+  source?: string;
+  message?: string;
+  /** Honeypot, always empty for humans. */
+  website?: string;
+}
 
 // Types
 export interface TokenResponse {

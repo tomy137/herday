@@ -15,6 +15,7 @@ import frPhases from './locales/fr/phases.json';
 import frJournal from './locales/fr/journal.json';
 import frEchoes from './locales/fr/echoes.json';
 import frOnboarding from './locales/fr/onboarding.json';
+import frWelcome from './locales/fr/welcome.json';
 
 // EN
 import enCommon from './locales/en/common.json';
@@ -29,6 +30,7 @@ import enPhases from './locales/en/phases.json';
 import enJournal from './locales/en/journal.json';
 import enEchoes from './locales/en/echoes.json';
 import enOnboarding from './locales/en/onboarding.json';
+import enWelcome from './locales/en/welcome.json';
 
 // DE
 import deCommon from './locales/de/common.json';
@@ -43,6 +45,7 @@ import dePhases from './locales/de/phases.json';
 import deJournal from './locales/de/journal.json';
 import deEchoes from './locales/de/echoes.json';
 import deOnboarding from './locales/de/onboarding.json';
+import deWelcome from './locales/de/welcome.json';
 
 i18n
   .use(LanguageDetector)
@@ -62,6 +65,7 @@ i18n
         journal: frJournal,
         echoes: frEchoes,
         onboarding: frOnboarding,
+        welcome: frWelcome,
       },
       en: {
         common: enCommon,
@@ -76,6 +80,7 @@ i18n
         journal: enJournal,
         echoes: enEchoes,
         onboarding: enOnboarding,
+        welcome: enWelcome,
       },
       de: {
         common: deCommon,
@@ -90,10 +95,11 @@ i18n
         journal: deJournal,
         echoes: deEchoes,
         onboarding: deOnboarding,
+        welcome: deWelcome,
       },
     },
     fallbackLng: 'fr',
-    ns: ['common', 'dashboard', 'calendar', 'events', 'tips', 'auth', 'settings', 'info', 'phases', 'journal', 'echoes', 'onboarding'],
+    ns: ['common', 'dashboard', 'calendar', 'events', 'tips', 'auth', 'settings', 'info', 'phases', 'journal', 'echoes', 'onboarding', 'welcome'],
     defaultNS: 'common',
     detection: {
       order: ['querystring', 'localStorage', 'navigator'],

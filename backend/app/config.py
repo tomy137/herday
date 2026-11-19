@@ -36,6 +36,12 @@ class Settings(BaseSettings):
     # runs behind a reverse proxy that doesn't forward the public host.
     PUBLIC_BASE_URL: str = ""
 
+    # Beta (/welcome page): who gets an email on each sign-up (empty = none), the TestFlight
+    # public link (empty = testers get invited by email), and the APK served for Android.
+    BETA_NOTIFY_EMAIL: str = ""
+    TESTFLIGHT_URL: str = ""
+    ANDROID_APK_PATH: str = "./data/downloads/HerDays.apk"
+
     # Apple Universal Links — used to serve apple-app-site-association.
     # Format of APPLE_APP_IDS: ["TEAMID.bundle.id", ...]. Empty disables the endpoint.
     APPLE_APP_IDS: list[str] = []

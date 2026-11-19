@@ -3,10 +3,14 @@
 
 import logging
 from email.message import EmailMessage
+from typing import TYPE_CHECKING
 
 import aiosmtplib
 
 from app.config import settings
+
+if TYPE_CHECKING:
+    from app.models.beta_signup import BetaSignup
 
 logger = logging.getLogger(__name__)
 
@@ -63,9 +67,33 @@ async def send_magic_link_email(
         print("=" * 60 + "\n")
         return
 
+    await _send(email, subject, body)
+
+
+async def send_beta_signup_notification(signup: "BetaSignup") -> None:
+    """Tell the maintainer (BETA_NOTIFY_EMAIL) that someone signed up on /welcome."""
+    if not settings.BETA_NOTIFY_EMAIL:
+        return
+    platform = {"ios": "iPhone", "android": "Android"}.get(signup.platform, signup.platform)
+    body = (
+        f"Nouvelle inscription à la bêta HerDays :\n\n"
+        f"Prénom : {signup.first_name}\n"
+        f"E-mail : {signup.email}\n"
+        f"Téléphone : {platform}\n"
+        f"Connu par : {signup.source or '—'}\n\n"
+        f"Message :\n{signup.message or '—'}\n"
+    )
+    if not settings.SMTP_HOST:
+        logger.warning("SMTP not configured — beta sign-up notification printed to console")
+        print(body)
+        return
+    await _send(settings.BETA_NOTIFY_EMAIL, f"HerDays bêta : {signup.first_name} ({platform})", body)
+
+
+async def _send(to: str, subject: str, body: str) -> None:
     message = EmailMessage()
     message["From"] = settings.SMTP_FROM
-    message["To"] = email
+    message["To"] = to
     message["Subject"] = subject
     message.set_content(body)
 
